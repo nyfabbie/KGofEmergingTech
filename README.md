@@ -1,19 +1,21 @@
 # KGofEmergingTech
 This project aims to construct a knowledge graph that maps emerging technologies and their relationships to academic papers and startups. By integrating data from arXiv, Crunchbase, and Wikidata, and utilizing Python for data processing, the goal is to create a graph database in Neo4j. This graph will represent entities such as technologies, papers, and startups, and their interconnections, providing insights into technological trends and innovation networks. The project employs Docker for environment management and GitHub for collaboration, facilitating a reproducible and collaborative workflow.
 
-The folder structure
-├── run_pipeline.py         ← Runs the whole thing in order
-├── data/                   ← (for raw/cleaned files if needed)
+## The folder structure
+```
+├── run_pipeline.py ← Runs the whole thing in order
+├── data/ ← (for raw/cleaned files if needed)
 │
-├── src/                    ← Core pipeline logic lives here
-│   ├── get_arxiv.py        ← Pull papers related to a tech
-│   ├── get_crunchbase.py   ← Pull startups working on that tech
-│   ├── get_wikidata.py     ← Enrich tech concepts (e.g., synonyms, hierarchy)
-│   ├── clean_data.py       ← Standardize names, remove duplicates, normalize
-│   └── load_to_neo4j.py    ← Transform into nodes/edges and push to Neo4j
+├── src/ ← Core pipeline logic lives here
+│ ├── get_arxiv.py ← Pull papers related to a tech
+│ ├── get_crunchbase.py ← Pull startups working on that tech
+│ ├── get_wikidata.py ← Enrich tech concepts (e.g., synonyms, hierarchy)
+│ ├── clean_data.py ← Standardize names, remove duplicates, normalize
+│ └── load_to_neo4j.py ← Transform into nodes/edges and push to Neo4j
+```
 
 
-# The ETL pipeline
+## The ETL pipeline
 1. get_arxiv.py
 
     Input: a target keyword like "quantum computing"
