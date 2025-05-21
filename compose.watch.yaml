@@ -1,0 +1,6 @@
+watch:
+  app:
+    paths:
+      - ./src
+    extensions:
+      - .py
