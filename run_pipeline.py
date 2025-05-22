@@ -1,16 +1,31 @@
 # Top level orchestration script for running the pipeline
+import pandas as pd
 
 # from get_arxiv import fetch_arxiv
 # from get_crunchbase import fetch_crunchbase
-from get_wikidata import fetch_wikidata
-from clean_data import clean_and_merge
-from load_to_neo4j import load_graph
+from src.get_wikidata import fetch_wikidata
+# from clean_data import clean_and_merge
+# from load_to_neo4j import load_graph
 
-emerging_technologies = ["quantum computing"]
+# gets a list from csv
+emerging_technologies = pd.read_csv("data/emerging_techs.csv", header=None)[0].tolist()
 
 # papers = fetch_arxiv(emerging_technologies)
 # startups = fetch_crunchbase(emerging_technologies)
 techs = fetch_wikidata(emerging_technologies)
 
-nodes, relationships = clean_and_merge(papers, startups, techs)
-load_graph(nodes, relationships)
+
+# Prototype: Intermediate step to save the fetched data
+# Wikidata
+df = pd.DataFrame(techs).drop_duplicates(subset="input_name").sort_values("input_name").reset_index(drop=True)
+df.to_csv("data/wikidata_techs_res.csv", index=False)
+print("Saved to data/wikidata_techs_res.csv with", len(df), "entries.")
+
+# Arxiv
+
+# Crunchbase
+
+
+# Uncomment the following lines to run the full pipeline
+# nodes, relationships = clean_and_merge(papers, startups, techs)
+# load_graph(nodes, relationships)

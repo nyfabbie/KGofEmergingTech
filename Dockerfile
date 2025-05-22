@@ -49,5 +49,5 @@ EXPOSE 8000
 
 # Run the application.
 # CMD python run_pipeline.py
-CMD ["python", "src/get_wikidata.py"]
+CMD ["python", "run_pipeline.py"]
 

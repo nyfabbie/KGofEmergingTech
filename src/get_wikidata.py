@@ -1,30 +1,64 @@
-# Version: 0.1
-# This script fetches all links related to the article of list of emerging technologies from Wikipedia and saves it to a CSV file.
-
 import requests
-from bs4 import BeautifulSoup
 import pandas as pd
+import time
 
-#url = "https://en.wikipedia.org/wiki/Emerging_technologies"
-url = "https://en.wikipedia.org/wiki/List_of_emerging_technologies"
+def fetch_wikidata(tech_names, delay=0.5, top_n=1):
+    """
+    Fetches QID, label, and description for each technology name from Wikidata.
+    Not meant for data mining — just entity discovery. From the QIDs, you can get the full data.
 
-response = requests.get(url)
-soup = BeautifulSoup(response.content, "html.parser")
+    Parameters:
+        tech_names (list of str): List of emerging technology names.
+        delay (float): Delay between API requests to avoid rate-limiting.
+        top_n (int): Number of top search results to return per term (default 1).
 
-content = soup.find("div", {"class": "mw-parser-output"})
-all_links = content.find_all("a")
+    Returns:
+        pd.DataFrame: DataFrame with columns ['input_name', 'qid', 'label', 'description', 'match_type']
+    """
+    url = "https://www.wikidata.org/w/api.php"
+    headers = {"User-Agent": "EmergingTechGraph/1.0 (fpovina@outlook.com)"} # helps avoid getting blocked — can personalize it
+    results = []
 
-tech_entries = []
-for link in all_links:
-    title = link.get("title")
-    href = link.get("href")
-    if title and href and href.startswith("/wiki/") and ":" not in href:
-        tech_entries.append({
-            "name": title,
-            "wikipedia_url": f"https://en.wikipedia.org{href}"
-        })
+    for name in tech_names:
+        params = {
+            "action": "wbsearchentities",
+            "language": "en",
+            "format": "json",
+            "search": name
+        }
 
-df = pd.DataFrame(tech_entries).drop_duplicates(subset="name").sort_values("name").reset_index(drop=True)
-df.to_csv("data/emerging_tech_links.csv", index=False)
-print("Saved to data/emerging_tech_links.csv with", len(df), "entries.")
+        try:
+            response = requests.get(url, params=params, headers=headers)
+            data = response.json()
 
+            if "search" in data:
+                for entry in data["search"][:top_n]:
+                    results.append({
+                        "input_name": name,
+                        "qid": entry.get("id"),
+                        "label": entry.get("label"),
+                        "description": entry.get("description"),
+                        "match_type": entry.get("match", {}).get("type", "")
+                    })
+            else:
+                results.append({
+                    "input_name": name,
+                    "qid": None,
+                    "label": None,
+                    "description": None,
+                    "match_type": "no match"
+                })
+
+            time.sleep(delay)
+
+        except Exception as e:
+            print(f"Error while processing '{name}':", str(e))
+            results.append({
+                "input_name": name,
+                "qid": None,
+                "label": None,
+                "description": None,
+                "match_type": "error"
+            })
+
+    return pd.DataFrame(results)
