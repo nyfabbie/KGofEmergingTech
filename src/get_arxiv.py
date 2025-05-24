@@ -1,8 +1,10 @@
 import urllib, urllib.request
+import xml.etree.ElementTree as ET
+import pandas as pd
 
 
-#this function converts search query into arxivAPI url
-def query_arxiv(query: str, max_results=200):
+# this function converts search query into arxivAPI url
+def query_arxiv(query: str, max_results=20):
     words = query.split(" ")
     query = ""
     for word in words:
@@ -11,8 +13,31 @@ def query_arxiv(query: str, max_results=200):
         else:
             query += "&all:"
     url = 'http://export.arxiv.org/api/query?search_query=' + query + '&start=0&max_results=' + str(max_results)
-    data = urllib.request.urlopen(url)
-    print(data.read().decode('utf-8'))
+    data = urllib.request.urlopen(url).read().decode('utf-8')
+    return data
+
+
+def parse_et(data):
+    root = ET.fromstring(data)
+    ns = {
+        'atom': 'http://www.w3.org/2005/Atom',
+        'arxiv': 'http://arxiv.org/schemas/atom',
+    }
+    entries = []
+    for entry in root.findall('atom:entry', ns):
+        authors = [author.find('atom:name', ns).text
+                   for author in entry.findall('atom:author', ns)]
+        entry_data = {
+            'id': entry.find('atom:id', ns).text,
+            'published': entry.find('atom:published', ns).text,
+            'updated': entry.find('atom:updated', ns).text,
+            'title': entry.find('atom:title', ns).text,
+            'summary': entry.find('atom:summary', ns).text,
+            'authors': authors
+        }
+        entries.append(entry_data)
+    df = pd.DataFrame(entries)
+    print(df.to_string())
 
 
 '''url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'''''
