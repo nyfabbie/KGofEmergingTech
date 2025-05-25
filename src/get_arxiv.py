@@ -17,7 +17,8 @@ def query_arxiv(query: str, max_results=20):
     return data
 
 
-def parse_et(data):
+def parse_et(data, query):
+    open("/Users/abbie/PycharmProjects/KGofEmergingTech/data/arxiv.csv")
     root = ET.fromstring(data)
     ns = {
         'atom': 'http://www.w3.org/2005/Atom',
@@ -29,6 +30,7 @@ def parse_et(data):
                    for author in entry.findall('atom:author', ns)]
         entry_data = {
             'id': entry.find('atom:id', ns).text,
+            'technology': query,
             'published': entry.find('atom:published', ns).text,
             'updated': entry.find('atom:updated', ns).text,
             'title': entry.find('atom:title', ns).text,
@@ -36,9 +38,10 @@ def parse_et(data):
             'authors': authors
         }
         entries.append(entry_data)
-    df = pd.DataFrame(entries).drop_duplicates(subset='atom:id').sort_values('atom:id').reset_index(drop=True)
-    df.to_csv("/data/arxiv.csv", index=False)
-    print(df.to_string())
-
+    df = pd.DataFrame(entries).reset_index(drop=True)
+    print(df.to_string(index=False))
+    if not df.empty:
+        df.to_csv("/Users/abbie/PycharmProjects/KGofEmergingTech/data/arxiv.csv", index=False, mode='a')
+        print("df saved to arxiv.csv")
 
 '''url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'''''
