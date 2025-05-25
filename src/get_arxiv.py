@@ -1,24 +1,43 @@
 import urllib, urllib.request
+import os
 import xml.etree.ElementTree as ET
 import pandas as pd
 
 
+
 # this function converts search query into arxivAPI url
-def query_arxiv(query: str, max_results=20):
-    words = query.split(" ")
-    query = ""
-    for word in words:
-        if word == words[0]:
-            query += "all:" + word
-        else:
-            query += "&all:"
-    url = 'http://export.arxiv.org/api/query?search_query=' + query + '&start=0&max_results=' + str(max_results)
-    data = urllib.request.urlopen(url).read().decode('utf-8')
-    return data
+def fetch_arxiv(queries, max_results=20):
+    all_results = []
+
+    for query in queries:
+        # Build search query: "quantum computing" → "all:quantum+computing"
+        words = query.strip().split()
+        formatted_query = "all:" + "+".join(words)
+
+        # Construct the full API URL
+        url = f"http://export.arxiv.org/api/query?search_query={formatted_query}&start=0&max_results={max_results}"
+
+        # Fetch the data
+        try:
+            data = urllib.request.urlopen(url).read().decode('utf-8')
+            all_results.append({
+                "query": query,
+                "response": data
+            })
+        except Exception as e:
+            print(f"Error fetching for '{query}': {e}")
+            all_results.append({
+                "query": query,
+                "response": None,
+                "error": str(e)
+            })
+
+    return all_results
 
 
-def parse_et(data, query):
-    open("/data/arxiv.csv")
+def parse_et(data, query, output_path="data/arxiv_papers_res.csv"):
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
     root = ET.fromstring(data)
     ns = {
         'atom': 'http://www.w3.org/2005/Atom',
@@ -38,9 +57,9 @@ def parse_et(data, query):
             'authors': authors
         }
         entries.append(entry_data)
-    df = pd.DataFrame(entries).drop_duplicates(subset='id').reset_index(drop=True)
-    if not df.empty:
-        df.to_csv("/data/arxiv.csv", index=False, mode='a')
-        print("df saved to arxiv.csv")
 
-'''url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'''''
+    df = pd.DataFrame(entries).drop_duplicates(subset='id').reset_index(drop=True)
+
+    if not df.empty:
+        df.to_csv(output_path, index=False, mode='a', header=not os.path.exists(output_path))
+        print(f"Saved {len(df)} entries to {output_path}")
