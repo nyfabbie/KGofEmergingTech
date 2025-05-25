@@ -1,310 +1,4 @@
 id,technology,published,updated,title,summary,authors
-http://arxiv.org/abs/2202.08118v1,Smart contracts,2022-02-16T14:53:18Z,2022-02-16T14:53:18Z,"Smart Cities, Smart Libraries and Smart Knowledge Managers: Ushering in
-  the neo-Knowledge Society","  The emergence of smart cities as a specific concept is not very old. In
-simple terms, it refers to cities which are sustainable and driven
-predominantly by their Information and Communication Technology (ICT)
-infrastructure. Smart libraries and smart knowledge managers, alongside its
-other smart component-entities, are vital for their emergence, sustenance and
-progress. The paper attempts at deducing a symbiosis amongst smart cities,
-smart libraries and smart knowledge managers. It further elaborates on how
-these will usher in the neo-knowledge society, and the opportunities it'll
-offer vis-\`a-vis Library and Information Science (LIS). Finally, it concludes
-on an optimistic note, mentioning possible future research activities in this
-regard.
-",['Mayukh Bagchi']
-http://arxiv.org/abs/2309.12344v1,Smart contracts,2023-08-25T19:23:33Z,2023-08-25T19:23:33Z,"Exploring IoT in Smart Cities: Practices, Challenges and Way Forward","  The rise of Internet of things (IoT) technology has revolutionized urban
-living, offering immense potential for smart cities in which smart home, smart
-infrastructure, and smart industry are essential aspects that contribute to the
-development of intelligent urban ecosystems. The integration of smart home
-technology raises concerns regarding data privacy and security, while smart
-infrastructure implementation demands robust networking and interoperability
-solutions. Simultaneously, deploying IoT in industrial settings faces
-challenges related to scalability, standardization, and data management. This
-research paper offers a systematic literature review of published research in
-the field of IoT in smart cities including 55 relevant primary studies that
-have been published in reputable journals and conferences. This extensive
-literature review explores and evaluates various aspects of smart home, smart
-infrastructure, and smart industry and the challenges like security and
-privacy, smart sensors, interoperability and standardization. We provide a
-unified perspective, as we seek to enhance the efficiency and effectiveness of
-smart cities while overcoming security concerns. It then explores their
-potential for collective integration and impact on the development of smart
-cities. Furthermore, this study addresses the challenges associated with each
-component individually and explores their combined impact on enhancing urban
-efficiency and sustainability. Through a comprehensive analysis of security
-concerns, this research successfully integrates these IoT components in a
-unified approach, presenting a holistic framework for building smart cities of
-the future. Integrating smart home, smart infrastructure, and smart industry,
-this research highlights the significance of an integrated approach in
-developing smart cities.
-","['Kashif Ishaq', 'Syed Shah Farooq']"
-http://arxiv.org/abs/1807.08165v1,Smart contracts,2018-07-21T14:57:49Z,2018-07-21T14:57:49Z,"On Computational Infraestruture Requirements to Smart and Autonomic
-  Cities Framework","  Smart cities are an actual trend being pursued by research that,
-fundamentally, tries to improve city's management on behalf of a better human
-quality of live. This paper proposes a new autonomic complementary approach for
-smart cities management. It is argued that smart city management systems with
-autonomic characteristics will improve and facilitate management
-functionalities in general. A framework is also presented as use case
-considering specific application scenarios like smart-health, smart-grid,
-smart-environment and smart-streets.
-","['Romildo Bezerra', 'Flavia Nascimento', 'Joberto Martins']"
-http://arxiv.org/abs/1804.01242v1,Smart contracts,2018-04-04T05:27:09Z,2018-04-04T05:27:09Z,A Smart Home Gateway Platform for Data Collection and Awareness,"  Smart homes have attracted much attention due to the expanding of
-Internet-of-Things (IoT) and smart devices. In this paper, we propose a smart
-gateway platform for data collection and awareness in smart home networks. A
-smart gateway will replace the traditional network gateway to connect the home
-network and the Internet. A smart home network supports different types of
-smart devices, such as in home IoT devices, smart phones, smart electric
-appliances, etc. A traditional network gateway is not capable of providing
-quality-of-service measurement, user behavioral analytics, or network
-optimization. Such tasks are traditionally performed with measurement agents
-such as optical splitters or network probes deployed in the core network. Our
-proposed platform is a lightweight plug-in for the smart gateway to accomplish
-data collection, awareness and reporting. While the smart gateway is able to
-adjust the control policy for data collection and awareness locally, a
-cloud-based controller is also included for more refined control policy
-updates. Furthermore, we propose a multi-dimensional awareness framework to
-achieve accurate data awareness at the smart gateway. The efficiency of data
-collection and accuracy of data awareness of the proposed platform is
-demonstrated based on the tests using actual data traffic from a large number
-of smart home users.
-","['Pan Wang', 'Feng Ye', 'Xuejiao Chen']"
-http://arxiv.org/abs/2209.10300v1,Smart contracts,2022-09-21T12:14:46Z,2022-09-21T12:14:46Z,5G-Enabled Smart Manufacturing -- A booklet by 5G-SMART,"  In this booklet the most important learnings and key results of 5G-SMART in
-the area of smart manufacturing are summarized.
-","['Leefke Grosjean', 'Krister Landernäs', 'Berna Sayrac', 'Ognjen Dobrijevic', 'Niels König', 'Davit Harutyunyan', 'Dhruvin Patel', 'Jose F. Monserrat', 'Joachim Sachs']"
-http://arxiv.org/abs/2109.05581v1,Smart contracts,2021-09-12T18:33:24Z,2021-09-12T18:33:24Z,Data Analytics for Smart cities: Challenges and Promises,"  The explosion of advancements in artificial intelligence, sensor
-technologies, and wireless communication activates ubiquitous sensing through
-distributed sensors. These sensors are various domains of networks that lead us
-to smart systems in healthcare, transportation, environment, and other relevant
-branches/networks. Having collaborative interaction among the smart systems
-connects end-user devices to each other which enables achieving a new
-integrated entity called Smart Cities. The goal of this study is to provide a
-comprehensive survey of data analytics in smart cities. In this paper, we aim
-to focus on one of the smart cities important branches, namely Smart Mobility,
-and its positive ample impact on the smart cities decision-making process.
-Intelligent decision-making systems in smart mobility offer many advantages
-such as saving energy, relaying city traffic, and more importantly, reducing
-air pollution by offering real-time useful information and imperative
-knowledge. Making a decision in smart cities in time is challenging due to
-various and high dimensional factors and parameters, which are not frequently
-collected. In this paper, we first address current challenges in smart cities
-and provide an overview of potential solutions to these challenges. Then, we
-offer a framework of these solutions, called universal smart cities decision
-making, with three main sections of data capturing, data analysis, and decision
-making to optimize the smart mobility within smart cities. With this framework,
-we elaborate on fundamental concepts of big data, machine learning, and deep
-leaning algorithms that have been applied to smart cities and discuss the role
-of these algorithms in decision making for smart mobility in smart cities.
-","['Farid Ghareh Mohammadi', 'Farzan Shenavarmasouleh', 'M. Hadi Amini', 'Hamid R. Arabnia']"
-http://arxiv.org/abs/1711.09184v1,Smart contracts,2017-11-25T04:06:24Z,2017-11-25T04:06:24Z,A Formal Specification Framework for Smart Grid Components,"  Smart grid can be considered as the next step in the evolution of power
-systems. It comprises of different entities and objects ranging from smart
-appliances, smart meters, generators, smart storages, and more. One key problem
-in modeling smart grid is that while currently there is a considerable focus on
-the practical aspects of smart grid, there are very few modeling attempts and
-even lesser attempts at formalization. To the best of our knowledge, among
-other formal methods, formal specification has previously not been applied in
-the domain of smart grid. In this paper, we attempt to bridge this gap by
-presenting a novel approach to modeling smart grid components using a formal
-specification approach. We use a state-based formal specification language
-namely Z (pronounced as `Zed') since we believe Z is particularly suited for
-modeling smart grid components.We demonstrate the application of Z on key smart
-grid components. The presented formal specification can be considered as first
-steps towards modeling of smart grid using a Software Engineering formalism. It
-also demonstrates how complex systems, such as the smart grid, can be modeled
-elegantly using formal specification.
-","['Waseem Akram', 'Muaz A. Niazi']"
-http://arxiv.org/abs/1909.02914v1,Smart contracts,2019-09-06T13:55:14Z,2019-09-06T13:55:14Z,"Blockchain Technologies for Smart Energy Systems: Fundamentals,
-  Challenges and Solutions","  In this paper, we discuss the integration of blockchain in smart energy
-systems. We present various blockchain technology solutions, review important
-blockchain platforms, and several blockchain based smart energy projects in
-different smart energy domains. The majority of blockchain platforms with
-embedded combination of blockchain technology solutions are computing- and
-resource- intensive, and hence not entirely suitable for smart energy
-applications. We consider the requirements of smart energy systems and
-accordingly identify appropriate blockchain technology solutions for smart
-energy applications. Our analysis can help in the development of flexible
-blockchain platforms for smart energy systems.
-","['Naveed UL Hassan', 'Chau Yuen', 'Dusit Niyato']"
-http://arxiv.org/abs/2405.06930v1,Smart contracts,2024-05-11T06:26:07Z,2024-05-11T06:26:07Z,"Extended Reality for Smart Built Environments Design: Smart Lighting
-  Design Testbed","  Smart Built Environment is an eco-system of `connected' and `smart' Internet
-of Things (IoT) devices that are embedded in a built environment. Smart
-lighting is an important category of smart IoT devices that has recently
-attracted research interest, particularly for residential areas. In this paper,
-we present an extended reality based smart lighting design testbed that can
-generate design prototypes based on the functionality of the physical
-environment. The emphasis is on designing a smart lighting system in a
-controlled residential environment, with some evaluation of well-being and
-comfort.
-","['Elham Mohammadrezaei', 'Denis Gracanin']"
-http://arxiv.org/abs/1610.06855v1,Smart contracts,2016-10-21T16:50:11Z,2016-10-21T16:50:11Z,Big Data: Perspektiven fuer Smart Grids und Smart Buildings,"  This paper gives a short survey of recent trends in the emerging field of big
-data. It explains the definitions and useful methods. In addition, application
-fields of smart buildings and smart grids are discussed.
-",['Ralf Mikut']
-http://arxiv.org/abs/1912.04780v2,Smart contracts,2019-12-10T15:52:52Z,2019-12-24T09:04:27Z,Testing Smart Contracts Gets Smarter,"  Smart contracts are immutable, verifiable, and autonomous pieces of code that
-can be deployed and ran on blockchain networks like Ethereum. Due to the
-immutability nature of blockchain, no change is possible on a deployed smart
-contract or a verified transaction. On the other hand, there are millions of
-dollars carried by smart contracts in Ethereum blockchain, and hence, a faulty
-smart contract can lead to a huge monetary loss. Therefore, it is important for
-smart contract developers to fully test and check the correctness of their code
-before deploying it on the blockchain. In this paper, we propose a testing
-mechanism for smart contracts in Solidity language, based on mutation testing.
-We analyzed a comprehensive list of known bugs in Solidity smart contracts, and
-designed 10 classes of mutation operators inspired by the real faults. Our
-experimental results show that our proposed mutation operators can regenerate
-10 of 15 famous faulty smart contracts, which have resulted in millions of
-dollars loss. The results show the effectiveness of our proposed mutation
-operators in detecting real faults in Solidity smart contracts. We have also
-extended {\em Universal Mutator } tool with our mutation operators, so that it
-can automatically generate mutants for smart contracts written in Solidity.
-","['Erfan Andesta', 'Fathiyeh Faghih', 'Mahdi Fooladgar']"
-http://arxiv.org/abs/2206.02760v1,Smart contracts,2022-06-06T17:37:51Z,2022-06-06T17:37:51Z,Blockchain for the Cybersecurity of Smart City Applications,"  Cybersecurity is an inherent characteristic that should be addressed before
-the large deployment of smart city applications. Recently, Blockchain appears
-as a promising technology to provide several cybersecurity aspects of smart
-city applications. This paper provides a comprehensive review of the existing
-blockchain-based solutions for the cybersecurity of the main smart city
-applications, namely smart healthcare, smart transportation, smart agriculture,
-supply chain management, smart grid, and smart homes. We describe the existing
-solutions and we discuss their merits and limits. Moreover, we define the
-security requirements of each smart city application and we give a mapping of
-the studied solutions to these defined requirements. Additionally, future
-directions are given. We believe that the present survey is a good starting
-point for every researcher in the fields of cybersecurity, blockchain, and
-smart cities.
-","['Omar Cheikhrouhou', 'Ichrak Amdouni', 'Khaleel Mershad', 'Maryem Ammi', 'Tuan Nguyen Gia']"
-http://arxiv.org/abs/2207.04424v1,Smart contracts,2022-07-10T09:22:10Z,2022-07-10T09:22:10Z,"An Overview of Cyber Threats, Attacks, and Countermeasures on the
-  Primary Domains of Smart Cities","  A smart city is a place where existing facilities and services are enhanced
-by digital technology to benefit people and companies. The most critical
-infrastructures in this city are interconnected. Increased data exchange across
-municipal domains aims to manage the essential assets, leading to more
-automation in city governance and optimization of the dynamic offered services.
-However, no clear guideline or standard exists for modeling these data flows.
-As a result, operators, municipalities, policymakers, manufac-turers, solution
-providers, and vendors are forced to accept systems with limited scalability
-and varying needs. Nonetheless, it is critical to raise awareness about smart
-city cybersecurity and implement suitable measures to safeguard citizens'
-privacy and security because the cyber threats seem to be well-organized,
-diverse, and sophisticated. This study aims to present an overview of cyber
-threats, attacks, and countermeasures on the primary domains of smart cities
-(smart government, smart mobility, smart environment, smart living, smart
-healthcare, smart economy, and smart people) to present information extracted
-from state-of-the-art to policymakers to perceive the critical situation and,
-at the same time, to be a valuable resource for the scientific community.
-","['Vasiliki Demertzi', 'Stavros Demertzis', 'Konstantinos Demertzis']"
-http://arxiv.org/abs/2402.00568v1,Smart contracts,2024-02-01T13:01:47Z,2024-02-01T13:01:47Z,Secure Supervised Learning-Based Smart Home Authentication Framework,"  The Smart home possesses the capability of facilitating home services to
-their users with the systematic advance in The Internet of Things (IoT) and
-information and communication technologies (ICT) in recent decades. The home
-service offered by the smart devices helps the users in utilize maximized level
-of comfort for the objective of improving life quality. As the user and smart
-devices communicate through an insecure channel, the smart home environment is
-prone to security and privacy problems. A secure authentication protocol needs
-to be established between the smart devices and the user, such that a situation
-for device authentication can be made feasible in smart home environments. Most
-of the existing smart home authentication protocols were identified to fail in
-facilitating a secure mutual authentication and increases the possibility of
-lunching the attacks of session key disclosure, impersonation and stolen smart
-device. In this paper, Secure Supervised Learning-based Smart Home
-Authentication Framework (SSL-SHAF) is proposed as are liable mutual
-authentication that can be contextually imposed for better security. The formal
-analysis of the proposed SSL-SHAF confirmed better resistance against session
-key disclosure, impersonation and stolen smart device attacks. The results of
-SSL-SHAF confirmed minimized computational costs and security compared to the
-baseline protocols considered for investigation.
-","['K. Swapna Sudha', 'N. Jeyanthi', 'Celestine Iwendi']"
-http://arxiv.org/abs/1112.1158v1,Smart contracts,2011-12-06T04:55:32Z,2011-12-06T04:55:32Z,"Wireless Communications and Networking Technologies for Smart Grid:
-  Paradigms and Challenges","  Smart grid, regarded as the next generation power grid, uses two-way flows of
-electricity and information to create a widely distributed automated energy
-delivery network. In this work we present our vision on smart grid from the
-perspective of wireless communications and networking technologies. We present
-wireless communication and networking paradigms for four typical scenarios in
-the future smart grid and also point out the research challenges of the
-wireless communication and networking technologies used in smart grid
-","['Xi Fang', 'Dejun Yang', 'Guoliang Xue']"
-http://arxiv.org/abs/1807.03111v1,Smart contracts,2018-06-13T10:03:44Z,2018-06-13T10:03:44Z,"A Framework for Detecting and Translating User Behavior from Smart Meter
-  Data","  The European adoption of smart electricity meters triggers the developments
-of new value-added service for smart energy and optimal consumption. Recently,
-several algorithms and tools have been built to analyze smart meter's data.
-This paper introduces an open framework and prototypes for detecting and
-presenting user behavior from its smart meter power consumption data. The
-framework aims at presenting the detected user behavior in natural language
-reports. In order to validate the proposed framework, an experiment has been
-performed and the results have been presented.
-","['Egon Kidmose', 'Emad Ebeid', 'Rune Hylsberg Jacobsen']"
-http://arxiv.org/abs/2101.06519v1,Smart contracts,2021-01-16T20:46:43Z,2021-01-16T20:46:43Z,"Intrusion Detection Systems for Smart Home IoT Devices: Experimental
-  Comparison Study","  Smart homes are one of the most promising applications of the emerging
-Internet of Things (IoT) technology. With the growing number of IoT related
-devices such as smart thermostats, smart fridges, smart speaker, smart light
-bulbs and smart locks, smart homes promise to make our lives easier and more
-comfortable. However, the increased deployment of such smart devices brings an
-increase in potential security risks and home privacy breaches. In order to
-overcome such risks, Intrusion Detection Systems are presented as pertinent
-tools that can provide network-level protection for smart devices deployed in
-home environments. These systems monitor the network activities of the smart
-home-connected de-vices and focus on alerting suspicious or malicious activity.
-They also can deal with detected abnormal activities by hindering the impostors
-in accessing the victim devices. However, the employment of such systems in the
-context of a smart home can be challenging due to the devices hardware
-limitations, which may restrict their ability to counter the existing and
-emerging attack vectors. Therefore, this paper proposes an experimental
-comparison between the widely used open-source NIDSs namely Snort, Suricata and
-Bro IDS to find the most appropriate one for smart homes in term of detection
-accuracy and resources consumption including CP and memory utilization.
-Experimental Results show that Suricata is the best performing NIDS for smart
-homes
-","['Faisal Alsakran', 'Gueltoum Bendiab', 'Stavros Shiaeles', 'Nicholas Kolokotronis']"
-http://arxiv.org/abs/2304.12851v1,Smart contracts,2023-04-25T14:22:48Z,2023-04-25T14:22:48Z,Towards Smart Education through the Internet of Things: A Review,"  IoT is a fundamental enabling technology for creating smart spaces, which can
-assist the effective face-to-face and online education systems. The transition
-to smart education (integrating IoT and AI into the education system) is
-appealing, which has a concrete impact on learners' engagement, motivation,
-attendance, and deep learning. Traditional education faces many challenges,
-including administration, pedagogy, assessment, and classroom supervision.
-Recent developments in ICT (e.g., IoT, AI and 5G, etc.) have yielded lots of
-smart solutions for various aspects of life; however, smart solutions are not
-well integrated into the education system. In particular, the COVID-19 pandemic
-situation had further emphasized the adoption of new smart solutions in
-education. This study reviews the related studies and addresses the (i)
-problems in the traditional education system with possible solutions, (ii) the
-transition towards smart education, and (iii) research challenges in the
-transition to smart education (i.e, computational and social resistance).
-Considering these studies, smart solutions (e.g., smart pedagogy, smart
-assessment, smart classroom, smart administration, etc.) are introduced to the
-problems of the traditional system. This exploratory study opens new trends for
-scholars and the market to integrate ICT, IoT, and AI into smart education.
-","['Afzal Badshah', 'Anwar Ghani', 'Ali Daud', 'Ateeqa Jalal', 'Muhammad Bilal', 'Jon Crowcroft']"
-http://arxiv.org/abs/1109.4474v1,Smart contracts,2011-09-21T04:33:49Z,2011-09-21T04:33:49Z,Smart Grid Information Security (IS) Functional Requirement,"  It is important to implement safe smart grid environment to enhance people's
-lives and livelihoods. This paper provides information on smart grid IS
-functional requirement by illustrating some discussion points to the sixteen
-identified requirements. This paper introduces the smart grid potential hazards
-that can be referred as a triggering factor to improve the system and security
-of the entire grid. The background of smart information infrastructure and the
-needs for smart grid IS is described with the adoption of hermeneutic circle as
-methodology. Grid information technology and security-s session discusses that
-grid provides the chance of a simple and transparent access to different
-information sources. In addition, the transformation between traditional versus
-smart grid networking trend and the IS importance on the communication field
-reflects the criticality of grid IS functional requirement identification is
-introduces. The smart grid IS functional requirements described in this paper
-are general and can be adopted or modified to suit any smart grid system. This
-paper has tutorial contents where some related backgrounds were provided,
-especially for networking community, covering the cyber security requirement of
-smart grid information infrastructure.
-","['Amy Poh Ai Ling', 'Mukaidono Masao']"
-http://arxiv.org/abs/1706.07363v1,Smart contracts,2017-06-22T15:19:16Z,2017-06-22T15:19:16Z,Smart Wireless Communication is the Cornerstone of Smart Infrastructures,"  Emerging smart infrastructures, such as Smart City, Smart Grid, Smart Health,
-and Smart Transportation, need smart wireless connectivity. However, the
-requirements of these smart infrastructures cannot be met with today's wireless
-networks. A new wireless infrastructure is needed to meet unprecedented needs
-in terms of agility, reliability, security, scalability, and partnerships.
-  We are at the beginning of a revolution in how we live with technology,
-resulting from a convergence of machine learning (ML), the Internet-of-Things
-(IoT), and robotics. A smart infrastructure monitors and processes a vast
-amount of data, collected from a dense and wide distribution of heterogeneous
-sensors (e.g., the IoT), as well as from web applications like social media. In
-real time, using machine learning, patterns and relationships in the data over
-space, time, and application can be detected and predictions can be made; on
-the basis of these, resources can be managed, decisions can be made, and
-devices can be actuated to optimize metrics, such as cost, health, safety, and
-convenience.
-","['Mary Ann Weitnauer', 'Jennifer Rexford', 'Nicholas Laneman', 'Matthieu Bloch', 'Santiago Griljava', 'Catherine Ross', 'Gee-Kung Chang']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2409.18125v3,3D printing,2024-09-26T17:59:11Z,2025-04-27T06:50:23Z,"LLaVA-3D: A Simple yet Effective Pathway to Empowering LMMs with
   3D-awareness","  Recent advancements in Large Multimodal Models (LMMs) have greatly enhanced
 their proficiency in 2D visual understanding tasks, enabling them to
@@ -861,7 +555,6 @@ define life or intelligence? Here I survey a concrete metric towards measuring
 abstract properties of natural and artificial systems, such as the ability to
 react to the environment and to control one's own behaviour.
 ",['Hector Zenil']
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2308.13791v1,Augmented reality,2023-08-26T07:33:23Z,2023-08-26T07:33:23Z,Handwritten image augmentation,"  In this paper, we introduce Handwritten augmentation, a new data augmentation
 for handwritten character images. This method focuses on augmenting handwritten
 image data by altering the shape of input characters in training. The proposed
@@ -1200,7 +893,6 @@ Tied-Augment, data augmentation can be made to improve generalization even when
 training for a few epochs and when fine-tuning. We open source our code at
 https://github.com/ekurtulus/tied-augment/tree/main.
 ","['Emirhan Kurtulus', 'Zichao Li', 'Yann Dauphin', 'Ekin Dogus Cubuk']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2304.09965v1,Blockchain,2023-04-19T20:55:59Z,2023-04-19T20:55:59Z,Vulnerability of Finitely-long Blockchains in Securing Data,"  Recently, blockchain has been applied in various fields to secure data
 exchanges and storage in decentralized systems. In a blockchain application
 where the task of the application which makes use of the data stored in a
@@ -1540,7 +1232,6 @@ probability. We evaluate the proposed scheme in the context of real-world
 Bitcoin blockchain and show that both storage and communication overhead are
 reduced by 99.6\% with a maximum $10^{-12}$ decoding failure probability.
 ","['Changlin Yang', 'Alexei Ashikhmin', 'Xiaodong Wang', 'Zibin Zheng']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2203.00502v1,Cancer vaccine,2022-02-04T11:50:19Z,2022-02-04T11:50:19Z,"Sensor technologies in cancer research for new directions in diagnosis
   and treatment: and exploratory analysis","  The goal of this study is an exploratory analysis concerning main sensor
 technologies applied in cancer research to detect new directions in diagnosis
@@ -1913,7 +1604,6 @@ diagnosis from Computed Tomography (CT) scans. The proposed mode achieves high
 accuracy. In addition, it can be a beneficial tool to support radiologists'
 decisions in predicting and detecting lung cancer and its stage.
 ","['Saleh Abunajm', 'Nelly Elsayed', 'Zag ElSayed', 'Murat Ozer']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2412.11167v2,Cultured meat,2024-12-15T12:30:52Z,2025-02-16T12:21:29Z,Cultural Palette: Pluralising Culture Alignment via Multi-agent Palette,"  Large language models (LLMs) face challenges in aligning with diverse
 cultural values despite their remarkable performance in generation, which stems
 from inherent monocultural biases and difficulties in capturing nuanced
@@ -2250,7 +1940,6 @@ output for 71-81% of countries and territories. We suggest using cultural
 prompting and ongoing evaluation to reduce cultural bias in the output of
 generative AI.
 ","['Yan Tao', 'Olga Viberg', 'Ryan S. Baker', 'Rene F. Kizilcec']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2104.08256v1,Gene therapy,2021-04-16T17:38:12Z,2021-04-16T17:38:12Z,"Predicting synchronized gene coexpression patterns from fibration
   symmetries in gene regulatory networks in bacteria","  Background: Gene regulatory networks coordinate the expression of genes
 across physiological states and ensure a synchronized expression of genes in
@@ -2627,7 +2316,6 @@ is the sum of family sizes. We apply the model to the evolution of gene content
 in Preoteobacteria using the gene families in the COG (Clusters of Orthologous
 Groups) database.
 ","['Miklós Csűrös', 'István Miklós']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2006.16925v3,Neurotechnology,2020-06-23T07:46:22Z,2024-09-18T23:37:41Z,"Ethical Analysis on the Application of Neurotechnology for Human
   Augmentation in Physicians and Surgeons","  With the shortage of physicians and surgeons and increase in demand worldwide
 due to situations such as the COVID-19 pandemic, there is a growing interest in
@@ -2954,7 +2642,6 @@ complexion of how computing sciences and neurosciences interact, and suggests
 that the next form of exponential scaling in computing may emerge from our
 progressive understanding of the brain.
 ",['James B. Aimone']
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2206.06276v1,Reusable launch vehicle,2022-06-13T16:03:35Z,2022-06-13T16:03:35Z,On the reusability of samples in active learning,"  An interesting but not extensively studied question in active learning is
 that of sample reusability: to what extent can samples selected for one learner
 be reused by another? This paper explains why sample reusability is of
@@ -3272,7 +2959,6 @@ from framework studio and generation of source code based on stakeholders
 needs. The framework studio is implemented using swings which are integrated
 onto the Net Beans IDE which help in faster generation of the source code.
 ","['N Md Jubair Basha', 'Salman Abdul Moiz']"
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/1907.13114v1,Robotics,2019-07-30T17:56:17Z,2019-07-30T17:56:17Z,The Use of Agricultural Robots in Orchard Management,"  Book chapter that summarizes recent research on agricultural robotics in
 orchard management, including Robotic pruning, Robotic thinning, Robotic
 spraying, Robotic harvesting, Robotic fruit transportation, and future trends.
@@ -3536,7 +3222,6 @@ so that a target behavior is reached. As a proxy for more complex problems,
 this short paper considers the problem where each robot must locally estimate
 the algebraic connectivity of the team's network topology.
 ",['Amanda Prorok']
-id,technology,published,updated,title,summary,authors
 http://arxiv.org/abs/2202.08118v1,Smart contracts,2022-02-16T14:53:18Z,2022-02-16T14:53:18Z,"Smart Cities, Smart Libraries and Smart Knowledge Managers: Ushering in
   the neo-Knowledge Society","  The emergence of smart cities as a specific concept is not very old. In
 simple terms, it refers to cities which are sustainable and driven
