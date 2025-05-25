@@ -36,7 +36,8 @@ def parse_et(data):
             'authors': authors
         }
         entries.append(entry_data)
-    df = pd.DataFrame(entries)
+    df = pd.DataFrame(entries).drop_duplicates(subset='atom:id').sort_values('atom:id').reset_index(drop=True)
+    df.to_csv("/data/arxiv.csv", index=False)
     print(df.to_string())
 
 
