@@ -18,7 +18,7 @@ def query_arxiv(query: str, max_results=20):
 
 
 def parse_et(data, query):
-    open("/Users/abbie/PycharmProjects/KGofEmergingTech/data/arxiv.csv")
+    open("/data/arxiv.csv")
     root = ET.fromstring(data)
     ns = {
         'atom': 'http://www.w3.org/2005/Atom',
@@ -38,10 +38,9 @@ def parse_et(data, query):
             'authors': authors
         }
         entries.append(entry_data)
-    df = pd.DataFrame(entries).reset_index(drop=True)
-    print(df.to_string(index=False))
+    df = pd.DataFrame(entries).drop_duplicates(subset='id').reset_index(drop=True)
     if not df.empty:
-        df.to_csv("/Users/abbie/PycharmProjects/KGofEmergingTech/data/arxiv.csv", index=False, mode='a')
+        df.to_csv("/data/arxiv.csv", index=False, mode='a')
         print("df saved to arxiv.csv")
 
 '''url = 'http://export.arxiv.org/api/query?search_query=all:electron&start=0&max_results=1'''''
