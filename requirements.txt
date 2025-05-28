@@ -1,5 +1,8 @@
-py2neo
 pandas~=2.2.3
 requests~=2.32.3
 beautifulsoup4~=4.13.4
 urllib3~=2.4.0
+neo4j==5.19.0            
+lxml==5.2.1
+python-dotenv==1.0.1
+tqdm==4.66.4
