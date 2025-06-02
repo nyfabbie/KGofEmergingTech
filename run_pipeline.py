@@ -18,7 +18,7 @@ techs = fetch_wikidata(emerging_technologies)
 # Prototype: Intermediate step to clean & save the fetched data
 # should be replaced with more robust cleaning and merging functions
 # Wikidata
-df = pd.DataFrame(techs).drop_duplicates(subset="input_name").sort_values("input_name").reset_index(drop=True)
+df = pd.DataFrame(techs).drop_duplicates(subset="name").sort_values("name").reset_index(drop=True)
 df.to_csv("data/wikidata_techs_res.csv", index=False)
 print("Saved to data/wikidata_techs_res.csv with", len(df), "entries.")
 

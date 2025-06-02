@@ -13,7 +13,7 @@ def fetch_wikidata(tech_names, delay=0.5, top_n=1):
         top_n (int): Number of top search results to return per term (default 1).
 
     Returns:
-        pd.DataFrame: DataFrame with columns ['input_name', 'qid', 'label', 'description', 'match_type']
+        pd.DataFrame: DataFrame with columns ['name', 'qid', 'label', 'description', 'match_type']
     """
     url = "https://www.wikidata.org/w/api.php"
     headers = {"User-Agent": "EmergingTechGraph/1.0 (fpovina@outlook.com)"} # helps avoid getting blocked — can personalize it
@@ -34,7 +34,7 @@ def fetch_wikidata(tech_names, delay=0.5, top_n=1):
             if "search" in data:
                 for entry in data["search"][:top_n]:
                     results.append({
-                        "input_name": name,
+                        "name": name,
                         "qid": entry.get("id"),
                         "label": entry.get("label"),
                         "description": entry.get("description"),
@@ -42,7 +42,7 @@ def fetch_wikidata(tech_names, delay=0.5, top_n=1):
                     })
             else:
                 results.append({
-                    "input_name": name,
+                    "name": name,
                     "qid": None,
                     "label": None,
                     "description": None,
@@ -54,7 +54,7 @@ def fetch_wikidata(tech_names, delay=0.5, top_n=1):
         except Exception as e:
             print(f"Error while processing '{name}':", str(e))
             results.append({
-                "input_name": name,
+                "name": name,
                 "qid": None,
                 "label": None,
                 "description": None,

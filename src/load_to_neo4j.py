@@ -13,6 +13,8 @@ PWD  = os.getenv("NEO4J_PASSWORD", "password")
 
 def load_graph(tech_df, paper_df, edge_df):
 
+    # print(tech_df.head())
+    # print(tech_df.columns)
     driver = GraphDatabase.driver(URI, auth=(USER, PWD))
 
     def _tx_load(tx):
@@ -22,7 +24,9 @@ def load_graph(tech_df, paper_df, edge_df):
                 MERGE (t:Technology {qid:$qid})
                 SET   t.name=$name,
                       t.description=$desc
-            """, qid=r.qid, name=r.name, desc=r.description)
+            """, qid=r.qid, name=r.tech_key, desc=r.description)
+            #""", qid=r.qid, name=r.name, desc=r.description)
+
 
         # Paper nodes
         for _, r in paper_df.iterrows():

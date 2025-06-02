@@ -1,4 +1,4 @@
-input_name,qid,label,description,match_type
+name,qid,label,description,match_type
 3D printing,Q229367,3D printing,layer-by-layer additive process used to make a three-dimensional object,label
 Artificial intelligence,Q11660,artificial intelligence,field of computer science that develops and studies intelligent machines; also referring to such software,label
 Augmented reality,Q254183,augmented reality,interactive experience of a real-world environment enhanced by computer-generated perceptual information spatially registered to the user's environment,label
