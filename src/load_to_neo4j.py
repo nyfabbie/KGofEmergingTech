@@ -11,7 +11,7 @@ USER = os.getenv("NEO4J_USER", "neo4j")
 PWD  = os.getenv("NEO4J_PASSWORD", "password")
 
 
-def load_graph(tech_df, paper_df, edge_df):
+def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df):
 
     # print(tech_df.head())
     # print(tech_df.columns)
@@ -46,6 +46,21 @@ def load_graph(tech_df, paper_df, edge_df):
                 MATCH (t:Technology {qid:$qid})
                 MERGE (p)-[:MENTIONS]->(t)
             """, pid=r.paper_id, qid=r.qid)
+
+        # Startup nodes
+        for _, startup in startups_df.iterrows():
+            tx.run("""
+                MERGE (s:Startup {name: $name})
+                SET s.description = $desc
+            """, name=startup['name'], desc=startup['long_description'])
+
+        # Startup-Technology relationships
+        for _, match in matches_df.iterrows():
+            tx.run("""
+                MATCH (s:Startup {name: $startup_name})
+                MATCH (t:Technology {name: $technology})
+                MERGE (s)-[:USES]->(t)
+            """, startup_name=match['startup_name'], technology=match['technology'])
 
     with driver.session() as sess:
         sess.execute_write(_tx_load)

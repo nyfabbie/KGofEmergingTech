@@ -8,6 +8,7 @@ Basic cleaners that turn raw fetch results into
 import ast
 import hashlib
 import pandas as pd
+from rapidfuzz import fuzz, process  # Add this import at the top
 
 # ---------- helpers -------------------------------------------------
 
@@ -68,3 +69,75 @@ def clean_and_merge(papers_raw, techs_raw):
     edge_df = edge_df.merge(tech_df[["tech_key", "qid"]], on="tech_key")
 
     return tech_df, paper_df, edge_df
+
+# These synonyms and related terms will help your fuzzy matching catch more real-world variations and abbreviations for each emerging technology.
+TECH_SYNONYMS = {
+    "artificial intelligence": [
+        "artificial intelligence", "AI", "machine intelligence", "machine learning", "deep learning", "neural network"
+    ],
+    "3D printing": [
+        "3D printing", "additive manufacturing", "rapid prototyping", "3d printer", "digital fabrication"
+    ],
+    "augmented reality": [
+        "augmented reality", "AR", "mixed reality", "spatial computing"
+    ],
+    "blockchain": [
+        "blockchain", "distributed ledger", "DLT", "crypto", "cryptocurrency", "smart ledger"
+    ],
+    "cancer vaccine": [
+        "cancer vaccine", "oncology vaccine", "therapeutic vaccine", "immunotherapy"
+    ],
+    "cultured meat": [
+        "cultured meat", "lab-grown meat", "cell-based meat", "clean meat", "in vitro meat"
+    ],
+    "gene therapy": [
+        "gene therapy", "genetic therapy", "gene editing", "CRISPR", "genome editing"
+    ],
+    "neurotechnology": [
+        "neurotechnology", "brain-computer interface", "BCI", "neural interface", "neurotech"
+    ],
+    "reusable launch vehicle": [
+        "reusable launch vehicle", "RLV", "reusable rocket", "reusable spacecraft"
+    ],
+    "robotics": [
+        "robotics", "robot", "automation", "autonomous system", "robotic process automation", "RPA"
+    ],
+    "smart contracts": [
+        "smart contracts", "self-executing contract", "blockchain contract", "automated contract"
+    ],
+    "stem-cell therapy": [
+        "stem-cell therapy", "stem cell treatment", "regenerative medicine", "cell therapy"
+    ],
+}
+
+def match_startups_to_techs(startups_df, tech_names, threshold=80):
+    """
+    Fuzzy matches startups to technologies using rapidfuzz.
+    Returns a DataFrame with columns: startup_name, technology, score
+    """
+    matches = []
+    # Expand tech names with synonyms
+    expanded_tech_names = []
+    for tech in tech_names:
+        synonyms = TECH_SYNONYMS.get(tech.lower(), [tech])
+        expanded_tech_names.extend(synonyms)
+    expanded_tech_names = list(set(expanded_tech_names))  # Remove duplicates
+
+    for idx, row in startups_df.iterrows():
+        # Combine relevant fields, handle NaNs
+        text = " ".join([
+            str(row.get('long_description', '')),
+            str(row.get('industry', '')),
+            str(row.get('short_description', '')),
+            str(row.get('tags', ''))
+        ]).lower()
+        # Fuzzy match each tech name to the combined text
+        for tech in expanded_tech_names:
+            score = fuzz.partial_ratio(tech.lower(), text)
+            if score >= threshold:
+                matches.append({
+                    "startup_name": row.get("name"),
+                    "technology": tech,
+                    "score": score
+                })
+    return pd.DataFrame(matches)

@@ -1,4 +1,322 @@
 id,technology,published,updated,title,summary,authors
+http://arxiv.org/abs/2406.04641v1,3D printing,2024-06-07T04:56:05Z,2024-06-07T04:56:05Z,"Preparation of high precision aspherical lenses based on micro
+  stereolithography technology","  The 3D printing technology based on digital light processing (DLP) has
+highlighted its powerful manufacturing capabilities for optical components.
+However, the printing structure obtained by DLP based down projection printing
+is easily adhered to the printing window below, and the printed lens surface
+will have a step effect. This article uses DLP 3D printing technology to print
+non spherical lenses. During the printing process, a new type of inert liquid
+fluoride solution was used as the isolation layer, which can more effectively
+and conveniently prevent the printing structure from sticking to the printing
+window. At the same time, a vertical lifting immersion method was proposed to
+smooth the step effect on the surface of the lens.
+","['Xiaoying Lu', 'Hua Liu']"
+http://arxiv.org/abs/1405.0199v1,3D printing,2014-02-25T04:43:22Z,2014-02-25T04:43:22Z,"Liquid Phase 3D Printing for Quickly Manufacturing Metal Objects with
+  Low Melting Point Alloy Ink","  Conventional 3D printings are generally time-consuming and printable metal
+inks are rather limited. From an alternative way, we proposed a liquid phase 3D
+printing for quickly making metal objects. Through introducing metal alloys
+whose melting point is slightly above room temperature as printing inks,
+several representative structures spanning from one, two and three dimension to
+more complex patterns were demonstrated to be quickly fabricated. Compared with
+the air cooling in a conventional 3D printing, the liquid-phase-manufacturing
+offers a much higher cooling rate and thus significantly improves the speed in
+fabricating metal objects. This unique strategy also efficiently prevents the
+liquid metal inks from air oxidation which is hard to avoid otherwise in an
+ordinary 3D printing. Several key physical factors (like properties of the
+cooling fluid, injection speed and needle diameter, types and properties of the
+printing ink, etc.) were disclosed which would evidently affect the printing
+quality. In addition, a basic route to make future liquid phase 3D printer
+incorporated with both syringe pump and needle arrays was also suggested. The
+liquid phase 3D printing method, which owns potential values not available in a
+conventional modality, opens an efficient way for quickly making metal objects
+in the coming time.
+","['Lei Wang', 'Jing Liu']"
+http://arxiv.org/abs/2202.11426v2,3D printing,2022-02-23T11:14:24Z,2022-03-29T16:06:20Z,Open5x: Accessible 5-axis 3D printing and conformal slicing,"  The common layer-by-layer deposition of regular, 3-axis 3D printing
+simplifies both the fabrication process and the 3D printer's mechanical design.
+However, the resulting 3D printed objects have some unfavourable
+characteristics including visible layers, uneven structural strength and
+support material. To overcome these, researchers have employed robotic arms and
+multi-axis CNCs to deposit materials in conformal layers. Conformal deposition
+improves the quality of the 3D printed parts through support-less printing and
+curved layer deposition. However, such multi-axis 3D printing is inaccessible
+to many individuals due to high costs and technical complexities. Furthermore,
+the limited GUI support for conformal slicers creates an additional barrier for
+users. To open multi-axis 3D printing up to more makers and researchers, we
+present a cheap and accessible way to upgrade a regular 3D printer to 5 axes.
+We have also developed a GUI-based conformal slicer, integrated within a
+popular CAD package. Together, these deliver an accessible workflow for
+designing, simulating and creating conformally-printed 3D models.
+","['Freddie Hong', 'Steve Hodges', 'Connor Myant', 'David Boyle']"
+http://arxiv.org/abs/2401.11778v1,3D printing,2024-01-22T09:17:24Z,2024-01-22T09:17:24Z,All Inkjet-printed Organic Solar Cells on 3D Objects,"  Drop-on-demand inkjet printing is a promising and commercially relevant
+technology for producing organic electronic devices of arbitrary shape on a
+wide variety of different substrates. In this work we transfer the inkjet
+printing process of organic photovoltaic devices from 2D to 3D substrates,
+using a 5-axis robot system equipped with a multi nozzle inkjet printing unit.
+We present a ready-to-use 3D printing system for industrial application, using
+a 5-axis motion system controlled by commercial 3D motion software, combined
+with a commonly used multi-nozzle inkjet print head controlled by the
+corresponding printing software. The very first time inkjet-printed solar cells
+on glass/ITO with power conversion efficiencies (PCE) of up to 7% are realized
+on a 3D object with surfaces tilted by angles of up to 60{\deg} against the
+horizontal direction. Undesired ink flow during deposition of the
+inkjet-printed layers was avoided by proper ink formulation. In order to be
+able to print organic (opto-)electronic devices also on substrates without
+sputtered indium tin oxide bottom electrode, the bottom electrode was
+inkjet-printed from silver nanoparticle (AgNP) ink, resulting in the first all
+inkjet-printed (i.e., including bottom electrode) solar cell on a 3D object
+ever with a record PCE of 2.5%. This work paves the way for functionalizing
+even complex objects, such as cars, mobile phones, or Internet of Things (IoT)
+applications with inkjet-printed (opto-)electronic devices.
+","['Marc Steinberger', 'Andreas Distler', 'Johannes Hörber', 'Kai Cheong Tam', 'Christoph J. Brabec', 'Hans-Joachim Egelhaaf']"
+http://arxiv.org/abs/2305.09394v1,3D printing,2023-05-16T12:28:15Z,2023-05-16T12:28:15Z,"3D Printing and Design in Isolation: A Case from a Simulated Lunar
+  Mission","  Despite the decades-long history of 3D printing, it is not used to its full
+potential. Yet 3D printing holds promise for isolated communities, aiming for
+self-sufficiency. In this experiential study conducted in an analog space
+habitat we evaluated challenges and opportunities of using 3D printing. Our
+study revealed barriers such as: 1) setting up and maintaining the 3D printing
+equipment while minding different kinds of pollution, that is air, temperature
+and sound, 2) design skill and familiarity with specialized software as well as
+materials and 3) the awareness of what can be achieved to meet community needs.
+We observed that in-community experience and know-how are reliable sources of
+3D print ideas, that improve quality of life of community members if they are
+encouraged and supported by participatory design. Co-design of 3D prints in
+small, specialized communities is a promising area of study, that can bring new
+applications of 3D print technology.
+","['Wiktor Stawski', 'Kinga Skorupska', 'Wiesław Kopeć']"
+http://arxiv.org/abs/2103.02063v1,3D printing,2021-03-02T22:25:34Z,2021-03-02T22:25:34Z,A 3D Printing Hexacopter: Design and Demonstration,"  3D printing using robots has garnered significant interest in manufacturing
+and construction in recent years. A robot's versatility paired with the design
+freedom of 3D printing offers promising opportunities for how parts and
+structures are built in the future. However, 3D printed objects are still
+limited in size and location due to a lack of vertical mobility of ground
+robots. These limitations severely restrict the potential of the 3D printing
+process. To overcome these limitations, we develop a hexacopter testbed that
+can print via fused deposition modeling during flight. We discuss the design of
+this testbed and develop a simple control strategy for initial print tests. By
+successfully performing these initial print tests, we demonstrate the
+feasibility of this approach and lay the groundwork for printing 3D parts and
+structures with drones.
+","['Alexander Nettekoven', 'Ufuk Topcu']"
+http://arxiv.org/abs/2105.10943v1,3D printing,2021-05-23T14:25:34Z,2021-05-23T14:25:34Z,4D printing of mechanical metamaterials,"  Mechanical metamaterials owe their extraordinary properties and
+functionalities to their micro-/nanoscale design of which shape, including both
+geometry and topology, is perhaps the most important aspect. 4D printing
+enables programmed, predictable, and precise change in the shape of mechanical
+metamaterials to achieve multi-functionality, adaptive properties, and the
+other types of desired behaviors that cannot be achieved using simple 3D
+printing. This paper presents an overview of 4D printing as applied to
+mechanical metamaterials. It starts by presenting a systematic definition of
+what 4D printing is and what shape aspects (e.g., geometry, topology) are
+relevant for the 4D printing of mechanical metamaterials. Instead of focusing
+on different printing processes and materials, the paper addresses the most
+fundamental aspects of the shapeshifting behaviors required for transforming a
+flat construct to a target 3D shape (i.e., 2D to 3D shapeshifting) or
+transforming a 3D shape to another 3D shape (i.e., 3D to 3D shapeshifting). In
+either case, we will discuss the rigid-body shape morphing (e.g., rigid
+origami) as well as deformable-body shapeshifting. The paper concludes with a
+discussion of the major challenges ahead of us for applying 4D printing to
+mechanical metamaterials and suggests several areas for future research.
+",['Amir A. Zadpoor']
+http://arxiv.org/abs/2403.16470v1,3D printing,2024-03-25T06:52:26Z,2024-03-25T06:52:26Z,Data-Driven Extrusion Force Control Tuning for 3D Printing,"  The quality of 3D prints often varies due to different conditions inherent to
+each print, such as filament type, print speed, and nozzle size. Closed-loop
+process control methods improve the accuracy and repeatability of 3D prints.
+However, optimal tuning of controllers for given process parameters and design
+geometry is often a challenge with manually tuned controllers resulting in
+inconsistent and suboptimal results. This work employs Bayesian optimization to
+identify the optimal controller parameters. Additionally, we explore transfer
+learning in the context of 3D printing by leveraging prior information from
+past trials. By integrating optimized extrusion force control and transfer
+learning, we provide a novel framework for closed-loop 3D printing and propose
+an automated calibration routine that produces high-quality prints for a
+desired combination of print settings, material, and shape.
+","['Xavier Guidetti', 'Ankita Mukne', 'Marvin Rueppel', 'Yannick Nagel', 'Efe C. Balta', 'John Lygeros']"
+http://arxiv.org/abs/1705.05893v1,3D printing,2017-05-16T19:56:58Z,2017-05-16T19:56:58Z,"Computed Axial Lithography (CAL): Toward Single Step 3D Printing of
+  Arbitrary Geometries","  Most additive manufacturing processes today operate by printing voxels (3D
+pixels) serially point-by-point to build up a 3D part. In some more
+recently-developed techniques, for example optical printing methods such as
+projection stereolithography [Zheng et al. 2012], [Tumbleston et al. 2015],
+parts are printed layer-by-layer by curing full 2d (very thin in one dimension)
+layers of the 3d part in each print step. There does not yet exist a technique
+which is able to print arbitrarily-defined 3D geometries in a single print
+step. If such a technique existed, it could be used to expand the range of
+printable geometries in additive manufacturing and relax constraints on factors
+such as overhangs in topology optimization. It could also vastly increase print
+speed for 3D parts. In this work, we develop the principles for an approach for
+single exposure 3D printing of arbitrarily defined geometries. The approach,
+termed Computed Axial Lithgography (CAL), is based on tomographic
+reconstruction, with mathematical optimization to generate a set of projections
+to optically define an arbitrary dose distribution within a target volume. We
+demonstrate the potential ability of the technique to print 3D parts using a
+prototype CAL system based on sequential illumination from many angles. We also
+propose new hardware designs which will help us to realize true single-shot
+arbitrary-geometry 3D CAL.
+","['Brett Kelly', 'Indrasen Bhattacharya', 'Maxim Shusteff', 'Robert M. Panas', 'Hayden K. Taylor', 'Christopher M. Spadaccini']"
+http://arxiv.org/abs/1406.4817v1,3D printing,2014-06-15T06:28:17Z,2014-06-15T06:28:17Z,3D Printing of Scintillating Materials,"  We demonstrate, for the first time, the applicability of 3D printing
+technique to the manufacture of scintillation detectors. We report of a
+formulation, usable in stereolithographic printing, that exhibits scintillation
+efficiency on the order of 30\% of that of commercial polystyrene based
+scintillators. We discuss the applicability of these techniques and propose
+future enhancements that will allow tailoring the printed scintillation
+detectors to various application.
+","['Y. Mishnayot', 'M. Layani', 'I. Cooperstein', 'S. Magdassi', 'G. Ron']"
+http://arxiv.org/abs/1809.07940v1,3D printing,2018-09-21T04:28:49Z,2018-09-21T04:28:49Z,"Printing-while-moving: a new paradigm for large-scale robotic 3D
+  Printing","  Building and Construction have recently become an exciting application ground
+for robotics. In particular, rapid progress in materials formulation and in
+robotics technology has made robotic 3D Printing of concrete a promising
+technique for in-situ construction. Yet, scalability remains an important
+hurdle to widespread adoption: the printing systems (gantry- based or
+arm-based) are often much larger than the structure to be printed, hence
+cumbersome. Recently, a mobile printing system - a manipulator mounted on a
+mobile base - was proposed to alleviate this issue: such a system, by moving
+its base, can potentially print a structure larger than itself. However, the
+proposed system could only print while being stationary, imposing thereby a
+limit on the size of structures that can be printed in a single take. Here, we
+develop a system that implements the printing-while-moving paradigm, which
+enables printing single-piece structures of arbitrary sizes with a single
+robot. This development requires solving motion planning, localization, and
+motion control problems that are specific to mobile 3D Printing. We report our
+framework to address those problems, and demonstrate, for the first time, a
+printing-while-moving experiment, wherein a 210 cm x 45 cm x 10 cm concrete
+structure is printed by a robot arm that has a reach of 87 cm.
+","['Mehmet Efe Tiryaki', 'Xu Zhang', 'Quang-Cuong Pham']"
+http://arxiv.org/abs/1806.00394v1,3D printing,2018-06-01T15:28:58Z,2018-06-01T15:28:58Z,3D Conductive Polymer Printed Metasurface Antenna for Fresnel Focusing,"  We demonstrate a 3D printed holographic metasurface antenna for beam-focusing
+applications at 10 GHz within the X-band frequency regime. The metasurface
+antenna is printed using a dual-material 3D printer leveraging a biodegradable
+conductive polymer material (Electrifi) to print the conductive parts and
+polylactic acid (PLA) to print the dielectric substrate. The entire metasurface
+antenna is 3D printed at once; no additional techniques, such as metal-plating
+and laser etching, are required. It is demonstrated that using the 3D printed
+conductive polymer metasurface antenna, high-fidelity beam focusing can be
+achieved within the Fresnel region of the antenna. It is also shown that the
+material conductivity for 3D printing has a substantial effect on the radiation
+characteristics of the metasurface antenna.
+","['Okan Yurduseven', 'Shengrong Ye', 'Thomas Fromenteze', 'Daniel L. Marks', 'Benjamin J. Wiley', 'David R. Smith']"
+http://arxiv.org/abs/2404.11776v1,3D printing,2024-04-17T21:57:29Z,2024-04-17T21:57:29Z,"3D object quality prediction for Metal Jet Printer with Multimodal
+  thermal encoder","  With the advancements in 3D printing technologies, it is extremely important
+that the quality of 3D printed objects, and dimensional accuracies should meet
+the customer's specifications. Various factors during metal printing affect the
+printed parts' quality, including the power quality, the printing stage
+parameters, the print part's location inside the print bed, the curing stage
+parameters, and the metal sintering process. With the large data gathered from
+HP's MetJet printing process, AI techniques can be used to analyze, learn, and
+effectively infer the printed part quality metrics, as well as assist in
+improving the print yield. In-situ thermal sensing data captured by
+printer-installed thermal sensors contains the part thermal signature of fusing
+layers. Such part thermal signature contains a convoluted impact from various
+factors. In this paper, we use a multimodal thermal encoder network to fuse
+data of a different nature including the video data vectorized printer control
+data, and exact part thermal signatures with a trained encoder-decoder module.
+We explored the data fusing techniques and stages for data fusing, the
+optimized end-to-end model architecture indicates an improved part quality
+prediction accuracy.
+","[' Rachel', ' Chen', 'Wenjia Zheng', 'Sandeep Jalui', 'Pavan Suri', 'Jun Zeng']"
+http://arxiv.org/abs/1605.03246v1,3D printing,2016-05-10T23:41:51Z,2016-05-10T23:41:51Z,"Analysis of 3D-printed metal for rapid-prototyped reflective terahertz
+  optics","  We explore the potential of 3D metal printing to realize complex conductive
+terahertz devices. Factors impacting performance such as printing resolution,
+surface roughness, oxidation, and material loss are investigated via
+analytical, numerical, and experimental approaches. The high degree of control
+offered by a 3D-printed topology is exploited to realize a zone plate operating
+at 530 GHz. Reflection efficiency at this frequency is found to be over 90%.
+The high-performance of this preliminary device suggest that 3D metal printing
+can play a strong role in guided-wave and general beam control devices in the
+terahertz range.
+","['Daniel Headland', 'Withawat Withayachumnankul', 'Michael Webb', 'Heike Ebendorff-Heidepriem', 'Andre Luiten', 'Derek Abbott']"
+http://arxiv.org/abs/2501.11995v1,3D printing,2025-01-21T09:34:37Z,2025-01-21T09:34:37Z,"Fabrication of Poly (ε-Caprolactone) 3D scaffolds with
+  controllable porosity using ultrasound","  3D printing has progressed significantly, allowing objects to be produced
+using a wide variety of materials. Recent advances have employed focused
+ultrasound in 3D printing, to allow printing inside acoustically transparent
+materials. Here we introduce a Selective Ultrasonic Melting (SUM) method for 3D
+printing of poly ({\epsilon}-caprolactone) (PCL) powder mixed with water. The
+printing was done by mechanically moving a focused ultrasound transducer. The
+microstructure and porosity of the prints were analyzed with micro-computed
+tomography ({\mu}CT). The open porosity of the printed samples was determined
+using the water intrusion method and by passing fluorescent microspheres
+through the structure. The cytocompatibility of the printed structures was
+confirmed by seeding NIH-3T3 fibroblast cells on the scaffolds, followed by
+analysis using live/dead fluorescent assay. and visualization using scanning
+electron microscopy (SEM). We demonstrated that SUM is a viable technique to
+print structures with active control of their porosity This method provides an
+alternative to methods such as fused deposition modelling (FDM) and material
+jetting.
+","['Martin Weber', 'Dmitry Nikolaev', 'Mikko Koskenniemi', 'Jere Hyvönen', 'Joel Jääskeläinen', 'Armand Navarre', 'Ekaterina Takmakova', 'Arun Teotia', 'Pekka Katajisto', 'Robert Luxenhofer', 'Edward Hæggström', 'Ari Salmi']"
+http://arxiv.org/abs/2401.08982v1,3D printing,2024-01-17T05:26:30Z,2024-01-17T05:26:30Z,Robot Tape Manipulation for 3D Printing,"  3D printing has enabled various applications using different forms of
+materials, such as filaments, sheets, and inks. Typically, during 3D printing,
+feedstocks are transformed into discrete building blocks and placed or
+deposited in a designated location similar to the manipulation and assembly of
+discrete objects. However, 3D printing of continuous and flexible tape (with
+the geometry between filaments and sheets) without breaking or transformation
+remains underexplored and challenging. Here, we report the design and
+implementation of a customized end-effector, i.e., tape print module (TPM), to
+realize robot tape manipulation for 3D printing by leveraging the tension
+formed on the tape between two endpoints. We showcase the feasibility of
+manufacturing representative 2D and 3D structures while utilizing conductive
+copper tape for various electronic applications, such as circuits and sensors.
+We believe this manipulation strategy could unlock the potential of other tape
+materials for manufacturing, including packaging tape and carbon fiber prepreg
+tape, and inspire new mechanisms for robot manipulation, 3D printing, and
+packaging.
+","['Nahid Tushar', 'Rencheng Wu', 'Yu She', 'Wenchao Zhou', 'Wan Shou']"
+http://arxiv.org/abs/1807.02921v1,3D printing,2018-07-09T02:52:01Z,2018-07-09T02:52:01Z,"Inferring Quality in Point Cloud-based 3D Printed Objects using
+  Topological Data Analysis","  Assessing the quality of 3D printed models before they are printed remains a
+challeng- ing problem, particularly when considering point cloud-based models.
+This paper introduces an approach to quality assessment, which uses techniques
+from the field of Topological Data Analy- sis (TDA) to compute a topological
+abstraction of the eventual printed model. Two main tools of TDA, Mapper and
+persistent homology, are used to analyze both the printed space and empty space
+created by the model. This abstraction enables investigating certain qualities
+of the model, with respect to print quality, and identifies potential anomalies
+that may appear in the final product.
+","['Paul Rosen', 'Mustafa Hajij', 'Junyi Tu', 'Tanvirul Arafin', 'Les Piegl']"
+http://arxiv.org/abs/1605.09737v1,3D printing,2016-05-31T17:39:49Z,2016-05-31T17:39:49Z,3D Printed Stencils for Texturing Flat Surfaces,"  We address the problem of texturing flat surfaces by spray-painting through
+3D printed stencils. We propose a system that (1) decomposes an image into
+alpha-blended layers; (2) computes a stippling given a transparency channel;
+(3) generates a 3D printed stencil given a stippling and (4) simulates the
+effects of spray-painting through the stencil.
+",['Vaibhav Vavilala']
+http://arxiv.org/abs/2004.12471v2,3D printing,2020-04-26T20:22:31Z,2020-07-11T14:12:22Z,3D Printed Lightweight Composite Foams,"  The goal of this paper is to enable 3D printed lightweight composite foams by
+blending hollow glass micro balloons (GMB) with high density polyethylene
+(HDPE). To that end, lightweight feedstock for printing syntactic foam
+composites is developed. The blend for this is prepared by varying GMB content
+(20, 40, and 60 volume %) in HDPE for filament extrusion, which is subsequently
+used for three-dimensional printing (3DP). The rheological properties and the
+melt flow index (MFI) of blends are investigated for identifying suitable
+printing parameters. It is observed that the storage and loss modulus, as well
+as complex viscosity, increases with increasing GMB content, whereas MFI
+decreases. Further, the coefficient of thermal expansion of HDPE and foam
+filaments decreases with increasing GMB content, thereby lowering the thermal
+stresses in prints, which promotes the reduction in warpage. The mechanical
+properties of filaments are determined by subjecting them to tensile tests,
+whereas 3D printed samples are tested under tensile and flexure tests. The
+tensile modulus of the filament increases with increasing GMB content (8-47%)
+as compared to HDPE and exhibit comparable filament strength. 3D printed foams
+show higher specific tensile and flexural modulus as compared to neat HDPE,
+making them suitable candidate materials for weight sensitive applications.
+HDPE having 60% by volume GMB exhibited the highest modulus and is 48.02%
+higher than the printed HDPE. Finally, the property map reveals higher modulus
+and comparable strength against injection and compression molded foams. Printed
+foam registered 1.8 times higher modulus than molded samples. Hence, 3D printed
+foams have the potential for replacing components processed through
+conventional manufacturing processes that have limitations on geometrically
+complex designs, lead time, and associated costs.
+","['Bharath H S', 'Dileep Bonthu', 'Pavana Prabhakar', 'Mrityunjay Doddamani']"
+http://arxiv.org/abs/1605.04797v2,3D printing,2016-05-16T15:09:19Z,2016-07-02T03:15:10Z,"Thingi10K: A Dataset of 10,000 3D-Printing Models","  Empirically validating new 3D-printing related algorithms and implementations
+requires testing data representative of inputs encountered \emph{in the wild}.
+An ideal benchmarking dataset should not only draw from the same distribution
+of shapes people print in terms of class (e.g., toys, mechanisms, jewelry),
+representation type (e.g., triangle soup meshes) and complexity (e.g., number
+of facets), but should also capture problems and artifacts endemic to 3D
+printing models (e.g., self-intersections, non-manifoldness). We observe that
+the contextual and geometric characteristics of 3D printing models differ
+significantly from those used for computer graphics applications, not to
+mention standard models (e.g., Stanford bunny, Armadillo, Fertility). We
+present a new dataset of 10,000 models collected from an online 3D printing
+model-sharing database. Via analysis of both geometric (e.g., triangle aspect
+ratios, manifoldness) and contextual (e.g., licenses, tags, classes)
+characteristics, we demonstrate that this dataset represents a more concise
+summary of real-world models used for 3D printing compared to existing
+datasets. To facilitate future research endeavors, we also present an online
+query interface to select subsets of the dataset according to project-specific
+characteristics. The complete dataset and per-model statistical data are freely
+available to the public.
+","['Qingnan Zhou', 'Alec Jacobson']"
 http://arxiv.org/abs/2304.02924v1,Artificial intelligence,2023-04-06T08:26:38Z,2023-04-06T08:26:38Z,The Governance of Physical Artificial Intelligence,"  Physical artificial intelligence can prove to be one of the most important
 challenges of the artificial intelligence. The governance of physical
 artificial intelligence would define its responsible intelligent application in
@@ -489,18 +807,6 @@ infinitely-long blockchains. Moreover, we show that unlike infinitely-long
 blockchains which can be surely paralyzed by a 51% attack, finitely-long
 blockchains are more resistant to 51% attacks.
 ","['Yiming Jiang', 'Jiangfan Zhang']"
-http://arxiv.org/abs/1905.07014v1,Blockchain,2019-05-15T13:42:46Z,2019-05-15T13:42:46Z,A Framework for Blockchain Interoperability and Runtime Selection,"  The suitability of a particular blockchain for a given use case depends
-mainly on the blockchain's functional and non-functional properties. Such
-properties may vary over time, and thus, a selected blockchain may become
-unsuitable for a given use case. This uncertainty may hinder the widespread
-adoption of blockchain technologies in general. To mitigate the impact of
-volatile blockchain properties, we propose a framework that monitors several
-blockchains, allows the user to define functional and non-functional
-requirements, determines the most appropriate blockchain, and enables the
-switchover to that chain at runtime. Our evaluation using a reference
-implementation shows that switching to another blockchain can save cost and
-enable users to benefit from better performance and a higher level of trust.
-","['Philipp Frauenthaler', 'Michael Borkowski', 'Stefan Schulte']"
 http://arxiv.org/abs/1909.02914v1,Blockchain,2019-09-06T13:55:14Z,2019-09-06T13:55:14Z,"Blockchain Technologies for Smart Energy Systems: Fundamentals,
   Challenges and Solutions","  In this paper, we discuss the integration of blockchain in smart energy
 systems. We present various blockchain technology solutions, review important
@@ -526,6 +832,18 @@ scheme lays a strong foundation for generic blockchain interoperability. For
 instance, it enables the development of an atomic-commit protocol for
 distributed transactions across blockchains.
 ","['Philipp Frauenthaler', 'Marten Sigwart', 'Christof Spanring', 'Stefan Schulte']"
+http://arxiv.org/abs/1905.07014v1,Blockchain,2019-05-15T13:42:46Z,2019-05-15T13:42:46Z,A Framework for Blockchain Interoperability and Runtime Selection,"  The suitability of a particular blockchain for a given use case depends
+mainly on the blockchain's functional and non-functional properties. Such
+properties may vary over time, and thus, a selected blockchain may become
+unsuitable for a given use case. This uncertainty may hinder the widespread
+adoption of blockchain technologies in general. To mitigate the impact of
+volatile blockchain properties, we propose a framework that monitors several
+blockchains, allows the user to define functional and non-functional
+requirements, determines the most appropriate blockchain, and enables the
+switchover to that chain at runtime. Our evaluation using a reference
+implementation shows that switching to another blockchain can save cost and
+enable users to benefit from better performance and a higher level of trust.
+","['Philipp Frauenthaler', 'Michael Borkowski', 'Stefan Schulte']"
 http://arxiv.org/abs/1910.14614v1,Blockchain,2019-10-31T17:02:07Z,2019-10-31T17:02:07Z,"Selecting Reliable Blockchain Peers via Hybrid Blockchain Reliability
   Prediction","  Blockchain and blockchain-based decentralized applications are attracting
 increasing attentions recently. In public blockchain systems, users usually
@@ -701,42 +1019,6 @@ also provide a scalability solution to shard the blockchain. It enables high
 TPS and keeps decentralization. The solutions in this thesis provide the
 answers to all the dependencies of the massive adoption.
 ",['Jia Kan']
-http://arxiv.org/abs/1912.05241v1,Blockchain,2019-12-11T11:33:36Z,2019-12-11T11:33:36Z,Performance Analysis of the Libra Blockchain: An Experimental Study,"  Since Bitcoin was first introduced in 2008, many types of cryptocurrencies
-have been proposed based on blockchain. However, the performance of
-permissionless blockchains restricts the widespread of cryptocurrency.
-Recently, Libra was proposed by Facebook based on a permissioned blockchain,
-i.e. the Libra blockchain. The vision of Libra is to become a global currency
-supporting financial applications, but it is doubted whether the performance of
-the Libra blockchain is able to support frequent micropayment scenarios. In
-this paper, we propose a methodology to evaluate the performance of blockchain
-platforms and conducted an experimental study on the Libra blockchain. The
-results show that the Libra blockchain can only process about one thousand
-transactions per second at most, and the performance drops significantly as the
-number of validators increases. Although it outperforms permissionless
-blockchain platforms, the performance of the Libra blockchain is still
-unsatisfactory compared to other permissioned blockchains like Hyperledger
-Fabric and needs to make effective improvements in order to support global
-micropayment in the future.
-","['Jiashuo Zhang', 'Jianbo Gao', 'Zhenhao Wu', 'Wentian Yan', 'Qize Wu', 'Qingshan Li', 'Zhong Chen']"
-http://arxiv.org/abs/2010.16034v1,Blockchain,2020-10-30T02:55:19Z,2020-10-30T02:55:19Z,State sharding model on the blockchain,"  Blockchain is an incrementally updated ledger maintained by distributed nodes
-rather than centralized organizations. The current blockchain technology faces
-scalability issues, which include two aspects: low transaction throughput and
-high storage capacity costs. This paper studies the blockchain structure based
-on state sharding technology, and mainly solves the problem of non-scalability
-of block chain storage. This paper designs and implements the blockchain state
-sharding scheme, proposes a specific state sharding data structure and
-algorithm implementation, and realizes a complete blockchain structure so that
-the blockchain has the advantages of high throughput, processing a large number
-of transactions and saving storage costs. Experimental results show that a
-blockchain network with more than 100,000 nodes can be divided into 1024
-shards. A blockchain network with this structure can process 500,000
-transactions in about 5 seconds. If the consensus time of the blockchain is
-about 10 seconds, and the block generation time of the blockchain system of the
-sharding mechanism is 15 seconds, the transaction throughput can reach 33,000
-tx/sec. Experimental results show that the throughput of the proposed protocol
-increases with the increase of the network node size. This confirms the
-scalability of the blockchain structure based on sharding technology.
-","['Xiangyu Wang', 'Ting Yang', 'Yu Wang']"
 http://arxiv.org/abs/1907.07099v1,Blockchain,2019-07-16T16:23:25Z,2019-07-16T16:23:25Z,Blockchain Mutability: Challenges and Proposed Solutions,"  Blockchain's evolution during the past decade is astonishing: from bitcoin to
 over 2.000 altcoins, and from decentralised electronic payments to transactions
 programmable by smart contracts and complex tokens governed by decentralised
@@ -759,6 +1041,23 @@ have been put forward to resolve this conflict and to discuss their potentials,
 constraints and limitations when applied in the wild to either permissioned or
 permissionless blockchains.
 ","['Eugenia Politou', 'Fran Casino', 'Efthimios Alepis', 'Constantinos Patsakis']"
+http://arxiv.org/abs/1912.05241v1,Blockchain,2019-12-11T11:33:36Z,2019-12-11T11:33:36Z,Performance Analysis of the Libra Blockchain: An Experimental Study,"  Since Bitcoin was first introduced in 2008, many types of cryptocurrencies
+have been proposed based on blockchain. However, the performance of
+permissionless blockchains restricts the widespread of cryptocurrency.
+Recently, Libra was proposed by Facebook based on a permissioned blockchain,
+i.e. the Libra blockchain. The vision of Libra is to become a global currency
+supporting financial applications, but it is doubted whether the performance of
+the Libra blockchain is able to support frequent micropayment scenarios. In
+this paper, we propose a methodology to evaluate the performance of blockchain
+platforms and conducted an experimental study on the Libra blockchain. The
+results show that the Libra blockchain can only process about one thousand
+transactions per second at most, and the performance drops significantly as the
+number of validators increases. Although it outperforms permissionless
+blockchain platforms, the performance of the Libra blockchain is still
+unsatisfactory compared to other permissioned blockchains like Hyperledger
+Fabric and needs to make effective improvements in order to support global
+micropayment in the future.
+","['Jiashuo Zhang', 'Jianbo Gao', 'Zhenhao Wu', 'Wentian Yan', 'Qize Wu', 'Qingshan Li', 'Zhong Chen']"
 http://arxiv.org/abs/2001.01174v1,Blockchain,2020-01-05T05:58:41Z,2020-01-05T05:58:41Z,"Distributed Nonblocking Commit Protocols for Many-Party Cross-Blockchain
   Transactions","  The interoperability across multiple blockchains would play a critical role
 in future blockchain-based data management paradigm. Existing techniques either
@@ -776,6 +1075,25 @@ scalability on up to 64-blockchain transactions). In addition, we developed a
 graphic user interface for users to virtually monitor the status of the
 cross-blockchain transactions.
 ","['Xinying Wang', 'Olamide Timothy Tawose', 'Feng Yan', 'Dongfang Zhao']"
+http://arxiv.org/abs/2010.16034v1,Blockchain,2020-10-30T02:55:19Z,2020-10-30T02:55:19Z,State sharding model on the blockchain,"  Blockchain is an incrementally updated ledger maintained by distributed nodes
+rather than centralized organizations. The current blockchain technology faces
+scalability issues, which include two aspects: low transaction throughput and
+high storage capacity costs. This paper studies the blockchain structure based
+on state sharding technology, and mainly solves the problem of non-scalability
+of block chain storage. This paper designs and implements the blockchain state
+sharding scheme, proposes a specific state sharding data structure and
+algorithm implementation, and realizes a complete blockchain structure so that
+the blockchain has the advantages of high throughput, processing a large number
+of transactions and saving storage costs. Experimental results show that a
+blockchain network with more than 100,000 nodes can be divided into 1024
+shards. A blockchain network with this structure can process 500,000
+transactions in about 5 seconds. If the consensus time of the blockchain is
+about 10 seconds, and the block generation time of the blockchain system of the
+sharding mechanism is 15 seconds, the transaction throughput can reach 33,000
+tx/sec. Experimental results show that the throughput of the proposed protocol
+increases with the increase of the network node size. This confirms the
+scalability of the blockchain structure based on sharding technology.
+","['Xiangyu Wang', 'Ting Yang', 'Yu Wang']"
 http://arxiv.org/abs/2212.14671v1,Blockchain,2022-12-12T02:05:59Z,2022-12-12T02:05:59Z,Novel Architecture to Create and Maintain Personal Blockchains,"  Blockchain has been touted as a revolutionary technology. However, despite
 the excitement, blockchain has not been adopted in many fields. Many are
 hesitant to adopt blockchain technology due to privacy concerns, barriers to
@@ -879,6 +1197,31 @@ analysed the dynamics for different values of the parameters involved. The
 final amount of cancer cells decreases for different combinations of these
 parameters and noise intensity is found.
 ","['Marcela Reale', 'David Margarit', 'Ariel Scagliotti', 'Lilia Romanelli']"
+http://arxiv.org/abs/2506.06405v1,Cancer vaccine,2025-06-06T07:16:28Z,2025-06-06T07:16:28Z,"Impact of the WHO's 90-70-90 Strategy on HPV-Related Cervical Cancer
+  Control: A Mathematical Model Evaluation in China","  In August 2020, the World Health Assembly approved the Global Strategy to
+eliminate cervical cancer, marking the first time that numerous countries
+committed to eliminating a form of cancer. China introduced the HPV vaccine in
+2016 and has made significant advancements in both prevention and treatment
+strategies. However, due to the relatively late introduction of the vaccine,
+the burden of cervical cancer in China continues to rise. In light of this, we
+develop a compartmental model to assess the impact of the WHO's 90-70-90
+strategy, along with adult catch-up vaccination, on the control of HPV-induced
+cervical cancer in China. We analyze the basic properties of the model and
+provide proofs of the local and global asymptotic stability of the equilibrium
+points. Additionally, a sensitivity analysis is performed, and we use the MCMC
+algorithm to fit the number of new cervical cancer cases and deaths in China
+from 1990 to 2021. The estimated basic reproduction number before and after the
+introduction of the HPV vaccine in China is 1.5026 (95% CI: 1.4051-1.6002) and
+1.0726 (95% CI: 0.9384-1.2067), respectively. The sensitivity analysis reveals
+that screening, as a non-pharmaceutical intervention, plays a crucial role in
+controlling the spread of the disease. We apply the 90-70-90 strategy to
+predict the future number of new cervical cancer cases and deaths in China. The
+results indicate that prioritizing the 70-90 target combination is the most
+cost-effective approach and can achieve the goal of zero new cervical cancer
+cases by 2061. Finally, an optimal control model is developed to explore the
+best implementation strategies for HPV vaccination and screening under various
+plausible scenarios.
+","['Hua Liu', 'Chunya Liu', 'Yumei Wei', 'Qibin Zhang', 'Jingyan Ma']"
 http://arxiv.org/abs/2411.00885v1,Cancer vaccine,2024-10-31T18:11:57Z,2024-10-31T18:11:57Z,"Revolutionizing Personalized Cancer Vaccines with NEO: Novel Epitope
   Optimization Using an Aggregated Feed Forward and Recurrent Neural Network
   with LSTM Architecture","  As cancer cases continue to rise, with a 2023 study from Zhejiang and Harvard
@@ -1205,25 +1548,6 @@ vaccination behavior, such as controlling side-effect bias and perceived
 vaccination costs. Our work sheds light on epidemic control via vaccination by
 taking into account the co-evolutionary dynamics of cognition and behavior.
 ","['Yuan Liu', 'Bin Wu']"
-http://arxiv.org/abs/1902.01540v1,Cancer vaccine,2019-02-05T04:39:10Z,2019-02-05T04:39:10Z,Vaccination dilemma on an evolving social network,"  Vaccination is crucial for the control of epidemics. Yet it is a social
-dilemma since non-vaccinators can benefit from the herd immunity created by the
-vaccinators. Thus the optimum vaccination level is not reached via voluntary
-vaccination at times. Intensive studies incorporate social networks to study
-vaccination behavior, and it is shown that vaccination can be promoted on some
-networks. The underlying network, however, is often assumed to be static,
-neglecting the dynamical nature of social networks. We investigate the
-vaccination behavior on dynamical social networks using both simulations and
-mean-field approximations. We find that the more robust the
-vaccinator-infected-non-vaccinator links are or the more fragile the
-vaccinator-healthy-non-vaccinator links are, the higher the final vaccination
-level is. This result is true for arbitrary rationality. Furthermore, we show
-that, under strong selection, the vaccination level can be higher than that in
-the well-mixed population. In addition, we show that vaccination on evolving
-social network is equivalent to the vaccination in well mixed population with a
-rescaled basic reproductive ratio. Our results highlight the dynamical nature
-of social network on the vaccination behavior, and can be insightful for the
-epidemic control.
-","['Yuting Wei', 'Yaosen Lin', 'Bin Wu']"
 http://arxiv.org/abs/2407.09982v1,Cultured meat,2024-04-30T13:35:18Z,2024-04-30T13:35:18Z,"Artificial intelligence and machine learning applications for cultured
   meat","  Cultured meat has the potential to provide a complementary meat industry with
 reduced environmental, ethical, and health impacts. However, major
@@ -2192,6 +2516,30 @@ transition model in this low-dimensional space. We demonstrate that our model
 enables learning good predictive models of dynamical systems from pixel
 information only.
 ","['Niklas Wahlström', 'Thomas B. Schön', 'Marc Peter Deisenroth']"
+http://arxiv.org/abs/2106.12295v1,Neurotechnology,2021-06-23T10:24:15Z,2021-06-23T10:24:15Z,Quantum Brain Networks: a Perspective,"  We propose Quantum Brain Networks (QBraiNs) as a new interdisciplinary field
+integrating knowledge and methods from neurotechnology, artificial
+intelligence, and quantum computing. The objective is to develop an enhanced
+connectivity between the human brain and quantum computers for a variety of
+disruptive applications. We foresee the emergence of hybrid classical-quantum
+networks of wetware and hardware nodes, mediated by machine learning techniques
+and brain-machine interfaces. QBraiNs will harness and transform in
+unprecedented ways arts, science, technologies, and entrepreneurship, in
+particular activities related to medicine, Internet of humans, intelligent
+devices, sensorial experience, gaming, Internet of things, crypto trading, and
+business.
+","['E. R. Miranda', 'S. Venkatesh', 'C. Hernani-Morales', 'L. Lamata', 'J. D. Martín-Guerrero', 'E. Solano']"
+http://arxiv.org/abs/2204.02362v2,Neurotechnology,2022-04-04T12:47:07Z,2022-04-13T12:02:18Z,"Challenges and Opportunities of Edge AI for Next-Generation Implantable
+  BMIs","  Neuroscience and neurotechnology are currently being revolutionized by
+artificial intelligence (AI) and machine learning. AI is widely used to study
+and interpret neural signals (analytical applications), assist people with
+disabilities (prosthetic applications), and treat underlying neurological
+symptoms (therapeutic applications). In this brief, we will review the emerging
+opportunities of on-chip AI for the next-generation implantable brain-machine
+interfaces (BMIs), with a focus on state-of-the-art prosthetic BMIs. Major
+technological challenges for the effectiveness of AI models will be discussed.
+Finally, we will present algorithmic and IC design solutions to enable a new
+generation of AI-enhanced and high-channel-count BMIs.
+","['MohammadAli Shaeri', 'Arshia Afzal', 'Mahsa Shoaran']"
 http://arxiv.org/abs/1505.03964v1,Neurotechnology,2015-05-15T05:53:45Z,2015-05-15T05:53:45Z,"Algebraic identification of the effective connectivity of constrained
   geometric network models of neural signaling","  Cellular neural circuit and networks consisting of interconnected neurons and
 glia are ulti- mately responsible for the information processing associated
@@ -2207,18 +2555,6 @@ of all relevant prior knowledge, such as dynamical models of individual cells
 in the network and the physical structural connectivity of the network, and is
 broadly applicable to large classes of biological and non-biological networks.
 ","['Marius Buibas', 'Gabriel A. Silva']"
-http://arxiv.org/abs/2106.12295v1,Neurotechnology,2021-06-23T10:24:15Z,2021-06-23T10:24:15Z,Quantum Brain Networks: a Perspective,"  We propose Quantum Brain Networks (QBraiNs) as a new interdisciplinary field
-integrating knowledge and methods from neurotechnology, artificial
-intelligence, and quantum computing. The objective is to develop an enhanced
-connectivity between the human brain and quantum computers for a variety of
-disruptive applications. We foresee the emergence of hybrid classical-quantum
-networks of wetware and hardware nodes, mediated by machine learning techniques
-and brain-machine interfaces. QBraiNs will harness and transform in
-unprecedented ways arts, science, technologies, and entrepreneurship, in
-particular activities related to medicine, Internet of humans, intelligent
-devices, sensorial experience, gaming, Internet of things, crypto trading, and
-business.
-","['E. R. Miranda', 'S. Venkatesh', 'C. Hernani-Morales', 'L. Lamata', 'J. D. Martín-Guerrero', 'E. Solano']"
 http://arxiv.org/abs/2007.11674v1,Neurotechnology,2020-07-18T18:05:14Z,2020-07-18T18:05:14Z,"Using EEG-based brain connectivity for the study of brain dynamics in
   brain-computer interfaces","  The analysis of brain connectivity aims to understand the emergence of
 functional networks into the brain. This information can be used in the process
@@ -2252,18 +2588,6 @@ synthetically generated faces truly do not exist? Databases of real and
 synthetically generated faces are made available with this paper to allow full
 replicability of the results discussed in this work.
 ","['Patrick Tinsley', 'Adam Czajka', 'Patrick Flynn']"
-http://arxiv.org/abs/2204.02362v2,Neurotechnology,2022-04-04T12:47:07Z,2022-04-13T12:02:18Z,"Challenges and Opportunities of Edge AI for Next-Generation Implantable
-  BMIs","  Neuroscience and neurotechnology are currently being revolutionized by
-artificial intelligence (AI) and machine learning. AI is widely used to study
-and interpret neural signals (analytical applications), assist people with
-disabilities (prosthetic applications), and treat underlying neurological
-symptoms (therapeutic applications). In this brief, we will review the emerging
-opportunities of on-chip AI for the next-generation implantable brain-machine
-interfaces (BMIs), with a focus on state-of-the-art prosthetic BMIs. Major
-technological challenges for the effectiveness of AI models will be discussed.
-Finally, we will present algorithmic and IC design solutions to enable a new
-generation of AI-enhanced and high-channel-count BMIs.
-","['MohammadAli Shaeri', 'Arshia Afzal', 'Mahsa Shoaran']"
 http://arxiv.org/abs/2302.03752v1,Neurotechnology,2023-02-07T20:57:15Z,2023-02-07T20:57:15Z,"Dynamic Visualization of Gyral and Sulcal Stereoelectroencephalographic
   contacts in Humans","  Stereoelectroencephalography (SEEG) is a neurosurgical method to survey
 electrophysiological activity within the brain to treat disorders such as
@@ -2814,22 +3138,20 @@ execution of cooperating robot teams.
 ","['Pedro U. Lima', 'Luis M. M. Custodio']"
 http://arxiv.org/abs/0808.1661v1,Robotics,2008-08-12T13:21:52Z,2008-08-12T13:21:52Z,"Medical robotics: where we come from, where we are and where we could go","  This short note presents a viewpoint about medical robotics.
 ",['Jocelyne Troccaz']
-http://arxiv.org/abs/1701.07790v2,Robotics,2017-01-26T17:45:47Z,2017-04-06T02:26:42Z,Game-Theoretic Modeling of Human Adaptation in Human-Robot Collaboration,"  In human-robot teams, humans often start with an inaccurate model of the
-robot capabilities. As they interact with the robot, they infer the robot's
-capabilities and partially adapt to the robot, i.e., they might change their
-actions based on the observed outcomes and the robot's actions, without
-replicating the robot's policy. We present a game-theoretic model of human
-partial adaptation to the robot, where the human responds to the robot's
-actions by maximizing a reward function that changes stochastically over time,
-capturing the evolution of their expectations of the robot's capabilities. The
-robot can then use this model to decide optimally between taking actions that
-reveal its capabilities to the human and taking the best action given the
-information that the human currently has. We prove that under certain
-observability assumptions, the optimal policy can be computed efficiently. We
-demonstrate through a human subject experiment that the proposed model
-significantly improves human-robot team performance, compared to policies that
-assume complete adaptation of the human to the robot.
-","['Stefanos Nikolaidis', 'Swaprava Nath', 'Ariel D. Procaccia', 'Siddhartha Srinivasa']"
+http://arxiv.org/abs/1812.06784v4,Robotics,2018-12-17T14:21:37Z,2019-04-24T08:44:46Z,"Animation Techniques in Human-Robot Interaction User Studies: a
+  Systematic Literature Review","  There are many different ways a robot can move in Human-Robot Interaction.
+One way is to use techniques from film animation to instruct the robot to move.
+This article is a systematic literature review of human-robot trials, pilots,
+and evaluations that have applied techniques from animation to move a robot.
+Through 27 articles, we find that animation techniques improves individual's
+interaction with robots, improving individual's perception of qualities of a
+robot, understanding what a robot intends to do, and showing the robot's state,
+or possible emotion. Animation techniques also help people relate to robots
+that do not resemble a human or robot. The studies in the articles show further
+areas for research, such as applying animation principles in other types of
+robots and situations, combining animation techniques with other modalities,
+and testing robots moving with animation techniques over the long term.
+","['Trenton Schulz', 'Jim Torresen', 'Jo Herstad']"
 http://arxiv.org/abs/1904.03049v2,Robotics,2019-04-05T13:17:27Z,2019-09-08T09:23:21Z,Loosely Coupled Payload Transport System with Robot Replacement,"  In this work, we present an algorithm for robot replacement to increase the
 operational time of a multi-robot payload transport system. Our system
 comprises a group of nonholonomic wheeled mobile robots traversing on a known
@@ -2862,20 +3184,22 @@ an offline linear-quadratic case study and a real-time user study, we show that
 trusting human models can naturally lead to communicative robot behavior, which
 influences end-users and increases their involvement.
 ","['Dylan P. Losey', 'Dorsa Sadigh']"
-http://arxiv.org/abs/1812.06784v4,Robotics,2018-12-17T14:21:37Z,2019-04-24T08:44:46Z,"Animation Techniques in Human-Robot Interaction User Studies: a
-  Systematic Literature Review","  There are many different ways a robot can move in Human-Robot Interaction.
-One way is to use techniques from film animation to instruct the robot to move.
-This article is a systematic literature review of human-robot trials, pilots,
-and evaluations that have applied techniques from animation to move a robot.
-Through 27 articles, we find that animation techniques improves individual's
-interaction with robots, improving individual's perception of qualities of a
-robot, understanding what a robot intends to do, and showing the robot's state,
-or possible emotion. Animation techniques also help people relate to robots
-that do not resemble a human or robot. The studies in the articles show further
-areas for research, such as applying animation principles in other types of
-robots and situations, combining animation techniques with other modalities,
-and testing robots moving with animation techniques over the long term.
-","['Trenton Schulz', 'Jim Torresen', 'Jo Herstad']"
+http://arxiv.org/abs/1701.07790v2,Robotics,2017-01-26T17:45:47Z,2017-04-06T02:26:42Z,Game-Theoretic Modeling of Human Adaptation in Human-Robot Collaboration,"  In human-robot teams, humans often start with an inaccurate model of the
+robot capabilities. As they interact with the robot, they infer the robot's
+capabilities and partially adapt to the robot, i.e., they might change their
+actions based on the observed outcomes and the robot's actions, without
+replicating the robot's policy. We present a game-theoretic model of human
+partial adaptation to the robot, where the human responds to the robot's
+actions by maximizing a reward function that changes stochastically over time,
+capturing the evolution of their expectations of the robot's capabilities. The
+robot can then use this model to decide optimally between taking actions that
+reveal its capabilities to the human and taking the best action given the
+information that the human currently has. We prove that under certain
+observability assumptions, the optimal policy can be computed efficiently. We
+demonstrate through a human subject experiment that the proposed model
+significantly improves human-robot team performance, compared to policies that
+assume complete adaptation of the human to the robot.
+","['Stefanos Nikolaidis', 'Swaprava Nath', 'Ariel D. Procaccia', 'Siddhartha Srinivasa']"
 http://arxiv.org/abs/2207.01684v1,Robotics,2022-07-04T19:26:13Z,2022-07-04T19:26:13Z,"Robot Vitals and Robot Health: Towards Systematically Quantifying
   Runtime Performance Degradation in Robots Under Adverse Conditions","  This paper addresses the problem of automatically detecting and quantifying
 performance degradation in remote mobile robots during task execution. A robot
@@ -2944,18 +3268,6 @@ paths, identification and classification of cuspidal robots. The chapter
 focuses on 3-R orthogonal serial robots. The case of 6-dof robots and parallel
 robots is discussed in the end of this chapter.
 ",['Philippe Wenger']
-http://arxiv.org/abs/1804.06383v1,Robotics,2018-04-17T17:26:30Z,2018-04-17T17:26:30Z,Effects of Interruptibility-Aware Robot Behavior,"  As robots become increasingly prevalent in human environments, there will
-inevitably be times when a robot needs to interrupt a human to initiate an
-interaction. Our work introduces the first interruptibility-aware mobile robot
-system, and evaluates the effects of interruptibility-awareness on human task
-performance, robot task performance, and on human interpretation of the robot's
-social aptitude. Our results show that our robot is effective at predicting
-interruptibility at high accuracy, allowing it to interrupt at more appropriate
-times. Results of a large-scale user study show that while participants are
-able to maintain task performance even in the presence of interruptions,
-interruptibility-awareness improves the robot's task performance and improves
-participant social perception of the robot.
-","['Siddhartha Banerjee', 'Andrew Silva', 'Karen Feigh', 'Sonia Chernova']"
 http://arxiv.org/abs/1805.03737v2,Robotics,2018-05-09T21:24:50Z,2019-01-27T13:42:51Z,Graph Neural Networks for Learning Robot Team Coordination,"  This paper shows how Graph Neural Networks can be used for learning
 distributed coordination mechanisms in connected teams of robots. We capture
 the relational aspect of robot coordination by modeling the robot team as a
@@ -2965,6 +3277,16 @@ so that a target behavior is reached. As a proxy for more complex problems,
 this short paper considers the problem where each robot must locally estimate
 the algebraic connectivity of the team's network topology.
 ",['Amanda Prorok']
+http://arxiv.org/abs/1808.01666v1,Robotics,2018-08-05T18:26:34Z,2018-08-05T18:26:34Z,On Robot Revolution and Taxation,"  Advances in artificial intelligence are resulting in the rapid automation of
+the work force. The tools that are used to automate are called robots. Bill
+Gates proposed that in order to deal with the problem of the loss of jobs and
+reduction of the tax revenue we ought to tax the robots. The problem with
+taxing the robots is that it is not easy to know what a robot is. This article
+studies the definition of a robot and the implication of advances in robotics
+on taxation. It is evident from this article that it is a difficult task to
+establish what a robot is and what is not a robot. It concludes that taxing
+robots is the same as increasing corporate tax.
+",['Tshilidzi Marwala']
 http://arxiv.org/abs/2304.06568v1,Smart contracts,2023-04-13T14:26:12Z,2023-04-13T14:26:12Z,"Smart Contract Upgradeability on the Ethereum Blockchain Platform: An
   Exploratory Study","  Context: Smart contracts are computerized self-executing contracts that
 contain clauses, which are enforced once certain conditions are met. Smart
@@ -3307,23 +3629,11 @@ and performance issues. The rest of the papers focuses on smart contract
 applications or other smart contract related topics. Research gaps that need to
 be addressed in future studies are provided.
 ","['Maher Alharby', 'Aad van Moorsel']"
-http://arxiv.org/abs/1908.03707v1,Smart contracts,2019-08-10T07:50:33Z,2019-08-10T07:50:33Z,Mutation Testing for Ethereum Smart Contract,"  Smart contract is a special program that manages digital assets on
-blockchain. It is difficult to recover the loss if users make transactions
-through buggy smart contracts, which cannot be directly fixed. Hence, it is
-important to ensure the correctness of smart contracts before deploying them.
-This paper proposes a systematic framework to mutation testing for smart
-contracts on Ethereum, which is currently the most popular open blockchain for
-deploying and running smart contracts. Fifteen novel mutation operators have
-been designed for Ethereum Smart Contracts (ESC), in terms of keyword, global
-variable/function, variable unit, and error handling. An empirical study on 26
-smart contracts in four Ethereum DApps has been conducted to evaluate the
-effectiveness of mutation testing. The experimental results show that our
-approach can outperform the coverage-based approach on defect detection rate
-(96.01% vs. 55.68%). The ESC mutation operators are effective to reveal real
-defects and we found 117 out of 729 real bug reports are related to our
-operators. These show the great potential of using mutation testing for quality
-assurance of ESC.
-","['Haoran Wu', 'Xingya Wang', 'Jiehui Xu', 'Weiqin Zou', 'Lingming Zhang', 'Zhenyu Chen']"
+http://arxiv.org/abs/1909.06494v1,Smart contracts,2019-09-14T00:36:13Z,2019-09-14T00:36:13Z,Transactional Smart Contracts in Blockchain Systems,"  This paper presents TXSC, a framework that provides smart contract developers
+with transaction primitives. These primitives allow developers to write smart
+contracts without the need to reason about the anomalies that can arise due to
+concurrent smart contract function executions.
+","['Victor Zakhary', 'Divyakant Agrawal', 'Amr El Abbadi']"
 http://arxiv.org/abs/2007.13115v1,Stem-cell therapy,2020-07-26T12:22:16Z,2020-07-26T12:22:16Z,"Challenges in constructing genetic instruments for pharmacologic
   therapies","  The genes that encode the targets of most therapies do not have rare variants
 with large-effect or common variants with moderate effects on the biomarker
@@ -3515,27 +3825,6 @@ the relevant advances in the ionizing and non-ionizing radiation therapy, i.e.
 protons and heavy ions therapy, as well as photodynamic targeted and molecular
 therapies.
 ",['Mersini Makropoulou']
-http://arxiv.org/abs/1603.00895v1,Stem-cell therapy,2016-03-02T21:24:40Z,2016-03-02T21:24:40Z,Personalized Cancer Therapy Design: Robustness vs. Optimality,"  Intermittent Androgen Suppression (IAS) is a treatment strategy for delaying
-or even preventing time to relapse of advanced prostate cancer. IAS consists of
-alternating cycles of therapy (in the form of androgen suppression) and
-off-treatment periods. The level of prostate specific antigen (PSA) in a
-patient's serum is frequently monitored to determine when the patient will be
-taken off therapy and when therapy will resume. In spite of extensive recent
-clinical experience with IAS, the design of an ideal protocol for any given
-patient remains one of the main challenges associated with effectively
-implementing this therapy. We use a threshold-based policy for optimal IAS
-therapy design that is parameterized by lower and upper PSA threshold values
-and is associated with a cost metric that combines clinically relevant measures
-of therapy success. We apply Infinitesimal Perturbation Analysis (IPA) to a
-Stochastic Hybrid Automaton (SHA) model of prostate cancer evolution under IAS
-and derive unbiased estimators of the cost metric gradient with respect to
-various model and therapy parameters. These estimators are subsequently used
-for system analysis. By evaluating sensitivity estimates with respect to
-several model parameters, we identify critical parameters and demonstrate that
-relaxing the optimality condition in favor of increased robustness to modeling
-errors provides an alternative objective to therapy design for at least some
-patients.
-","['Julia L. Fleck', 'Christos G. Cassandras']"
 http://arxiv.org/abs/1902.00728v1,Stem-cell therapy,2019-02-02T14:34:13Z,2019-02-02T14:34:13Z,"New combinational therapies for cancer using modern statistical
   mechanics","  We investigate a new dynamical system that describes tumor-host interaction.
 The equation that describes the untreated tumor growth is based on
@@ -3557,27 +3846,27 @@ the success of the new therapeutic agents can be seen when used in combination
 with other cancer-cell-killing therapies. Our results have allowed us to design
 a combinational therapy that can lead to the complete eradication of cancer.
 ","['Jorge A. González', 'M. Acanda', 'Z. Akhtar', 'D. Andrews', 'J. I. Azqueta', 'E. Bass', 'A. Bellorín', 'J. Couso', 'Mónica A. García-Ñustes', 'Y. Infante', 'S. Jiménez', 'L. Lester', 'L. Maldonado', 'Juan F. Marín', 'L. Pineda', 'I. Rodríguez', 'C. C. Tamayo', 'D. Valdes', 'L. Vázquez']"
-http://arxiv.org/abs/2203.05383v2,Stem-cell therapy,2022-03-10T14:17:07Z,2022-06-16T11:29:06Z,"KSoF: The Kassel State of Fluency Dataset -- A Therapy Centered Dataset
-  of Stuttering","  Stuttering is a complex speech disorder that negatively affects an
-individual's ability to communicate effectively. Persons who stutter (PWS)
-often suffer considerably under the condition and seek help through therapy.
-Fluency shaping is a therapy approach where PWSs learn to modify their speech
-to help them to overcome their stutter. Mastering such speech techniques takes
-time and practice, even after therapy. Shortly after therapy, success is
-evaluated highly, but relapse rates are high. To be able to monitor speech
-behavior over a long time, the ability to detect stuttering events and
-modifications in speech could help PWSs and speech pathologists to track the
-level of fluency. Monitoring could create the ability to intervene early by
-detecting lapses in fluency. To the best of our knowledge, no public dataset is
-available that contains speech from people who underwent stuttering therapy
-that changed the style of speaking. This work introduces the Kassel State of
-Fluency (KSoF), a therapy-based dataset containing over 5500 clips of PWSs. The
-clips were labeled with six stuttering-related event types: blocks,
-prolongations, sound repetitions, word repetitions, interjections, and -
-specific to therapy - speech modifications. The audio was recorded during
-therapy sessions at the Institut der Kasseler Stottertherapie. The data will be
-made available for research purposes upon request.
-","['Sebastian P. Bayerl', 'Alexander Wolff von Gudenberg', 'Florian Hönig', 'Elmar Nöth', 'Korbinian Riedhammer']"
+http://arxiv.org/abs/1603.00895v1,Stem-cell therapy,2016-03-02T21:24:40Z,2016-03-02T21:24:40Z,Personalized Cancer Therapy Design: Robustness vs. Optimality,"  Intermittent Androgen Suppression (IAS) is a treatment strategy for delaying
+or even preventing time to relapse of advanced prostate cancer. IAS consists of
+alternating cycles of therapy (in the form of androgen suppression) and
+off-treatment periods. The level of prostate specific antigen (PSA) in a
+patient's serum is frequently monitored to determine when the patient will be
+taken off therapy and when therapy will resume. In spite of extensive recent
+clinical experience with IAS, the design of an ideal protocol for any given
+patient remains one of the main challenges associated with effectively
+implementing this therapy. We use a threshold-based policy for optimal IAS
+therapy design that is parameterized by lower and upper PSA threshold values
+and is associated with a cost metric that combines clinically relevant measures
+of therapy success. We apply Infinitesimal Perturbation Analysis (IPA) to a
+Stochastic Hybrid Automaton (SHA) model of prostate cancer evolution under IAS
+and derive unbiased estimators of the cost metric gradient with respect to
+various model and therapy parameters. These estimators are subsequently used
+for system analysis. By evaluating sensitivity estimates with respect to
+several model parameters, we identify critical parameters and demonstrate that
+relaxing the optimality condition in favor of increased robustness to modeling
+errors provides an alternative objective to therapy design for at least some
+patients.
+","['Julia L. Fleck', 'Christos G. Cassandras']"
 http://arxiv.org/abs/2112.07717v1,Stem-cell therapy,2021-12-14T19:37:20Z,2021-12-14T19:37:20Z,"Deterministic and Stochastic in-host Tuberculosis Models for
   Bacterium-directed and Host-directed Therapy Combination","  Mycobacterium tuberculosis infection can involve all immune system components
 and can result in different disease outcomes. The antibiotic TB drugs require
@@ -3603,6 +3892,27 @@ variations from therapies, the second SDE model suggests that disease
 progression can slow down if therapies (1) can have fast return rates and (2)
 can bring parameter values into the disease clearance regions.
 ",['Wenjing Zhang']
+http://arxiv.org/abs/2203.05383v2,Stem-cell therapy,2022-03-10T14:17:07Z,2022-06-16T11:29:06Z,"KSoF: The Kassel State of Fluency Dataset -- A Therapy Centered Dataset
+  of Stuttering","  Stuttering is a complex speech disorder that negatively affects an
+individual's ability to communicate effectively. Persons who stutter (PWS)
+often suffer considerably under the condition and seek help through therapy.
+Fluency shaping is a therapy approach where PWSs learn to modify their speech
+to help them to overcome their stutter. Mastering such speech techniques takes
+time and practice, even after therapy. Shortly after therapy, success is
+evaluated highly, but relapse rates are high. To be able to monitor speech
+behavior over a long time, the ability to detect stuttering events and
+modifications in speech could help PWSs and speech pathologists to track the
+level of fluency. Monitoring could create the ability to intervene early by
+detecting lapses in fluency. To the best of our knowledge, no public dataset is
+available that contains speech from people who underwent stuttering therapy
+that changed the style of speaking. This work introduces the Kassel State of
+Fluency (KSoF), a therapy-based dataset containing over 5500 clips of PWSs. The
+clips were labeled with six stuttering-related event types: blocks,
+prolongations, sound repetitions, word repetitions, interjections, and -
+specific to therapy - speech modifications. The audio was recorded during
+therapy sessions at the Institut der Kasseler Stottertherapie. The data will be
+made available for research purposes upon request.
+","['Sebastian P. Bayerl', 'Alexander Wolff von Gudenberg', 'Florian Hönig', 'Elmar Nöth', 'Korbinian Riedhammer']"
 http://arxiv.org/abs/2404.10310v1,Stem-cell therapy,2024-04-16T06:37:19Z,2024-04-16T06:37:19Z,"Wireless Earphone-based Real-Time Monitoring of Breathing Exercises: A
   Deep Learning Approach","  Several therapy routines require deep breathing exercises as a key component
 and patients undergoing such therapies must perform these exercises regularly.
@@ -3658,6 +3968,15 @@ http://arxiv.org/abs/1804.08990v1,Stem-cell therapy,2018-04-24T12:36:09Z,2018-04
 in proton therapy. These concepts are illustrated by concrete examples
 implemented in the Proscan facility at PSI.
 ",['Martin Grossmann']
+http://arxiv.org/abs/1812.04900v1,Stem-cell therapy,2018-12-12T11:18:19Z,2018-12-12T11:18:19Z,"Model of a Data Mining System for Personalized Therapy of Speech
+  Disorders","  Lately, the children with speech disorder have more and more become object of
+specialists attention and investment in speech disorder therapy are increasing
+The development and use of information technology in order to assist and follow
+speech disorder therapy allowed researchers to collect a considerable volume of
+data. The aim of this paper is to present a data mining system designed to be
+associated with TERAPERS system in order to provide information based on which
+one could improve the process of personalized therapy of speech disorders.
+","['Mirela Danubianu', 'Stefan Gheorghe Pentiuc', 'Iolanda Tobolcea', 'Tiberiu Socaciu']"
 http://arxiv.org/abs/2011.00285v1,Stem-cell therapy,2020-10-31T14:33:16Z,2020-10-31T14:33:16Z,"On The Relationship Between The Energy, Energy Spread And Distal Slope
   for Proton Therapy Observed in GEANT4","  In proton therapy both the energy, which determines the range, and the distal
 slope, which reflects the rate at which the protons decelerate, are of import
@@ -3668,15 +3987,6 @@ with Gaussian energy spectra for proton therapy. This simple polynomial
 relationship will be useful for non-invasive or minimally invasive near
 real-time monitoring of the energy and energy spread of a proton therapy beam.
 ","['Tim Fulcher', 'Richard A Amos', 'Hywel Owen', 'Rob Edgecock']"
-http://arxiv.org/abs/1812.04900v1,Stem-cell therapy,2018-12-12T11:18:19Z,2018-12-12T11:18:19Z,"Model of a Data Mining System for Personalized Therapy of Speech
-  Disorders","  Lately, the children with speech disorder have more and more become object of
-specialists attention and investment in speech disorder therapy are increasing
-The development and use of information technology in order to assist and follow
-speech disorder therapy allowed researchers to collect a considerable volume of
-data. The aim of this paper is to present a data mining system designed to be
-associated with TERAPERS system in order to provide information based on which
-one could improve the process of personalized therapy of speech disorders.
-","['Mirela Danubianu', 'Stefan Gheorghe Pentiuc', 'Iolanda Tobolcea', 'Tiberiu Socaciu']"
 http://arxiv.org/abs/2209.03812v1,Stem-cell therapy,2022-09-08T13:32:30Z,2022-09-08T13:32:30Z,"Optimal personalized therapies in colon-cancer induced immune response
   using a Fokker-Planck framework","  In this paper, a new stochastic framework to determine optimal combination
 therapies in colon cancer-induced immune response is presented. The dynamics of
