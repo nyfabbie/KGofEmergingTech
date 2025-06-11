@@ -9,6 +9,7 @@ import ast
 import hashlib
 import pandas as pd
 from rapidfuzz import fuzz, process  # Add this import at the top
+import re
 
 # ---------- helpers -------------------------------------------------
 
@@ -70,10 +71,10 @@ def clean_and_merge(papers_raw, techs_raw):
 
     return tech_df, paper_df, edge_df
 
-# These synonyms and related terms will help your fuzzy matching catch more real-world variations and abbreviations for each emerging technology.
+# These synonyms and related terms will help fuzzy matching catch more real-world variations and abbreviations for each emerging technology.
 TECH_SYNONYMS = {
     "artificial intelligence": [
-        "artificial intelligence", "AI", "machine intelligence", "machine learning", "deep learning", "neural network"
+        "artificial intelligence", "AI", ".ai", "ai", "machine intelligence", "machine learning", "deep learning", "neural network"
     ],
     "3D printing": [
         "3D printing", "additive manufacturing", "rapid prototyping", "3d printer", "digital fabrication"
@@ -110,34 +111,46 @@ TECH_SYNONYMS = {
     ],
 }
 
-def match_startups_to_techs(startups_df, tech_names, threshold=80):
+def match_startups_to_techs(startups_df, tech_names, threshold=80, save_csv_path=None):
     """
     Fuzzy matches startups to technologies using rapidfuzz.
-    Returns a DataFrame with columns: startup_name, technology, score
+    Returns a DataFrame with columns: startup_name, technology, score.
+    If save_csv_path is provided, saves the matches to that CSV.
+    Keeps only the highest score for each (startup_name, technology) pair.
     """
     matches = []
-    # Expand tech names with synonyms
-    expanded_tech_names = []
+    # Build a mapping from synonym to canonical tech name
+    synonym_to_canonical = {}
     for tech in tech_names:
-        synonyms = TECH_SYNONYMS.get(tech.lower(), [tech])
-        expanded_tech_names.extend(synonyms)
-    expanded_tech_names = list(set(expanded_tech_names))  # Remove duplicates
+        for synonym in TECH_SYNONYMS.get(tech.lower(), [tech]):
+            synonym_to_canonical[synonym.lower()] = tech
 
     for idx, row in startups_df.iterrows():
-        # Combine relevant fields, handle NaNs
         text = " ".join([
             str(row.get('long_description', '')),
             str(row.get('industry', '')),
             str(row.get('short_description', '')),
-            str(row.get('tags', ''))
+            str(row.get('tags', '')),
+            str(row.get('name', ''))
         ]).lower()
-        # Fuzzy match each tech name to the combined text
-        for tech in expanded_tech_names:
-            score = fuzz.partial_ratio(tech.lower(), text)
+        for synonym, canonical in synonym_to_canonical.items():
+            if len(synonym) <= 3:  # e.g., "AI", "AR"
+                # Only match as a whole word
+                if re.search(rf"\b{re.escape(synonym)}\b", text):
+                    score = 100
+                else:
+                    score = 0
+            else:
+                score = fuzz.token_set_ratio(synonym, text)
             if score >= threshold:
                 matches.append({
                     "startup_name": row.get("name"),
-                    "technology": tech,
+                    "technology": canonical,
                     "score": score
                 })
-    return pd.DataFrame(matches)
+    matches_df = pd.DataFrame(matches)
+    # Keep only the row with the highest score for each (startup_name, technology) pair
+    matches_df = matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
+    if save_csv_path:
+        matches_df.to_csv(save_csv_path, index=False)
+    return matches_df
