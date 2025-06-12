@@ -35,10 +35,8 @@ def fetch_arxiv(queries, max_results=20):
     return all_results
 
 
-def parse_et(data, query, output_path="data/arxiv_papers_res.csv"):
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-
-    root = ET.fromstring(data)
+def parse_et(response, query):
+    root = ET.fromstring(response)
     ns = {
         'atom': 'http://www.w3.org/2005/Atom',
         'arxiv': 'http://arxiv.org/schemas/atom',
@@ -60,6 +58,4 @@ def parse_et(data, query, output_path="data/arxiv_papers_res.csv"):
 
     df = pd.DataFrame(entries).drop_duplicates(subset='id').reset_index(drop=True)
 
-    if not df.empty:
-        df.to_csv(output_path, index=False, mode='a', header=not os.path.exists(output_path))
-        print(f"Saved {len(df)} entries to {output_path}")
+    return df

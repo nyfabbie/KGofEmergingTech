@@ -16,6 +16,7 @@
 import kagglehub
 import os
 from kagglehub import KaggleDatasetAdapter
+import pandas as pd
 
 
 def fetch_crunchbase(tech_names):
@@ -37,12 +38,6 @@ def fetch_crunchbase(tech_names):
     )
 
     print("First 5 records:", df.head())
-
-    # Save to data folder
-    output_path = "data/crunchbase_startups_res.csv"
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    df.to_csv(output_path, index=False)
-    print(f"Saved Crunchbase startups to {output_path}")
 
     return df
 

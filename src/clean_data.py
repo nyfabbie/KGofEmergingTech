@@ -22,31 +22,10 @@ def _paper_id(arxiv_url: str) -> str:
 
 # ---------- public API ---------------------------------------------
 
-def clean_wikidata(df_raw: pd.DataFrame) -> pd.DataFrame:
-    df = (
-        df_raw
-        .dropna(subset=["qid"])              # keep only matched ones
-        .assign(name=lambda d: d["label"].str.strip(),
-                tech_key=lambda d: d["label"].map(_normalise))
-        [["qid", "name", "description", "tech_key"]]
-        .drop_duplicates("qid")
-    )
-    return df
 
 
 def clean_arxiv(raw_list: list[dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
-    # """raw_list is the `papers` returned by fetch_arxiv()"""
-    # rows = []
-    # for d in raw_list:
-    #     if not d["response"]:
-    #         continue
-    #     csv_rows = pd.read_csv(
-    #         pd.compat.StringIO(d["response"]),  # already parsed by parse_et?
-    #     )
-    # If used parse_et to append to CSV, simply load that CSV here
     csv_rows = pd.read_csv("data/arxiv_papers_res.csv")
-
-    csv_rows["tech_key"] = csv_rows["technology"].map(_normalise)
     csv_rows["paper_id"] = csv_rows["id"].map(_paper_id)
     csv_rows["published"] = pd.to_datetime(csv_rows["published"])
     csv_rows["authors"] = csv_rows["authors"].apply(
@@ -54,22 +33,11 @@ def clean_arxiv(raw_list: list[dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
     )
 
     papers_df = (
-        csv_rows[["paper_id", "id", "title", "summary",
-                  "published"]]
+        csv_rows[["paper_id", "id", "title", "summary", "published"]]
         .drop_duplicates("paper_id")
     )
-    edges_df = csv_rows[["paper_id", "tech_key"]]
-    return papers_df, edges_df
 
-
-def clean_and_merge(papers_raw, techs_raw):
-    tech_df  = clean_wikidata(pd.DataFrame(techs_raw))
-    paper_df, edge_df = clean_arxiv(papers_raw)
-
-    # keep only edges whose tech_key exists in tech_df
-    edge_df = edge_df.merge(tech_df[["tech_key", "qid"]], on="tech_key")
-
-    return tech_df, paper_df, edge_df
+    return papers_df
 
 # These synonyms and related terms will help fuzzy matching catch more real-world variations and abbreviations for each emerging technology.
 TECH_SYNONYMS = {
@@ -111,19 +79,21 @@ TECH_SYNONYMS = {
     ],
 }
 
-def match_startups_to_techs(startups_df, tech_names, threshold=80, save_csv_path=None):
+def match_startups_to_techs(startups_df, techs_df, threshold=80):
     """
     Fuzzy matches startups to technologies using rapidfuzz.
-    Returns a DataFrame with columns: startup_name, technology, score.
+    Returns a DataFrame with columns: startup_name, technology, qid, score.
     If save_csv_path is provided, saves the matches to that CSV.
     Keeps only the highest score for each (startup_name, technology) pair.
     """
     matches = []
-    # Build a mapping from synonym to canonical tech name
-    synonym_to_canonical = {}
-    for tech in tech_names:
-        for synonym in TECH_SYNONYMS.get(tech.lower(), [tech]):
-            synonym_to_canonical[synonym.lower()] = tech
+    # Build a mapping from synonym to canonical tech name and QID
+    synonym_to_canonical_qid = {}
+    for _, tech in techs_df.iterrows():
+        tech_name = tech['name']
+        qid = tech.get('qid', None)
+        for synonym in TECH_SYNONYMS.get(tech_name.lower(), [tech_name]):
+            synonym_to_canonical_qid[synonym.lower()] = (tech_name, qid)
 
     for idx, row in startups_df.iterrows():
         text = " ".join([
@@ -133,7 +103,7 @@ def match_startups_to_techs(startups_df, tech_names, threshold=80, save_csv_path
             str(row.get('tags', '')),
             str(row.get('name', ''))
         ]).lower()
-        for synonym, canonical in synonym_to_canonical.items():
+        for synonym, (canonical, qid) in synonym_to_canonical_qid.items():
             if len(synonym) <= 3:  # e.g., "AI", "AR"
                 # Only match as a whole word
                 if re.search(rf"\b{re.escape(synonym)}\b", text):
@@ -142,15 +112,36 @@ def match_startups_to_techs(startups_df, tech_names, threshold=80, save_csv_path
                     score = 0
             else:
                 score = fuzz.token_set_ratio(synonym, text)
-            if score >= threshold:
+            if score >= threshold and qid is not None:
                 matches.append({
                     "startup_name": row.get("name"),
                     "technology": canonical,
+                    "qid": qid,
                     "score": score
                 })
     matches_df = pd.DataFrame(matches)
     # Keep only the row with the highest score for each (startup_name, technology) pair
     matches_df = matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
-    if save_csv_path:
-        matches_df.to_csv(save_csv_path, index=False)
+    
     return matches_df
+
+def match_papers_to_tech(papers_raw, techs_df):
+    """
+    Maps each paper to the QID of its technology (using the technology column in papers_raw and the name/qid in techs_df).
+    Saves a CSV with columns: id, qid.
+    """
+    tech_name_to_qid = dict(zip(techs_df['name'], techs_df['qid']))
+    papers_raw["paper_id"] = papers_raw["id"].map(_paper_id)
+
+    mapped = []
+    for _, row in papers_raw.iterrows():
+        tech_name = row.get('technology')
+        qid = tech_name_to_qid.get(tech_name)
+        if qid:
+            mapped.append({
+                'paper_id': row.get('paper_id'),
+                'qid': qid
+            })
+    mapped_df = pd.DataFrame(mapped)        
+    return mapped_df
+
