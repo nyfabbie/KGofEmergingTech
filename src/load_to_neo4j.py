@@ -51,8 +51,20 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df):
             name = startup['name'].strip()
             tx.run("""
                 MERGE (s:Startup {name: $name})
-                SET s.description = $desc
-            """, name=name, desc=startup['long_description'])
+                SET s.description = $desc,
+                    s.homepage = $homepage,
+                    s.category = $category,
+                    s.funding = $funding,
+                    s.status = $status,
+                    s.region = $region
+            """, name=name,
+                desc=startup.get('long_description', ''),
+                homepage=startup.get('homepage_url', ''),
+                category=startup.get('category_list', ''),
+                funding=startup.get('funding_total_usd', ''),
+                status=startup.get('status', ''),
+                region=startup.get('region', ''))
+
 
         # Startup to Technology edges
         for _, match in matches_df.iterrows():
