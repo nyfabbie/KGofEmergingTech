@@ -9,13 +9,15 @@ from neo4j import GraphDatabase
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
-from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv
+from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups
 from src.load_to_neo4j import load_graph
 
 wikidata_csv_path = "data/wikidata_techs_res.csv"
 crunchbase_csv_path = "data/crunchbase_startups_res.csv"
 yc_csv_path = "data/ycombinator_startups_res.csv"
 arxiv_csv_path = "data/arxiv_papers_res.csv"
+brightdata_path = "data/crunchbase-companies-information.csv"
+
 
 tech_startup_csv_path = "data/matches_tech_startup.csv"
 tech_paper_csv_path = "data/matches_tech_paper.csv"
@@ -49,12 +51,6 @@ def check_cache_files():
         if not os.path.exists(file):
             raise FileNotFoundError(f"Required cache file '{file}' does not exist. Set USE_CACHE to False to fetch fresh data.")
 
-def normalize_name(name):
-    import re
-    if pd.isnull(name):
-        return ""
-    return re.sub(r'[^a-z0-9]', '', name.lower())
-
 
 USE_CACHE = True  # Set to False for production
 
@@ -66,11 +62,11 @@ if USE_CACHE:
     startups_yc = pd.read_csv(yc_csv_path)
     startups_crunchbase = pd.read_csv(crunchbase_csv_path)
     arxiv_df = pd.read_csv(arxiv_csv_path)
+    cb_info_df = pd.read_csv(brightdata_path, low_memory=False)
 
-    matches_df = pd.read_csv(tech_startup_csv_path)
-    edge_df = pd.read_csv(tech_paper_csv_path)
 
-    paper_df = clean_arxiv(arxiv_df)
+    # matches_df = pd.read_csv(tech_startup_csv_path)
+    # edge_df = pd.read_csv(tech_paper_csv_path)
 else:
     # Wikidate
     techs = fetch_wikidata(emerging_technologies)
@@ -80,10 +76,9 @@ else:
     startups_yc, startups_crunchbase = fetch_crunchbase()
     startups_yc.to_csv(yc_csv_path, index=False)
     startups_crunchbase.to_csv(crunchbase_csv_path, index=False)
-    print(f"Saved Crunchbase startups to {crunchbase_csv_path } and YCombinator startups to {yc_csv_path}")
+    cb_info_df = pd.read_csv(brightdata_path, low_memory=False)
+    print(f"Saved Crunchbase startups to {crunchbase_csv_path }, YCombinator startups to {yc_csv_path} and Brightdata info to {brightdata_path}")
     # Arxiv
-
-    
     papers = fetch_arxiv(emerging_technologies)
     if os.path.exists(arxiv_csv_path):
         os.remove(arxiv_csv_path)
@@ -91,52 +86,38 @@ else:
         if paper["response"]:
             df = parse_et(paper["response"], paper["query"])
             df.to_csv(arxiv_csv_path, index=False, mode='a', header=not os.path.exists(arxiv_csv_path))
-    # arxiv_df = pd.read_csv(arxiv_csv_path) # Uncomment in case arxiv refused to fetch data
 
-    # Tech to tech matches ???
-    print("Saved to data/wikidata_techs_res.csv with", len(techs_df), "entries.")
+# MATCHING
+# Tech to tech matches ???
+print("Saved to data/wikidata_techs_res.csv with", len(techs_df), "entries.")
 
-    # Tech to paper matches
-    papers_raw = pd.read_csv(arxiv_csv_path)
-    edge_df = match_papers_to_tech(papers_raw, techs_df)
-    edge_df.to_csv(tech_paper_csv_path, index=False)
-    paper_df = clean_arxiv(papers_raw)
+# Tech to paper matches
+papers_raw = pd.read_csv(arxiv_csv_path)
+edge_df = match_papers_to_tech(papers_raw, techs_df)
+edge_df.to_csv(tech_paper_csv_path, index=False)
+paper_df = clean_arxiv(papers_raw)
 
-    # Tech to startup matches 
-    matches_df = match_startups_to_techs(startups_yc, techs_df)
-    matches_df.to_csv(tech_startup_csv_path, index=False)
+# Tech to startup matches 
+if 'region' in startups_yc.columns:
+    startups_yc = startups_yc.rename(columns={'region': 'location'})
+matches_df = match_startups_to_techs(startups_yc, techs_df)
+matches_df.to_csv(tech_startup_csv_path, index=False)
+cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","industries","full_description"])
+cb_info_matches_df.to_csv("data/matches_tech_cbinfo.csv", index=False)
 
-# YCOMBiNATOR enrichment (aka combine incomplete YC startups with Crunchbase data)
-startups_yc["norm_name"] = startups_yc["name"].apply(normalize_name)
-startups_crunchbase["norm_name"] = startups_crunchbase["name"].apply(normalize_name)
+# Merge the two matches DataFrames
+all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)
+all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
 
-# Merge YC-labeled startups with Crunchbase data by normalized name
-startups_df = startups_yc.merge(
-    startups_crunchbase[
-        ['norm_name', 'homepage_url', 'category_list', 'funding_total_usd', 'status', 'region']
-    ],
-    on="norm_name", how="left", suffixes=('', '_crunchbase')
-)
-# Remove all commas and convert to int/float
-startups_df['funding_total_usd'] = (
-    startups_df['funding_total_usd']
-    .replace({',': '', r'\s*-\s*': ''}, regex=True)  # Remove commas and lone dashes
-    .replace('', pd.NA)  # Replace empty strings with NA
-)
-startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
+startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
 
-# Ensures 'by' columns are not null when dropping duplicates
-startups_df = startups_df.sort_values(
-    by=['funding_total_usd'],
-    ascending=[False],
-    na_position='last'
-)
-startups_df = startups_df.drop_duplicates(subset=['norm_name'], keep='first')
-
-print(len(startups_df), "expanded startup nodes", )
+print(len(startups_df_filtered), "filtered startup nodes", )
 print(len(startups_yc), "startup nodes from ycombinator", )
 print(len(startups_crunchbase), "startup nodes from crunchbase", )
-print(len(matches_df), "startup to tech edges", )
+print(len(cb_info_df), "startup nodes from brightdata", )
+print(len(cb_info_matches_df), "startups from brightdata api to tech edges", )
+print(len(matches_df), "startups from yc+crunchbase to tech edges", )
 print(len(techs_df), "tech nodes")
 print(len(paper_df), "paper nodes")
 print(len(edge_df), "paper to tech edges")
@@ -147,5 +128,5 @@ wait_for_neo4j(
     os.getenv("NEO4J_PASSWORD", "password")
 )
 
-load_graph(techs_df, paper_df, edge_df, startups_df, matches_df)
+load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df)
 print("✓ Data loaded into Neo4j")

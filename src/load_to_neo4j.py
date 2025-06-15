@@ -12,7 +12,7 @@ USER = os.getenv("NEO4J_USER", "neo4j")
 PWD  = os.getenv("NEO4J_PASSWORD", "password")
 
 
-def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df):
+def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, cb_info_df):
     # print(tech_df.head())
     # print(tech_df.columns)
     driver = GraphDatabase.driver(URI, auth=(USER, PWD))
@@ -46,24 +46,76 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df):
                 MERGE (p)-[:MENTIONS]->(t)
             """, pid=r.paper_id, qid=r.qid)
 
-        # Startup nodes
-        for _, startup in startups_df.iterrows():
-            name = startup['name'].strip()
+        # Startup nodes 1
+        for _, row in cb_info_df.iterrows():
+            name = row['name'].strip()
             tx.run("""
                 MERGE (s:Startup {name: $name})
-                SET s.description = $desc,
+                SET s.description = $about,
+                    s.industries = $industries,
+                    s.region = $region,
+                    s.website = $website,
+                    s.founded_date = $founded_date,
+                    s.num_employees = $num_employees,
+                    s.funding = $funding_total,
+                    s.funding_currency = $funding_currency,
+                    s.operating_status = $operating_status,
+                    s.company_type = $company_type,
+                   s.location = $location
+            """, name=name,
+                about=row.get('about', ''),
+                industries=row.get('industries', ''),
+                region=row.get('region', ''),
+                website=row.get('website', ''),
+                founded_date=row.get('founded_date', ''),
+                num_employees=row.get('num_employees', ''),
+                funding_total=row.get('funding_total', 0) if pd.notnull(row.get('funding_total', None)) else None,
+                currency=row.get('funding_currency', ''),
+                funding_currency=row.get('funding_currency', ''),
+                operating_status=row.get('operating_status', ''),
+                company_type=row.get('company_type', ''),
+                location=row.get('location_extracted', '')
+                )
+
+        # Startup nodes 2
+        for _, startup in startups_df.iterrows():
+            name = startup['name'].strip()  
+            tx.run("""
+                MERGE (s:Startup {name: $name})
+                SET s.description = 
+                    CASE 
+                        WHEN s.description IS NULL OR s.description = '' THEN $desc
+                        WHEN $desc IS NULL OR $desc = '' THEN s.description
+                        WHEN s.description CONTAINS $desc THEN s.description
+                        ELSE s.description + ' | ' + $desc
+                    END,
                     s.homepage = $homepage,
                     s.category = $category,
                     s.funding = $funding,
                     s.status = $status,
-                    s.region = $region
+                    s.location = 
+                        CASE
+                            WHEN s.location IS NULL OR s.location = '' THEN $location
+                            WHEN $location IS NULL OR $location = '' THEN s.location
+                            WHEN s.location CONTAINS $location THEN s.location
+                            ELSE s.location + ' | ' + $location
+                        END,
+                    s.region = 
+                        CASE
+                            WHEN s.region IS NULL OR s.region = '' THEN $region
+                            WHEN $region IS NULL OR $region = '' THEN s.region
+                            WHEN s.region CONTAINS $region THEN s.region
+                            ELSE s.region + ' | ' + $region
+                        END
             """, name=name,
                 desc=startup.get('long_description', ''),
                 homepage=startup.get('homepage_url', ''),
                 category=startup.get('category_list', ''),
-                funding=startup.get('funding_total_usd', ''),
+                funding=startup.get('funding_total_usd', 0) if pd.notnull(startup.get('funding_total_usd', None)) else None,
                 status=startup.get('status', ''),
-                region=startup.get('region', ''))
+                location=startup.get('location', ''),
+                region=startup.get('region', '')
+                )
 
 
         # Startup to Technology edges

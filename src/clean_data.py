@@ -10,19 +10,197 @@ import hashlib
 import pandas as pd
 from rapidfuzz import fuzz, process  # Add this import at the top
 import re
+import json
 
 # ---------- helpers -------------------------------------------------
 
 def _normalise(text: str) -> str:
     return text.lower().strip()
 
+def normalize_name(name):
+    import re
+    if pd.isnull(name):
+        return ""
+    return re.sub(r'[^a-z0-9]', '', name.lower())
+
 def _paper_id(arxiv_url: str) -> str:
     """E.g 2406.04641v1  →  2406.04641v1   (unique + short)"""
     return arxiv_url.rsplit("/", 1)[-1]
 
-# ---------- public API ---------------------------------------------
+def extract_funding_total_and_currency(row):
+    """
+    Extracts the most accurate funding_total and funding_currency for a Crunchbase company row.
+    Priority:
+    1. funds_raised (JSON, single company)
+    2. financials_highlights (JSON, single company)
+    3. funding_total (JSON, single company)
+    4. featured_list (company-specific entry)
+    5. featured_list (first entry, fallback)
+    """
+    import json
+    # 1. funds_raised
+    if "funds_raised" in row and pd.notnull(row["funds_raised"]) and row["funds_raised"] != "":
+        try:
+            data = json.loads(row["funds_raised"])
+            if isinstance(data, dict) and "value_usd" in data:
+                return data["value_usd"], data.get("currency", "USD")
+        except Exception:
+            pass
+    # 2. financials_highlights
+    if "financials_highlights" in row and pd.notnull(row["financials_highlights"]) and row["financials_highlights"] != "":
+        try:
+            data = json.loads(row["financials_highlights"])
+            if isinstance(data, dict) and "value_usd" in data:
+                return data["value_usd"], data.get("currency", "USD")
+        except Exception:
+            pass
+    # 3. funding_total (JSON)
+    if "funding_total" in row and pd.notnull(row["funding_total"]) and row["funding_total"] != "":
+        try:
+            data = json.loads(row["funding_total"])
+            if isinstance(data, dict) and "value_usd" in data:
+                return data["value_usd"], data.get("currency", "USD")
+        except Exception:
+            pass
+    # 4. featured_list (company-specific entry)
+    if "featured_list" in row and pd.notnull(row["featured_list"]) and row["featured_list"] != "":
+        try:
+            data = json.loads(row["featured_list"])
+            if isinstance(data, list) and "name" in row and row["name"]:
+                for entry in data:
+                    if "org_funding_total" in entry and "title" in entry:
+                        if row["name"].lower() in entry["title"].lower():
+                            org_funding = entry["org_funding_total"]
+                            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
+                            currency = org_funding.get("currency", "USD")
+                            return value, currency
+        except Exception:
+            pass
+    # 5. featured_list (first entry, fallback, but only if it's not an obvious aggregate)
+    if "featured_list" in row and pd.notnull(row["featured_list"]) and row["featured_list"] != "":
+        try:
+            data = json.loads(row["featured_list"])
+            if isinstance(data, list) and len(data) > 0 and "org_funding_total" in data[0]:
+                # Only use if the title matches the company name (already checked above), otherwise skip (likely aggregate)
+                return None, None
+        except Exception:
+            pass
+    return None, None
+
+def extract_funding_total_and_currency_from_featured_list(cell, company_name=None):
+    if pd.isnull(cell) or not isinstance(cell, str) or cell.strip() == "":
+        return None, None
+    try:
+        data = json.loads(cell)
+        # Try to find an entry where the title contains the company name
+        if company_name and isinstance(data, list):
+            for entry in data:
+                if "org_funding_total" in entry and "title" in entry:
+                    if company_name.lower() in entry["title"].lower():
+                        org_funding = entry["org_funding_total"]
+                        value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
+                        currency = org_funding.get("currency", "USD")
+                        return value, currency
+        # Otherwise, just use the first entry
+        if isinstance(data, list) and len(data) > 0 and "org_funding_total" in data[0]:
+            org_funding = data[0]["org_funding_total"]
+            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
+            currency = org_funding.get("currency", "USD")
+            return value, currency
+        elif isinstance(data, dict) and "org_funding_total" in data:
+            org_funding = data["org_funding_total"]
+            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
+            currency = org_funding.get("currency", "USD")
+            return value, currency
+    except Exception:
+        return None, None
+    return None, None
+
+def extract_location_from_json(cell):
+    """Extracts a comma-separated location string from a JSON list of location dicts."""
+    if pd.isnull(cell) or not isinstance(cell, str) or cell.strip() == "":
+        return None
+    try:
+        data = json.loads(cell)
+        if isinstance(data, list):
+            names = [entry["name"] for entry in data if "name" in entry]
+            return ", ".join(names)
+    except Exception:
+        return None
+    return None
+
+def clean_startups(startups_df, cb_info_df):
+    """
+    Clean and convert columns before passing to Neo4j.
+    Always extracts funding_total, funding_currency, and location from Crunchbase JSON columns.
+    """
+    # Using extraction logic
+    funding_info = cb_info_df.apply(lambda row: extract_funding_total_and_currency(row), axis=1)
+    cb_info_df["funding_total"] = funding_info.apply(lambda x: x[0])
+    cb_info_df["funding_currency"] = funding_info.apply(lambda x: x[1])
+
+    # Only process if Series is not empty and has at least one non-null value and is object dtype
+    if not cb_info_df['funding_total'].empty and not cb_info_df['funding_total'].dropna().empty:
+        if cb_info_df['funding_total'].dtype == object:
+            cb_info_df['funding_total'] = (
+                cb_info_df['funding_total']
+                .replace({',': '', r'\s*-\s*': ''}, regex=True)
+                .replace('', pd.NA)
+            )
+        cb_info_df['funding_total'] = pd.to_numeric(cb_info_df['funding_total'], errors='coerce')
+
+    # Extract location from location column if present and add as 'location_extracted'
+    if "location" in cb_info_df.columns:
+        cb_info_df["location_extracted"] = cb_info_df["location"].apply(extract_location_from_json)
+
+    if "funding_total_usd" in startups_df.columns and not startups_df['funding_total_usd'].empty and not startups_df['funding_total_usd'].dropna().empty:
+        if startups_df['funding_total_usd'].dtype == object:
+            startups_df['funding_total_usd'] = (
+                startups_df['funding_total_usd']
+                .replace({',': '', r'\s*-\s*': ''}, regex=True)
+                .replace('', pd.NA)
+            )
+        startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+    return startups_df, cb_info_df
 
 
+def enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
+    """
+    Enrich YC startups with Crunchbase data, deduplicate, and filter out those already in cb_info_df.
+    Returns startups_df_filtered (ready for Neo4j loading).
+    """
+    # Add normalized name columns
+    startups_yc["norm_name"] = startups_yc["name"].apply(normalize_name)
+    startups_crunchbase["norm_name"] = startups_crunchbase["name"].apply(normalize_name)
+    cb_info_df["norm_name"] = cb_info_df["name"].apply(normalize_name)
+
+    # Merge YC-labeled startups with Crunchbase data by normalized name
+    startups_df = startups_yc.merge(
+        startups_crunchbase[
+            ['norm_name', 'homepage_url', 'category_list', 'funding_total_usd', 'status', 'region']
+        ],
+        on="norm_name", how="left", suffixes=('', '_crunchbase')
+    )
+    # Remove all commas and convert to int/float
+    startups_df['funding_total_usd'] = (
+        startups_df['funding_total_usd']
+        .replace({',': '', r'\s*-\s*': ''}, regex=True)  # Remove commas and lone dashes
+        .replace('', pd.NA)  # Replace empty strings with NA
+    )
+    startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+
+    # Ensures 'by' columns are not null when dropping duplicates
+    startups_df = startups_df.sort_values(
+        by=['funding_total_usd'],
+        ascending=[False],
+        na_position='last'
+    )
+    startups_df = startups_df.drop_duplicates(subset=['norm_name'], keep='first')
+
+    # Add YC+Crunchbase merged startups only if not already present in cb_info_df
+    existing_names = set(cb_info_df["norm_name"])
+    startups_df_filtered = startups_df[~startups_df["norm_name"].isin(existing_names)]
+    return startups_df_filtered
 
 def clean_arxiv(raw_list: list[dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
     csv_rows = pd.read_csv("data/arxiv_papers_res.csv")
@@ -79,12 +257,11 @@ TECH_SYNONYMS = {
     ],
 }
 
-def match_startups_to_techs(startups_df, techs_df, threshold=80):
+def match_startups_to_techs(startups_df, techs_df,text_columns=None,  threshold=80):
     """
     Fuzzy matches startups to technologies using rapidfuzz.
     Returns a DataFrame with columns: startup_name, technology, qid, score.
-    If save_csv_path is provided, saves the matches to that CSV.
-    Keeps only the highest score for each (startup_name, technology) pair.
+    text_columns: list of columns to use for text matching (default: long_description, industry, short_description, tags, name)
     """
     matches = []
     # Build a mapping from synonym to canonical tech name and QID
@@ -95,13 +272,13 @@ def match_startups_to_techs(startups_df, techs_df, threshold=80):
         for synonym in TECH_SYNONYMS.get(tech_name.lower(), [tech_name]):
             synonym_to_canonical_qid[synonym.lower()] = (tech_name, qid)
 
+    # Default columns if not provided
+    if text_columns is None:
+        text_columns = ['long_description', 'industry', 'short_description', 'tags', 'name']
+
     for idx, row in startups_df.iterrows():
         text = " ".join([
-            str(row.get('long_description', '')),
-            str(row.get('industry', '')),
-            str(row.get('short_description', '')),
-            str(row.get('tags', '')),
-            str(row.get('name', ''))
+            str(row.get(col, '')) for col in text_columns
         ]).lower()
         for synonym, (canonical, qid) in synonym_to_canonical_qid.items():
             if len(synonym) <= 3:  # e.g., "AI", "AR"
