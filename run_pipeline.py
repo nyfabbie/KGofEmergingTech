@@ -4,13 +4,17 @@
 import pandas as pd
 import os
 import time
+import json
 from neo4j import GraphDatabase
+from dotenv import load_dotenv
 
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
 from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups
 from src.load_to_neo4j import load_graph
+
+load_dotenv()
 
 wikidata_csv_path = "data/wikidata_techs_res.csv"
 crunchbase_csv_path = "data/crunchbase_startups_res.csv"
@@ -21,7 +25,7 @@ brightdata_path = "data/crunchbase-companies-information.csv"
 
 tech_startup_csv_path = "data/matches_tech_startup.csv"
 tech_paper_csv_path = "data/matches_tech_paper.csv"
-emerging_technologies_file = "data/emerging_techs.csv"
+emerging_technologies_file = os.getenv("EMERGING_TECHS", "data/emerging_techs.json")
 
 def wait_for_neo4j(uri, user, pwd, max_retries=10, delay=2):
     for i in range(max_retries):
@@ -54,20 +58,26 @@ def check_cache_files():
 
 USE_CACHE = True  # Set to False for production
 
-# gets a list from csv
-emerging_technologies = pd.read_csv(emerging_technologies_file, header=None)[0].tolist()
+# gets a list from json
+with open(emerging_technologies_file, "r", encoding="utf-8") as f:
+    emerging_technologies_json = json.load(f)
+emerging_technologies = list(emerging_technologies_json.keys())
+
+
 if USE_CACHE:
+    print("   NOTICE: Using cached data files. Set USE_CACHE to False to fetch fresh data.")
     check_cache_files()
     techs_df = pd.read_csv(wikidata_csv_path)
     startups_yc = pd.read_csv(yc_csv_path)
     startups_crunchbase = pd.read_csv(crunchbase_csv_path)
     arxiv_df = pd.read_csv(arxiv_csv_path)
-    cb_info_df = pd.read_csv(brightdata_path, low_memory=False)
+    cb_info_df = pd.read_csv(brightdata_path, low_memory=False, keep_default_na=False)
 
 
     # matches_df = pd.read_csv(tech_startup_csv_path)
     # edge_df = pd.read_csv(tech_paper_csv_path)
 else:
+    print("   NOTICE: Fetching fresh data...")
     # Wikidate
     techs = fetch_wikidata(emerging_technologies)
     techs_df = pd.DataFrame(techs).drop_duplicates(subset="name").sort_values("name").reset_index(drop=True)
