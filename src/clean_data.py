@@ -231,7 +231,7 @@ try:
 except Exception:
     TECH_SYNONYMS = {}
 
-def match_startups_to_techs(startups_df, techs_df, text_columns=None, threshold=95):
+def match_startups_to_techs(startups_df, techs_df, text_columns=None, threshold=85):
     """
     Fuzzy matches startups to technologies using rapidfuzz.
     Returns a DataFrame with columns: startup_name, technology, qid, score.
@@ -257,15 +257,20 @@ def match_startups_to_techs(startups_df, techs_df, text_columns=None, threshold=
         ])
         text_lower = text.lower()
         for synonym, (canonical, qid) in synonym_to_canonical_qid.items():
-            if len(synonym) <= 3:
-                # Only match as a whole word, all-caps, in the original text
-                if re.search(rf"\b{re.escape(synonym)}\b", text):
+            clean_synonym = synonym.strip()
+            # Dynamic threshold: 95 if any word in the synonym is <4 chars, else normal
+            words = clean_synonym.split()
+            dynamic_threshold = 95 if any(len(w) < 4 for w in words) else threshold
+
+            if len(clean_synonym) <= 3:
+                # Only match as a whole word, case-insensitive, in the original text
+                if re.search(rf"\b{re.escape(clean_synonym)}\b", text, re.IGNORECASE):
                     score = 100
                 else:
                     score = 0
             else:
-                score = fuzz.token_set_ratio(synonym.lower(), text_lower)
-            if score >= threshold and qid is not None:
+                score = fuzz.token_set_ratio(clean_synonym.lower(), text_lower)
+            if score >= dynamic_threshold and qid is not None:
                 matches.append({
                     "startup_name": row.get("name"),
                     "technology": canonical,
