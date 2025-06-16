@@ -260,7 +260,7 @@ def match_startups_to_techs(startups_df, techs_df, text_columns=None, threshold=
             clean_synonym = synonym.strip()
             # Dynamic threshold: 95 if any word in the synonym is <4 chars, else normal
             words = clean_synonym.split()
-            dynamic_threshold = 95 if any(len(w) < 4 for w in words) else threshold
+            dynamic_threshold = 95 if any(len(w) <= 4 for w in words) else threshold
 
             if len(clean_synonym) <= 3:
                 # Only match as a whole word, case-insensitive, in the original text

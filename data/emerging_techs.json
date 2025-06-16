@@ -5,13 +5,13 @@
   "Blockchain": ["cryptocurrency", "digital currency","bitcoin","dapps", "blockchain", "distributed ledger", "DLT", "crypto", "cryptocurrency", "smart ledger"],
   "Cancer vaccine": ["cancer vaccine", "oncology vaccine", "therapeutic vaccine", "immunotherapy"],
   "Cultured meat": ["cultured meat", "lab-grown meat", "cell-based meat", "clean meat", "in vitro meat"],
-  "Data science": ["data platform", "analytics", "data-powered","data science", "data analytics", "big data", "data analysis", "data mining", "machine learning", "ETL", "ML"],
+  "Data science": ["data", "data platform", "analytics", "data-powered","data science", "data analytics", "big data", "data analysis", "data mining", "machine learning", "ETL", "ML"],
   "Gene therapy": ["gene therapy", "genetic therapy", "gene editing", "CRISPR", "genome editing"],
   "Neurotechnology": ["neurotechnology", "brain-computer interface", "BCI", "neural interface", "neurotech"],
   "Reusable launch vehicle": ["reusable launch vehicle", "RLV", "reusable rocket", "reusable spacecraft"],
   "Robotics": ["robotics", "robot", "robotic", "RPA"],
   "Stem-cell therapy": ["stem-cell therapy", "stem cell treatment", "regenerative medicine", "cell therapy"],
-  "Cloud computing": ["cloud", "cloud-based","SaaS", "cloud computing", "cloud native", "cloud services", "cloud technology"],
+  "Cloud computing": ["cloud", "cloud-based","SaaS", "cloud-computing", "cloud-native", "cloud-services", "cloud-technology"],
   "Quantum computing": ["Quantum computing","quantum processors", "quantum computer", "quantum technology", "quantum hardware"],
   "Virtual reality": ["Virtual reality", "VR", "immersive technology", "virtual environment", "virtual worlds", "metaverse"],
   "Nanotechnology": ["Nanotechnology", "nanotech", "nanoscale technology", "nanomaterials", "nanostructures"],
@@ -21,5 +21,5 @@
   "6G": ["6G", "6G technology", "sixth generation wireless", "6th generation mobile", "6G mobile networks", "6G mobile communication"],
   "Digital twin": ["Digital twin", "digital twin", "virtual twin", "digital replica", "virtual model", "digital representation"],
   "Spatial computing": ["Spatial computing", "spatial tech", "spatial technology", "spatial systems", "spatial data processing"],
-  "WebAssembly": ["WebAssembly", "Wasm", "web assembly", "webassembly", "binary instruction format for the web", "portable code"]
+  "WebAssembly": ["WebAssembly", "Wasm", "web assembly", "webassembly", "binary instruction format", "portable code"]
 }
