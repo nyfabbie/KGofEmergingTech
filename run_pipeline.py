@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
-from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups, deduplicate_startups
+from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups
 from src.load_to_neo4j import load_graph
 
 load_dotenv()
@@ -73,17 +73,9 @@ if USE_CACHE:
     arxiv_df = pd.read_csv(arxiv_csv_path)
     cb_info_df = pd.read_csv(brightdata_path, low_memory=False, keep_default_na=False)
 
-    # Deduplicate startups across both sources and assign startup_id
-    startups_yc, cb_info_df = deduplicate_startups(startups_yc, cb_info_df)
-    # Merge both sources into a single startups DataFrame
-    all_startups_df = pd.concat([startups_yc, cb_info_df], ignore_index=True)
-    all_startups_df = all_startups_df.drop_duplicates(subset=["startup_id"]).reset_index(drop=True)
-    # Unify funding columns: fill funding_total_usd with funding_total if missing
-    if 'funding_total_usd' in all_startups_df.columns and 'funding_total' in all_startups_df.columns:
-        all_startups_df['funding_total_usd'] = all_startups_df['funding_total_usd'].combine_first(all_startups_df['funding_total'])
-    # Convert to numeric
-    all_startups_df['funding_total_usd'] = pd.to_numeric(all_startups_df['funding_total_usd'], errors='coerce')
-    all_startups_df.to_csv("data/all_startups_merged.csv", index=False)
+
+    # matches_df = pd.read_csv(tech_startup_csv_path)
+    # edge_df = pd.read_csv(tech_paper_csv_path)
 else:
     print("   NOTICE: Fetching fresh data...")
     # Wikidate
@@ -95,15 +87,6 @@ else:
     startups_yc.to_csv(yc_csv_path, index=False)
     startups_crunchbase.to_csv(crunchbase_csv_path, index=False)
     cb_info_df = pd.read_csv(brightdata_path, low_memory=False)
-    # Deduplicate startups across both sources and assign startup_id
-    startups_yc, cb_info_df = deduplicate_startups(startups_yc, cb_info_df)
-    # Merge both sources into a single startups DataFrame
-    all_startups_df = pd.concat([startups_yc, cb_info_df], ignore_index=True)
-    all_startups_df = all_startups_df.drop_duplicates(subset=["startup_id"]).reset_index(drop=True)
-    if 'funding_total_usd' in all_startups_df.columns and 'funding_total' in all_startups_df.columns:
-        all_startups_df['funding_total_usd'] = all_startups_df['funding_total_usd'].combine_first(all_startups_df['funding_total'])
-    all_startups_df['funding_total_usd'] = pd.to_numeric(all_startups_df['funding_total_usd'], errors='coerce')
-    all_startups_df.to_csv("data/all_startups_merged.csv", index=False)
     print(f"Saved Crunchbase startups to {crunchbase_csv_path }, YCombinator startups to {yc_csv_path} and Brightdata info to {brightdata_path}")
     # Arxiv
     papers = fetch_arxiv(emerging_technologies)
@@ -139,7 +122,7 @@ all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_dupli
 startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
 startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
 
-print(len(all_startups_df), "filtered startup nodes", )
+print(len(startups_df_filtered), "filtered startup nodes", )
 print(len(startups_yc), "startup nodes from ycombinator", )
 print(len(startups_crunchbase), "startup nodes from crunchbase", )
 print(len(cb_info_df), "startup nodes from brightdata", )
@@ -155,5 +138,5 @@ wait_for_neo4j(
     os.getenv("NEO4J_PASSWORD", "password")
 )
 
-load_graph(techs_df, paper_df, edge_df, all_startups_df, all_matches_df, cb_info_df, tech_synonyms=emerging_technologies_json)
+load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df)
 print("✓ Data loaded into Neo4j")

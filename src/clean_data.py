@@ -204,32 +204,6 @@ def enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     startups_df_filtered = startups_df[~startups_df["norm_name"].isin(existing_names)]
     return startups_df_filtered
 
-def deduplicate_startups(startups_df1, startups_df2, threshold=92):
-    """
-    Deduplicate startups across two DataFrames using normalized names and fuzzy matching.
-    Returns two DataFrames with a new 'startup_id' column (canonical normalized name).
-    """
-    # Normalize names
-    startups_df1 = startups_df1.copy()
-    startups_df2 = startups_df2.copy()
-    startups_df1['norm_name'] = startups_df1['name'].apply(normalize_name)
-    startups_df2['norm_name'] = startups_df2['name'].apply(normalize_name)
-
-    # Build mapping from norm_name in df2 to df1 using fuzzy matching
-    id_map = {}
-    used = set()
-    for n1 in startups_df1['norm_name'].unique():
-        # Find best match in df2
-        matches = process.extract(n1, startups_df2['norm_name'].unique(), scorer=fuzz.ratio, limit=1)
-        if matches and matches[0][1] >= threshold:
-            n2 = matches[0][0]
-            id_map[n2] = n1
-            used.add(n1)
-    # Assign startup_id: for df1 it's its own norm_name, for df2 it's mapped if matched, else its own
-    startups_df1['startup_id'] = startups_df1['norm_name']
-    startups_df2['startup_id'] = startups_df2['norm_name'].apply(lambda n: id_map[n] if n in id_map else n)
-    return startups_df1, startups_df2
-
 def clean_arxiv(raw_list: list[dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
     csv_rows = pd.read_csv("data/arxiv_papers_res.csv")
     csv_rows["paper_id"] = csv_rows["id"].map(_paper_id)
