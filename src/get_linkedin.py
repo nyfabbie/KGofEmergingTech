@@ -1,22 +1,65 @@
-from staffspy import LinkedInAccount
+from staffspy import LinkedInAccount, DriverType, BrowserType
 import kagglehub
 from kagglehub import KaggleDatasetAdapter
+import staffspy.utils.utils as staffspy_utils
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+import os
+import getpass
 
+# --- MONKEY-PATCH ---
+# The original get_webdriver function in staffspy does not allow passing
+# the necessary arguments for Chrome to run inside Docker.
+# We are replacing it with our own version that adds these arguments.
+
+def patched_get_webdriver(driver_type: DriverType):
+    """Our patched version of get_webdriver that adds required Docker arguments."""
+    options = Options()
+    # These arguments are CRITICAL for running Chrome in a Docker container
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox") # Bypasses OS security model, a must for Docker.
+    options.add_argument("--disable-dev-shm-usage") # Overcomes limited resource problems.
+    options.add_argument("--disable-gpu") # Applicable to windows os only
+    options.add_argument("--window-size=1920,1080") # Set a window size
+
+    # --- NEW ANTI-DETECTION OPTIONS ---
+    # Make the browser look more like a real, human-operated browser
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option('useAutomationExtension', False)
+    
+    # Use the executable_path from the DriverType if provided
+    service = Service(executable_path=driver_type.executable_path)
+    
+    # Initialize the driver with our custom options
+    return webdriver.Chrome(service=service, options=options)
+
+# Apply the patch by replacing the original function with our new one
+staffspy_utils.get_webdriver = patched_get_webdriver
+
+# --- END OF PATCH ---
+
+
+# Now, when we call LinkedInAccount, it will use our patched function internally.
+# It uses environment variables (LINKEDIN_USER, LINKEDIN_PASSWORD) for automated login.
 account = LinkedInAccount(
-    # driver_type=DriverType( # if issues with webdriver, specify its exact location, download link in the FAQ
-    #     browser_type=BrowserType.CHROME,
-    #     executable_path="/Users/pc/chromedriver-mac-arm64/chromedriver"
-    # ),
-    session_file="session.pkl", # save login cookies to only log in once (lasts a week or so)
-    log_level=1, # 0 for no logs
+    driver_type=DriverType(
+        browser_type=BrowserType.CHROME,
+        executable_path="/usr/local/bin/chromedriver" # Explicitly provide the path
+    ),
+    username=input("Enter your LinkedIn email: "),
+    password=getpass.getpass("Enter your LinkedIn password: "),
+    log_level=1
 )
 
 # search by company
-def fetch_linkedin(startup: str):
+def fetch_linkedin(startup: str, max=100):
     staff = account.scrape_staff(
-        company_name="Cofactor Genomics",
+        company_name=startup,
         extra_profile_data=True,  # fetch all past experiences, schools, & skills
-        max_results=1000,  # can go up to 1000
+        max_results=max,  # can go up to 1000
         # block=True # if you want to block the user after scraping, to exclude from future search results
         # connect=True # if you want to connect with the users until you hit your limit
     )
@@ -24,22 +67,21 @@ def fetch_linkedin(startup: str):
     staff = staff.rename(columns={'search_term': 'start_up'})
     return staff
 
+
+# Job posting and skills scraped from Linkedin via Kaggle dataset in 2024
 def fetch_kaggle():
     jobs_skills = kagglehub.dataset_load(
         KaggleDatasetAdapter.PANDAS,
-        "asaniczka/1-3m-linkedin-jobs-and-skills-2024?select=job_skills.csv",
+        "asaniczka/1-3m-linkedin-jobs-and-skills-2024",
         "job_skills.csv",
     )
     jobs_skills = jobs_skills.set_index('job_link')
     job_postings = kagglehub.dataset_load(
         KaggleDatasetAdapter.PANDAS,
-        "asaniczka/1-3m-linkedin-jobs-and-skills-2024?select=linkedin_job_postings.csv",
+        "asaniczka/1-3m-linkedin-jobs-and-skills-2024",
         "linkedin_job_postings.csv",
-        pandas_kwargs={"columns": ["job_link", "job_title"]}
+        pandas_kwargs={"usecols": ["job_link", "job_title"]}
     )
     job_postings = job_postings.set_index('job_link')
     job_postings_skills = jobs_skills.join(job_postings, how='inner')
     return job_postings_skills
-
-
-fetch_linkedin("Cofactor Genomics").to_csv('C:/Users/abbie/PycharmProjects/KGofEmergingTech/data/linkedin_staff.csv', index=False)

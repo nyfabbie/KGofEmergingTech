@@ -5,6 +5,7 @@ import pandas as pd
 import os
 import time
 import json
+import random
 from neo4j import GraphDatabase
 from dotenv import load_dotenv
 
@@ -14,6 +15,10 @@ from src.get_wikidata import fetch_wikidata
 from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups
 from src.load_to_neo4j import load_graph
 
+
+from src.get_linkedin import fetch_linkedin, fetch_kaggle
+
+
 load_dotenv()
 
 wikidata_csv_path = "data/wikidata_techs_res.csv"
@@ -21,6 +26,8 @@ crunchbase_csv_path = "data/crunchbase_startups_res.csv"
 yc_csv_path = "data/ycombinator_startups_res.csv"
 arxiv_csv_path = "data/arxiv_papers_res.csv"
 brightdata_path = "data/crunchbase-companies-information.csv"
+linkedin_staff_csv_path = "data/linkedin_staff.csv"
+kaggle_jobs_csv_path = "data/kaggle_jobs_skills.csv"
 
 
 tech_startup_csv_path = "data/matches_tech_startup.csv"
@@ -48,7 +55,9 @@ def check_cache_files():
         crunchbase_csv_path,
         yc_csv_path,
         arxiv_csv_path,
-        tech_startup_csv_path
+        tech_startup_csv_path,
+        # linkedin_staff_csv_path,
+        # kaggle_jobs_csv_path
     ]
     
     for file in required_files:
@@ -72,8 +81,9 @@ if USE_CACHE:
     startups_crunchbase = pd.read_csv(crunchbase_csv_path)
     arxiv_df = pd.read_csv(arxiv_csv_path)
     cb_info_df = pd.read_csv(brightdata_path, low_memory=False, keep_default_na=False)
-
-
+    #final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
+    #kaggle_jobs_skills = pd.read_csv(kaggle_jobs_csv_path)
+    
     # matches_df = pd.read_csv(tech_startup_csv_path)
     # edge_df = pd.read_csv(tech_paper_csv_path)
 else:
@@ -97,7 +107,9 @@ else:
             df = parse_et(paper["response"], paper["query"])
             df.to_csv(arxiv_csv_path, index=False, mode='a', header=not os.path.exists(arxiv_csv_path))
 
-# MATCHING
+
+
+# ---------MATCHING ---------
 # Tech to tech matches ???
 print("Saved to data/wikidata_techs_res.csv with", len(techs_df), "entries.")
 
@@ -114,6 +126,48 @@ matches_df = match_startups_to_techs(startups_yc, techs_df)
 matches_df.to_csv(tech_startup_csv_path, index=False)
 cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","industries","full_description"])
 cb_info_matches_df.to_csv("data/matches_tech_cbinfo.csv", index=False)
+
+
+
+# --------- Fetch LinkedIn staff data ---------
+if not USE_CACHE:
+    # Fetch linkedin staff data from crunchbase companies
+    all_linkedin_staff = []
+    unique_startups = cb_info_matches_df['startup_name'].unique()
+    print(f"\nFound {len(unique_startups)} unique startups to scrape from LinkedIn.")
+
+    for i, startup_name in enumerate(unique_startups):
+        print(f"Scraping LinkedIn for '{startup_name}' ({i+1}/{len(unique_startups)})...")
+        try:
+            # Fetch up to 20 staff members for the current startup
+            linkedin_staff = fetch_linkedin(startup_name, 20)
+            if not linkedin_staff.empty:
+                all_linkedin_staff.append(linkedin_staff)
+            
+            # Sleep with a random delay to mimic human behavior and avoid getting blocked
+            sleep_time = random.uniform(5, 15) 
+            print(f"   ... success. Sleeping for {sleep_time:.2f} seconds.")
+            time.sleep(sleep_time)
+
+        except Exception as e:
+            print(f"   ... failed to scrape '{startup_name}': {e}")
+            # Optional: sleep even on failure to be extra cautious
+            time.sleep(5)
+
+    # Combine all the collected staff data into a single DataFrame
+    if all_linkedin_staff:
+        final_linkedin_df = pd.concat(all_linkedin_staff, ignore_index=True)
+        final_linkedin_df.to_csv(linkedin_staff_csv_path, index=False)
+        print(f"\n✓ Successfully scraped and saved staff data for {len(final_linkedin_df['start_up'].unique())} startups.")
+    else:
+        print("\nNo LinkedIn staff data was collected.")
+        final_linkedin_df = pd.DataFrame()
+
+# Fetch Kaggle job postings and skills
+kaggle_jobs_skills = fetch_kaggle()
+kaggle_jobs_skills.to_csv(kaggle_jobs_csv_path, index=False)
+
+
 
 # Merge the two matches DataFrames
 all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)

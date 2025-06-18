@@ -8,6 +8,7 @@ Ryvn,Cloud computing,Q483639,100.0
 Relvy AI,Artificial intelligence,Q11660,100.0
 Fix AI,Artificial intelligence,Q11660,100.0
 Forerunner AI,Artificial intelligence,Q11660,100.0
+Forerunner AI,Data science,Q2374463,100.0
 Andoria,Artificial intelligence,Q11660,100.0
 Andoria,Data science,Q2374463,100.0
 PearAI,Artificial intelligence,Q11660,100.0
@@ -23,29 +24,36 @@ Lightscreen AI,Artificial intelligence,Q11660,100.0
 supercontrast,Data science,Q2374463,100.0
 Revyl,Artificial intelligence,Q11660,100.0
 Vespper,Artificial intelligence,Q11660,100.0
+Vespper,Data science,Q2374463,100.0
 Sandra AI,Artificial intelligence,Q11660,100.0
 Sandra AI,Data science,Q2374463,100.0
 Regatta Storage,Artificial intelligence,Q11660,100.0
+Regatta Storage,Data science,Q2374463,100.0
 Astrix Health,Artificial intelligence,Q11660,100.0
 Circlemind,Artificial intelligence,Q11660,100.0
 Vocera,Artificial intelligence,Q11660,100.0
 issen,Artificial intelligence,Q11660,100.0
 Protegee,Artificial intelligence,Q11660,100.0
 Luthor,Artificial intelligence,Q11660,100.0
+Luthor,Data science,Q2374463,100.0
 CTGT,Artificial intelligence,Q11660,100.0
 Sphinx,Artificial intelligence,Q11660,100.0
 Replexica,Artificial intelligence,Q11660,100.0
 Codebuff,Artificial intelligence,Q11660,100.0
 BeerMe,Blockchain,Q20514253,100.0
 HYBRD,Artificial intelligence,Q11660,100.0
+HYBRD,Data science,Q2374463,100.0
 HYBRD,Wearable technology,Q4845080,100.0
 Aditto,Artificial intelligence,Q11660,100.0
 vly.ai,Artificial intelligence,Q11660,100.0
+Crustdata,Data science,Q2374463,100.0
 Gecko Security,Artificial intelligence,Q11660,100.0
 CollectWise,Artificial intelligence,Q11660,100.0
 Fresco,Artificial intelligence,Q11660,100.0
 Scrapybara,Artificial intelligence,Q11660,100.0
+Scrapybara,Data science,Q2374463,100.0
 Innate,Artificial intelligence,Q11660,100.0
+Innate,Data science,Q2374463,100.0
 Innate,Robotics,Q170978,100.0
 Metreecs,Artificial intelligence,Q11660,100.0
 Bramble,Artificial intelligence,Q11660,100.0
@@ -55,13 +63,16 @@ Melty,Artificial intelligence,Q11660,100.0
 Syntra,Artificial intelligence,Q11660,100.0
 PathPilot,Artificial intelligence,Q11660,100.0
 Standard Data,Artificial intelligence,Q11660,100.0
+Standard Data,Data science,Q2374463,100.0
 Merlin AI,Artificial intelligence,Q11660,100.0
 Soma Lab,Artificial intelligence,Q11660,100.0
 Midship,Artificial intelligence,Q11660,100.0
+Midship,Data science,Q2374463,100.0
 Kairo Health,Artificial intelligence,Q11660,100.0
 Poka Labs,Artificial intelligence,Q11660,100.0
 Poka Labs,Data science,Q2374463,100.0
 Simplex,Artificial intelligence,Q11660,100.0
+Simplex,Data science,Q2374463,100.0
 Fuse,Artificial intelligence,Q11660,100.0
 Cracked,Artificial intelligence,Q11660,100.0
 Spur,Artificial intelligence,Q11660,100.0
@@ -82,7 +93,9 @@ Spherecast,Artificial intelligence,Q11660,100.0
 Ceejay,Artificial intelligence,Q11660,100.0
 Cheers,Artificial intelligence,Q11660,100.0
 Superunit,Artificial intelligence,Q11660,100.0
+Superunit,Data science,Q2374463,100.0
 Ply Health,Artificial intelligence,Q11660,100.0
+Ply Health,Data science,Q2374463,100.0
 Mem0,Artificial intelligence,Q11660,100.0
 Synnax,Data science,Q2374463,100.0
 Comfy Deploy,Artificial intelligence,Q11660,100.0
@@ -91,8 +104,10 @@ Saphira AI,Artificial intelligence,Q11660,100.0
 Genie,Artificial intelligence,Q11660,100.0
 Spaceium Inc,Robotics,Q170978,100.0
 ProhostAI,Artificial intelligence,Q11660,100.0
+ProhostAI,Data science,Q2374463,100.0
 Educato AI,Artificial intelligence,Q11660,100.0
 Hamming AI,Artificial intelligence,Q11660,100.0
+Hamming AI,Data science,Q2374463,100.0
 Codes Health,Artificial intelligence,Q11660,100.0
 mdhub,Artificial intelligence,Q11660,100.0
 ClaimSorted,Artificial intelligence,Q11660,100.0
@@ -115,15 +130,19 @@ Moonglow,Cloud computing,Q483639,100.0
 Moonglow,Data science,Q2374463,100.0
 FirstWork,Artificial intelligence,Q11660,100.0
 Sorcerer,Artificial intelligence,Q11660,100.0
+Sorcerer,Data science,Q2374463,100.0
 ideate.xyz,Artificial intelligence,Q11660,100.0
 Decisional AI,Artificial intelligence,Q11660,100.0
+Decisional AI,Data science,Q2374463,100.0
 Unbound Security,Artificial intelligence,Q11660,100.0
+Unbound Security,Data science,Q2374463,100.0
 RetroFix AI,Artificial intelligence,Q11660,100.0
 Azalea Robotics Corporation,Artificial intelligence,Q11660,100.0
 Azalea Robotics Corporation,Robotics,Q170978,100.0
 Kura,Artificial intelligence,Q11660,100.0
 Kura,Cloud computing,Q483639,100.0
 NetworkOcean,Artificial intelligence,Q11660,100.0
+NetworkOcean,Data science,Q2374463,100.0
 Aviary,Artificial intelligence,Q11660,100.0
 Aviary,Data science,Q2374463,100.0
 Willow,Artificial intelligence,Q11660,100.0
@@ -134,6 +153,7 @@ Rewbi,Artificial intelligence,Q11660,100.0
 reworks,Artificial intelligence,Q11660,100.0
 "DeepSim, Inc.",Artificial intelligence,Q11660,100.0
 Storia AI,Artificial intelligence,Q11660,100.0
+Offstream,Data science,Q2374463,100.0
 Elevate,Artificial intelligence,Q11660,100.0
 Driftly,Artificial intelligence,Q11660,100.0
 Dodo,Artificial intelligence,Q11660,100.0
@@ -142,6 +162,7 @@ Neuralize,Data science,Q2374463,100.0
 Parahelp,Artificial intelligence,Q11660,100.0
 CodeViz,Artificial intelligence,Q11660,100.0
 Passage,Artificial intelligence,Q11660,100.0
+Passage,Data science,Q2374463,100.0
 Snowpilot,Artificial intelligence,Q11660,100.0
 Snowpilot,Data science,Q2374463,100.0
 MinusX,Artificial intelligence,Q11660,100.0
@@ -155,19 +176,24 @@ stormy.ai,Artificial intelligence,Q11660,100.0
 Merse,Artificial intelligence,Q11660,100.0
 AutoPallet Robotics,Robotics,Q170978,100.0
 Pulse AI,Artificial intelligence,Q11660,100.0
+Pulse AI,Data science,Q2374463,100.0
 Plume,Artificial intelligence,Q11660,100.0
 LedgerUp,Artificial intelligence,Q11660,100.0
 LedgerUp,Data science,Q2374463,100.0
 dmodel,Artificial intelligence,Q11660,100.0
 Lighthouz AI,Artificial intelligence,Q11660,100.0
+Lighthouz AI,Data science,Q2374463,100.0
 Modus,Artificial intelligence,Q11660,100.0
+Modus,Data science,Q2374463,100.0
 Mito Health,Artificial intelligence,Q11660,100.0
 Substrate,Artificial intelligence,Q11660,100.0
+Substrate,Data science,Q2374463,100.0
 Zenbase AI,Artificial intelligence,Q11660,100.0
 Zenbase AI,Prompt engineering,Q108941486,100.0
 Taxo,Artificial intelligence,Q11660,100.0
 TaxGPT,Artificial intelligence,Q11660,100.0
 Fazeshift,Artificial intelligence,Q11660,100.0
+Fazeshift,Data science,Q2374463,100.0
 Benchify,Artificial intelligence,Q11660,100.0
 Anthrogen,Gene therapy,Q213901,100.0
 Parity,Artificial intelligence,Q11660,100.0
@@ -177,8 +203,11 @@ Conveo,Artificial intelligence,Q11660,100.0
 Manaflow,Artificial intelligence,Q11660,100.0
 Fortress,Data science,Q2374463,100.0
 Panora,Artificial intelligence,Q11660,100.0
+Panora,Data science,Q2374463,100.0
+Promi,Data science,Q2374463,100.0
 Overstand Labs,Artificial intelligence,Q11660,100.0
 expand.ai,Artificial intelligence,Q11660,100.0
+expand.ai,Data science,Q2374463,100.0
 Clearly AI,Artificial intelligence,Q11660,100.0
 Saturn,Artificial intelligence,Q11660,100.0
 Olive Legal,Artificial intelligence,Q11660,100.0
@@ -186,6 +215,7 @@ ReactWise,Artificial intelligence,Q11660,100.0
 ReactWise,Robotics,Q170978,100.0
 Focal,Artificial intelligence,Q11660,100.0
 FINNY AI,Artificial intelligence,Q11660,100.0
+FINNY AI,Data science,Q2374463,100.0
 MagiCode,Artificial intelligence,Q11660,100.0
 "Hestus, Inc.",Artificial intelligence,Q11660,100.0
 Unriddle,Artificial intelligence,Q11660,100.0
@@ -193,7 +223,9 @@ Lumenary,Artificial intelligence,Q11660,100.0
 Lumenary,Data science,Q2374463,100.0
 Dimely,Artificial intelligence,Q11660,100.0
 Dimely,Cloud computing,Q483639,100.0
+Dimely,Data science,Q2374463,100.0
 Redouble AI,Artificial intelligence,Q11660,100.0
+Redouble AI,Data science,Q2374463,100.0
 Drillbit,Artificial intelligence,Q11660,100.0
 deepsilicon,Artificial intelligence,Q11660,100.0
 Seals AI,Artificial intelligence,Q11660,100.0
@@ -207,19 +239,23 @@ Conductor Quantum,Quantum computing,Q17995793,100.0
 Pax,Artificial intelligence,Q11660,100.0
 Guardian AI,Artificial intelligence,Q11660,100.0
 David AI,Artificial intelligence,Q11660,100.0
+David AI,Data science,Q2374463,100.0
 Modern Realty,Artificial intelligence,Q11660,100.0
 Distro,Artificial intelligence,Q11660,100.0
 Remade,Artificial intelligence,Q11660,100.0
 Zeit AI,Artificial intelligence,Q11660,100.0
+Zeit AI,Data science,Q2374463,100.0
 Intryc,Artificial intelligence,Q11660,100.0
 Ember Robotics,Robotics,Q170978,100.0
 Mineflow,Artificial intelligence,Q11660,100.0
 Mineflow,Data science,Q2374463,100.0
+Soff,Data science,Q2374463,100.0
 Parley,Artificial intelligence,Q11660,100.0
 Brighterway,Artificial intelligence,Q11660,100.0
 SchemeFlow,Artificial intelligence,Q11660,100.0
 Praxos,Artificial intelligence,Q11660,100.0
 Exa Laboratories,Artificial intelligence,Q11660,100.0
+Exa Laboratories,Data science,Q2374463,100.0
 Cerulion,Artificial intelligence,Q11660,100.0
 Cerulion,Robotics,Q170978,100.0
 Presti AI,Artificial intelligence,Q11660,100.0
@@ -237,6 +273,7 @@ Winford AI,Artificial intelligence,Q11660,100.0
 Baseline AI,Artificial intelligence,Q11660,100.0
 Baseline AI,Data science,Q2374463,100.0
 Odo,Artificial intelligence,Q11660,100.0
+Finosu,Data science,Q2374463,100.0
 &AI,Artificial intelligence,Q11660,100.0
 Haystack Software,Artificial intelligence,Q11660,100.0
 Helium,Artificial intelligence,Q11660,100.0
@@ -246,6 +283,7 @@ Ionworks,Cloud computing,Q483639,100.0
 Dataleap,Artificial intelligence,Q11660,100.0
 Dataleap,Data science,Q2374463,100.0
 Thyme,Artificial intelligence,Q11660,100.0
+Lumen Orbit,Data science,Q2374463,100.0
 ZeroPath,Artificial intelligence,Q11660,100.0
 Argil,Artificial intelligence,Q11660,100.0
 Vendra,Artificial intelligence,Q11660,100.0
@@ -257,6 +295,7 @@ Assembly HOA,Artificial intelligence,Q11660,100.0
 autarc,Artificial intelligence,Q11660,100.0
 autarc,Sustainable energy,Q1962383,100.0
 Sepal AI,Artificial intelligence,Q11660,100.0
+Sepal AI,Data science,Q2374463,100.0
 Simplifine,Artificial intelligence,Q11660,100.0
 Simplifine,Data science,Q2374463,100.0
 Focus Buddy,Artificial intelligence,Q11660,100.0
@@ -271,6 +310,7 @@ Mindely,Artificial intelligence,Q11660,100.0
 TradeFlow,Artificial intelligence,Q11660,100.0
 Elayne,Artificial intelligence,Q11660,100.0
 Oway,Data science,Q2374463,100.0
+Bucket Robotics,Data science,Q2374463,100.0
 Bucket Robotics,Robotics,Q170978,100.0
 SureBright,Artificial intelligence,Q11660,100.0
 Saldor,Artificial intelligence,Q11660,100.0
@@ -278,6 +318,7 @@ Usul,Artificial intelligence,Q11660,100.0
 "Diode Computers, Inc.",Artificial intelligence,Q11660,100.0
 AI Sell,Artificial intelligence,Q11660,100.0
 Keet,Artificial intelligence,Q11660,100.0
+Keet,Data science,Q2374463,100.0
 et al.,Artificial intelligence,Q11660,100.0
 Pharos,Artificial intelligence,Q11660,100.0
 Vera Health,Artificial intelligence,Q11660,100.0
@@ -286,12 +327,14 @@ Pipeshift,Data science,Q2374463,100.0
 Pipeshift,Robotics,Q170978,100.0
 RowBoat Labs,Artificial intelligence,Q11660,100.0
 Henry,Artificial intelligence,Q11660,100.0
+Henry,Data science,Q2374463,100.0
 Ficra,Artificial intelligence,Q11660,100.0
 Hey Revia,Artificial intelligence,Q11660,100.0
 Anglera,Artificial intelligence,Q11660,100.0
 Anglera,Data science,Q2374463,100.0
 Felafax,Artificial intelligence,Q11660,100.0
 Felafax,Data science,Q2374463,100.0
+XTraffic,Data science,Q2374463,100.0
 Void,Artificial intelligence,Q11660,100.0
 Capitol AI,Artificial intelligence,Q11660,100.0
 Overlap,Artificial intelligence,Q11660,100.0
@@ -301,6 +344,8 @@ Mica AI,Artificial intelligence,Q11660,100.0
 Affil.ai,Artificial intelligence,Q11660,100.0
 Arva AI,Artificial intelligence,Q11660,100.0
 Callback,Artificial intelligence,Q11660,100.0
+Callback,Data science,Q2374463,100.0
+Jet Admin,Data science,Q2374463,100.0
 Jenfi,Data science,Q2374463,100.0
 Legionfarm,Virtual reality,Q170519,100.0
 Menten AI,Artificial intelligence,Q11660,100.0
@@ -308,16 +353,20 @@ Menten AI,Quantum computing,Q17995793,100.0
 RoboTire,Robotics,Q170978,100.0
 Glisten AI,Artificial intelligence,Q11660,100.0
 Ardis AI,Artificial intelligence,Q11660,100.0
+Ardis AI,Data science,Q2374463,100.0
 Orbiter,Data science,Q2374463,100.0
 Clayboard,Artificial intelligence,Q11660,100.0
 Visual One,Artificial intelligence,Q11660,100.0
 Zaam,Cloud computing,Q483639,100.0
+Zaam,Data science,Q2374463,100.0
 Global Belly,Data science,Q2374463,100.0
+Duffl,Data science,Q2374463,100.0
 Scout,Data science,Q2374463,100.0
 Pashi,Robotics,Q170978,100.0
 onetool,Cloud computing,Q483639,100.0
 SprintAI,Artificial intelligence,Q11660,100.0
 Thunderpod,Cloud computing,Q483639,100.0
+Zumo Labs,Data science,Q2374463,100.0
 Synapsica Healthcare,Artificial intelligence,Q11660,100.0
 LabGrid,Data science,Q2374463,100.0
 FitnessAI,Artificial intelligence,Q11660,100.0
@@ -327,10 +376,14 @@ delt.ai,Artificial intelligence,Q11660,100.0
 Genecis Bio,Robotics,Q170978,100.0
 Milo,Artificial intelligence,Q11660,100.0
 Paragon,Cloud computing,Q483639,100.0
+Breezeful,Data science,Q2374463,100.0
 Teleo,Robotics,Q170978,100.0
 StratumAI,Artificial intelligence,Q11660,100.0
+Polytomic,Data science,Q2374463,100.0
 MindsDB,Artificial intelligence,Q11660,100.0
+MindsDB,Data science,Q2374463,100.0
 Segmed,Artificial intelligence,Q11660,100.0
+Segmed,Data science,Q2374463,100.0
 Letterdrop,Artificial intelligence,Q11660,100.0
 Taiv,Artificial intelligence,Q11660,100.0
 Explo,Artificial intelligence,Q11660,100.0
@@ -350,21 +403,31 @@ Datasaur,Data science,Q2374463,100.0
 Paymobil,Blockchain,Q20514253,100.0
 Operator Labs,Artificial intelligence,Q11660,100.0
 Operator Labs,Blockchain,Q20514253,100.0
+Operator Labs,Data science,Q2374463,100.0
 Tienda Crypto,Blockchain,Q20514253,100.0
+Logarithm Labs,Data science,Q2374463,100.0
 Metaplane,Data science,Q2374463,100.0
 Altay Therapeutics,Artificial intelligence,Q11660,100.0
+Altay Therapeutics,Data science,Q2374463,100.0
 Revenue Vox (fka Fair Square),Artificial intelligence,Q11660,100.0
 Turing Labs Inc.,Artificial intelligence,Q11660,100.0
+Turing Labs Inc.,Data science,Q2374463,100.0
 Welcome,Cloud computing,Q483639,100.0
 Ello,Artificial intelligence,Q11660,100.0
 QueryPie,Artificial intelligence,Q11660,100.0
 QueryPie,Cloud computing,Q483639,100.0
+QueryPie,Data science,Q2374463,100.0
 Vori,Data science,Q2374463,100.0
 Alloy Automation,Cloud computing,Q483639,100.0
 Dropbase,Artificial intelligence,Q11660,100.0
+Dropbase,Data science,Q2374463,100.0
 ToDesktop,Cloud computing,Q483639,100.0
 Riot,Cloud computing,Q483639,100.0
+Modernbanc,Data science,Q2374463,100.0
+PostHog,Data science,Q2374463,100.0
+Vital,Data science,Q2374463,100.0
 Vital,Wearable technology,Q4845080,100.0
+Laserfocus,Data science,Q2374463,100.0
 PostEra,Artificial intelligence,Q11660,100.0
 PostEra,Data science,Q2374463,100.0
 Upflow,Data science,Q2374463,100.0
@@ -373,6 +436,7 @@ Flasho,Artificial intelligence,Q11660,100.0
 TagMango,Cloud computing,Q483639,100.0
 Hiration,Cloud computing,Q483639,100.0
 Morphle Labs,Robotics,Q170978,100.0
+Spenny,Data science,Q2374463,100.0
 Easyplan,Artificial intelligence,Q11660,100.0
 Daedalus,Robotics,Q170978,100.0
 Oda,Artificial intelligence,Q11660,100.0
@@ -385,9 +449,11 @@ Handl,Artificial intelligence,Q11660,100.0
 Handl,Data science,Q2374463,100.0
 Sakneen,Cloud computing,Q483639,100.0
 Recall.ai,Artificial intelligence,Q11660,100.0
+Recall.ai,Data science,Q2374463,100.0
 Atmo,Artificial intelligence,Q11660,100.0
 99minutos,Cloud computing,Q483639,100.0
 PowerX,Artificial intelligence,Q11660,100.0
+PowerX,Data science,Q2374463,100.0
 Airbyte,Artificial intelligence,Q11660,100.0
 Airbyte,Data science,Q2374463,100.0
 Prelay,Cloud computing,Q483639,100.0
@@ -397,14 +463,18 @@ Gather,Virtual reality,Q170519,100.0
 GitStart,Artificial intelligence,Q11660,100.0
 Vizy,Cloud computing,Q483639,100.0
 MoFE,Virtual reality,Q170519,100.0
+Lantern,Data science,Q2374463,100.0
 Multis,Blockchain,Q20514253,100.0
 Tensil,Artificial intelligence,Q11660,100.0
 Tensil,Data science,Q2374463,100.0
 Tensil,Robotics,Q170978,100.0
 Alana,Cloud computing,Q483639,100.0
+PopSQL,Data science,Q2374463,100.0
 Palifer,Artificial intelligence,Q11660,100.0
 Cuboh,Cloud computing,Q483639,100.0
 Actiondesk,Cloud computing,Q483639,100.0
+Actiondesk,Data science,Q2374463,100.0
+Intersect Labs,Data science,Q2374463,100.0
 TaxProper,Cloud computing,Q483639,100.0
 Data Mechanics,Data science,Q2374463,100.0
 Superorder,Artificial intelligence,Q11660,100.0
@@ -415,7 +485,9 @@ Shiru,Artificial intelligence,Q11660,100.0
 Shiru,Data science,Q2374463,100.0
 Heroic Story,Artificial intelligence,Q11660,100.0
 Heroic Story,Virtual reality,Q170519,100.0
+Method Financial,Data science,Q2374463,100.0
 violet,Artificial intelligence,Q11660,100.0
+BODYSIM by Well Principled,Data science,Q2374463,100.0
 BODYSIM by Well Principled,Digital twin,Q25099680,100.0
 Kraftful,Artificial intelligence,Q11660,100.0
 Lucid Bots,Robotics,Q170978,100.0
@@ -431,9 +503,12 @@ Prolific,Data science,Q2374463,100.0
 Embrace,Data science,Q2374463,100.0
 Yummy Future,Robotics,Q170978,100.0
 Zeta Surgical,Robotics,Q170978,100.0
+OpenReplay,Data science,Q2374463,100.0
 Downtobid,Artificial intelligence,Q11660,100.0
 Rosebud AI,Artificial intelligence,Q11660,100.0
 Arpeggio Bio,Artificial intelligence,Q11660,100.0
+Rutter,Data science,Q2374463,100.0
+Kern Systems,Data science,Q2374463,100.0
 Wasmer,Cloud computing,Q483639,100.0
 Wasmer,WebAssembly,Q20155677,100.0
 EARTH AI,Artificial intelligence,Q11660,100.0
@@ -442,40 +517,54 @@ Ramen VR,Artificial intelligence,Q11660,100.0
 Ramen VR,Augmented reality,Q254183,100.0
 Ramen VR,Virtual reality,Q170519,100.0
 Vahan,Artificial intelligence,Q11660,100.0
+Spice Data,Data science,Q2374463,100.0
+Eden Farm,Data science,Q2374463,100.0
 Hightouch,Data science,Q2374463,100.0
+PredictLeads,Data science,Q2374463,100.0
 Recidiviz,Data science,Q2374463,100.0
 Tranqui Finanzas,Data science,Q2374463,100.0
 Freshpaint,Data science,Q2374463,100.0
 InEvent,Data science,Q2374463,100.0
 Traces,Artificial intelligence,Q11660,100.0
+Mudafy,Data science,Q2374463,100.0
 Deepnote,Data science,Q2374463,100.0
 treble.ai,Artificial intelligence,Q11660,100.0
 treble.ai,Data science,Q2374463,100.0
 Blockstamp,Data science,Q2374463,100.0
 Blockstamp,Robotics,Q170978,100.0
 Index,Data science,Q2374463,100.0
+Vorticity,Cloud computing,Q483639,100.0
 Vorticity,Robotics,Q170978,100.0
 Taskade,Artificial intelligence,Q11660,100.0
 Modoo Technology,Artificial intelligence,Q11660,100.0
+Modoo Technology,Data science,Q2374463,100.0
 Modoo Technology,Wearable technology,Q4845080,100.0
 Pengram,Augmented reality,Q254183,100.0
 Green Energy Exchange,Sustainable energy,Q1962383,100.0
+DevFlight,Data science,Q2374463,100.0
 Adventurous Co,Augmented reality,Q254183,100.0
 Simmer,Data science,Q2374463,100.0
 ResistanceBio,Artificial intelligence,Q11660,100.0
 Maitian.ai,Artificial intelligence,Q11660,100.0
 AuroraQ,Quantum computing,Q17995793,100.0
 AuroraQ,Robotics,Q170978,100.0
+CareerTu,Data science,Q2374463,100.0
+Fuse,Data science,Q2374463,100.0
+Hypnos,Data science,Q2374463,100.0
+54Gene,Data science,Q2374463,100.0
 Tailor-ED,Artificial intelligence,Q11660,100.0
+Datamode,Data science,Q2374463,100.0
 Spiral Genetics,Data science,Q2374463,100.0
 ZeroStorefront,Data science,Q2374463,100.0
 Geosite,Cloud computing,Q483639,100.0
 Geosite,Data science,Q2374463,100.0
 Geosite,Spatial computing,Q85802496,100.0
 Windsor,Artificial intelligence,Q11660,100.0
+Askdata,Data science,Q2374463,100.0
 Slapdash,Cloud computing,Q483639,100.0
 Shiok Meats,Cultured meat,Q611909,100.0
 Allure Systems,Artificial intelligence,Q11660,100.0
+AXDRAFT,Data science,Q2374463,100.0
 WorkClout,Cloud computing,Q483639,100.0
 Overview,Artificial intelligence,Q11660,100.0
 Overview,Cloud computing,Q483639,100.0
@@ -485,14 +574,17 @@ Taobotics,Robotics,Q170978,100.0
 Flockjay,Artificial intelligence,Q11660,100.0
 Intelline,Robotics,Q170978,100.0
 Centaur Labs,Artificial intelligence,Q11660,100.0
+Centaur Labs,Data science,Q2374463,100.0
 Sorting Robotics,Robotics,Q170978,100.0
 Postscript,Cloud computing,Q483639,100.0
 BrainKey,Artificial intelligence,Q11660,100.0
 Hatch,Cloud computing,Q483639,100.0
+MedCrypt,Data science,Q2374463,100.0
 LEAH Labs,Data science,Q2374463,100.0
 LEAH Labs,Gene therapy,Q213901,100.0
 LEAH Labs,Stem-cell therapy,Q1533033,100.0
 PatternFast,Artificial intelligence,Q11660,100.0
+Basilica,Data science,Q2374463,100.0
 Community Phone Company,Cloud computing,Q483639,100.0
 GoLinks,Artificial intelligence,Q11660,100.0
 WeatherCheck,Data science,Q2374463,100.0
@@ -502,23 +594,28 @@ Nabis,Data science,Q2374463,100.0
 Demodesk,Artificial intelligence,Q11660,100.0
 AI Insurance,Artificial intelligence,Q11660,100.0
 Atomic Alchemy,Robotics,Q170978,100.0
+Switchboard,Data science,Q2374463,100.0
 Okteto,Cloud computing,Q483639,100.0
 Probably Genetic,Data science,Q2374463,100.0
 Ashby,Data science,Q2374463,100.0
 Supernova,Data science,Q2374463,100.0
 Bunkerhill Health,Artificial intelligence,Q11660,100.0
+Termius,Data science,Q2374463,100.0
 Handle.com,Artificial intelligence,Q11660,100.0
 Pyxai,Artificial intelligence,Q11660,100.0
 Aura Vision,Artificial intelligence,Q11660,100.0
 Aura Vision,Data science,Q2374463,100.0
+Reelables,Data science,Q2374463,100.0
 Superb AI,Artificial intelligence,Q11660,100.0
 Superb AI,Data science,Q2374463,100.0
 Traverse Technologies,Artificial intelligence,Q11660,100.0
 Upsolve,Artificial intelligence,Q11660,100.0
+Our World in Data,Data science,Q2374463,100.0
 Alpaca,Blockchain,Q20514253,100.0
 AccioJob,Data science,Q2374463,100.0
 Emi Labs,Artificial intelligence,Q11660,100.0
 Emi Labs,Cloud computing,Q483639,100.0
+Glide,Data science,Q2374463,100.0
 Globe,Blockchain,Q20514253,100.0
 Latchel,Cloud computing,Q483639,100.0
 1910 Genetics,Artificial intelligence,Q11660,100.0
@@ -529,11 +626,15 @@ rct AI,Virtual reality,Q170519,100.0
 Aesthetic,Artificial intelligence,Q11660,100.0
 Momentus,Robotics,Q170978,100.0
 Kunduz,Artificial intelligence,Q11660,100.0
+OkCredit,Data science,Q2374463,100.0
 Passenger AI,Artificial intelligence,Q11660,100.0
 Xkit,Cloud computing,Q483639,100.0
+Xkit,Data science,Q2374463,100.0
+Mylk Guys,Data science,Q2374463,100.0
 Medinas Health,Cloud computing,Q483639,100.0
 INKHUNTER,Augmented reality,Q254183,100.0
 LabelFlow,Artificial intelligence,Q11660,100.0
+LabelFlow,Data science,Q2374463,100.0
 Perception Biosystems,Gene therapy,Q213901,100.0
 Perception Biosystems,Robotics,Q170978,100.0
 Phiar,Artificial intelligence,Q11660,100.0
@@ -546,8 +647,10 @@ OWNY,Blockchain,Q20514253,100.0
 "numericcal, inc.",Artificial intelligence,Q11660,100.0
 "numericcal, inc.",Cloud computing,Q483639,100.0
 "numericcal, inc.",Data science,Q2374463,100.0
+Dinesafe,Data science,Q2374463,100.0
 Activeloop,Artificial intelligence,Q11660,100.0
 Activeloop,Data science,Q2374463,100.0
+Data Driven Bioscience,Data science,Q2374463,100.0
 Inscribe,Artificial intelligence,Q11660,100.0
 JITX,Robotics,Q170978,100.0
 College Pulse,Data science,Q2374463,100.0
@@ -565,9 +668,11 @@ Rain Neuromorphics,Robotics,Q170978,100.0
 HappiLabs,Cloud computing,Q483639,100.0
 MentalHappy,Artificial intelligence,Q11660,100.0
 MentalHappy,Data science,Q2374463,100.0
+Alpha Vantage,Data science,Q2374463,100.0
 Canary Technologies,Cloud computing,Q483639,100.0
 Prodigal,Artificial intelligence,Q11660,100.0
 Prodigal,Cloud computing,Q483639,100.0
+Prodigal,Data science,Q2374463,100.0
 Tenderd,Artificial intelligence,Q11660,100.0
 Tenderd,Data science,Q2374463,100.0
 Bot MD,Artificial intelligence,Q11660,100.0
@@ -589,27 +694,37 @@ iLabService,Artificial intelligence,Q11660,100.0
 iLabService,Cloud computing,Q483639,100.0
 Bear Flag Robotics,Data science,Q2374463,100.0
 Bear Flag Robotics,Robotics,Q170978,100.0
+Newfront,Data science,Q2374463,100.0
 Aerones,Robotics,Q170978,100.0
 Veriff,Artificial intelligence,Q11660,100.0
+Swayable,Data science,Q2374463,100.0
+OurMenu,Data science,Q2374463,100.0
 miru,Augmented reality,Q254183,100.0
+Nutrigene,Data science,Q2374463,100.0
 Vathys,Artificial intelligence,Q11660,100.0
 Vathys,Data science,Q2374463,100.0
 Vathys,Robotics,Q170978,100.0
 Shone,Robotics,Q170978,100.0
+Iambiq Technologies,Data science,Q2374463,100.0
 Ben,Blockchain,Q20514253,100.0
 Hexel,Blockchain,Q20514253,100.0
 Sepsis Scout,Artificial intelligence,Q11660,100.0
 Sepsis Scout,Wearable technology,Q4845080,100.0
 ClearBrain,Artificial intelligence,Q11660,100.0
 ClearBrain,Data science,Q2374463,100.0
+NewCraft,Data science,Q2374463,100.0
+Correlia Biosystems,Data science,Q2374463,100.0
 Edwin,Artificial intelligence,Q11660,100.0
 Lawyaw,Cloud computing,Q483639,100.0
 SharpestMinds,Artificial intelligence,Q11660,100.0
+SharpestMinds,Data science,Q2374463,100.0
 Dataform,Cloud computing,Q483639,100.0
+Dataform,Data science,Q2374463,100.0
 Jido Maps,Augmented reality,Q254183,100.0
 Jido Maps,Data science,Q2374463,100.0
 Precious,Artificial intelligence,Q11660,100.0
 Proven Group,Artificial intelligence,Q11660,100.0
+Proven Group,Data science,Q2374463,100.0
 Sketchbox,Augmented reality,Q254183,100.0
 Sketchbox,Data science,Q2374463,100.0
 Sketchbox,Virtual reality,Q170519,100.0
@@ -635,8 +750,10 @@ Supermedium,Augmented reality,Q254183,100.0
 Supermedium,Virtual reality,Q170519,100.0
 Podcast App,Data science,Q2374463,100.0
 Psylaris,Virtual reality,Q170519,100.0
+Delphia,Data science,Q2374463,100.0
 Volley,Artificial intelligence,Q11660,100.0
 Mojo,Augmented reality,Q254183,100.0
+OSIMple,Data science,Q2374463,100.0
 Orangewood Labs,Artificial intelligence,Q11660,100.0
 Orangewood Labs,Robotics,Q170978,100.0
 Memora Health,Artificial intelligence,Q11660,100.0
@@ -645,6 +762,7 @@ AlgoSurg Inc,Artificial intelligence,Q11660,100.0
 AlgoSurg Inc,Augmented reality,Q254183,100.0
 AlgoSurg Inc,Cloud computing,Q483639,100.0
 AlgoSurg Inc,Robotics,Q170978,100.0
+Anjuna,Data science,Q2374463,100.0
 Observe.AI,Artificial intelligence,Q11660,100.0
 CaptivateIQ,Cloud computing,Q483639,100.0
 Runa,Cloud computing,Q483639,100.0
@@ -656,6 +774,7 @@ Semantix,Artificial intelligence,Q11660,100.0
 Storyboard,Data science,Q2374463,100.0
 Sunu,Augmented reality,Q254183,100.0
 Cambridge Cancer Genomics,Artificial intelligence,Q11660,100.0
+Cambridge Cancer Genomics,Data science,Q2374463,100.0
 Gamelynx,Quantum computing,Q17995793,100.0
 Social Construct,Artificial intelligence,Q11660,100.0
 NextDrop,Data science,Q2374463,100.0
@@ -671,6 +790,7 @@ FAZZ,Cloud computing,Q483639,100.0
 VergeSense,Artificial intelligence,Q11660,100.0
 VergeSense,Cloud computing,Q483639,100.0
 VergeSense,Data science,Q2374463,100.0
+Helium Health,Data science,Q2374463,100.0
 Ribbon Health,Data science,Q2374463,100.0
 Standard AI,Artificial intelligence,Q11660,100.0
 Nimble,Data science,Q2374463,100.0
@@ -679,6 +799,7 @@ Advano,Sustainable energy,Q1962383,100.0
 Upfort,Artificial intelligence,Q11660,100.0
 Upfort,Data science,Q2374463,100.0
 Rabbet,Data science,Q2374463,100.0
+Koko,Data science,Q2374463,100.0
 Spect,Artificial intelligence,Q11660,100.0
 Pop Meals,Cloud computing,Q483639,100.0
 Airthium,Sustainable energy,Q1962383,100.0
@@ -693,11 +814,14 @@ AssemblyAI,Data science,Q2374463,100.0
 Brex,Artificial intelligence,Q11660,100.0
 Faire,Data science,Q2374463,100.0
 Mirror AI,Artificial intelligence,Q11660,100.0
+Cowlar,Data science,Q2374463,100.0
 Pit.AI,Artificial intelligence,Q11660,100.0
+Pit.AI,Data science,Q2374463,100.0
 LitHit,Data science,Q2374463,100.0
 Entry,Artificial intelligence,Q11660,100.0
 Volt Health,Wearable technology,Q4845080,100.0
 Fibo,Cloud computing,Q483639,100.0
+InnaMed,Data science,Q2374463,100.0
 FloydHub,Data science,Q2374463,100.0
 Arylla,Robotics,Q170978,100.0
 Marketfox,Artificial intelligence,Q11660,100.0
@@ -734,19 +858,25 @@ Apozy,Data science,Q2374463,100.0
 BuyPower,Data science,Q2374463,100.0
 AON3D,3D printing,Q229367,100.0
 AON3D,Robotics,Q170978,100.0
+BIOS Health,Data science,Q2374463,100.0
 NanoNets,Artificial intelligence,Q11660,100.0
+NanoNets,Data science,Q2374463,100.0
 "Wifi Dabba, Inc.",Blockchain,Q20514253,100.0
+"Wifi Dabba, Inc.",Data science,Q2374463,100.0
 Indee Labs,Cancer vaccine,Q2378309,100.0
 Indee Labs,Gene therapy,Q213901,100.0
 Sense Education,Artificial intelligence,Q11660,100.0
 Next Tech,Cloud computing,Q483639,100.0
 Next Tech,Data science,Q2374463,100.0
 ProjectPro,Data science,Q2374463,100.0
+Socrative,Data science,Q2374463,100.0
 Cellabus,Cloud computing,Q483639,100.0
 eduvee,Cloud computing,Q483639,100.0
 eduvee,Data science,Q2374463,100.0
+BrightLoop,Data science,Q2374463,100.0
 Alieo Games,Artificial intelligence,Q11660,100.0
 Edusight,Data science,Q2374463,100.0
+Freckle Education,Data science,Q2374463,100.0
 LearnSprout,Data science,Q2374463,100.0
 SchoolMint,Cloud computing,Q483639,100.0
 Eduvant,Data science,Q2374463,100.0
@@ -754,6 +884,7 @@ Goalbook,Cloud computing,Q483639,100.0
 Hapara,Data science,Q2374463,100.0
 Securly,Artificial intelligence,Q11660,100.0
 Securly,Cloud computing,Q483639,100.0
+Plickers,Data science,Q2374463,100.0
 Accredible,Cloud computing,Q483639,100.0
 Edpuzzle,Data science,Q2374463,100.0
 DeansList,Cloud computing,Q483639,100.0
@@ -766,6 +897,7 @@ Elemeno Health,Cloud computing,Q483639,100.0
 SmartSite,Cloud computing,Q483639,100.0
 Sixa,Cloud computing,Q483639,100.0
 Farmstead,Artificial intelligence,Q11660,100.0
+Hellobill,Data science,Q2374463,100.0
 Sway Finance,Artificial intelligence,Q11660,100.0
 Sway Finance,Cloud computing,Q483639,100.0
 Sway Finance,Data science,Q2374463,100.0
@@ -774,6 +906,7 @@ Robby Technologies,Robotics,Q170978,100.0
 Airo Health,Artificial intelligence,Q11660,100.0
 Seerslab,Augmented reality,Q254183,100.0
 Starsky Robotics,Robotics,Q170978,100.0
+Lendsnap,Data science,Q2374463,100.0
 SkyLights,Augmented reality,Q254183,100.0
 SkyLights,Virtual reality,Q170519,100.0
 LocoAI,Artificial intelligence,Q11660,100.0
@@ -785,12 +918,15 @@ Bulldozair,Data science,Q2374463,100.0
 CrowdAI,Artificial intelligence,Q11660,100.0
 CrowdAI,Data science,Q2374463,100.0
 Saleswhale,Artificial intelligence,Q11660,100.0
+Saleswhale,Data science,Q2374463,100.0
+Threshold,Data science,Q2374463,100.0
 RocketLit,Data science,Q2374463,100.0
 Instrumentl,Cloud computing,Q483639,100.0
 Nova Credit,Data science,Q2374463,100.0
 OneChronos,Artificial intelligence,Q11660,100.0
 Multiply Labs,Robotics,Q170978,100.0
 Validere,Cloud computing,Q483639,100.0
+Validere,Data science,Q2374463,100.0
 Athelas,Artificial intelligence,Q11660,100.0
 People.ai,Artificial intelligence,Q11660,100.0
 People.ai,Data science,Q2374463,100.0
@@ -803,7 +939,10 @@ Monthli,Cloud computing,Q483639,100.0
 ConstructVR,Augmented reality,Q254183,100.0
 ConstructVR,Virtual reality,Q170519,100.0
 Interstate Analytics,Data science,Q2374463,100.0
+TRAC,Data science,Q2374463,100.0
 Elucify,Cloud computing,Q483639,100.0
+Elucify,Data science,Q2374463,100.0
+Kisan Network,Data science,Q2374463,100.0
 Pathmind,Artificial intelligence,Q11660,100.0
 AlphaFlow,Data science,Q2374463,100.0
 Algoriz,Artificial intelligence,Q11660,100.0
@@ -825,6 +964,7 @@ Pave,Artificial intelligence,Q11660,100.0
 Pave,Data science,Q2374463,100.0
 Apollo.io,Data science,Q2374463,100.0
 Gecko Robotics,Artificial intelligence,Q11660,100.0
+Gecko Robotics,Data science,Q2374463,100.0
 Gecko Robotics,Robotics,Q170978,100.0
 Gecko Robotics,Sustainable energy,Q1962383,100.0
 HistoWiz,Cloud computing,Q483639,100.0
@@ -855,6 +995,7 @@ Million,Data science,Q2374463,100.0
 getcrux,Artificial intelligence,Q11660,100.0
 getcrux,Cloud computing,Q483639,100.0
 Blume Benefits,Artificial intelligence,Q11660,100.0
+Blume Benefits,Data science,Q2374463,100.0
 Arcane,Artificial intelligence,Q11660,100.0
 GovernGPT,Artificial intelligence,Q11660,100.0
 Danswer,Artificial intelligence,Q11660,100.0
@@ -871,6 +1012,7 @@ Relari,Cloud computing,Q483639,100.0
 Relari,Data science,Q2374463,100.0
 Scritch,Artificial intelligence,Q11660,100.0
 Leya,Artificial intelligence,Q11660,100.0
+Leya,Data science,Q2374463,100.0
 RadMate AI,Artificial intelligence,Q11660,100.0
 ego,Artificial intelligence,Q11660,100.0
 PurplePages,Artificial intelligence,Q11660,100.0
@@ -888,31 +1030,38 @@ Maia,Artificial intelligence,Q11660,100.0
 Precip,Artificial intelligence,Q11660,100.0
 "Nuanced, Inc.",Artificial intelligence,Q11660,100.0
 Vectorview,Artificial intelligence,Q11660,100.0
+Reducto,Data science,Q2374463,100.0
 Momentic,Artificial intelligence,Q11660,100.0
 Adagy Robotics,Artificial intelligence,Q11660,100.0
 Adagy Robotics,Robotics,Q170978,100.0
 Tile,Artificial intelligence,Q11660,100.0
+Tile,Data science,Q2374463,100.0
 Newton,Artificial intelligence,Q11660,100.0
 Quary,Data science,Q2374463,100.0
 Apriora,Artificial intelligence,Q11660,100.0
 Pretzel AI,Artificial intelligence,Q11660,100.0
+Pretzel AI,Data science,Q2374463,100.0
 nCompass Technologies,Artificial intelligence,Q11660,100.0
 "Argon AI, Inc.",Artificial intelligence,Q11660,100.0
 "Argon AI, Inc.",Data science,Q2374463,100.0
 Mango Health,Artificial intelligence,Q11660,100.0
 Buster,Artificial intelligence,Q11660,100.0
+Buster,Data science,Q2374463,100.0
 DGI Apparel,Data science,Q2374463,100.0
 Aidy,Artificial intelligence,Q11660,100.0
 Fractal Labs,Artificial intelligence,Q11660,100.0
 Pivot Robotics,Artificial intelligence,Q11660,100.0
 Pivot Robotics,Robotics,Q170978,100.0
 Carousel Technologies,Artificial intelligence,Q11660,100.0
+Carousel Technologies,Data science,Q2374463,100.0
 Agentic Labs,Artificial intelligence,Q11660,100.0
 Leaping,Artificial intelligence,Q11660,100.0
 Patchwork,Artificial intelligence,Q11660,100.0
 PointOne,Artificial intelligence,Q11660,100.0
 Paradigm,Artificial intelligence,Q11660,100.0
+Paradigm,Data science,Q2374463,100.0
 FurtherAI,Artificial intelligence,Q11660,100.0
+FurtherAI,Data science,Q2374463,100.0
 Arini,Artificial intelligence,Q11660,100.0
 Roe AI,Artificial intelligence,Q11660,100.0
 Roe AI,Data science,Q2374463,100.0
@@ -925,6 +1074,7 @@ Artisan,Data science,Q2374463,100.0
 Greenboard,Artificial intelligence,Q11660,100.0
 Verse Therapy,Artificial intelligence,Q11660,100.0
 Trellis,Artificial intelligence,Q11660,100.0
+Trellis,Data science,Q2374463,100.0
 Ecliptor,Artificial intelligence,Q11660,100.0
 Topo,Artificial intelligence,Q11660,100.0
 TokenOwl,Artificial intelligence,Q11660,100.0
@@ -935,16 +1085,21 @@ Yoneda Labs,Data science,Q2374463,100.0
 OneGrep,Artificial intelligence,Q11660,100.0
 Parasale,Artificial intelligence,Q11660,100.0
 Tusk,Artificial intelligence,Q11660,100.0
+Lucite,Data science,Q2374463,100.0
 CloudCruise,Artificial intelligence,Q11660,100.0
 CloudCruise,Cloud computing,Q483639,100.0
 Glimmer,Artificial intelligence,Q11660,100.0
 Meticulate,Artificial intelligence,Q11660,100.0
+Zaymo,Data science,Q2374463,100.0
+OmniAI,Data science,Q2374463,100.0
 Keywords AI,Artificial intelligence,Q11660,100.0
 Keywords AI,Prompt engineering,Q108941486,100.0
 PromptArmor,Artificial intelligence,Q11660,100.0
 Speck,Artificial intelligence,Q11660,100.0
 Guide Labs,Artificial intelligence,Q11660,100.0
+Guide Labs,Data science,Q2374463,100.0
 Decipher AI,Artificial intelligence,Q11660,100.0
+Decipher AI,Data science,Q2374463,100.0
 Infinity AI,Artificial intelligence,Q11660,100.0
 Toolify,Artificial intelligence,Q11660,100.0
 Tamarind Bio,Data science,Q2374463,100.0
@@ -959,6 +1114,7 @@ Resonance,Artificial intelligence,Q11660,100.0
 Aether Energy,Artificial intelligence,Q11660,100.0
 Firebender,Artificial intelligence,Q11660,100.0
 Ragas,Artificial intelligence,Q11660,100.0
+Quantic,Data science,Q2374463,100.0
 Aedilic,Artificial intelligence,Q11660,100.0
 Centralize,Artificial intelligence,Q11660,100.0
 phospho,Artificial intelligence,Q11660,100.0
@@ -984,6 +1140,7 @@ Toma,Artificial intelligence,Q11660,100.0
 Trieve,Artificial intelligence,Q11660,100.0
 Shiboleth,Artificial intelligence,Q11660,100.0
 Soundry AI,Artificial intelligence,Q11660,100.0
+Soundry AI,Data science,Q2374463,100.0
 Hazel,Artificial intelligence,Q11660,100.0
 Aftercare,Artificial intelligence,Q11660,100.0
 Andy AI,Artificial intelligence,Q11660,100.0
@@ -992,6 +1149,7 @@ Delve,Artificial intelligence,Q11660,100.0
 Abel,Artificial intelligence,Q11660,100.0
 edgetrace,Data science,Q2374463,100.0
 Clarum,Artificial intelligence,Q11660,100.0
+Clarum,Data science,Q2374463,100.0
 Opencall.ai,Artificial intelligence,Q11660,100.0
 Voicepanel,Artificial intelligence,Q11660,100.0
 Manifold Freight,Artificial intelligence,Q11660,100.0
@@ -1010,22 +1168,28 @@ Circleback,Data science,Q2374463,100.0
 just words,Artificial intelligence,Q11660,100.0
 Risotto,Artificial intelligence,Q11660,100.0
 Risotto,Cloud computing,Q483639,100.0
+BetterBasket,Data science,Q2374463,100.0
 Model ML,Artificial intelligence,Q11660,100.0
 Model ML,Data science,Q2374463,100.0
 Artos,Artificial intelligence,Q11660,100.0
 Artos,Data science,Q2374463,100.0
 Sample,Artificial intelligence,Q11660,100.0
+Sample,Data science,Q2374463,100.0
 Brainbase,Artificial intelligence,Q11660,100.0
 PocketPod,Artificial intelligence,Q11660,100.0
 Alai,Artificial intelligence,Q11660,100.0
 Openmart,Artificial intelligence,Q11660,100.0
 Openmart,Data science,Q2374463,100.0
+Thorntale,Data science,Q2374463,100.0
 Amber AI,Artificial intelligence,Q11660,100.0
 Zep AI,Artificial intelligence,Q11660,100.0
+Zep AI,Data science,Q2374463,100.0
 Sonauto,Artificial intelligence,Q11660,100.0
 Shepherd,Artificial intelligence,Q11660,100.0
 Shepherd,Data science,Q2374463,100.0
 BiteSight,Artificial intelligence,Q11660,100.0
+Titan,Data science,Q2374463,100.0
+Stacksync,Data science,Q2374463,100.0
 Terrakotta,Artificial intelligence,Q11660,100.0
 Spark,Artificial intelligence,Q11660,100.0
 Spark,Sustainable energy,Q1962383,100.0
@@ -1048,6 +1212,7 @@ Marblism,Artificial intelligence,Q11660,100.0
 Marblism,Prompt engineering,Q108941486,100.0
 Magic Hour,Artificial intelligence,Q11660,100.0
 Lumona,Artificial intelligence,Q11660,100.0
+Datacurve,Data science,Q2374463,100.0
 Penciled,Artificial intelligence,Q11660,100.0
 GoldenBasis,Artificial intelligence,Q11660,100.0
 Powder,Artificial intelligence,Q11660,100.0
@@ -1061,6 +1226,8 @@ Haplotype Labs,Artificial intelligence,Q11660,100.0
 Haplotype Labs,Cloud computing,Q483639,100.0
 Haplotype Labs,Data science,Q2374463,100.0
 TrueClaim,Artificial intelligence,Q11660,100.0
+Taiki,Data science,Q2374463,100.0
+Konstructly,Data science,Q2374463,100.0
 The New Money Company,Blockchain,Q20514253,100.0
 Fume,Artificial intelligence,Q11660,100.0
 Tower,Artificial intelligence,Q11660,100.0
@@ -1075,10 +1242,13 @@ Yarn,Artificial intelligence,Q11660,100.0
 Mathos,Artificial intelligence,Q11660,100.0
 Blacksmith,Cloud computing,Q483639,100.0
 Reprompt,Artificial intelligence,Q11660,100.0
+Reprompt,Data science,Q2374463,100.0
 InspectMind AI,Artificial intelligence,Q11660,100.0
 Cofactor Genomics,Cancer vaccine,Q2378309,100.0
+Cofactor Genomics,Data science,Q2374463,100.0
 Serica,Blockchain,Q20514253,100.0
 ROSS Intelligence,Artificial intelligence,Q11660,100.0
+CareLedger,Data science,Q2374463,100.0
 Shotput,Artificial intelligence,Q11660,100.0
 Shotput,Robotics,Q170978,100.0
 Bistrobot,Robotics,Q170978,100.0
@@ -1100,6 +1270,7 @@ Convox,Cloud computing,Q483639,100.0
 Bluecrew,Data science,Q2374463,100.0
 Cloudstitch,Data science,Q2374463,100.0
 zPREDICTA,Data science,Q2374463,100.0
+PlateJoy,Data science,Q2374463,100.0
 Auro Robotics,Artificial intelligence,Q11660,100.0
 Auro Robotics,Robotics,Q170978,100.0
 teaBOT,Robotics,Q170978,100.0
@@ -1108,6 +1279,7 @@ PartnerStack,Cloud computing,Q483639,100.0
 Scope AR,Augmented reality,Q254183,100.0
 Heroic Labs,Data science,Q2374463,100.0
 SnapMagic,Artificial intelligence,Q11660,100.0
+SnapMagic,Data science,Q2374463,100.0
 Tesorio,Artificial intelligence,Q11660,100.0
 Thrive Agritech,Artificial intelligence,Q11660,100.0
 Verge Genomics,Artificial intelligence,Q11660,100.0
@@ -1129,11 +1301,14 @@ NimbleRx,Cloud computing,Q483639,100.0
 Mashgin,Artificial intelligence,Q11660,100.0
 20n,Artificial intelligence,Q11660,100.0
 20n,Data science,Q2374463,100.0
+Nextop,Data science,Q2374463,100.0
 Rescue Forensics,Data science,Q2374463,100.0
 Standard Cyborg,Cloud computing,Q483639,100.0
 ThinAir,Cloud computing,Q483639,100.0
+ThinAir,Data science,Q2374463,100.0
 Pomello,Data science,Q2374463,100.0
 Bizzy,Data science,Q2374463,100.0
+Smyte,Data science,Q2374463,100.0
 CyberFend,Cloud computing,Q483639,100.0
 CyberFend,Data science,Q2374463,100.0
 WorkLife,Cloud computing,Q483639,100.0
@@ -1141,6 +1316,7 @@ HigherMe,Cloud computing,Q483639,100.0
 Paperspace,Cloud computing,Q483639,100.0
 Pachyderm,Data science,Q2374463,100.0
 Smarking,Artificial intelligence,Q11660,100.0
+Smarking,Data science,Q2374463,100.0
 Bonfire,Cloud computing,Q483639,100.0
 YesGraph,Data science,Q2374463,100.0
 Yhat,Data science,Q2374463,100.0
@@ -1150,9 +1326,12 @@ SigOpt,Cloud computing,Q483639,100.0
 Valor Water Analytics,Cloud computing,Q483639,100.0
 Valor Water Analytics,Data science,Q2374463,100.0
 Vanhawks,Data science,Q2374463,100.0
+Spire Health,Data science,Q2374463,100.0
 Raven Tech,Data science,Q2374463,100.0
 Qventus,Artificial intelligence,Q11660,100.0
 Akido Labs,Artificial intelligence,Q11660,100.0
+Akido Labs,Data science,Q2374463,100.0
+Mezmo,Cloud computing,Q483639,100.0
 Mezmo,Data science,Q2374463,100.0
 Atomwise,Artificial intelligence,Q11660,100.0
 Atomwise,Data science,Q2374463,100.0
@@ -1162,8 +1341,10 @@ Zeitview,Artificial intelligence,Q11660,100.0
 Zeitview,Data science,Q2374463,100.0
 Zeitview,Sustainable energy,Q1962383,100.0
 Bankjoy,Artificial intelligence,Q11660,100.0
+Labdoor,Data science,Q2374463,100.0
 Sails Co.,Cloud computing,Q483639,100.0
 Resolve,Augmented reality,Q254183,100.0
+Resolve,Data science,Q2374463,100.0
 Resolve,Virtual reality,Q170519,100.0
 eBrandvalue,Data science,Q2374463,100.0
 Giveffect,Cloud computing,Q483639,100.0
@@ -1175,6 +1356,7 @@ Rigetti Computing,Quantum computing,Q17995793,100.0
 Rigetti Computing,Robotics,Q170978,100.0
 Checkr,Artificial intelligence,Q11660,100.0
 ShipBob,Data science,Q2374463,100.0
+Bayes Impact,Data science,Q2374463,100.0
 Front,Cloud computing,Q483639,100.0
 SpringWit,Neurotechnology,Q3305355,100.0
 Nightingale,Data science,Q2374463,100.0
@@ -1184,6 +1366,7 @@ Tinker,Blockchain,Q20514253,100.0
 Weave,Artificial intelligence,Q11660,100.0
 Zen99,Cloud computing,Q483639,100.0
 Zen99,Data science,Q2374463,100.0
+Beep,Data science,Q2374463,100.0
 Beep,Robotics,Q170978,100.0
 Bitaccess,Blockchain,Q20514253,100.0
 Impraise,Cloud computing,Q483639,100.0
@@ -1196,6 +1379,7 @@ Billforward,Data science,Q2374463,100.0
 Clear,Cloud computing,Q483639,100.0
 Protocol Labs,Blockchain,Q20514253,100.0
 Protocol Labs,Cloud computing,Q483639,100.0
+Permutive,Data science,Q2374463,100.0
 MetricWire,Data science,Q2374463,100.0
 Alchemy,Nanotechnology,Q11468,100.0
 Alchemy,Robotics,Q170978,100.0
@@ -1210,8 +1394,11 @@ Algolia,Cloud computing,Q483639,100.0
 Dyspatch,Cloud computing,Q483639,100.0
 MixerBox,Artificial intelligence,Q11660,100.0
 Unbabel,Artificial intelligence,Q11660,100.0
+Drive Pulse,Data science,Q2374463,100.0
 MadeSolid,3D printing,Q229367,100.0
 MadeSolid,Robotics,Q170978,100.0
+Edyn,Data science,Q2374463,100.0
+Terravion,Data science,Q2374463,100.0
 Liftigniter,Artificial intelligence,Q11660,100.0
 Liftigniter,Data science,Q2374463,100.0
 PipelineDB,Data science,Q2374463,100.0
@@ -1220,9 +1407,15 @@ Avametric,Augmented reality,Q254183,100.0
 Framed Data,Data science,Q2374463,100.0
 42,Data science,Q2374463,100.0
 Ambition,Cloud computing,Q483639,100.0
+Axoni,Data science,Q2374463,100.0
 DevCycle,Cloud computing,Q483639,100.0
 PiinPoint,Cloud computing,Q483639,100.0
+Pushbullet,Data science,Q2374463,100.0
+TrueVault,Data science,Q2374463,100.0
+CoreOS,Data science,Q2374463,100.0
+Casetext,Data science,Q2374463,100.0
 Buttercoin,Blockchain,Q20514253,100.0
+Le Tote,Data science,Q2374463,100.0
 Meta,Augmented reality,Q254183,100.0
 Meta,Virtual reality,Q170519,100.0
 Watchsend,Data science,Q2374463,100.0
@@ -1231,22 +1424,29 @@ Layer By Layer,3D printing,Q229367,100.0
 Datarank,Data science,Q2374463,100.0
 Heap,Data science,Q2374463,100.0
 Fivetran,Cloud computing,Q483639,100.0
+Fivetran,Data science,Q2374463,100.0
 North,Augmented reality,Q254183,100.0
 North,Wearable technology,Q4845080,100.0
 Trainzen,Data science,Q2374463,100.0
+PayTango,Data science,Q2374463,100.0
+RoverRide,Data science,Q2374463,100.0
 BeatDeck,Data science,Q2374463,100.0
+Prophecy Sciences,Data science,Q2374463,100.0
 Prophecy Sciences,Neurotechnology,Q3305355,100.0
 Posmetrics,Data science,Q2374463,100.0
 Airware,Cloud computing,Q483639,100.0
+Airware,Data science,Q2374463,100.0
 GrepData,Data science,Q2374463,100.0
 Meldium,Cloud computing,Q483639,100.0
 MedXT,Data science,Q2374463,100.0
 Coin,Wearable technology,Q4845080,100.0
 Semantics3,Artificial intelligence,Q11660,100.0
 Semantics3,Data science,Q2374463,100.0
+BuildZoom,Data science,Q2374463,100.0
 Scuba,Data science,Q2374463,100.0
 InfluxData,Data science,Q2374463,100.0
 Etleap,Data science,Q2374463,100.0
+Lever,Data science,Q2374463,100.0
 Benchling,Cloud computing,Q483639,100.0
 Coinbase,Blockchain,Q20514253,100.0
 Plivo,Cloud computing,Q483639,100.0
@@ -1271,6 +1471,7 @@ Upwave,Data science,Q2374463,100.0
 Submittable,Cloud computing,Q483639,100.0
 Double Robotics,Robotics,Q170978,100.0
 Martin,Artificial intelligence,Q11660,100.0
+Orbio Earth,Data science,Q2374463,100.0
 Taylor AI,Artificial intelligence,Q11660,100.0
 CodeStory,Artificial intelligence,Q11660,100.0
 Branch AI,Artificial intelligence,Q11660,100.0
@@ -1286,8 +1487,11 @@ kapa.ai,Artificial intelligence,Q11660,100.0
 Artie,Data science,Q2374463,100.0
 Kino AI,Artificial intelligence,Q11660,100.0
 Leafpress,Artificial intelligence,Q11660,100.0
+Leafpress,Data science,Q2374463,100.0
 Synaptiq,Artificial intelligence,Q11660,100.0
+Nectar,Data science,Q2374463,100.0
 Reworkd,Artificial intelligence,Q11660,100.0
+Reworkd,Data science,Q2374463,100.0
 Mano Health,Artificial intelligence,Q11660,100.0
 Elyos Energy,Cloud computing,Q483639,100.0
 Elyos Energy,Sustainable energy,Q1962383,100.0
@@ -1299,6 +1503,7 @@ Dioxus Labs,Virtual reality,Q170519,100.0
 Infobot,Artificial intelligence,Q11660,100.0
 Watto AI,Artificial intelligence,Q11660,100.0
 Linc.,Artificial intelligence,Q11660,100.0
+Linc.,Data science,Q2374463,100.0
 Magic Loops,Artificial intelligence,Q11660,100.0
 Remy,Artificial intelligence,Q11660,100.0
 Sweetspot,Artificial intelligence,Q11660,100.0
@@ -1316,12 +1521,15 @@ Humanlike,Augmented reality,Q254183,100.0
 Cascading AI,Artificial intelligence,Q11660,100.0
 Cedana,Artificial intelligence,Q11660,100.0
 Cedana,Cloud computing,Q483639,100.0
+Cedana,Data science,Q2374463,100.0
 Contour,Artificial intelligence,Q11660,100.0
 Atla,Artificial intelligence,Q11660,100.0
 Mandel AI,Artificial intelligence,Q11660,100.0
+Mandel AI,Data science,Q2374463,100.0
 askLio,Artificial intelligence,Q11660,100.0
 Solve Intelligence,Artificial intelligence,Q11660,100.0
 Talc,Artificial intelligence,Q11660,100.0
+Talc,Data science,Q2374463,100.0
 Tegon,Artificial intelligence,Q11660,100.0
 DataShare,Data science,Q2374463,100.0
 Synch,Artificial intelligence,Q11660,100.0
@@ -1331,7 +1539,9 @@ Subsets,Artificial intelligence,Q11660,100.0
 SuperCraft,Artificial intelligence,Q11660,100.0
 Empower,Artificial intelligence,Q11660,100.0
 SID,Artificial intelligence,Q11660,100.0
+SID,Data science,Q2374463,100.0
 Spine AI,Artificial intelligence,Q11660,100.0
+Spine AI,Data science,Q2374463,100.0
 Alguna,Cloud computing,Q483639,100.0
 Parea,Artificial intelligence,Q11660,100.0
 Agentive,Artificial intelligence,Q11660,100.0
@@ -1341,11 +1551,16 @@ Bronco AI,Artificial intelligence,Q11660,100.0
 Kite,Artificial intelligence,Q11660,100.0
 Obento Health,Artificial intelligence,Q11660,100.0
 Arcimus,Artificial intelligence,Q11660,100.0
+Arcimus,Data science,Q2374463,100.0
 MICSI,Artificial intelligence,Q11660,100.0
+MICSI,Data science,Q2374463,100.0
 Corgea,Artificial intelligence,Q11660,100.0
+Terminal,Data science,Q2374463,100.0
 Serra,Artificial intelligence,Q11660,100.0
 Outset,Artificial intelligence,Q11660,100.0
+Outset,Data science,Q2374463,100.0
 Hegel AI,Artificial intelligence,Q11660,100.0
+Briefer,Data science,Q2374463,100.0
 Shasta Health,Artificial intelligence,Q11660,100.0
 Health Harbor,Artificial intelligence,Q11660,100.0
 Menza,Artificial intelligence,Q11660,100.0
@@ -1356,6 +1571,7 @@ Dialtone,Artificial intelligence,Q11660,100.0
 Dialtone,Data science,Q2374463,100.0
 Decoda Health,Artificial intelligence,Q11660,100.0
 Skyvern,Artificial intelligence,Q11660,100.0
+Skyvern,Data science,Q2374463,100.0
 Cleancard,Artificial intelligence,Q11660,100.0
 Lysto AI,Artificial intelligence,Q11660,100.0
 Lysto AI,Data science,Q2374463,100.0
@@ -1381,6 +1597,7 @@ Apoxy,Data science,Q2374463,100.0
 Pincites,Artificial intelligence,Q11660,100.0
 sizeless,Artificial intelligence,Q11660,100.0
 sizeless,Data science,Q2374463,100.0
+MantleBio,Data science,Q2374463,100.0
 Studdy,Artificial intelligence,Q11660,100.0
 Trainy,Artificial intelligence,Q11660,100.0
 Kobalt Labs,Artificial intelligence,Q11660,100.0
@@ -1390,7 +1607,9 @@ Khoj,Artificial intelligence,Q11660,100.0
 Osium AI,Artificial intelligence,Q11660,100.0
 CambioML,Data science,Q2374463,100.0
 Inlet,Artificial intelligence,Q11660,100.0
+Inlet,Data science,Q2374463,100.0
 Flint,Artificial intelligence,Q11660,100.0
+Sola,Data science,Q2374463,100.0
 Sola,Robotics,Q170978,100.0
 Converge,Data science,Q2374463,100.0
 Glaze,Artificial intelligence,Q11660,100.0
@@ -1399,7 +1618,9 @@ VectorShift,Artificial intelligence,Q11660,100.0
 SafetyKit,Artificial intelligence,Q11660,100.0
 Baserun,Artificial intelligence,Q11660,100.0
 Automorphic,Artificial intelligence,Q11660,100.0
+Roundtable,Data science,Q2374463,100.0
 Inari,Artificial intelligence,Q11660,100.0
+Inari,Data science,Q2374463,100.0
 Andromeda Surgical,Artificial intelligence,Q11660,100.0
 Andromeda Surgical,Robotics,Q170978,100.0
 Smoothspeak,Artificial intelligence,Q11660,100.0
@@ -1415,6 +1636,7 @@ Elythea,Artificial intelligence,Q11660,100.0
 Elythea,Data science,Q2374463,100.0
 Nanograb,Artificial intelligence,Q11660,100.0
 Cedalio,Artificial intelligence,Q11660,100.0
+Cedalio,Data science,Q2374463,100.0
 Happyrobot,Artificial intelligence,Q11660,100.0
 Certainly Health,Data science,Q2374463,100.0
 Fiber AI,Artificial intelligence,Q11660,100.0
@@ -1422,6 +1644,7 @@ Fiber AI,Data science,Q2374463,100.0
 OpsBerry AI,Artificial intelligence,Q11660,100.0
 Finbox,Artificial intelligence,Q11660,100.0
 Finbox,Augmented reality,Q254183,100.0
+Finbox,Data science,Q2374463,100.0
 AgentsForce,Artificial intelligence,Q11660,100.0
 Smobi,Data science,Q2374463,100.0
 Quill AI,Artificial intelligence,Q11660,100.0
@@ -1432,6 +1655,7 @@ ParadeDB,Data science,Q2374463,100.0
 dili,Artificial intelligence,Q11660,100.0
 Inconvo,Artificial intelligence,Q11660,100.0
 Inconvo,Cloud computing,Q483639,100.0
+Cargo,Data science,Q2374463,100.0
 Shadeform,Artificial intelligence,Q11660,100.0
 Shadeform,Cloud computing,Q483639,100.0
 FlowiseAI,Artificial intelligence,Q11660,100.0
@@ -1441,14 +1665,18 @@ Giga ML,Data science,Q2374463,100.0
 Srcbook,3D printing,Q229367,100.0
 Twine,Artificial intelligence,Q11660,100.0
 Structured,Artificial intelligence,Q11660,100.0
+Structured,Data science,Q2374463,100.0
 innkeeper,Artificial intelligence,Q11660,100.0
 Nowadays,Artificial intelligence,Q11660,100.0
 Constructable,Artificial intelligence,Q11660,100.0
+Constructable,Data science,Q2374463,100.0
 Glide,Blockchain,Q20514253,100.0
 Olio Labs,Artificial intelligence,Q11660,100.0
 Olio Labs,Data science,Q2374463,100.0
+truemetrics,Data science,Q2374463,100.0
 Flair Health,Artificial intelligence,Q11660,100.0
 Autotab,Artificial intelligence,Q11660,100.0
+Autotab,Data science,Q2374463,100.0
 Tempo Labs,Artificial intelligence,Q11660,100.0
 Yuma AI,Artificial intelligence,Q11660,100.0
 Pando Bioscience,Artificial intelligence,Q11660,100.0
@@ -1459,7 +1687,9 @@ Automat,Artificial intelligence,Q11660,100.0
 Automat,Robotics,Q170978,100.0
 SpeedyBrand,Artificial intelligence,Q11660,100.0
 Finta,Cloud computing,Q483639,100.0
+Finta,Data science,Q2374463,100.0
 Blyss,Artificial intelligence,Q11660,100.0
+Blyss,Data science,Q2374463,100.0
 Parabolic,Artificial intelligence,Q11660,100.0
 OpenSight,Artificial intelligence,Q11660,100.0
 Dashdive,Artificial intelligence,Q11660,100.0
@@ -1484,7 +1714,9 @@ Middleware,Cloud computing,Q483639,100.0
 Middleware,Data science,Q2374463,100.0
 Stack AI,Artificial intelligence,Q11660,100.0
 Stack AI,Data science,Q2374463,100.0
+Miracle,Data science,Q2374463,100.0
 Reflex,Artificial intelligence,Q11660,100.0
+Reflex,Data science,Q2374463,100.0
 Traceloop,Artificial intelligence,Q11660,100.0
 Matano,Cloud computing,Q483639,100.0
 Matano,Data science,Q2374463,100.0
@@ -1494,17 +1726,21 @@ Versori,Cloud computing,Q483639,100.0
 rift,Data science,Q2374463,100.0
 Syncly,Artificial intelligence,Q11660,100.0
 Credal.ai,Artificial intelligence,Q11660,100.0
+Credal.ai,Data science,Q2374463,100.0
 Layup,Artificial intelligence,Q11660,100.0
 Magic Patterns,Artificial intelligence,Q11660,100.0
 Rollstack,Artificial intelligence,Q11660,100.0
+Rollstack,Data science,Q2374463,100.0
 SelectIQ,Artificial intelligence,Q11660,100.0
 Paperplane,Artificial intelligence,Q11660,100.0
 Paperplane,Data science,Q2374463,100.0
 Lume,Artificial intelligence,Q11660,100.0
+Lume,Data science,Q2374463,100.0
 Pyq AI,Artificial intelligence,Q11660,100.0
 Backdrop,Cloud computing,Q483639,100.0
 Concourse,Artificial intelligence,Q11660,100.0
 Indexical,Artificial intelligence,Q11660,100.0
+Indexical,Data science,Q2374463,100.0
 Brewit,Artificial intelligence,Q11660,100.0
 Brewit,Data science,Q2374463,100.0
 CodeComplete,Artificial intelligence,Q11660,100.0
@@ -1517,10 +1753,12 @@ Glass Health,Artificial intelligence,Q11660,100.0
 Versive,Artificial intelligence,Q11660,100.0
 Salient,Artificial intelligence,Q11660,100.0
 Dataglade,Artificial intelligence,Q11660,100.0
+Dataglade,Data science,Q2374463,100.0
 EdgeBit,Data science,Q2374463,100.0
 Cakework,Cloud computing,Q483639,100.0
 Omnistrate,Cloud computing,Q483639,100.0
 Narrative,Artificial intelligence,Q11660,100.0
+Narrative,Data science,Q2374463,100.0
 OfOne,Artificial intelligence,Q11660,100.0
 JustPaid.ai,Artificial intelligence,Q11660,100.0
 Gluetrail,Artificial intelligence,Q11660,100.0
@@ -1530,17 +1768,21 @@ GovEagle,Artificial intelligence,Q11660,100.0
 CreatorML,Artificial intelligence,Q11660,100.0
 Vooma,Artificial intelligence,Q11660,100.0
 Vooma,Robotics,Q170978,100.0
+Trigo,Data science,Q2374463,100.0
 Neptyne,Artificial intelligence,Q11660,100.0
 Neptyne,Data science,Q2374463,100.0
 Scanbase,Artificial intelligence,Q11660,100.0
 LinkGrep,Artificial intelligence,Q11660,100.0
 Bluebirds,Artificial intelligence,Q11660,100.0
+Bluebirds,Data science,Q2374463,100.0
 Flower,Artificial intelligence,Q11660,100.0
+Flower,Data science,Q2374463,100.0
 Cosine,Artificial intelligence,Q11660,100.0
 Athina AI,Artificial intelligence,Q11660,100.0
 Athina AI,Data science,Q2374463,100.0
 Cloudchipr,Cloud computing,Q483639,100.0
 Repacket,Artificial intelligence,Q11660,100.0
+Repacket,Data science,Q2374463,100.0
 Suger,Cloud computing,Q483639,100.0
 Haven,Artificial intelligence,Q11660,100.0
 Socap.ai,Artificial intelligence,Q11660,100.0
@@ -1549,11 +1791,14 @@ Dream3D,Artificial intelligence,Q11660,100.0
 Codev,Artificial intelligence,Q11660,100.0
 TruthSuite,Artificial intelligence,Q11660,100.0
 Outerbase,Artificial intelligence,Q11660,100.0
+Outerbase,Data science,Q2374463,100.0
 Langfuse,Artificial intelligence,Q11660,100.0
 Langfuse,Prompt engineering,Q108941486,100.0
 Extend,Artificial intelligence,Q11660,100.0
+Extend,Data science,Q2374463,100.0
 Iliad,Artificial intelligence,Q11660,100.0
 Floworks,Artificial intelligence,Q11660,100.0
+Floworks,Data science,Q2374463,100.0
 OpenMeter,Artificial intelligence,Q11660,100.0
 OpenMeter,Data science,Q2374463,100.0
 Inkeep,Artificial intelligence,Q11660,100.0
@@ -1563,6 +1808,7 @@ Wild Moose,Artificial intelligence,Q11660,100.0
 EzDubs,Artificial intelligence,Q11660,100.0
 BuildJet,Cloud computing,Q483639,100.0
 TableFlow,Artificial intelligence,Q11660,100.0
+TableFlow,Data science,Q2374463,100.0
 Truewind,Artificial intelligence,Q11660,100.0
 Orchid,Artificial intelligence,Q11660,100.0
 1stCollab,Artificial intelligence,Q11660,100.0
@@ -1578,6 +1824,7 @@ Helicone,Data science,Q2374463,100.0
 Ariglad,Artificial intelligence,Q11660,100.0
 222,Artificial intelligence,Q11660,100.0
 Fintool,Artificial intelligence,Q11660,100.0
+Fiber,Data science,Q2374463,100.0
 FiddleCube,Artificial intelligence,Q11660,100.0
 FiddleCube,Data science,Q2374463,100.0
 Defog.ai,Artificial intelligence,Q11660,100.0
@@ -1591,7 +1838,9 @@ Shortbread,Artificial intelligence,Q11660,100.0
 Hadrius,Artificial intelligence,Q11660,100.0
 SPRX,Artificial intelligence,Q11660,100.0
 Sherloq,Artificial intelligence,Q11660,100.0
+Sherloq,Data science,Q2374463,100.0
 Hippo Scribe,Artificial intelligence,Q11660,100.0
+Honeydew,Data science,Q2374463,100.0
 Finic,Artificial intelligence,Q11660,100.0
 Finic,Cloud computing,Q483639,100.0
 Koywe,Blockchain,Q20514253,100.0
@@ -1601,6 +1850,7 @@ UpTrain AI,Artificial intelligence,Q11660,100.0
 UpTrain AI,Cloud computing,Q483639,100.0
 UpTrain AI,Data science,Q2374463,100.0
 Alaan,Artificial intelligence,Q11660,100.0
+Arroyo,Cloud computing,Q483639,100.0
 Fastgen,Data science,Q2374463,100.0
 SuperKalam,Artificial intelligence,Q11660,100.0
 Clueso,Artificial intelligence,Q11660,100.0
@@ -1609,11 +1859,14 @@ Sirdab,Cloud computing,Q483639,100.0
 MagnaPlay,Artificial intelligence,Q11660,100.0
 MagnaPlay,Cloud computing,Q483639,100.0
 Coldreach,Artificial intelligence,Q11660,100.0
+Coldreach,Data science,Q2374463,100.0
 Mantys,Cloud computing,Q483639,100.0
+Mantys,Data science,Q2374463,100.0
 Univerbal (formerly Quazel),Artificial intelligence,Q11660,100.0
 Diffuse Bio,Artificial intelligence,Q11660,100.0
 inBuild,Artificial intelligence,Q11660,100.0
 Muffin Data,Data science,Q2374463,100.0
+Clad,Data science,Q2374463,100.0
 Epsilon,Artificial intelligence,Q11660,100.0
 Pylon,Artificial intelligence,Q11660,100.0
 PlayHT,Artificial intelligence,Q11660,100.0
@@ -1629,6 +1882,7 @@ DAGWorks Inc.,Data science,Q2374463,100.0
 Sorted,Cloud computing,Q483639,100.0
 Hindsight,Artificial intelligence,Q11660,100.0
 Common Paper,Data science,Q2374463,100.0
+OpenInt,Data science,Q2374463,100.0
 Decohere,Artificial intelligence,Q11660,100.0
 CodeParrot AI,Artificial intelligence,Q11660,100.0
 Berry,Artificial intelligence,Q11660,100.0
@@ -1639,6 +1893,7 @@ Vellum,Data science,Q2374463,100.0
 Vellum,Prompt engineering,Q108941486,100.0
 Persist AI,Artificial intelligence,Q11660,100.0
 Vocode,Artificial intelligence,Q11660,100.0
+Benchmark,Data science,Q2374463,100.0
 Fabius,Artificial intelligence,Q11660,100.0
 Edge,Artificial intelligence,Q11660,100.0
 Edge,Cloud computing,Q483639,100.0
@@ -1653,8 +1908,11 @@ Keeling Labs,Sustainable energy,Q1962383,100.0
 Koala Ops,Cloud computing,Q483639,100.0
 Modulari-T,Gene therapy,Q213901,100.0
 Modulari-T,Stem-cell therapy,Q1533033,100.0
+Escape,Data science,Q2374463,100.0
 Kyber,Artificial intelligence,Q11660,100.0
+Serial,Data science,Q2374463,100.0
 Persana AI,Artificial intelligence,Q11660,100.0
+Persana AI,Data science,Q2374463,100.0
 Type,Artificial intelligence,Q11660,100.0
 Lightski,Artificial intelligence,Q11660,100.0
 Adri AI,Artificial intelligence,Q11660,100.0
@@ -1706,6 +1964,7 @@ Airtrain AI,Data science,Q2374463,100.0
 Denormalized,Data science,Q2374463,100.0
 SolStar,Blockchain,Q20514253,100.0
 Paces,Artificial intelligence,Q11660,100.0
+Paces,Data science,Q2374463,100.0
 Elessar,Artificial intelligence,Q11660,100.0
 Dialect,Artificial intelligence,Q11660,100.0
 Julius,Artificial intelligence,Q11660,100.0
@@ -1714,6 +1973,7 @@ Ciro,Artificial intelligence,Q11660,100.0
 Ciro,Cloud computing,Q483639,100.0
 Ciro,Data science,Q2374463,100.0
 Truva,Artificial intelligence,Q11660,100.0
+Truva,Data science,Q2374463,100.0
 Two Dots,Artificial intelligence,Q11660,100.0
 Sigma AI,Artificial intelligence,Q11660,100.0
 Stackup,Blockchain,Q20514253,100.0
@@ -1724,24 +1984,33 @@ Tailor,Data science,Q2374463,100.0
 Dittofeed,Cloud computing,Q483639,100.0
 Devyce,Cloud computing,Q483639,100.0
 Bunting Labs,Artificial intelligence,Q11660,100.0
+Bunting Labs,Data science,Q2374463,100.0
 erad,Data science,Q2374463,100.0
 Blitz,Cloud computing,Q483639,100.0
 Blitz,Data science,Q2374463,100.0
 Pasito,Artificial intelligence,Q11660,100.0
+Pasito,Data science,Q2374463,100.0
 Cerrion,Artificial intelligence,Q11660,100.0
 CustomerOS,Cloud computing,Q483639,100.0
+CustomerOS,Data science,Q2374463,100.0
 Boundo,Artificial intelligence,Q11660,100.0
+TrueBiz,Data science,Q2374463,100.0
 Champ,Artificial intelligence,Q11660,100.0
 BricksAI,Artificial intelligence,Q11660,100.0
 trebu,Artificial intelligence,Q11660,100.0
+Dr. Treat,Data science,Q2374463,100.0
 Array Labs,Augmented reality,Q254183,100.0
 Serinus Biosciences,Artificial intelligence,Q11660,100.0
 Integration Labs,Augmented reality,Q254183,100.0
+Integration Labs,Data science,Q2374463,100.0
 Paragon AI,Artificial intelligence,Q11660,100.0
+Paragon AI,Data science,Q2374463,100.0
+Craze,Data science,Q2374463,100.0
 EthosX,Blockchain,Q20514253,100.0
 NuMind,Data science,Q2374463,100.0
 Lyra,Blockchain,Q20514253,100.0
 IvyCheck,Artificial intelligence,Q11660,100.0
+IvyCheck,Data science,Q2374463,100.0
 Disclo,Data science,Q2374463,100.0
 Tranch,Blockchain,Q20514253,100.0
 Overwatch,Artificial intelligence,Q11660,100.0
@@ -1749,18 +2018,22 @@ Overwatch,Data science,Q2374463,100.0
 Cashboard,Data science,Q2374463,100.0
 CapixAI,Artificial intelligence,Q11660,100.0
 Juicebox,Artificial intelligence,Q11660,100.0
+Evoly,Data science,Q2374463,100.0
 Apply Design,Artificial intelligence,Q11660,100.0
 Phind,Artificial intelligence,Q11660,100.0
 Ten Lives,Artificial intelligence,Q11660,100.0
 Pivot,Artificial intelligence,Q11660,100.0
+Pivot,Data science,Q2374463,100.0
 Aragorn AI,Artificial intelligence,Q11660,100.0
 Aragorn AI,Data science,Q2374463,100.0
 Hype,Blockchain,Q20514253,100.0
 Namecard.ai,Artificial intelligence,Q11660,100.0
 BiggerPicture,Cloud computing,Q483639,100.0
 Flair Labs,Artificial intelligence,Q11660,100.0
+Flair Labs,Data science,Q2374463,100.0
 Ajourney,Artificial intelligence,Q11660,100.0
 Slidely AI,Artificial intelligence,Q11660,100.0
+NewsCatcher,Data science,Q2374463,100.0
 Pulppo,Data science,Q2374463,100.0
 Sytex,Cloud computing,Q483639,100.0
 Neosync,Data science,Q2374463,100.0
@@ -1771,6 +2044,7 @@ Hedgehog,Robotics,Q170978,100.0
 Mintplex Labs,Artificial intelligence,Q11660,100.0
 AviaryAI,Artificial intelligence,Q11660,100.0
 Pluralith,Cloud computing,Q483639,100.0
+Diversion,Cloud computing,Q483639,100.0
 FlyCode,Artificial intelligence,Q11660,100.0
 FlyCode,Cloud computing,Q483639,100.0
 FlyCode,Data science,Q2374463,100.0
@@ -1778,6 +2052,7 @@ iollo,Artificial intelligence,Q11660,100.0
 Maya Labs,Artificial intelligence,Q11660,100.0
 Aurelian,Artificial intelligence,Q11660,100.0
 Fini,Artificial intelligence,Q11660,100.0
+Metriport,Data science,Q2374463,100.0
 Grai,Data science,Q2374463,100.0
 Oneloop,Artificial intelligence,Q11660,100.0
 Argovox,Artificial intelligence,Q11660,100.0
@@ -1788,12 +2063,15 @@ Blacktop Hoops by Vinci Games,Virtual reality,Q170519,100.0
 CompUp,Data science,Q2374463,100.0
 Lamin,Data science,Q2374463,100.0
 Findly,Artificial intelligence,Q11660,100.0
+Findly,Data science,Q2374463,100.0
 HOMLI,Artificial intelligence,Q11660,100.0
+Patika,Data science,Q2374463,100.0
 PrimeVault,Blockchain,Q20514253,100.0
 Avina,Artificial intelligence,Q11660,100.0
 Delight,Artificial intelligence,Q11660,100.0
 Invofox,Artificial intelligence,Q11660,100.0
 Firecrawl,Artificial intelligence,Q11660,100.0
+Firecrawl,Data science,Q2374463,100.0
 UpLink,Data science,Q2374463,100.0
 Caddie AI,Artificial intelligence,Q11660,100.0
 Levers,Augmented reality,Q254183,100.0
@@ -1806,9 +2084,12 @@ Lancey,Artificial intelligence,Q11660,100.0
 Lancey,Data science,Q2374463,100.0
 Blockscope,Data science,Q2374463,100.0
 Monterey AI,Artificial intelligence,Q11660,100.0
+Monterey AI,Data science,Q2374463,100.0
 Slingshot,Artificial intelligence,Q11660,100.0
+MovingLake,Data science,Q2374463,100.0
 Pump.co,Artificial intelligence,Q11660,100.0
 Pump.co,Cloud computing,Q483639,100.0
+Taro,Data science,Q2374463,100.0
 Sculpt,Artificial intelligence,Q11660,100.0
 Knowtex,Artificial intelligence,Q11660,100.0
 Kashin,Artificial intelligence,Q11660,100.0
@@ -1831,6 +2112,7 @@ Lizza,Artificial intelligence,Q11660,100.0
 Pelm,Data science,Q2374463,100.0
 Pelm,Sustainable energy,Q1962383,100.0
 CoffeeAI,Artificial intelligence,Q11660,100.0
+CoffeeAI,Data science,Q2374463,100.0
 Cherry Recommends,Artificial intelligence,Q11660,100.0
 Bifrost,Blockchain,Q20514253,100.0
 Suggestr,Artificial intelligence,Q11660,100.0
@@ -1842,21 +2124,29 @@ Vessel,Data science,Q2374463,100.0
 Demo Gorilla,Cloud computing,Q483639,100.0
 Proper,Data science,Q2374463,100.0
 JumpWire,Data science,Q2374463,100.0
+Speechly,Data science,Q2374463,100.0
+Bracket,Data science,Q2374463,100.0
 Nara,Artificial intelligence,Q11660,100.0
+Serif Health,Data science,Q2374463,100.0
 Instalab,Artificial intelligence,Q11660,100.0
 Nira Energy,Sustainable energy,Q1962383,100.0
 Optery,Data science,Q2374463,100.0
+Wyvern,Data science,Q2374463,100.0
 Andi,Artificial intelligence,Q11660,100.0
+Andi,Data science,Q2374463,100.0
 Swades AI,Artificial intelligence,Q11660,100.0
 Uberduck,Artificial intelligence,Q11660,100.0
 GrowthBook,Cloud computing,Q483639,100.0
 GrowthBook,Data science,Q2374463,100.0
 AstroForge,Robotics,Q170978,100.0
+Agave,Data science,Q2374463,100.0
 Redbird,Artificial intelligence,Q11660,100.0
 Redbird,Data science,Q2374463,100.0
 Strac,Artificial intelligence,Q11660,100.0
 Strac,Blockchain,Q20514253,100.0
+Strac,Data science,Q2374463,100.0
 Moots AI,Artificial intelligence,Q11660,100.0
+Kapital Bank,Data science,Q2374463,100.0
 Sieve,Artificial intelligence,Q11660,100.0
 Sieve,Cloud computing,Q483639,100.0
 WorldQL,Artificial intelligence,Q11660,100.0
@@ -1879,7 +2169,9 @@ Stably,Artificial intelligence,Q11660,100.0
 Perl Street,Sustainable energy,Q1962383,100.0
 Sei,Artificial intelligence,Q11660,100.0
 Axross Pte Ltd,Artificial intelligence,Q11660,100.0
+Axross Pte Ltd,Data science,Q2374463,100.0
 Axross Pte Ltd,Sustainable energy,Q1962383,100.0
+Lifted,Data science,Q2374463,100.0
 Lifted,Wearable technology,Q4845080,100.0
 Sarus,Data science,Q2374463,100.0
 Spinach AI,Artificial intelligence,Q11660,100.0
@@ -1918,9 +2210,13 @@ Lexter.ai,Artificial intelligence,Q11660,100.0
 Rehook.ai,Artificial intelligence,Q11660,100.0
 Versable,Artificial intelligence,Q11660,100.0
 Versable,Data science,Q2374463,100.0
+Elementary,Data science,Q2374463,100.0
 LanceDB,Artificial intelligence,Q11660,100.0
+LanceDB,Data science,Q2374463,100.0
 Zorba,Artificial intelligence,Q11660,100.0
+Zorba,Data science,Q2374463,100.0
 Sophys,Artificial intelligence,Q11660,100.0
+Bunkyr,Data science,Q2374463,100.0
 Beam,Artificial intelligence,Q11660,100.0
 Beam,Cloud computing,Q483639,100.0
 Armilla AI,Artificial intelligence,Q11660,100.0
@@ -1932,6 +2228,7 @@ Emobi,Data science,Q2374463,100.0
 Reforged Labs,Artificial intelligence,Q11660,100.0
 Flagright,Artificial intelligence,Q11660,100.0
 RedBrick AI,Artificial intelligence,Q11660,100.0
+RedBrick AI,Data science,Q2374463,100.0
 Sphere,Artificial intelligence,Q11660,100.0
 IOMETE,Artificial intelligence,Q11660,100.0
 IOMETE,Cloud computing,Q483639,100.0
@@ -1939,10 +2236,13 @@ IOMETE,Data science,Q2374463,100.0
 SkyLink,Artificial intelligence,Q11660,100.0
 Power to the Brand,Artificial intelligence,Q11660,100.0
 Siftly,Artificial intelligence,Q11660,100.0
+Siftly,Data science,Q2374463,100.0
 Tuva Health,Data science,Q2374463,100.0
 digiventures,Cloud computing,Q483639,100.0
 Velt,Augmented reality,Q254183,100.0
+Enlightra,Data science,Q2374463,100.0
 Cogram,Artificial intelligence,Q11660,100.0
+Cogram,Data science,Q2374463,100.0
 Toko,Artificial intelligence,Q11660,100.0
 Sero,Cloud computing,Q483639,100.0
 Cotera,Artificial intelligence,Q11660,100.0
@@ -1952,7 +2252,9 @@ Kaagaz,Cloud computing,Q483639,100.0
 Curacel,Artificial intelligence,Q11660,100.0
 Livedocs,Data science,Q2374463,100.0
 voize,Artificial intelligence,Q11660,100.0
+PayCrunch,Data science,Q2374463,100.0
 Agency,Cloud computing,Q483639,100.0
+Agency,Data science,Q2374463,100.0
 Cera,Blockchain,Q20514253,100.0
 Finnt,Artificial intelligence,Q11660,100.0
 Grey,Blockchain,Q20514253,100.0
@@ -1987,15 +2289,19 @@ Brainboard,Cloud computing,Q483639,100.0
 Top Road,Artificial intelligence,Q11660,100.0
 Top Road,Data science,Q2374463,100.0
 AvairSense,Artificial intelligence,Q11660,100.0
+AvairSense,Data science,Q2374463,100.0
 IoTFlows Inc,Artificial intelligence,Q11660,100.0
 UNISON,Augmented reality,Q254183,100.0
 UNISON,Virtual reality,Q170519,100.0
 Nophin,Artificial intelligence,Q11660,100.0
+Spade,Data science,Q2374463,100.0
 PropelAuth,Cloud computing,Q483639,100.0
 Decent,Blockchain,Q20514253,100.0
 WishRoll,Artificial intelligence,Q11660,100.0
+Jamsocket,Cloud computing,Q483639,100.0
 ngrow.ai,Artificial intelligence,Q11660,100.0
 ngrow.ai,Cloud computing,Q483639,100.0
+ngrow.ai,Data science,Q2374463,100.0
 Clupp,Cloud computing,Q483639,100.0
 Shaped,Artificial intelligence,Q11660,100.0
 amiloz,Artificial intelligence,Q11660,100.0
@@ -2003,7 +2309,9 @@ Ploomber,Artificial intelligence,Q11660,100.0
 Ploomber,Cloud computing,Q483639,100.0
 Verse,Artificial intelligence,Q11660,100.0
 Tuesday,Artificial intelligence,Q11660,100.0
+Tuesday,Data science,Q2374463,100.0
 RTHM,Artificial intelligence,Q11660,100.0
+RTHM,Data science,Q2374463,100.0
 Humand,Artificial intelligence,Q11660,100.0
 Unravel Carbon,Artificial intelligence,Q11660,100.0
 Unravel Carbon,Data science,Q2374463,100.0
@@ -2016,10 +2324,12 @@ Plover Parametrics,Data science,Q2374463,100.0
 Darsel,Artificial intelligence,Q11660,100.0
 Cashmere,Blockchain,Q20514253,100.0
 Powerhouse AI,Artificial intelligence,Q11660,100.0
+Powerhouse AI,Data science,Q2374463,100.0
 Query Vary,Artificial intelligence,Q11660,100.0
 Circular,Virtual reality,Q170519,100.0
 Impossible Metals,Robotics,Q170978,100.0
 Cellbyte,Artificial intelligence,Q11660,100.0
+Cellbyte,Data science,Q2374463,100.0
 GoSats,Blockchain,Q20514253,100.0
 Poko,Blockchain,Q20514253,100.0
 GovDash,Artificial intelligence,Q11660,100.0
@@ -2034,11 +2344,13 @@ Eventual,Data science,Q2374463,100.0
 AiSupervision,Robotics,Q170978,100.0
 Onboard.io,Cloud computing,Q483639,100.0
 Jutsoo,Data science,Q2374463,100.0
+Liv Labs,Data science,Q2374463,100.0
 Careerist,Cloud computing,Q483639,100.0
 Revolve Surgical,Robotics,Q170978,100.0
 Exa,Artificial intelligence,Q11660,100.0
 Sully.ai,Artificial intelligence,Q11660,100.0
 Hedgehog,Blockchain,Q20514253,100.0
+Lobby,Data science,Q2374463,100.0
 Buzzle,Artificial intelligence,Q11660,100.0
 Buzzle,Data science,Q2374463,100.0
 Buzzle,Robotics,Q170978,100.0
@@ -2051,14 +2363,17 @@ Protego,Data science,Q2374463,100.0
 Elto,Artificial intelligence,Q11660,100.0
 MarqVision,Artificial intelligence,Q11660,100.0
 Satsuma,Blockchain,Q20514253,100.0
+Satsuma,Data science,Q2374463,100.0
 PaletteHQ,Cloud computing,Q483639,100.0
 Openlayer,Artificial intelligence,Q11660,100.0
 Blixo,Artificial intelligence,Q11660,100.0
+Blixo,Data science,Q2374463,100.0
 Contalink,Cloud computing,Q483639,100.0
 Talus Bio,Data science,Q2374463,100.0
 hotglue,Cloud computing,Q483639,100.0
 Legion Health,Artificial intelligence,Q11660,100.0
 Mindstate Design Labs,Artificial intelligence,Q11660,100.0
+Pipekit,Data science,Q2374463,100.0
 Varos,Data science,Q2374463,100.0
 Concord Materials,Cloud computing,Q483639,100.0
 Archbee,Artificial intelligence,Q11660,100.0
@@ -2066,6 +2381,7 @@ Potion,Artificial intelligence,Q11660,100.0
 Jestor,Artificial intelligence,Q11660,100.0
 Flow Club,Virtual reality,Q170519,100.0
 Replo,Artificial intelligence,Q11660,100.0
+Replo,Data science,Q2374463,100.0
 FirstQuadrant,Artificial intelligence,Q11660,100.0
 DolarApp,Blockchain,Q20514253,100.0
 SolarMente,Sustainable energy,Q1962383,100.0
@@ -2088,6 +2404,8 @@ Neodocs,Artificial intelligence,Q11660,100.0
 Neodocs,Data science,Q2374463,100.0
 ShopMyGPT.com,Artificial intelligence,Q11660,100.0
 Vansec,Artificial intelligence,Q11660,100.0
+REPROSENT,Data science,Q2374463,100.0
+Anakin,Data science,Q2374463,100.0
 SnapCalorie,Artificial intelligence,Q11660,100.0
 SnapCalorie,Cloud computing,Q483639,100.0
 Hypercore,Data science,Q2374463,100.0
@@ -2103,15 +2421,23 @@ Brite,Cloud computing,Q483639,100.0
 SafeBeat,Artificial intelligence,Q11660,100.0
 SafeBeat,Data science,Q2374463,100.0
 SafeBeat,Wearable technology,Q4845080,100.0
+Fitia,Data science,Q2374463,100.0
 Kodex,Cloud computing,Q483639,100.0
+Kodex,Data science,Q2374463,100.0
 HyperTrader,Blockchain,Q20514253,100.0
 Verihubs,Artificial intelligence,Q11660,100.0
 Verihubs,Data science,Q2374463,100.0
 Secoda,Data science,Q2374463,100.0
+Tarsal,Data science,Q2374463,100.0
+SalaryBox,Data science,Q2374463,100.0
 Sentiyen,Artificial intelligence,Q11660,100.0
 Jovian,Artificial intelligence,Q11660,100.0
+Jovian,Data science,Q2374463,100.0
+Laudable,Data science,Q2374463,100.0
+Breadcrumbs.io,Data science,Q2374463,100.0
 Govly,Cloud computing,Q483639,100.0
 Govly,Data science,Q2374463,100.0
+Pluggy,Data science,Q2374463,100.0
 Muse,Augmented reality,Q254183,100.0
 Muse,Virtual reality,Q170519,100.0
 Warpfy,Artificial intelligence,Q11660,100.0
@@ -2121,6 +2447,8 @@ TrackChain,Artificial intelligence,Q11660,100.0
 Cloudanix,Cloud computing,Q483639,100.0
 DigiBuild,Artificial intelligence,Q11660,100.0
 OneStopKitchen,Artificial intelligence,Q11660,100.0
+fluke,Data science,Q2374463,100.0
+inai,Data science,Q2374463,100.0
 Cero,Artificial intelligence,Q11660,100.0
 WarpBuild,Artificial intelligence,Q11660,100.0
 WarpBuild,Cloud computing,Q483639,100.0
@@ -2130,11 +2458,14 @@ Cloudthread,Cloud computing,Q483639,100.0
 Cloudthread,Data science,Q2374463,100.0
 Cartpanda,Cloud computing,Q483639,100.0
 LootRush,Blockchain,Q20514253,100.0
+Yemaachi Biotechnology,Data science,Q2374463,100.0
 Scispot,Artificial intelligence,Q11660,100.0
 Scispot,Data science,Q2374463,100.0
 Infiuss Health,Data science,Q2374463,100.0
+Mergent,Data science,Q2374463,100.0
 Coinrule,Blockchain,Q20514253,100.0
 Dot,Artificial intelligence,Q11660,100.0
+Dot,Data science,Q2374463,100.0
 ShipBlu,Artificial intelligence,Q11660,100.0
 ShipBlu,Data science,Q2374463,100.0
 Whalesync,Data science,Q2374463,100.0
@@ -2142,11 +2473,15 @@ Malloc,Artificial intelligence,Q11660,100.0
 CoLoop,Artificial intelligence,Q11660,100.0
 Multibase,Data science,Q2374463,100.0
 Wharf,Artificial intelligence,Q11660,100.0
+Wharf,Data science,Q2374463,100.0
+Kurios,Data science,Q2374463,100.0
 Zoios.,Data science,Q2374463,100.0
+Aleph,Data science,Q2374463,100.0
 Protex AI,Artificial intelligence,Q11660,100.0
 Protex AI,Data science,Q2374463,100.0
 Freterium,Cloud computing,Q483639,100.0
 Harmonic Discovery,Artificial intelligence,Q11660,100.0
+Flowly,Data science,Q2374463,100.0
 Flowly,Virtual reality,Q170519,100.0
 Zensors,Artificial intelligence,Q11660,100.0
 Zensors,Data science,Q2374463,100.0
@@ -2164,6 +2499,7 @@ outloud.ai,Artificial intelligence,Q11660,100.0
 Matrubials,Artificial intelligence,Q11660,100.0
 The Breakaway,Artificial intelligence,Q11660,100.0
 Writesonic,Artificial intelligence,Q11660,100.0
+TransAstra Corporation,Data science,Q2374463,100.0
 RMFG,Robotics,Q170978,100.0
 Mach9,Artificial intelligence,Q11660,100.0
 Mach9,Data science,Q2374463,100.0
@@ -2181,26 +2517,32 @@ Hudson Labs (formerly Bedrock AI),Artificial intelligence,Q11660,100.0
 Waterplan,Data science,Q2374463,100.0
 Filta,Augmented reality,Q254183,100.0
 Filta,Virtual reality,Q170519,100.0
+Ferveret,Data science,Q2374463,100.0
 Humane Genomics,Data science,Q2374463,100.0
 Telivy,Data science,Q2374463,100.0
 bloop,Artificial intelligence,Q11660,100.0
 Infer,Artificial intelligence,Q11660,100.0
 Caire Health,Artificial intelligence,Q11660,100.0
 Baubap,Artificial intelligence,Q11660,100.0
+Shape,Data science,Q2374463,100.0
 idemeum,Cloud computing,Q483639,100.0
 Byte Kitchen,Artificial intelligence,Q11660,100.0
 ContraForce,Artificial intelligence,Q11660,100.0
 Storylane,Cloud computing,Q483639,100.0
 Output Biosciences,Artificial intelligence,Q11660,100.0
+Output Biosciences,Data science,Q2374463,100.0
 CellChorus,Artificial intelligence,Q11660,100.0
 Plai,Artificial intelligence,Q11660,100.0
 Hirebolt,Artificial intelligence,Q11660,100.0
+Crew,Data science,Q2374463,100.0
 Opkit,Artificial intelligence,Q11660,100.0
 Squire.ai,Artificial intelligence,Q11660,100.0
 Bytebot,Artificial intelligence,Q11660,100.0
+Bytebot,Data science,Q2374463,100.0
 Adra,Artificial intelligence,Q11660,100.0
 Adra,Data science,Q2374463,100.0
 Medium Biosciences,Artificial intelligence,Q11660,100.0
+Evidence,Data science,Q2374463,100.0
 Luminate Medical,Wearable technology,Q4845080,100.0
 Sitenna,Cloud computing,Q483639,100.0
 VedaBio,Gene therapy,Q213901,100.0
@@ -2210,6 +2552,8 @@ FirstIgnite,Artificial intelligence,Q11660,100.0
 HEO Robotics,Robotics,Q170978,100.0
 Ahazou,Cloud computing,Q483639,100.0
 Charge Robotics,Robotics,Q170978,100.0
+Turion Space,Data science,Q2374463,100.0
+Equipt Health,Data science,Q2374463,100.0
 Lightly,Artificial intelligence,Q11660,100.0
 Lightly,Data science,Q2374463,100.0
 Chipax,Augmented reality,Q254183,100.0
@@ -2218,16 +2562,23 @@ eqtble,Data science,Q2374463,100.0
 Degrees of Freedom,Virtual reality,Q170519,100.0
 Ollama,Artificial intelligence,Q11660,100.0
 SBX Robotics,Artificial intelligence,Q11660,100.0
+SBX Robotics,Data science,Q2374463,100.0
 SBX Robotics,Robotics,Q170978,100.0
 Gigs Live,Data science,Q2374463,100.0
 SlashAuth,Data science,Q2374463,100.0
 Krab,Data science,Q2374463,100.0
+CoVerified,Data science,Q2374463,100.0
 Platypus,Artificial intelligence,Q11660,100.0
+Platypus,Data science,Q2374463,100.0
+Finantier,Data science,Q2374463,100.0
 Launcher Labs,Blockchain,Q20514253,100.0
 Codeball,Artificial intelligence,Q11660,100.0
+Fountain9,Data science,Q2374463,100.0
 ClipDrop,Data science,Q2374463,100.0
 Roin Technologies,Robotics,Q170978,100.0
+Purpose Finance,Data science,Q2374463,100.0
 TechBiz,Cloud computing,Q483639,100.0
+TechBiz,Data science,Q2374463,100.0
 Verak,Data science,Q2374463,100.0
 Trendpop,Data science,Q2374463,100.0
 Enable Us,Artificial intelligence,Q11660,100.0
@@ -2242,12 +2593,16 @@ cloud humans,Artificial intelligence,Q11660,100.0
 cloud humans,Cloud computing,Q483639,100.0
 Atomic Industries,Artificial intelligence,Q11660,100.0
 Atomic Industries,Robotics,Q170978,100.0
+Albedo,Data science,Q2374463,100.0
 DreamWorld,Artificial intelligence,Q11660,100.0
 Pibit.ai,Artificial intelligence,Q11660,100.0
 Moichor,Artificial intelligence,Q11660,100.0
 Bluelight,Data science,Q2374463,100.0
+Triplit,Data science,Q2374463,100.0
 Flux Auto,Robotics,Q170978,100.0
+Curvenote,Data science,Q2374463,100.0
 Wyndly,Cancer vaccine,Q2378309,100.0
+SpruceID,Data science,Q2374463,100.0
 Pragmatic Leaders (Ankai Inc),Artificial intelligence,Q11660,100.0
 Segments.ai,Artificial intelligence,Q11660,100.0
 Segments.ai,Cloud computing,Q483639,100.0
@@ -2258,8 +2613,10 @@ Axiom.ai,Robotics,Q170978,100.0
 Encord,Artificial intelligence,Q11660,100.0
 Encord,Data science,Q2374463,100.0
 Avenue,Data science,Q2374463,100.0
+Prequel,Data science,Q2374463,100.0
 HyperGlue,Artificial intelligence,Q11660,100.0
 Axle Health,Cloud computing,Q483639,100.0
+Cyble,Data science,Q2374463,100.0
 Huddlefire,Cloud computing,Q483639,100.0
 Javelin Robotics,Artificial intelligence,Q11660,100.0
 Javelin Robotics,Robotics,Q170978,100.0
@@ -2267,8 +2624,10 @@ June,Data science,Q2374463,100.0
 Promoted.ai,Artificial intelligence,Q11660,100.0
 Vapi,Artificial intelligence,Q11660,100.0
 Parsagon,Artificial intelligence,Q11660,100.0
+Parsagon,Data science,Q2374463,100.0
 ControlHub,Cloud computing,Q483639,100.0
 Dashlabs.ai,Artificial intelligence,Q11660,100.0
+Quadrant Health,Data science,Q2374463,100.0
 Mindee,Artificial intelligence,Q11660,100.0
 Pangea.app,Artificial intelligence,Q11660,100.0
 Care Weather,Data science,Q2374463,100.0
@@ -2298,6 +2657,7 @@ Simplify,Artificial intelligence,Q11660,100.0
 Striga,Blockchain,Q20514253,100.0
 unSurvey,Artificial intelligence,Q11660,100.0
 ZOKO,Artificial intelligence,Q11660,100.0
+"Reclaim Protocol, Questbook",Data science,Q2374463,100.0
 BotBuilt,Robotics,Q170978,100.0
 Seer,Cloud computing,Q483639,100.0
 Biodock,Artificial intelligence,Q11660,100.0
@@ -2308,7 +2668,9 @@ Venu AI,Artificial intelligence,Q11660,100.0
 Lamar Health,Artificial intelligence,Q11660,100.0
 Compose.ai,Artificial intelligence,Q11660,100.0
 Soraban,Artificial intelligence,Q11660,100.0
+Soraban,Data science,Q2374463,100.0
 Haystack,Data science,Q2374463,100.0
+Mono,Data science,Q2374463,100.0
 Lunatic,WebAssembly,Q20155677,100.0
 Vue Storefront,Cloud computing,Q483639,100.0
 Infracost,Cloud computing,Q483639,100.0
@@ -2316,13 +2678,17 @@ AgendaPro,Cloud computing,Q483639,100.0
 Alpas,Data science,Q2374463,100.0
 GreaseBoss,Robotics,Q170978,100.0
 Dataherald,Artificial intelligence,Q11660,100.0
+Dataherald,Data science,Q2374463,100.0
 Rejoy Health,Artificial intelligence,Q11660,100.0
+Machine26,Data science,Q2374463,100.0
 Svix,Cloud computing,Q483639,100.0
 Gigs,Artificial intelligence,Q11660,100.0
 Jetdocs,Cloud computing,Q483639,100.0
+Voosh,Data science,Q2374463,100.0
 Mystic,Cloud computing,Q483639,100.0
 Mystic,Data science,Q2374463,100.0
 Turing College,Artificial intelligence,Q11660,100.0
+Wasp,Data science,Q2374463,100.0
 Moonvalley,Artificial intelligence,Q11660,100.0
 Moonvalley,Augmented reality,Q254183,100.0
 MindPortal,Artificial intelligence,Q11660,100.0
@@ -2332,6 +2698,7 @@ Triomics,Artificial intelligence,Q11660,100.0
 SwiftSku,Data science,Q2374463,100.0
 Reshape Biotech,Robotics,Q170978,100.0
 Tackle,Artificial intelligence,Q11660,100.0
+Terra API,Data science,Q2374463,100.0
 Terra API,Wearable technology,Q4845080,100.0
 SiPhox Health,Wearable technology,Q4845080,100.0
 Overfit,Artificial intelligence,Q11660,100.0
@@ -2358,10 +2725,12 @@ Unfaze AI,Artificial intelligence,Q11660,100.0
 Photoroom,Artificial intelligence,Q11660,100.0
 Porter,Cloud computing,Q483639,100.0
 Recurrency,Artificial intelligence,Q11660,100.0
+Jitsu,Data science,Q2374463,100.0
 Command AI,Artificial intelligence,Q11660,100.0
 inFeedo AI,Artificial intelligence,Q11660,100.0
 Roboflow,Artificial intelligence,Q11660,100.0
 Datafold,Data science,Q2374463,100.0
+Blue Onion Labs,Data science,Q2374463,100.0
 "Zitara Technologies, Inc.",Sustainable energy,Q1962383,100.0
 Shuttle,Cloud computing,Q483639,100.0
 Queue,Cloud computing,Q483639,100.0
@@ -2370,11 +2739,13 @@ Explorex,Cloud computing,Q483639,100.0
 Hypotenuse AI,Artificial intelligence,Q11660,100.0
 Farmako Healthcare,Artificial intelligence,Q11660,100.0
 Farmako Healthcare,Cloud computing,Q483639,100.0
+CoreCare,Data science,Q2374463,100.0
 Swif.ai,Artificial intelligence,Q11660,100.0
 Swif.ai,Cloud computing,Q483639,100.0
 Humanloop,Artificial intelligence,Q11660,100.0
 Humanloop,Prompt engineering,Q108941486,100.0
 Osmind,Data science,Q2374463,100.0
+Stacker,Data science,Q2374463,100.0
 Streamdal,Cloud computing,Q483639,100.0
 Streamdal,Data science,Q2374463,100.0
 Nextera Robotics,Artificial intelligence,Q11660,100.0
@@ -2385,8 +2756,13 @@ Mailwarm,Cloud computing,Q483639,100.0
 Notabene,Blockchain,Q20514253,100.0
 Notabene,Cloud computing,Q483639,100.0
 Liyfe,Artificial intelligence,Q11660,100.0
+PANADATA,Data science,Q2374463,100.0
 Dataland,Artificial intelligence,Q11660,100.0
+Dataland,Data science,Q2374463,100.0
+Formal,Data science,Q2374463,100.0
+HENRY,Data science,Q2374463,100.0
 CarbonChain,Cloud computing,Q483639,100.0
+Supabase,Data science,Q2374463,100.0
 Mito,Artificial intelligence,Q11660,100.0
 Mito,Data science,Q2374463,100.0
 DraftWise,Artificial intelligence,Q11660,100.0
@@ -2397,32 +2773,49 @@ Glimpse,Artificial intelligence,Q11660,100.0
 Mozart Data,Data science,Q2374463,100.0
 Zuddl,Cloud computing,Q483639,100.0
 Heron Data,Artificial intelligence,Q11660,100.0
+Heron Data,Data science,Q2374463,100.0
+Finch,Data science,Q2374463,100.0
 Fieldguide,Artificial intelligence,Q11660,100.0
+Clau,Data science,Q2374463,100.0
 Optimizely,Artificial intelligence,Q11660,100.0
 Teevox,Artificial intelligence,Q11660,100.0
 Userfox,Cloud computing,Q483639,100.0
+Infogami,Data science,Q2374463,100.0
 Clustrix,Cloud computing,Q483639,100.0
+Clustrix,Data science,Q2374463,100.0
 Wufoo,Cloud computing,Q483639,100.0
+Wufoo,Data science,Q2374463,100.0
 View3,Robotics,Q170978,100.0
+Octopart,Data science,Q2374463,100.0
 Octopart,Robotics,Q170978,100.0
 Scribd,Artificial intelligence,Q11660,100.0
 Hello Chair,Data science,Q2374463,100.0
 ZumoDrive,Cloud computing,Q483639,100.0
+Frogmetrics,Data science,Q2374463,100.0
 CO2Stats,Sustainable energy,Q1962383,100.0
+280 North,Data science,Q2374463,100.0
 Cloudant,Cloud computing,Q483639,100.0
 Cloudant,Data science,Q2374463,100.0
+Machine Zone,Data science,Q2374463,100.0
 JustSpotted,Data science,Q2374463,100.0
 BackType,Data science,Q2374463,100.0
 Poll Everywhere,Cloud computing,Q483639,100.0
 Wakemate,Data science,Q2374463,100.0
+Flightcaster,Data science,Q2374463,100.0
+Directed Edge,Data science,Q2374463,100.0
 RentHop,Data science,Q2374463,100.0
 Mixpanel,Data science,Q2374463,100.0
 Marft,Data science,Q2374463,100.0
 Zillabyte,Cloud computing,Q483639,100.0
 Zillabyte,Data science,Q2374463,100.0
+LendUp,Data science,Q2374463,100.0
+Amiato,Data science,Q2374463,100.0
 FarmLogs,Data science,Q2374463,100.0
 Fond,Cloud computing,Q483639,100.0
 Loom,Cloud computing,Q483639,100.0
+YourMechanic,Data science,Q2374463,100.0
+Priceonomics,Data science,Q2374463,100.0
+42Floors,Data science,Q2374463,100.0
 Ridecell,Artificial intelligence,Q11660,100.0
 Ridecell,Data science,Q2374463,100.0
 Medigram,Cloud computing,Q483639,100.0
@@ -2434,6 +2827,7 @@ CircuitHub,Robotics,Q170978,100.0
 PlanGrid,Cloud computing,Q483639,100.0
 Matterport,Augmented reality,Q254183,100.0
 Matterport,Cloud computing,Q483639,100.0
+Matterport,Data science,Q2374463,100.0
 Matterport,Spatial computing,Q85802496,100.0
 Matterport,Virtual reality,Q170519,100.0
 Amplitude,Artificial intelligence,Q11660,100.0
@@ -2443,29 +2837,39 @@ AppHarbor,Cloud computing,Q483639,100.0
 AppHarbor,Data science,Q2374463,100.0
 Insight Data Science,Artificial intelligence,Q11660,100.0
 Insight Data Science,Data science,Q2374463,100.0
+Sendoid,Data science,Q2374463,100.0
 Hotspots,Data science,Q2374463,100.0
 Comprehend,Cloud computing,Q483639,100.0
+Comprehend,Data science,Q2374463,100.0
 Custora,Data science,Q2374463,100.0
 Pebble,Wearable technology,Q4845080,100.0
 SingleStore,Cloud computing,Q483639,100.0
+SingleStore,Data science,Q2374463,100.0
 You Got Listings,Cloud computing,Q483639,100.0
 Close,Cloud computing,Q483639,100.0
 Zerocater,Cloud computing,Q483639,100.0
 Storyworth,Cloud computing,Q483639,100.0
+Gantto,Data science,Q2374463,100.0
 Upbeat,Data science,Q2374463,100.0
 Chartio,Cloud computing,Q483639,100.0
 Chartio,Data science,Q2374463,100.0
 Gamador,Data science,Q2374463,100.0
+Data Marketplace,Data science,Q2374463,100.0
+Infoharmoni,Data science,Q2374463,100.0
 500Friends,Cloud computing,Q483639,100.0
 500Friends,Data science,Q2374463,100.0
 Leftronic,Data science,Q2374463,100.0
+All Screen,Data science,Q2374463,100.0
 DemandSphere,Data science,Q2374463,100.0
 Zencoder,Cloud computing,Q483639,100.0
+Movity,Data science,Q2374463,100.0
 Presto,Artificial intelligence,Q11660,100.0
+Segment,Data science,Q2374463,100.0
 AgileMD,Cloud computing,Q483639,100.0
 AgileMD,Data science,Q2374463,100.0
 MarketBrief,Data science,Q2374463,100.0
 Proxino,Cloud computing,Q483639,100.0
+Quad,Data science,Q2374463,100.0
 Zenbox,Cloud computing,Q483639,100.0
 Compose,Data science,Q2374463,100.0
 Perfect Audience,Cloud computing,Q483639,100.0
@@ -2474,5 +2878,9 @@ Parse,Data science,Q2374463,100.0
 Cloudkick,Cloud computing,Q483639,100.0
 Freshplum,Data science,Q2374463,100.0
 Citus Data,Data science,Q2374463,100.0
+Realm,Data science,Q2374463,100.0
 LeadGenius,Artificial intelligence,Q11660,100.0
+LeadGenius,Data science,Q2374463,100.0
 Pagelever,Data science,Q2374463,100.0
+Sift,Data science,Q2374463,100.0
+MixRank,Data science,Q2374463,100.0

@@ -26,6 +26,8 @@ services:
       - .:/app
     depends_on:
       - neo4j          # waits for container start
+    stdin_open: true # Equivalent to docker run -i
+    tty: true        # Equivalent to docker run -t
     environment:
       HOME: /app
       NEO4J_URI: bolt://neo4j:7687
