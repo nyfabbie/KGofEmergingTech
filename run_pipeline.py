@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
-from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups
+from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups, extract_skills_from_roles
 from src.load_to_neo4j import load_graph
 
 
@@ -28,6 +28,7 @@ arxiv_csv_path = "data/arxiv_papers_res.csv"
 brightdata_path = "data/crunchbase-companies-information.csv"
 linkedin_staff_csv_path = "data/linkedin_staff.csv"
 kaggle_jobs_csv_path = "data/kaggle_jobs_skills.csv"
+startup_skills_csv_path = "data/startup_skills.csv"
 
 
 tech_startup_csv_path = "data/matches_tech_startup.csv"
@@ -56,8 +57,9 @@ def check_cache_files():
         yc_csv_path,
         arxiv_csv_path,
         tech_startup_csv_path,
-        # linkedin_staff_csv_path,
-        # kaggle_jobs_csv_path
+        linkedin_staff_csv_path,
+        kaggle_jobs_csv_path,
+        startup_skills_csv_path
     ]
     
     for file in required_files:
@@ -66,6 +68,7 @@ def check_cache_files():
 
 
 USE_CACHE = True  # Set to False for production
+SCRAPE_LINKEDIN = False # Set to True to scrape LinkedIn data (long running)
 
 # gets a list from json
 with open(emerging_technologies_file, "r", encoding="utf-8") as f:
@@ -81,8 +84,9 @@ if USE_CACHE:
     startups_crunchbase = pd.read_csv(crunchbase_csv_path)
     arxiv_df = pd.read_csv(arxiv_csv_path)
     cb_info_df = pd.read_csv(brightdata_path, low_memory=False, keep_default_na=False)
-    #final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
-    #kaggle_jobs_skills = pd.read_csv(kaggle_jobs_csv_path)
+    final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
+    kaggle_jobs_skills = pd.read_csv(kaggle_jobs_csv_path)
+    startup_skills_df = pd.read_csv(startup_skills_csv_path)
     
     # matches_df = pd.read_csv(tech_startup_csv_path)
     # edge_df = pd.read_csv(tech_paper_csv_path)
@@ -128,20 +132,31 @@ cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","ind
 cb_info_matches_df.to_csv("data/matches_tech_cbinfo.csv", index=False)
 
 
+# Merge the two matches DataFrames
+all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)
+all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
+
+startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
+startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
+
 
 # --------- Fetch LinkedIn staff data ---------
-if not USE_CACHE:
+if SCRAPE_LINKEDIN:
     # Fetch linkedin staff data from crunchbase companies
     all_linkedin_staff = []
-    unique_startups = cb_info_matches_df['startup_name'].unique()
+    max_staff= 999
+    unique_startups = pd.concat([startups_df_filtered['name'], cb_info_df['name']]).dropna().unique()
     print(f"\nFound {len(unique_startups)} unique startups to scrape from LinkedIn.")
 
     for i, startup_name in enumerate(unique_startups):
         print(f"Scraping LinkedIn for '{startup_name}' ({i+1}/{len(unique_startups)})...")
         try:
-            # Fetch up to 20 staff members for the current startup
-            linkedin_staff = fetch_linkedin(startup_name, 20)
+            # Fetch up to max_staff staff members for the current startup
+            linkedin_staff = fetch_linkedin(startup_name, max_staff)
             if not linkedin_staff.empty:
+                # Overwrite the scraped name with the canonical name from our list
+                # to ensure data consistency.
+                linkedin_staff['start_up'] = startup_name
                 all_linkedin_staff.append(linkedin_staff)
             
             # Sleep with a random delay to mimic human behavior and avoid getting blocked
@@ -162,19 +177,24 @@ if not USE_CACHE:
     else:
         print("\nNo LinkedIn staff data was collected.")
         final_linkedin_df = pd.DataFrame()
+else:
+    print("   NOTICE: Skipping LinkedIn scraping. Set SCRAPE_LINKEDIN to True to fetch fresh data.")
+    if os.path.exists(linkedin_staff_csv_path):
+        final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
+    else:
+        final_linkedin_df = pd.DataFrame()
 
-# Fetch Kaggle job postings and skills
-kaggle_jobs_skills = fetch_kaggle()
-kaggle_jobs_skills.to_csv(kaggle_jobs_csv_path, index=False)
+if not USE_CACHE:
+    # Fetch Kaggle job postings and skills
+    kaggle_jobs_skills = fetch_kaggle()
+    kaggle_jobs_skills.to_csv(kaggle_jobs_csv_path, index=False)
+    # --------- Create Startup Skills ---------    
+    print("\nMatching LinkedIn roles to Kaggle skills...")
+    startup_skills_df = extract_skills_from_roles(final_linkedin_df, kaggle_jobs_skills)
+    startup_skills_df.to_csv(startup_skills_csv_path, index=False)
+    print(f"✓ Saved {len(startup_skills_df)} startup-skill relationships to {startup_skills_csv_path}")
 
 
-
-# Merge the two matches DataFrames
-all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)
-all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
-
-startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
-startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
 
 print(len(startups_df_filtered), "filtered startup nodes", )
 print(len(startups_yc), "startup nodes from ycombinator", )
@@ -192,5 +212,5 @@ wait_for_neo4j(
     os.getenv("NEO4J_PASSWORD", "password")
 )
 
-load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df)
+load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df, startup_skills_df)
 print("✓ Data loaded into Neo4j")

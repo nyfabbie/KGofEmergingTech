@@ -12,13 +12,19 @@ USER = os.getenv("NEO4J_USER", "neo4j")
 PWD  = os.getenv("NEO4J_PASSWORD", "password")
 
 
-def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, cb_info_df):
+def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, cb_info_df, startup_skills_df):
     # print(tech_df.head())
     # print(tech_df.columns)
     driver = GraphDatabase.driver(URI, auth=(USER, PWD))
 
     def _tx_load(tx):
-        # Tech nodes
+        # Create constraints
+        # tx.run("CREATE CONSTRAINT IF NOT EXISTS FOR (t:Technology) REQUIRE t.tech_id IS UNIQUE")
+        # tx.run("CREATE CONSTRAINT IF NOT EXISTS FOR (p:Paper) REQUIRE p.paper_id IS UNIQUE")
+        # tx.run("CREATE CONSTRAINT IF NOT EXISTS FOR (s:Startup) REQUIRE s.name IS UNIQUE")
+        # tx.run("CREATE CONSTRAINT IF NOT EXISTS FOR (sk:Skill) REQUIRE sk.name IS UNIQUE")
+
+        # Load Technologies
         for _, r in tech_df.iterrows(): 
             tx.run("""
                 MERGE (t:Technology {tech_id:$qid})
@@ -126,6 +132,27 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, cb_info_df):
                 MATCH (t:Technology {tech_id: $qid})
                 MERGE (s)-[:USES]->(t)
             """, startup_name=startup_name, qid=match.qid)
+
+        # Load Skill nodes
+        skills_query = """
+        UNWIND $rows AS row
+        MERGE (s:Skill {name: row.skill})
+        """
+        tx.run(skills_query, rows=startup_skills_df.to_dict('records'))
+        print(f"   ✓ Loaded {len(startup_skills_df['skill'].unique())} Skill nodes")
+
+        # Create Startup-HAS_SKILL-Skill relationships
+        # This now works reliably because run_pipeline.py ensures the 'start_up' column
+        # contains the canonical name that already exists in the graph.
+        skill_edges_query = """
+        UNWIND $rows AS row
+        MATCH (st:Startup {name: row.start_up})
+        MATCH (sk:Skill {name: row.skill})
+        MERGE (st)-[:HAS_SKILL]->(sk)
+        """
+        tx.run(skill_edges_query, rows=startup_skills_df.to_dict('records'))
+        print(f"   ✓ Created {len(startup_skills_df)} Startup-HAS_SKILL-Skill relationships")
+        
 
     with driver.session() as sess:
         sess.execute_write(_tx_load)

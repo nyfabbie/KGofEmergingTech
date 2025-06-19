@@ -41,22 +41,28 @@ staffspy_utils.get_webdriver = patched_get_webdriver
 
 # --- END OF PATCH ---
 
-
-# Now, when we call LinkedInAccount, it will use our patched function internally.
-# It uses environment variables (LINKEDIN_USER, LINKEDIN_PASSWORD) for automated login.
-account = LinkedInAccount(
-    driver_type=DriverType(
-        browser_type=BrowserType.CHROME,
-        executable_path="/usr/local/bin/chromedriver" # Explicitly provide the path
-    ),
-    username=input("Enter your LinkedIn email: "),
-    password=getpass.getpass("Enter your LinkedIn password: "),
-    log_level=1
-)
+# This global variable will hold our single, logged-in account instance.
+_account = None
 
 # search by company
-def fetch_linkedin(startup: str, max=100):
-    staff = account.scrape_staff(
+def fetch_linkedin(startup: str, max=999):
+    global _account
+
+    # Lazy initialization: only create the account object if it doesn't exist yet.
+    # This ensures we only log in ONCE per script run.
+    if _account is None:
+        print("First-time LinkedIn call, prompting for login...")
+        _account = LinkedInAccount(
+            driver_type=DriverType(
+                browser_type=BrowserType.CHROME,
+                executable_path="/usr/local/bin/chromedriver" # Explicitly provide the path
+            ),
+            username=input("Enter your LinkedIn email: "),
+            password=getpass.getpass("Enter your LinkedIn password: "),
+            log_level=1
+        )
+
+    staff = _account.scrape_staff(
         company_name=startup,
         extra_profile_data=True,  # fetch all past experiences, schools, & skills
         max_results=max,  # can go up to 1000
