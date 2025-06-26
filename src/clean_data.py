@@ -14,6 +14,62 @@ import json
 import os
 from dotenv import load_dotenv
 
+
+region_map = {
+    # North America
+    "USA": "NA", "US": "NA", "United States": "NA", "United States of America": "NA", "CA": "NA", "Canada": "NA", "Mexico" : "NA", "Puerto Rico": "NA",
+
+    # Europe
+    "United Kingdom": "EU", "UK": "EU", "Germany": "EU", "France": "EU", "Spain": "EU", "Italy": "EU",
+    "Ireland": "EU", "Netherlands": "EU", "Belgium": "EU", "Sweden": "EU", "Finland": "EU", "Norway": "EU",
+    "Denmark": "EU", "Poland": "EU", "Switzerland": "EU", "Austria": "EU", "Czech Republic": "EU", 
+    "Portugal": "EU", "Greece": "EU", "Hungary": "EU", "Estonia": "EU", "Slovakia": "EU", "Slovenia": "EU",
+    "Bulgaria": "EU", "Croatia": "EU", "Romania": "EU", "Lithuania": "EU", "Latvia": "EU", "Serbia": "EU",
+    "Iceland": "EU", "Ukraine": "EU", "Russia": "EU", "Israel": "EU",  # Israel often listed with EU companies
+    "ISR": "EU", "GBR": "EU", "DEU": "EU", "FRA": "EU", "ESP": "EU", "ITA": "EU", "IRL": "EU", "NLD": "EU",
+    "Czechia" : "EU",
+
+    # Asia
+    "India": "AS", "China": "AS", "Japan": "AS", "South Korea": "AS", "Singapore": "AS", "Indonesia": "AS",
+    "Philippines": "AS", "Malaysia": "AS", "Pakistan": "AS", "Thailand": "AS", "Vietnam": "AS",
+    "Hong Kong": "AS", "Taiwan": "AS", "UAE": "AS", "Bangladesh": "AS", "Qatar": "AS", "Saudi Arabia": "AS",
+    "Turkey": "AS", "Kuwait": "AS", "Iran": "AS", "Kazakhstan": "AS",
+    "IND": "AS", "CHN": "AS", "JPN": "AS", "SGP": "AS", "ARE": "AS", "KOR": "AS",
+    "United Arab Emirates": "AS", "UAE": "AS", "TUR": "AS", "SAU": "AS", "IRN": "AS", "KAZ": "AS",
+    "Nepal": "AS", "Sri Lanka": "AS", "Bangladesh": "AS", "Pakistan": "AS",
+
+    # South America
+    "Brazil": "SA", "Argentina": "SA", "Chile": "SA", "Colombia": "SA", "Peru": "SA", "Uruguay": "SA",
+    "Venezuela": "SA", "Paraguay": "SA", "Bolivia": "SA", "Ecuador": "SA",
+    "BRA": "SA", "ARG": "SA", "CHL": "SA", "COL": "SA", "PER": "SA",
+
+    # Africa
+    "South Africa": "AF", "Nigeria": "AF", "Kenya": "AF", "Egypt": "AF", "Morocco": "AF", "Ghana": "AF",
+    "Algeria": "AF", "Tunisia": "AF", "Ethiopia": "AF", "Tanzania": "AF", "Uganda": "AF",
+    "ZAF": "AF", "NGA": "AF", "EGY": "AF", "KEN": "AF", "MAR": "AF",
+    "Senegal": "AF", "Senegal": "AF", "SEN": "AF", "GHA": "AF", "TUN": "AF",
+    "Tanzania": "AF", "TZA": "AF", "UGA": "AF", "ETH": "AF", "DZA": "AF",
+    "Democratic Republic of the Congo" : "AF", "DRC": "AF", "Zaire": "AF", "COD": "AF",
+
+    # Oceania
+    "Australia": "OC", "New Zealand": "OC", "AUS": "OC", "NZL": "OC",
+
+    "Iraq": "AS",
+    "Panama": "SA",
+    "Seychelles": "AF",
+    "Costa Rica": "SA",
+    "Bahrain": "AS",
+    "Namibia": "AF",
+    "Zambia": "AF",
+    "Cyprus": "EU",
+    "Georgia": "AS",
+    "Ivory Coast": "AF", "Côte d'Ivoire": "AF",
+
+    # Other
+    "Remote": "Remote", "Unknown": "Unknown"
+}
+
+
 # ---------- helpers -------------------------------------------------
 
 def _normalise(text: str) -> str:
@@ -131,34 +187,53 @@ def extract_location_from_json(cell):
         return None
     return None
 
+def extract_country(location):
+    if pd.isna(location):
+        return None
+    parts = [p.strip() for p in location.split(',')]
+    return parts[-1] if parts else None
+
+
+def unify_founding_date(row):
+    # Try all possible columns in order of preference
+    for col in ['founded_date', 'founded_at', 'first_funding_at', 'founded']:
+        val = row.get(col, None)
+        if pd.notnull(val) and str(val).strip() != '':
+            # If it's a float year (from YC), convert to YYYY-MM-DD
+            if col == 'founded' and isinstance(val, float):
+                return f"{int(val)}-01-01"
+            return str(val)
+    return None
+
 def clean_startups(startups_df, cb_info_df):
     """
     Cleans startup data from YCombinator and Crunchbase (cb_info_df).
     Focuses on normalizing names, extracting and cleaning funding, location.
     """
     # Clean YC startups (passed as startups_df)
-    if 'name' in startups_df.columns:
-        startups_df['original_name_yc'] = startups_df['name']
-        startups_df['name'] = startups_df['name'].astype(str).apply(_normalise)
+    startups_df['original_name_yc'] = startups_df['name']
+    startups_df['name'] = startups_df['name'].astype(str).apply(_normalise)
 
-    # Ensure 'funding_total_usd' column exists for YC startups.
-    # YC data as loaded initially won't have 'all_time_funding' or 'funding_total_usd'.
-    # Create 'funding_total_usd' if it doesn't exist.
-    if 'funding_total_usd' not in startups_df.columns:
-        print("\n--- clean_startups: YC startups - 'funding_total_usd' not found, creating empty 'funding_total_usd' column. ---")
-        startups_df['funding_total_usd'] = pd.NA
+
+    # Extract region from startups from yc
+    startups_df['country'] = startups_df['location'].apply(extract_country)
+    startups_df['region'] = startups_df['country'].map(region_map).fillna("Unknown")
+
+    # # Ensure 'funding_total_usd' column exists for YC startups.   
+    # # YC data as loaded initially won't have 'all_time_funding' or 'funding_total_usd'.
+    # # Create 'funding_total_usd' if it doesn't exist.
+    # if 'funding_total_usd' not in startups_df.columns:
+    #     print("\n--- clean_startups: YC startups - 'funding_total_usd' not found, creating empty 'funding_total_usd' column. ---")
+    #     startups_df['funding_total_usd'] = pd.NA
 
     # Now, clean 'funding_total_usd'; this will work even if it was just created as all NA
     if 'funding_total_usd' in startups_df.columns: # Should always be true now
         startups_df['funding_total_usd'] = startups_df['funding_total_usd'].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>'], pd.NA)
         startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
     
-    print("\n--- clean_startups: YC startups after initial cleaning (sample) ---")
-
     # Clean Crunchbase Info (cb_info_df)
-    if 'name' in cb_info_df.columns:
-        cb_info_df['original_name_cb_info'] = cb_info_df['name']
-        cb_info_df['name'] = cb_info_df['name'].astype(str).apply(_normalise)
+    cb_info_df['original_name_cb_info'] = cb_info_df['name']
+    cb_info_df['name'] = cb_info_df['name'].astype(str).apply(_normalise)
 
     # Always attempt to extract funding from JSON fields for Crunchbase/Brightdata
     print("\n--- clean_startups: cb_info_df - Extracting funding from JSON fields (funds_raised, financials_highlights, funding_total, featured_list) ---")
@@ -172,15 +247,15 @@ def clean_startups(startups_df, cb_info_df):
     cb_info_df['funding_currency_from_json'] = temp_funding_df['funding_currency_from_json']
 
     # Initialize 'funding_total_usd_direct' from existing 'funding_total_usd' or set to NA
-    if 'funding_total_usd' in cb_info_df.columns:
-        print("\n--- clean_startups: cb_info_df - Processing existing 'funding_total_usd' column. ---")
-        cb_info_df['funding_total_usd_direct'] = pd.to_numeric(
-            cb_info_df['funding_total_usd'].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>', ' - '], pd.NA),
-            errors='coerce'
-        )
-    else:
-        print("\n--- clean_startups: cb_info_df - No direct 'funding_total_usd' column found, initializing helper with pd.NA. ---")
-        cb_info_df['funding_total_usd_direct'] = pd.NA
+    # if 'funding_total_usd' in cb_info_df.columns:
+    #     print("\n--- clean_startups: cb_info_df - Processing existing 'funding_total_usd' column. ---")
+    #     cb_info_df['funding_total_usd_direct'] = pd.to_numeric(
+    #         cb_info_df['funding_total_usd'].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>', ' - '], pd.NA),
+    #         errors='coerce'
+    #     )
+    # else:
+    #     print("\n--- clean_startups: cb_info_df - No direct 'funding_total_usd' column found, initializing helper with pd.NA. ---")
+    cb_info_df['funding_total_usd_direct'] = pd.NA
 
     # Combine direct and JSON-extracted funding, then assign to 'funding_total_usd'
     cb_info_df['funding_total_usd'] = cb_info_df['funding_total_usd_direct'].combine_first(cb_info_df['funding_total_usd_json'])
@@ -192,29 +267,10 @@ def clean_startups(startups_df, cb_info_df):
         cb_info_df.drop(columns=['funding_total_extracted_value'], inplace=True, errors='ignore')
 
     # Ensure 'funding_total_usd' exists even if both sources were absent
-    if 'funding_total_usd' not in cb_info_df.columns:
-        print("\n--- clean_startups: cb_info_df - 'funding_total_usd' was not created from sources, initializing with pd.NA. ---")
-        cb_info_df['funding_total_usd'] = pd.NA
+    # if 'funding_total_usd' not in cb_info_df.columns:
+    #     print("\n--- clean_startups: cb_info_df - 'funding_total_usd' was not created from sources, initializing with pd.NA. ---")
+    #     cb_info_df['funding_total_usd'] = pd.NA
     
-    print("\n--- clean_startups: cb_info_df after funding extraction/creation (sample with funding) ---")
-    # Prepare columns for printing, ensuring they exist
-    cols_to_print_cb = ['name']
-    # Print all possible funding JSON columns for debugging
-    for col in ['funds_raised', 'financials_highlights', 'funding_total', 'featured_list']:
-        if col in cb_info_df.columns:
-            cols_to_print_cb.append(col)
-    if 'funding_total_usd' in cb_info_df.columns:
-        cols_to_print_cb.append('funding_total_usd')
-    if 'funding_currency_from_json' in cb_info_df.columns:
-        cols_to_print_cb.append('funding_currency_from_json')
-    existing_cols_to_print_cb = [col for col in cols_to_print_cb if col in cb_info_df.columns]
-    if not cb_info_df.empty and 'funding_total_usd' in cb_info_df.columns:
-        print(cb_info_df[cb_info_df['funding_total_usd'].notna()][existing_cols_to_print_cb].head())
-    elif not cb_info_df.empty:
-        print(cb_info_df[existing_cols_to_print_cb].head())
-    else:
-        print("cb_info_df is empty or funding_total_usd column is missing for sample printing.")
-
     # Extract location from 'location' (often JSON-like)
     if "location" in cb_info_df.columns:
         cb_info_df["location_extracted"] = cb_info_df["location"].apply(extract_location_from_json)
@@ -227,6 +283,12 @@ def clean_startups(startups_df, cb_info_df):
                 .replace('', pd.NA)
             )
         startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+
+
+    cb_info_df['founding_date_final'] = cb_info_df.apply(unify_founding_date, axis=1)
+    startups_df['founding_date_final'] = startups_df.apply(unify_founding_date, axis=1)
+
+
     return startups_df, cb_info_df
 
 
@@ -239,6 +301,12 @@ def enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     startups_yc["norm_name"] = startups_yc["name"].apply(normalize_name)
     startups_crunchbase["norm_name"] = startups_crunchbase["name"].apply(normalize_name)
     cb_info_df["norm_name"] = cb_info_df["name"].apply(normalize_name)
+
+
+    # Replace region with country code
+    # Y Combinator dataset: Relevant column: region ➜ actually contains full locations, like "New York, NY, USA" or "New Delhi, DL, India" (not true region labels).
+    # Crunchbase dataset: Has both: ountry_code (e.g., "USA", "DEU") & region (sometimes city or region name)
+    startups_crunchbase['region'] = startups_crunchbase['country_code'].str.replace(r'\s*\(.*\)', '', regex=True).str.strip()
 
     # Merge YC-labeled startups with Crunchbase data by normalized name
     startups_df = startups_yc.merge(
@@ -267,32 +335,6 @@ def enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     existing_names = set(cb_info_df["norm_name"])
     startups_df_filtered = startups_df[~startups_df["norm_name"].isin(existing_names)]
     return startups_df_filtered
-
-def deduplicate_startups(startups_df1, startups_df2, threshold=92):
-    """
-    Deduplicate startups across two DataFrames using normalized names and fuzzy matching.
-    Returns two DataFrames with a new 'startup_id' column (canonical normalized name).
-    """
-    # Normalize names
-    startups_df1 = startups_df1.copy()
-    startups_df2 = startups_df2.copy()
-    startups_df1['norm_name'] = startups_df1['name'].apply(normalize_name)
-    startups_df2['norm_name'] = startups_df2['name'].apply(normalize_name)
-
-    # Build mapping from norm_name in df2 to df1 using fuzzy matching
-    id_map = {}
-    used = set()
-    for n1 in startups_df1['norm_name'].unique():
-        # Find best match in df2
-        matches = process.extract(n1, startups_df2['norm_name'].unique(), scorer=fuzz.ratio, limit=1)
-        if matches and matches[0][1] >= threshold:
-            n2 = matches[0][0]
-            id_map[n2] = n1
-            used.add(n1)
-    # Assign startup_id: for df1 it's its own norm_name, for df2 it's mapped if matched, else its own
-    startups_df1['startup_id'] = startups_df1['norm_name']
-    startups_df2['startup_id'] = startups_df2['norm_name'].apply(lambda n: id_map[n] if n in id_map else n)
-    return startups_df1, startups_df2
 
 def merge_and_clean_startups(startups_yc, cb_info_df):
     """
@@ -553,5 +595,21 @@ def extract_skills_from_roles(linkedin_staff_df, kaggle_jobs_df):
     skills_df.drop_duplicates(inplace=True)
     skills_df['skill'] = skills_df['skill'].str.strip()
     
+    return skills_df
+
+def clean_skills(skills_df):
+    """
+    Normalizes all skill names (lowercase, strip, remove extra spaces).
+    Args:
+        skills_df (pd.DataFrame): DataFrame with at least a 'skill' column.
+    Returns:
+        pd.DataFrame: DataFrame with a new column 'skill_clean' (normalized skill name).
+    """
+    def normalize_skill(s):
+        if pd.isnull(s):
+            return ''
+        return ' '.join(str(s).lower().strip().split())
+    skills_df = skills_df.copy()
+    skills_df['skill_clean'] = skills_df['skill'].apply(normalize_skill)
     return skills_df
 

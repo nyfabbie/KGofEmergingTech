@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
-from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups, extract_skills_from_roles
+from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups, extract_skills_from_roles, clean_skills
 from src.load_to_neo4j import load_graph
 
 
@@ -125,7 +125,7 @@ paper_df = clean_arxiv(papers_raw)
 
 # Tech to startup matches 
 if 'region' in startups_yc.columns:
-    startups_yc = startups_yc.rename(columns={'region': 'location'})
+    startups_yc['location'] = startups_yc['region']
 matches_df = match_startups_to_techs(startups_yc, techs_df)
 matches_df.to_csv(tech_startup_csv_path, index=False)
 cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","industries","full_description"])
@@ -138,7 +138,6 @@ all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_dupli
 
 startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
 startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
-
 
 # --------- Fetch LinkedIn staff data ---------
 if SCRAPE_LINKEDIN:
@@ -191,8 +190,11 @@ if not USE_CACHE:
     # --------- Create Startup Skills ---------    
     print("\nMatching LinkedIn roles to Kaggle skills...")
     startup_skills_df = extract_skills_from_roles(final_linkedin_df, kaggle_jobs_skills)
-    startup_skills_df.to_csv(startup_skills_csv_path, index=False)
-    print(f"✓ Saved {len(startup_skills_df)} startup-skill relationships to {startup_skills_csv_path}")
+# After loading or generating startup_skills_df, clean the skills
+startup_skills_df = clean_skills(startup_skills_df)
+startup_skills_df.to_csv(startup_skills_csv_path, index=False)
+print(f"✓ Saved {len(startup_skills_df)} startup-skill relationships to {startup_skills_csv_path}")
+
 
 
 
@@ -212,5 +214,6 @@ wait_for_neo4j(
     os.getenv("NEO4J_PASSWORD", "password")
 )
 
-load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df, startup_skills_df)
+
+load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df, startup_skills_df, SCRAPE_LINKEDIN)
 print("✓ Data loaded into Neo4j")
