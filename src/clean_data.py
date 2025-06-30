@@ -87,9 +87,9 @@ def extract_funding_total_and_currency(row):
     Extracts the most accurate funding_total and funding_currency for a Crunchbase company row.
     Priority:
     1. funds_total 
-    2. funds_raised 
-    3. financials_highlights 
-    4. funding_rounds
+    2. financials_highlights 
+    3. funding_rounds
+    4. funds_raised 
     """
     import json
     # 1. funds_total
@@ -100,21 +100,7 @@ def extract_funding_total_and_currency(row):
                 return data["value_usd"], data.get("currency", "USD")
         except Exception:
             pass
-    # 2. funds_raised
-    if "funds_raised" in row and pd.notnull(row["funds_raised"]) and row["funds_raised"] != "":
-        try:
-            data = json.loads(row["funds_raised"])
-            # If it's a list of dicts, sum all 'money_raised' values
-            if isinstance(data, list):
-                total_raised = sum(entry.get("money_raised", 0) for entry in data if isinstance(entry, dict) and "money_raised" in entry)
-                if total_raised > 0:
-                    return total_raised, "USD"
-            # If it's a dict (legacy case)
-            elif isinstance(data, dict) and "money_raised" in data:
-                return data["money_raised"], data.get("currency", "USD")
-        except Exception:
-            pass
-    # 3. financials_highlights
+    # 2. financials_highlights
     if "financials_highlights" in row and pd.notnull(row["financials_highlights"]) and row["financials_highlights"] != "":
         try:
             data = json.loads(row["financials_highlights"])
@@ -129,7 +115,7 @@ def extract_funding_total_and_currency(row):
                         return funding["value_usd"], funding.get("currency", "USD")
         except Exception:
             pass
-    # 4. funding_rounds
+    # 3. funding_rounds
     if "funding_rounds" in row and pd.notnull(row["funding_rounds"]) and row["funding_rounds"] != "":
         try:
             data = json.loads(row["funding_rounds"])
@@ -139,6 +125,20 @@ def extract_funding_total_and_currency(row):
                     return value_dict["value_usd"], value_dict.get("currency", "USD")
         except Exception:
             pass
+    # 4. funds_raised - problematic because included investments in other companies
+    # if "funds_raised" in row and pd.notnull(row["funds_raised"]) and row["funds_raised"] != "":
+    #     try:
+    #         data = json.loads(row["funds_raised"])
+    #         # If it's a list of dicts, sum all 'money_raised' values
+    #         if isinstance(data, list):
+    #             total_raised = sum(entry.get("money_raised", 0) for entry in data if isinstance(entry, dict) and "money_raised" in entry)
+    #             if total_raised > 0:
+    #                 return total_raised, "USD"
+    #         # If it's a dict (legacy case)
+    #         elif isinstance(data, dict) and "money_raised" in data:
+    #             return data["money_raised"], data.get("currency", "USD")
+    #     except Exception:
+    #         pass
     return None, None
 
 
