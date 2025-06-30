@@ -30,7 +30,7 @@ linkedin_staff_csv_path = "data/linkedin_staff.csv"
 kaggle_jobs_csv_path = "data/kaggle_jobs_skills.csv"
 startup_skills_csv_path = "data/startup_skills.csv"
 
-
+techcb_startup_csv_path = "data/matches_tech_cbinfo.csv"
 tech_startup_csv_path = "data/matches_tech_startup.csv"
 tech_paper_csv_path = "data/matches_tech_paper.csv"
 emerging_technologies_file = os.getenv("EMERGING_TECHS", "data/emerging_techs.json")
@@ -59,7 +59,8 @@ def check_cache_files():
         tech_startup_csv_path,
         linkedin_staff_csv_path,
         kaggle_jobs_csv_path,
-        startup_skills_csv_path
+        startup_skills_csv_path,
+        techcb_startup_csv_path
     ]
     
     for file in required_files:
@@ -121,7 +122,7 @@ startups_yc, startups_crunchbase, cb_info_df = startup_name_normalization(startu
 
 
 # Tech to tech matches ???
-print("Saved to data/wikidata_techs_res.csv with", len(techs_df), "entries.")
+#print("Saved to {wikidata_csv_path} with", len(techs_df), "entries.")
 
 # Tech to paper matches
 papers_raw = pd.read_csv(arxiv_csv_path)
@@ -133,7 +134,7 @@ paper_df = clean_arxiv(papers_raw)
 matches_df = match_startups_to_techs(startups_yc, techs_df)
 matches_df.to_csv(tech_startup_csv_path, index=False)
 cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","industries","full_description"])
-cb_info_matches_df.to_csv("data/matches_tech_cbinfo.csv", index=False)
+cb_info_matches_df.to_csv(techcb_startup_csv_path, index=False)
 
 all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)
 all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
@@ -151,7 +152,7 @@ if SCRAPE_LINKEDIN:
     # Fetch linkedin staff data from crunchbase companies
     all_linkedin_staff = []
     max_staff= 999
-    unique_startups = pd.concat([all_startups['name']]).dropna().unique()
+    unique_startups = pd.concat([all_startups['orginal_name']]).dropna().unique()
     print(f"\nFound {len(unique_startups)} unique startups to scrape from LinkedIn.")
 
     for i, startup_name in enumerate(unique_startups):

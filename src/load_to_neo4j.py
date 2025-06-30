@@ -61,6 +61,11 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
         for _, row in startups_df.iterrows():
             original_name = row['original_name_cb_info'] if pd.notnull(row.get('original_name_cb_info')) and row['original_name_cb_info'] else row.get('original_name_yc', '')
             name = row['name'].strip()
+            # Handle for unkown locations
+            region_value = row.get('region', '')
+            location_value = row.get('location_extracted', '')
+            region = region_value if location_value else "Unknown"
+
             tx.run("""
                 MERGE (s:Startup {name: $name})
                 SET s.original_name = $original_name, 
@@ -83,7 +88,7 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
                 desc=row.get('long_description', ''),
                 about=row.get('about', ''),
                 industries=row.get('industries', ''),
-                region=row.get('region', ''),
+                region=region,
                 website=row.get('website', ''),
                 homepage=row.get('homepage_url', ''),
                 founded_date=row.get('founding_date_final', ''),
@@ -92,7 +97,7 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
                 funding_currency=row.get('funding_currency', ''),
                 operating_status=row.get('operating_status', ''),
                 company_type=row.get('company_type', ''),
-                location=row.get('location_extracted', ''),
+                location=location_value,
                 status=row.get('status', ''),
                 category=row.get('category_list', '')
                 )

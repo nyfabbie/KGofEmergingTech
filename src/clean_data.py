@@ -66,7 +66,7 @@ region_map = {
     "Ivory Coast": "AF", "Côte d'Ivoire": "AF",
 
     # Other
-    "Remote": "Remote", "Unknown": "Unknown"
+    "Remote": "Remote", "Unknown": "Unknown", "" : "Unknown"
 }
 
 
