@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 from src.get_arxiv import fetch_arxiv, parse_et
 from src.get_crunchbase import fetch_crunchbase
 from src.get_wikidata import fetch_wikidata
-from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, enrich_and_merge_startups, clean_startups, extract_skills_from_roles, clean_skills
+from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_arxiv, clean_merge_startups, extract_skills_from_roles, clean_skills, startup_name_normalization
 from src.load_to_neo4j import load_graph
 
 
@@ -97,10 +97,9 @@ else:
     techs_df = pd.DataFrame(techs).drop_duplicates(subset="name").sort_values("name").reset_index(drop=True)
     techs_df.to_csv(wikidata_csv_path, index=False)
     # Crunchbase enrichment and YCombinator data
-    startups_yc, startups_crunchbase = fetch_crunchbase()
+    startups_yc, startups_crunchbase, cb_info_df = fetch_crunchbase()
     startups_yc.to_csv(yc_csv_path, index=False)
     startups_crunchbase.to_csv(crunchbase_csv_path, index=False)
-    cb_info_df = pd.read_csv(brightdata_path, low_memory=False)
     print(f"Saved Crunchbase startups to {crunchbase_csv_path }, YCombinator startups to {yc_csv_path} and Brightdata info to {brightdata_path}")
     # Arxiv
     papers = fetch_arxiv(emerging_technologies)
@@ -114,6 +113,13 @@ else:
 
 
 # ---------MATCHING ---------
+startups_yc, startups_crunchbase, cb_info_df = startup_name_normalization(startups_yc, startups_crunchbase, cb_info_df)
+# Print columns in each dataframe for debugging
+print("Columns in startups_yc:", startups_yc.columns.tolist())
+print("Columns in startups_crunchbase:", startups_crunchbase.columns.tolist())
+print("Columns in cb_info_df:", cb_info_df.columns.tolist())
+
+
 # Tech to tech matches ???
 print("Saved to data/wikidata_techs_res.csv with", len(techs_df), "entries.")
 
@@ -124,27 +130,28 @@ edge_df.to_csv(tech_paper_csv_path, index=False)
 paper_df = clean_arxiv(papers_raw)
 
 # Tech to startup matches 
-if 'region' in startups_yc.columns:
-    startups_yc['location'] = startups_yc['region']
 matches_df = match_startups_to_techs(startups_yc, techs_df)
 matches_df.to_csv(tech_startup_csv_path, index=False)
 cb_info_matches_df = match_startups_to_techs(cb_info_df, techs_df, ["about","industries","full_description"])
 cb_info_matches_df.to_csv("data/matches_tech_cbinfo.csv", index=False)
 
-
-# Merge the two matches DataFrames
 all_matches_df = pd.concat([matches_df, cb_info_matches_df], ignore_index=True)
 all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_duplicates(subset=["startup_name", "technology"], keep="first")
 
-startups_df_filtered = enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
-startups_df_filtered, cb_info_df = clean_startups(startups_df_filtered, cb_info_df)
+
+
+all_startups = clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
+print("Columns in all_startups:", all_startups.columns.tolist())
+print("FUNDING EXTRACTION: Number of startups with non-null fundings in all_startups:", all_startups['funding_total_usd'].notnull().sum())
+print("DATE EXTRACTION: Number of startups with non-null dates in all_startups_df:", all_startups['founding_date_final'].notnull().sum())
+
 
 # --------- Fetch LinkedIn staff data ---------
 if SCRAPE_LINKEDIN:
     # Fetch linkedin staff data from crunchbase companies
     all_linkedin_staff = []
     max_staff= 999
-    unique_startups = pd.concat([startups_df_filtered['name'], cb_info_df['name']]).dropna().unique()
+    unique_startups = pd.concat([all_startups['name']]).dropna().unique()
     print(f"\nFound {len(unique_startups)} unique startups to scrape from LinkedIn.")
 
     for i, startup_name in enumerate(unique_startups):
@@ -198,7 +205,7 @@ print(f"✓ Saved {len(startup_skills_df)} startup-skill relationships to {start
 
 
 
-print(len(startups_df_filtered), "filtered startup nodes", )
+print(len(all_startups), "ALL startup nodes", )
 print(len(startups_yc), "startup nodes from ycombinator", )
 print(len(startups_crunchbase), "startup nodes from crunchbase", )
 print(len(cb_info_df), "startup nodes from brightdata", )
@@ -215,5 +222,5 @@ wait_for_neo4j(
 )
 
 
-load_graph(techs_df, paper_df, edge_df, startups_df_filtered, all_matches_df, cb_info_df, startup_skills_df, SCRAPE_LINKEDIN)
+load_graph(techs_df, paper_df, edge_df, all_startups, all_matches_df, startup_skills_df, SCRAPE_LINKEDIN)
 print("✓ Data loaded into Neo4j")

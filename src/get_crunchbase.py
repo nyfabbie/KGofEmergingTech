@@ -35,8 +35,14 @@ def fetch_crunchbase():
     yc_df.columns = yc_df.columns.str.strip() 
     crunchbase_df.columns = crunchbase_df.columns.str.strip()
 
+
+    # Fetch the third dataset from GitHub
+    github_url = "https://raw.githubusercontent.com/luminati-io/Crunchbase-dataset-samples/main/crunchbase-companies-information.csv"
+    brightapi_df = pd.read_csv(github_url, low_memory=False)
+
+
     print("First 5 records of YCOMBINATOR dataset:", yc_df.head())
     print("First 5 records of Crunchbase dataset:", crunchbase_df.head())
-    return yc_df, crunchbase_df
+    return yc_df, crunchbase_df, brightapi_df
 
 

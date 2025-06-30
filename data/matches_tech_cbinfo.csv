@@ -1,125 +1,122 @@
 startup_name,technology,qid,score
-Consolety,Data science,Q2374463,100.0
-Winder Research,Cloud computing,Q483639,100.0
-Winder Research,Data science,Q2374463,100.0
-Western Borders,Data science,Q2374463,100.0
-WISEiTECH,Data science,Q2374463,100.0
-Alpine,Data science,Q2374463,100.0
-Whitehill Technologies,Data science,Q2374463,100.0
-Winpos Ab,Data science,Q2374463,100.0
-TURBO CEREAL,Blockchain,Q20514253,100.0
-Connected Devices,Data science,Q2374463,100.0
-FleetRunnr,Cloud computing,Q483639,100.0
-Wit.ai,Artificial intelligence,Q11660,100.0
-Cattaneo Electromechanics,Data science,Q2374463,100.0
-Storybench,Data science,Q2374463,100.0
-Storybench,Virtual reality,Q170519,100.0
-Alpha Energy,Sustainable energy,Q1962383,100.0
-Connect Robotics,Robotics,Q170978,100.0
-Winberg Hospitality,Data science,Q2374463,100.0
-Tribal Nova,Virtual reality,Q170519,100.0
-Wizard Labs,Artificial intelligence,Q11660,100.0
-AlphageOmega,Data science,Q2374463,100.0
-tabMe,Data science,Q2374463,100.0
-Yellowminds,Cloud computing,Q483639,100.0
-Yellowminds,Data science,Q2374463,100.0
-CTJ INFO-TECH,Cloud computing,Q483639,100.0
-CTJ INFO-TECH,Data science,Q2374463,100.0
-Semantica,Artificial intelligence,Q11660,100.0
-Xrosswork,Artificial intelligence,Q11660,100.0
-Xrosswork,Cloud computing,Q483639,100.0
-Alt + F0,Data science,Q2374463,100.0
-Sellrs,Data science,Q2374463,100.0
-CryptoBucks,Blockchain,Q20514253,100.0
-Sobie Systems,Sustainable energy,Q1962383,100.0
-The Attention Exchange,Artificial intelligence,Q11660,100.0
-Systemsync Solutions,Data science,Q2374463,100.0
-Women’s Health Center of Clarksville,Robotics,Q170978,100.0
-Xuver Lab,Cloud computing,Q483639,100.0
-Culcha,Data science,Q2374463,100.0
-CRYCASH,Blockchain,Q20514253,100.0
-Korubu,Data science,Q2374463,100.0
-XYQQ,Virtual reality,Q170519,100.0
-Mat-Su Surgical Associates,Robotics,Q170978,100.0
-D&H Innovations,Cloud computing,Q483639,100.0
-D&H Innovations,Robotics,Q170978,100.0
-FUSE / People & Technology,Augmented reality,Q254183,100.0
-FUSE / People & Technology,Virtual reality,Q170519,100.0
-Force Cloud AI,Artificial intelligence,Q11660,100.0
-Force Cloud AI,Cloud computing,Q483639,100.0
-Coverbase,Artificial intelligence,Q11660,100.0
-Jogg AI,Artificial intelligence,Q11660,100.0
-Matevo Chemicals,Artificial intelligence,Q11660,100.0
-Crubing,Artificial intelligence,Q11660,100.0
+whitehilltechnologies,Data science,Q2374463,100.0
+westernborders,Data science,Q2374463,100.0
+wiseitech,Data science,Q2374463,100.0
+alpine,Data science,Q2374463,100.0
+winposab,Data science,Q2374463,100.0
+turbocereal,Blockchain,Q20514253,100.0
+connecteddevices,Data science,Q2374463,100.0
+fleetrunnr,Cloud computing,Q483639,100.0
+witai,Artificial intelligence,Q11660,100.0
+cattaneoelectromechanics,Data science,Q2374463,100.0
+storybench,Data science,Q2374463,100.0
+storybench,Virtual reality,Q170519,100.0
+alphaenergy,Sustainable energy,Q1962383,100.0
+connectrobotics,Robotics,Q170978,100.0
+winberghospitality,Data science,Q2374463,100.0
+tribalnova,Virtual reality,Q170519,100.0
+wizardlabs,Artificial intelligence,Q11660,100.0
+alphageomega,Data science,Q2374463,100.0
+tabme,Data science,Q2374463,100.0
+yellowminds,Cloud computing,Q483639,100.0
+yellowminds,Data science,Q2374463,100.0
+ctjinfotech,Cloud computing,Q483639,100.0
+ctjinfotech,Data science,Q2374463,100.0
+semantica,Artificial intelligence,Q11660,100.0
+xrosswork,Artificial intelligence,Q11660,100.0
+xrosswork,Cloud computing,Q483639,100.0
+altf0,Data science,Q2374463,100.0
+sellrs,Data science,Q2374463,100.0
+cryptobucks,Blockchain,Q20514253,100.0
+sobiesystems,Sustainable energy,Q1962383,100.0
+theattentionexchange,Artificial intelligence,Q11660,100.0
+systemsyncsolutions,Data science,Q2374463,100.0
+womenshealthcenterofclarksville,Robotics,Q170978,100.0
+xuverlab,Cloud computing,Q483639,100.0
+culcha,Data science,Q2374463,100.0
+crycash,Blockchain,Q20514253,100.0
+korubu,Data science,Q2374463,100.0
+xyqq,Virtual reality,Q170519,100.0
+matsusurgicalassociates,Robotics,Q170978,100.0
+dhinnovations,Cloud computing,Q483639,100.0
+dhinnovations,Robotics,Q170978,100.0
+fusepeopletechnology,Augmented reality,Q254183,100.0
+fusepeopletechnology,Virtual reality,Q170519,100.0
+forcecloudai,Artificial intelligence,Q11660,100.0
+forcecloudai,Cloud computing,Q483639,100.0
+coverbase,Artificial intelligence,Q11660,100.0
+joggai,Artificial intelligence,Q11660,100.0
+matevochemicals,Artificial intelligence,Q11660,100.0
+crubing,Artificial intelligence,Q11660,100.0
 fedbax,Artificial intelligence,Q11660,100.0
 favhiker,Data science,Q2374463,100.0
-Airseekers Robotics,Robotics,Q170978,100.0
-BaseForge Inc.,Artificial intelligence,Q11660,100.0
-BaseForge Inc.,Cloud computing,Q483639,100.0
-EbiS,Data science,Q2374463,100.0
-Aparta,Artificial intelligence,Q11660,100.0
-Aparta,Cloud computing,Q483639,100.0
-Formation,Artificial intelligence,Q11660,100.0
-Formation,Blockchain,Q20514253,100.0
-DigiTelescope,Artificial intelligence,Q11660,100.0
-Dwelly,Artificial intelligence,Q11660,100.0
-Altrix Technologies,Artificial intelligence,Q11660,100.0
-Pollentia,Artificial intelligence,Q11660,100.0
-Apollon Upskilling Solutions,Artificial intelligence,Q11660,100.0
-BlocTech Investment Group,Blockchain,Q20514253,100.0
-Elektrina,Cloud computing,Q483639,100.0
-Actuate Ventures,Artificial intelligence,Q11660,100.0
-EMERCell,Cancer vaccine,Q2378309,100.0
-EMERCell,Stem-cell therapy,Q1533033,100.0
-DX.Partners,Artificial intelligence,Q11660,100.0
-DX.Partners,Data science,Q2374463,100.0
-JK Computer Solutions,Data science,Q2374463,100.0
-Yellow.ai,Artificial intelligence,Q11660,100.0
-Safe365,Data science,Q2374463,100.0
-CreditNirvana,Artificial intelligence,Q11660,100.0
-CreditNirvana,Data science,Q2374463,100.0
-Upswing,Virtual reality,Q170519,100.0
-IBM iX,Artificial intelligence,Q11660,100.0
-IBM iX,Data science,Q2374463,100.0
-CrossBoundary,Sustainable energy,Q1962383,100.0
-AFTER,Cloud computing,Q483639,100.0
-Guardians.ai,Artificial intelligence,Q11660,100.0
-Tinker,Blockchain,Q20514253,100.0
-AVANU,Data science,Q2374463,100.0
-SpotRight,Artificial intelligence,Q11660,100.0
-SpotRight,Cloud computing,Q483639,100.0
-SpotRight,Data science,Q2374463,100.0
-Riv,Artificial intelligence,Q11660,100.0
-Owl Data Solutions,Data science,Q2374463,100.0
-GreenPeak Technologies,Data science,Q2374463,100.0
-Hawk,Data science,Q2374463,100.0
-IXI,Data science,Q2374463,100.0
-PR Hacker,Data science,Q2374463,100.0
-BGS Venture,Data science,Q2374463,100.0
-Remmsoft,Data science,Q2374463,100.0
-Airtouch,Robotics,Q170978,100.0
-Blackrun Ventures,Artificial intelligence,Q11660,100.0
-Blackrun Ventures,Robotics,Q170978,100.0
-Blackrun Ventures,Sustainable energy,Q1962383,100.0
-Fairwinds,Cloud computing,Q483639,100.0
-Vault of Satoshi,Blockchain,Q20514253,100.0
-OtherPage,Cloud computing,Q483639,100.0
-Blockchain Investment Group,Blockchain,Q20514253,100.0
-Revolt Technology,Sustainable energy,Q1962383,100.0
-NYDesigns Hardware Accelerator,3D printing,Q229367,100.0
-First Flight,Cloud computing,Q483639,100.0
-Coinzix,Blockchain,Q20514253,100.0
-CleanCapital,Sustainable energy,Q1962383,100.0
-Sigma Capital Group,Sustainable energy,Q1962383,100.0
-ER-Telecom,Data science,Q2374463,100.0
-Cerealia,Blockchain,Q20514253,100.0
-Native Rank,Data science,Q2374463,100.0
-DigiCodon,Data science,Q2374463,100.0
-Axonet,Data science,Q2374463,100.0
-GP,Data science,Q2374463,100.0
-Turntable,Artificial intelligence,Q11660,100.0
-Turntable,Data science,Q2374463,100.0
-Alkhwarizmi Technology Services,Artificial intelligence,Q11660,100.0
-Digitex Networks,Cloud computing,Q483639,100.0
-Alcove Insights,Data science,Q2374463,100.0
-Audience Genomics,Artificial intelligence,Q11660,100.0
+airseekersrobotics,Robotics,Q170978,100.0
+baseforgeinc,Artificial intelligence,Q11660,100.0
+baseforgeinc,Cloud computing,Q483639,100.0
+ebis,Data science,Q2374463,100.0
+aparta,Artificial intelligence,Q11660,100.0
+aparta,Cloud computing,Q483639,100.0
+formation,Artificial intelligence,Q11660,100.0
+formation,Blockchain,Q20514253,100.0
+digitelescope,Artificial intelligence,Q11660,100.0
+dwelly,Artificial intelligence,Q11660,100.0
+altrixtechnologies,Artificial intelligence,Q11660,100.0
+pollentia,Artificial intelligence,Q11660,100.0
+apollonupskillingsolutions,Artificial intelligence,Q11660,100.0
+bloctechinvestmentgroup,Blockchain,Q20514253,100.0
+elektrina,Cloud computing,Q483639,100.0
+actuateventures,Artificial intelligence,Q11660,100.0
+emercell,Cancer vaccine,Q2378309,100.0
+emercell,Stem-cell therapy,Q1533033,100.0
+dxpartners,Artificial intelligence,Q11660,100.0
+dxpartners,Data science,Q2374463,100.0
+jkcomputersolutions,Data science,Q2374463,100.0
+yellowai,Artificial intelligence,Q11660,100.0
+safe365,Data science,Q2374463,100.0
+creditnirvana,Artificial intelligence,Q11660,100.0
+creditnirvana,Data science,Q2374463,100.0
+upswing,Virtual reality,Q170519,100.0
+ibmix,Artificial intelligence,Q11660,100.0
+ibmix,Data science,Q2374463,100.0
+crossboundary,Sustainable energy,Q1962383,100.0
+after,Cloud computing,Q483639,100.0
+guardiansai,Artificial intelligence,Q11660,100.0
+tinker,Blockchain,Q20514253,100.0
+avanu,Data science,Q2374463,100.0
+spotright,Artificial intelligence,Q11660,100.0
+spotright,Cloud computing,Q483639,100.0
+spotright,Data science,Q2374463,100.0
+riv,Artificial intelligence,Q11660,100.0
+owldatasolutions,Data science,Q2374463,100.0
+greenpeaktechnologies,Data science,Q2374463,100.0
+hawk,Data science,Q2374463,100.0
+ixi,Data science,Q2374463,100.0
+prhacker,Data science,Q2374463,100.0
+bgsventure,Data science,Q2374463,100.0
+remmsoft,Data science,Q2374463,100.0
+airtouch,Robotics,Q170978,100.0
+blackrunventures,Artificial intelligence,Q11660,100.0
+blackrunventures,Robotics,Q170978,100.0
+blackrunventures,Sustainable energy,Q1962383,100.0
+fairwinds,Cloud computing,Q483639,100.0
+vaultofsatoshi,Blockchain,Q20514253,100.0
+otherpage,Cloud computing,Q483639,100.0
+blockchaininvestmentgroup,Blockchain,Q20514253,100.0
+revolttechnology,Sustainable energy,Q1962383,100.0
+nydesignshardwareaccelerator,3D printing,Q229367,100.0
+firstflight,Cloud computing,Q483639,100.0
+coinzix,Blockchain,Q20514253,100.0
+cleancapital,Sustainable energy,Q1962383,100.0
+sigmacapitalgroup,Sustainable energy,Q1962383,100.0
+ertelecom,Data science,Q2374463,100.0
+cerealia,Blockchain,Q20514253,100.0
+nativerank,Data science,Q2374463,100.0
+digicodon,Data science,Q2374463,100.0
+axonet,Data science,Q2374463,100.0
+gp,Data science,Q2374463,100.0
+turntable,Artificial intelligence,Q11660,100.0
+turntable,Data science,Q2374463,100.0
+alkhwarizmitechnologyservices,Artificial intelligence,Q11660,100.0
+digitexnetworks,Cloud computing,Q483639,100.0
+alcoveinsights,Data science,Q2374463,100.0
+audiencegenomics,Artificial intelligence,Q11660,100.0

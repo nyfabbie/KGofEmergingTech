@@ -72,10 +72,7 @@ region_map = {
 
 # ---------- helpers -------------------------------------------------
 
-def _normalise(text: str) -> str:
-    return text.lower().strip()
-
-def normalize_name(name):
+def _normalise(name: str) -> str:
     import re
     if pd.isnull(name):
         return ""
@@ -89,14 +86,21 @@ def extract_funding_total_and_currency(row):
     """
     Extracts the most accurate funding_total and funding_currency for a Crunchbase company row.
     Priority:
-    1. funds_raised (JSON, single company)
-    2. financials_highlights (JSON, single company)
-    3. funding_total (JSON, single company)
-    4. featured_list (company-specific entry)
-    5. featured_list (first entry, fallback)
+    1. funds_total 
+    2. funds_raised 
+    3. financials_highlights 
+    4. funding_rounds
     """
     import json
-    # 1. funds_raised
+    # 1. funds_total
+    if "funds_total" in row and pd.notnull(row["funds_total"]) and row["funds_total"] != "":
+        try:
+            data = json.loads(row["funds_total"])
+            if isinstance(data, dict) and "value_usd" in data:
+                return data["value_usd"], data.get("currency", "USD")
+        except Exception:
+            pass
+    # 2. funds_raised
     if "funds_raised" in row and pd.notnull(row["funds_raised"]) and row["funds_raised"] != "":
         try:
             data = json.loads(row["funds_raised"])
@@ -104,75 +108,33 @@ def extract_funding_total_and_currency(row):
                 return data["value_usd"], data.get("currency", "USD")
         except Exception:
             pass
-    # 2. financials_highlights
+    # 3. financials_highlights
     if "financials_highlights" in row and pd.notnull(row["financials_highlights"]) and row["financials_highlights"] != "":
         try:
             data = json.loads(row["financials_highlights"])
-            if isinstance(data, dict) and "value_usd" in data:
-                return data["value_usd"], data.get("currency", "USD")
+            # If top-level has value_usd
+            if isinstance(data, dict):
+                if "value_usd" in data:
+                    return data["value_usd"], data.get("currency", "USD")
+                # If nested under "funding_total"
+                if "funding_total" in data and isinstance(data["funding_total"], dict):
+                    funding = data["funding_total"]
+                    if "value_usd" in funding:
+                        return funding["value_usd"], funding.get("currency", "USD")
         except Exception:
             pass
-    # 3. funding_total (JSON)
-    if "funding_total" in row and pd.notnull(row["funding_total"]) and row["funding_total"] != "":
+    # 4. funding_rounds
+    if "funding_rounds" in row and pd.notnull(row["funding_rounds"]) and row["funding_rounds"] != "":
         try:
-            data = json.loads(row["funding_total"])
-            if isinstance(data, dict) and "value_usd" in data:
-                return data["value_usd"], data.get("currency", "USD")
-        except Exception:
-            pass
-    # 4. featured_list (company-specific entry)
-    if "featured_list" in row and pd.notnull(row["featured_list"]) and row["featured_list"] != "":
-        try:
-            data = json.loads(row["featured_list"])
-            if isinstance(data, list) and "name" in row and row["name"]:
-                for entry in data:
-                    if "org_funding_total" in entry and "title" in entry:
-                        if row["name"].lower() in entry["title"].lower():
-                            org_funding = entry["org_funding_total"]
-                            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
-                            currency = org_funding.get("currency", "USD")
-                            return value, currency
-        except Exception:
-            pass
-    # 5. featured_list (first entry, fallback, but only if it's not an obvious aggregate)
-    if "featured_list" in row and pd.notnull(row["featured_list"]) and row["featured_list"] != "":
-        try:
-            data = json.loads(row["featured_list"])
-            if isinstance(data, list) and len(data) > 0 and "org_funding_total" in data[0]:
-                # Only use if the title matches the company name (already checked above), otherwise skip (likely aggregate)
-                return None, None
+            data = json.loads(row["funding_rounds"])
+            if isinstance(data, dict) and "value" in data and isinstance(data["value"], dict):
+                value_dict = data["value"]
+                if "value_usd" in value_dict:
+                    return value_dict["value_usd"], value_dict.get("currency", "USD")
         except Exception:
             pass
     return None, None
 
-def extract_funding_total_and_currency_from_featured_list(cell, company_name=None):
-    if pd.isnull(cell) or not isinstance(cell, str) or cell.strip() == "":
-        return None, None
-    try:
-        data = json.loads(cell)
-        # Try to find an entry where the title contains the company name
-        if company_name and isinstance(data, list):
-            for entry in data:
-                if "org_funding_total" in entry and "title" in entry:
-                    if company_name.lower() in entry["title"].lower():
-                        org_funding = entry["org_funding_total"]
-                        value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
-                        currency = org_funding.get("currency", "USD")
-                        return value, currency
-        # Otherwise, just use the first entry
-        if isinstance(data, list) and len(data) > 0 and "org_funding_total" in data[0]:
-            org_funding = data[0]["org_funding_total"]
-            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
-            currency = org_funding.get("currency", "USD")
-            return value, currency
-        elif isinstance(data, dict) and "org_funding_total" in data:
-            org_funding = data["org_funding_total"]
-            value = org_funding.get("value_usd") if org_funding.get("currency", "USD") == "USD" else org_funding.get("value")
-            currency = org_funding.get("currency", "USD")
-            return value, currency
-    except Exception:
-        return None, None
-    return None, None
 
 def extract_location_from_json(cell):
     """Extracts a comma-separated location string from a JSON list of location dicts."""
@@ -196,84 +158,128 @@ def extract_country(location):
 
 def unify_founding_date(row):
     # Try all possible columns in order of preference
-    for col in ['founded_date', 'founded_at', 'first_funding_at', 'founded']:
+    for col in ['founded_at', 'founded_date', 'first_funding_at', 'founded']:
         val = row.get(col, None)
         if pd.notnull(val) and str(val).strip() != '':
             # If it's a float year (from YC), convert to YYYY-MM-DD
-            if col == 'founded' and isinstance(val, float):
-                return f"{int(val)}-01-01"
+            if col == 'founded':
+                try:
+                    year = int(val)
+                    return f"{year}-01-01"
+                except (ValueError, TypeError):
+                    return None
             return str(val)
     return None
 
-def clean_startups(startups_df, cb_info_df):
-    """
-    Cleans startup data from YCombinator and Crunchbase (cb_info_df).
-    Focuses on normalizing names, extracting and cleaning funding, location.
-    """
-    # Clean YC startups (passed as startups_df)
-    startups_df['original_name_yc'] = startups_df['name']
-    startups_df['name'] = startups_df['name'].astype(str).apply(_normalise)
 
 
-    # Extract region from startups from yc
-    startups_df['country'] = startups_df['location'].apply(extract_country)
-    startups_df['region'] = startups_df['country'].map(region_map).fillna("Unknown")
-
-    # # Ensure 'funding_total_usd' column exists for YC startups.   
-    # # YC data as loaded initially won't have 'all_time_funding' or 'funding_total_usd'.
-    # # Create 'funding_total_usd' if it doesn't exist.
-    # if 'funding_total_usd' not in startups_df.columns:
-    #     print("\n--- clean_startups: YC startups - 'funding_total_usd' not found, creating empty 'funding_total_usd' column. ---")
-    #     startups_df['funding_total_usd'] = pd.NA
-
-    # Now, clean 'funding_total_usd'; this will work even if it was just created as all NA
-    if 'funding_total_usd' in startups_df.columns: # Should always be true now
-        startups_df['funding_total_usd'] = startups_df['funding_total_usd'].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>'], pd.NA)
-        startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
-    
-    # Clean Crunchbase Info (cb_info_df)
+def startup_name_normalization(startups_yc, startups_crunchbase, cb_info_df):
+    startups_yc['original_name_yc'] = startups_yc['name']
+    startups_crunchbase['original_name_crunchbase'] = startups_crunchbase['name']
     cb_info_df['original_name_cb_info'] = cb_info_df['name']
-    cb_info_df['name'] = cb_info_df['name'].astype(str).apply(_normalise)
 
+    # Add normalized name columns
+    startups_yc["name"] = startups_yc["name"].apply(_normalise)
+    startups_crunchbase["name"] = startups_crunchbase["name"].apply(_normalise)
+    cb_info_df["name"] = cb_info_df["name"].apply(_normalise)
+
+    return startups_yc, startups_crunchbase, cb_info_df
+
+def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
+    """
+    """
+    startups_yc['location'] = startups_yc['region']
+
+    # Replace region with country code
+    # Y Combinator dataset: Relevant column: region ➜ actually contains full locations, like "New York, NY, USA" or "New Delhi, DL, India" (not true region labels).
+    # Crunchbase dataset: Has both: ountry_code (e.g., "USA", "DEU") & region (sometimes city or region name)
+    startups_crunchbase['region'] = startups_crunchbase['country_code'].str.replace(r'\s*\(.*\)', '', regex=True).str.strip()
+
+    print("DATE EXTRACTION: Number of startups with non-null dates in startups_yc:", startups_yc['founded'].notnull().sum())
+    print("DATE EXTRACTION: Number of startups with non-null dates in cb_info_df:", cb_info_df['founded_date'].notnull().sum())
+    date_cols = ['founded_at', 'first_funding_at']
+    non_null_dates = startups_crunchbase[date_cols].notnull().any(axis=1)
+    print(f"DATE EXTRACTION: Number of startups_crunchbase startups with non-null values in at least one date column: {non_null_dates.sum()}")
+
+    # Merge YC-labeled startups with Crunchbase data by normalized name
+    startups_enriched = startups_yc.merge(
+    startups_crunchbase,
+    on="name", how="left", suffixes=('', '_crunchbase')
+)
+
+    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_enriched:", startups_enriched['funding_total_usd'].notnull().sum())
+
+
+    # Add YC+Crunchbase merged startups only if not already present in cb_info_df
+    existing_names = set(cb_info_df["name"])
+    startups_df_filtered = startups_enriched[~startups_enriched["name"].isin(existing_names)]
+
+    # Location cleanup
+    # Use .loc to avoid SettingWithCopyWarning
+    startups_df_filtered.loc[:, 'country'] = startups_df_filtered['location'].apply(extract_country)
+    startups_df_filtered.loc[:, 'region'] = startups_df_filtered['country'].map(region_map).fillna("Unknown")
+    cb_info_df["location_extracted"] = cb_info_df["location"].apply(extract_location_from_json)
+
+    # Funding cleanup
+    startups_df_filtered, cb_info_df = extract_funding(startups_df_filtered, cb_info_df)
+    
+    # Final merging
+    # Print columns shared by cb_info_df and startups_df_filtered
+    shared_columns = set(cb_info_df.columns) & set(startups_df_filtered.columns)
+    print(f"Before merging, shared columns between cb_info_df and startups_df_filtered: {shared_columns}")
+    # Print values of 'name' shared by both DataFrames
+    shared_names = set(cb_info_df['name']).intersection(set(startups_df_filtered['name']))
+    print(f"Before merging, number of shared names between cb_info_df and startups_df_filtered: {len(shared_names)}")
+
+    all_startups_df = pd.concat([cb_info_df, startups_df_filtered], ignore_index=True)
+    all_startups_df = all_startups_df.drop_duplicates(subset=["name"], keep="first")
+    
+    # Founding date cleanup
+    date_cols = ['founded_at', 'founded_date', 'first_funding_at', 'founded']
+    non_null_dates = all_startups_df[date_cols].notnull().any(axis=1)
+    print(f"DATE EXTRACTION: Number of all_startups_df startups with non-null values in at least one date column: {non_null_dates.sum()}")
+
+    all_startups_df['founding_date_final'] = all_startups_df.apply(unify_founding_date, axis=1)
+
+    return all_startups_df
+
+def extract_funding(startups_df, cb_info_df):
+    """
+    
+    """
+   
+    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
+    # Print number of startups with non null values in atleast one of the funding columns e.g funds_total funds_raised financials_highlightsfunding_rounds
+    funding_cols = ['funds_total', 'funds_raised', 'financials_highlights', 'funding_rounds']
+    non_null_funding = cb_info_df[funding_cols].notnull().any(axis=1)
+    print(f"FUNDING EXTRACTION: Number of startups with non-null values in at least one funding column: {non_null_funding.sum()}")
+
+    # Remove all commas and convert to int/float
+    startups_df['funding_total_usd'] = (
+        startups_df['funding_total_usd']
+        .replace({',': '', r'\s*-\s*': ''}, regex=True)  # Remove commas and lone dashes
+        .replace('', pd.NA)  # Replace empty strings with NA
+    )
+    startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+
+   
     # Always attempt to extract funding from JSON fields for Crunchbase/Brightdata
     print("\n--- clean_startups: cb_info_df - Extracting funding from JSON fields (funds_raised, financials_highlights, funding_total, featured_list) ---")
     funding_extracted_series = cb_info_df.apply(
         lambda row: extract_funding_total_and_currency(row),
         axis=1
     )
+
     temp_funding_df = pd.DataFrame(funding_extracted_series.tolist(), index=cb_info_df.index, columns=['funding_amount_from_json', 'funding_currency_from_json'])
     cb_info_df['funding_total_usd_json'] = pd.to_numeric(temp_funding_df['funding_amount_from_json'], errors='coerce')
     # Add 'funding_currency_from_json' if it's not already there
     cb_info_df['funding_currency_from_json'] = temp_funding_df['funding_currency_from_json']
-
-    # Initialize 'funding_total_usd_direct' from existing 'funding_total_usd' or set to NA
-    # if 'funding_total_usd' in cb_info_df.columns:
-    #     print("\n--- clean_startups: cb_info_df - Processing existing 'funding_total_usd' column. ---")
-    #     cb_info_df['funding_total_usd_direct'] = pd.to_numeric(
-    #         cb_info_df['funding_total_usd'].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>', ' - '], pd.NA),
-    #         errors='coerce'
-    #     )
-    # else:
-    #     print("\n--- clean_startups: cb_info_df - No direct 'funding_total_usd' column found, initializing helper with pd.NA. ---")
-    cb_info_df['funding_total_usd_direct'] = pd.NA
-
-    # Combine direct and JSON-extracted funding, then assign to 'funding_total_usd'
-    cb_info_df['funding_total_usd'] = cb_info_df['funding_total_usd_direct'].combine_first(cb_info_df['funding_total_usd_json'])
-
+    if 'funding_total_usd_json' not in cb_info_df.columns:
+        cb_info_df['funding_total_usd_json'] = pd.NA
+    cb_info_df['funding_total_usd'] = cb_info_df['funding_total_usd_json']
     # Clean up helper columns
-    cb_info_df.drop(columns=['funding_total_usd_direct', 'funding_total_usd_json'], inplace=True, errors='ignore')
-    # Drop older helper column if it exists from previous runs/logic
-    if 'funding_total_extracted_value' in cb_info_df.columns:
-        cb_info_df.drop(columns=['funding_total_extracted_value'], inplace=True, errors='ignore')
+    cb_info_df.drop(columns=['funding_total_usd_json'], inplace=True, errors='ignore')
 
-    # Ensure 'funding_total_usd' exists even if both sources were absent
-    # if 'funding_total_usd' not in cb_info_df.columns:
-    #     print("\n--- clean_startups: cb_info_df - 'funding_total_usd' was not created from sources, initializing with pd.NA. ---")
-    #     cb_info_df['funding_total_usd'] = pd.NA
-    
-    # Extract location from 'location' (often JSON-like)
-    if "location" in cb_info_df.columns:
-        cb_info_df["location_extracted"] = cb_info_df["location"].apply(extract_location_from_json)
 
     if "funding_total_usd" in startups_df.columns and not startups_df['funding_total_usd'].empty and not startups_df['funding_total_usd'].dropna().empty:
         if startups_df['funding_total_usd'].dtype == object:
@@ -285,118 +291,16 @@ def clean_startups(startups_df, cb_info_df):
         startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
 
 
-    cb_info_df['founding_date_final'] = cb_info_df.apply(unify_founding_date, axis=1)
-    startups_df['founding_date_final'] = startups_df.apply(unify_founding_date, axis=1)
+
+    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
+    print("FUNDING EXTRACTION: Number of startups with non-null fundings in cb_info_df:", cb_info_df['funding_total_usd'].notnull().sum())
+
+
 
 
     return startups_df, cb_info_df
 
 
-def enrich_and_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
-    """
-    Enrich YC startups with Crunchbase data, deduplicate, and filter out those already in cb_info_df.
-    Returns startups_df_filtered (ready for Neo4j loading).
-    """
-    # Add normalized name columns
-    startups_yc["norm_name"] = startups_yc["name"].apply(normalize_name)
-    startups_crunchbase["norm_name"] = startups_crunchbase["name"].apply(normalize_name)
-    cb_info_df["norm_name"] = cb_info_df["name"].apply(normalize_name)
-
-
-    # Replace region with country code
-    # Y Combinator dataset: Relevant column: region ➜ actually contains full locations, like "New York, NY, USA" or "New Delhi, DL, India" (not true region labels).
-    # Crunchbase dataset: Has both: ountry_code (e.g., "USA", "DEU") & region (sometimes city or region name)
-    startups_crunchbase['region'] = startups_crunchbase['country_code'].str.replace(r'\s*\(.*\)', '', regex=True).str.strip()
-
-    # Merge YC-labeled startups with Crunchbase data by normalized name
-    startups_df = startups_yc.merge(
-        startups_crunchbase[
-            ['norm_name', 'homepage_url', 'category_list', 'funding_total_usd', 'status', 'region']
-        ],
-        on="norm_name", how="left", suffixes=('', '_crunchbase')
-    )
-    # Remove all commas and convert to int/float
-    startups_df['funding_total_usd'] = (
-        startups_df['funding_total_usd']
-        .replace({',': '', r'\s*-\s*': ''}, regex=True)  # Remove commas and lone dashes
-        .replace('', pd.NA)  # Replace empty strings with NA
-    )
-    startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
-
-    # Ensures 'by' columns are not null when dropping duplicates
-    startups_df = startups_df.sort_values(
-        by=['funding_total_usd'],
-        ascending=[False],
-        na_position='last'
-    )
-    startups_df = startups_df.drop_duplicates(subset=['norm_name'], keep='first')
-
-    # Add YC+Crunchbase merged startups only if not already present in cb_info_df
-    existing_names = set(cb_info_df["norm_name"])
-    startups_df_filtered = startups_df[~startups_df["norm_name"].isin(existing_names)]
-    return startups_df_filtered
-
-def merge_and_clean_startups(startups_yc, cb_info_df):
-    """
-    Merges YC and Crunchbase startup dataframes, prioritizing Crunchbase data
-    for common startups (based on startup_id), and cleans funding columns.
-    """
-    print(f"\n--- merge_and_clean_startups: startups_yc before concat (sample with startup_id and funding) ---")
-    print(startups_yc[['startup_id', 'name', 'funding_total_usd']].head())
-    print(f"\n--- merge_and_clean_startups: cb_info_df before concat (sample with startup_id and funding) ---")
-    print(cb_info_df[['startup_id', 'name', 'funding_total_usd']].head())
-
-    # Concatenate, cb_info_df first to be kept during drop_duplicates
-    all_startups_df = pd.concat([cb_info_df, startups_yc], ignore_index=True)
-    print(f"\n--- merge_and_clean_startups: all_startups_df after concat, before drop_duplicates (sample) ---")
-    print(all_startups_df[['startup_id', 'name', 'funding_total_usd']].head())
-    print(f"Shape after concat: {all_startups_df.shape}")
-    print(f"Duplicates in startup_id before drop: {all_startups_df.duplicated(subset=['startup_id']).sum()}")
-
-    # Deduplicate based on startup_id, keeping the first occurrence (cb_info_df prioritized)
-    all_startups_df = all_startups_df.drop_duplicates(subset=["startup_id"], keep="first")
-    print(f"\n--- merge_and_clean_startups: all_startups_df after drop_duplicates (sample) ---")
-    print(all_startups_df[['startup_id', 'name', 'funding_total_usd']].head())
-    print(f"Shape after drop_duplicates: {all_startups_df.shape}")
-
-    # Define potential funding columns in order of preference
-    funding_cols = ['funding_total_usd', 'funding_total', 'funding'] 
-
-    # Ensure all potential funding columns exist, if not, create them with pd.NA
-    for col in funding_cols:
-        if col not in all_startups_df.columns:
-            all_startups_df[col] = pd.NA
-
-    # Clean and convert funding columns to numeric
-    for col in funding_cols:
-        # Convert to string, replace common non-numeric/null representations
-        all_startups_df[col] = all_startups_df[col].astype(str).replace(['', 'nan', 'None', 'NaN', 'NaT', '<NA>', 'unknown', '-'], pd.NA)
-        # Attempt to convert to numeric, coercing errors
-        all_startups_df[col] = pd.to_numeric(all_startups_df[col], errors='coerce')
-    
-    print(f"\n--- merge_and_clean_startups: all_startups_df after initial numeric conversion of funding columns (sample) ---")
-    print(all_startups_df[['startup_id', 'name'] + funding_cols].head())
-
-    # Unify funding columns into 'funding_total_usd'
-    # Start with the first column as the base
-    unified_funding = all_startups_df[funding_cols[0]].copy()
-    # Iteratively combine with other columns
-    for col in funding_cols[1:]:
-        unified_funding = unified_funding.combine_first(all_startups_df[col])
-    
-    all_startups_df['funding_total_usd'] = unified_funding
-    print(f"\n--- merge_and_clean_startups: all_startups_df after unifying funding into 'funding_total_usd' (sample) ---")
-    print(all_startups_df[['startup_id', 'name', 'funding_total_usd'] + funding_cols].head())
-    print(f"Non-null funding_total_usd count: {all_startups_df['funding_total_usd'].notna().sum()}")
-    print(f"Sum of funding_total_usd (where notna): {all_startups_df['funding_total_usd'].sum()}")
-
-    # Fill NaN in 'funding_total_usd' with 0, as Neo4j might not handle NaN well for numeric types
-    all_startups_df['funding_total_usd'] = all_startups_df['funding_total_usd'].fillna(0)
-    print(f"\n--- merge_and_clean_startups: all_startups_df after filling NaN in funding_total_usd with 0 (sample) ---")
-    print(all_startups_df[['startup_id', 'name', 'funding_total_usd']].head())
-    print(f"Sum of funding_total_usd after fillna(0): {all_startups_df['funding_total_usd'].sum()}")
-
-    return all_startups_df
 
 def clean_arxiv(raw_list: list[dict]) -> tuple[pd.DataFrame, pd.DataFrame]:
     csv_rows = pd.read_csv("data/arxiv_papers_res.csv")
