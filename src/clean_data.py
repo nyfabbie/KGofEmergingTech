@@ -104,8 +104,14 @@ def extract_funding_total_and_currency(row):
     if "funds_raised" in row and pd.notnull(row["funds_raised"]) and row["funds_raised"] != "":
         try:
             data = json.loads(row["funds_raised"])
-            if isinstance(data, dict) and "value_usd" in data:
-                return data["value_usd"], data.get("currency", "USD")
+            # If it's a list of dicts, sum all 'money_raised' values
+            if isinstance(data, list):
+                total_raised = sum(entry.get("money_raised", 0) for entry in data if isinstance(entry, dict) and "money_raised" in entry)
+                if total_raised > 0:
+                    return total_raised, "USD"
+            # If it's a dict (legacy case)
+            elif isinstance(data, dict) and "money_raised" in data:
+                return data["money_raised"], data.get("currency", "USD")
         except Exception:
             pass
     # 3. financials_highlights
@@ -195,11 +201,11 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     # Crunchbase dataset: Has both: ountry_code (e.g., "USA", "DEU") & region (sometimes city or region name)
     startups_crunchbase['region'] = startups_crunchbase['country_code'].str.replace(r'\s*\(.*\)', '', regex=True).str.strip()
 
-    print("DATE EXTRACTION: Number of startups with non-null dates in startups_yc:", startups_yc['founded'].notnull().sum())
-    print("DATE EXTRACTION: Number of startups with non-null dates in cb_info_df:", cb_info_df['founded_date'].notnull().sum())
-    date_cols = ['founded_at', 'first_funding_at']
-    non_null_dates = startups_crunchbase[date_cols].notnull().any(axis=1)
-    print(f"DATE EXTRACTION: Number of startups_crunchbase startups with non-null values in at least one date column: {non_null_dates.sum()}")
+    # print("DATE EXTRACTION: Number of startups with non-null dates in startups_yc:", startups_yc['founded'].notnull().sum())
+    # print("DATE EXTRACTION: Number of startups with non-null dates in cb_info_df:", cb_info_df['founded_date'].notnull().sum())
+    # date_cols = ['founded_at', 'first_funding_at']
+    # non_null_dates = startups_crunchbase[date_cols].notnull().any(axis=1)
+    # print(f"DATE EXTRACTION: Number of startups_crunchbase startups with non-null values in at least one date column: {non_null_dates.sum()}")
 
     # Merge YC-labeled startups with Crunchbase data by normalized name
     startups_enriched = startups_yc.merge(
@@ -224,12 +230,12 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     startups_df_filtered, cb_info_df = extract_funding(startups_df_filtered, cb_info_df)
     
     # Final merging
-    # Print columns shared by cb_info_df and startups_df_filtered
-    shared_columns = set(cb_info_df.columns) & set(startups_df_filtered.columns)
-    print(f"Before merging, shared columns between cb_info_df and startups_df_filtered: {shared_columns}")
-    # Print values of 'name' shared by both DataFrames
-    shared_names = set(cb_info_df['name']).intersection(set(startups_df_filtered['name']))
-    print(f"Before merging, number of shared names between cb_info_df and startups_df_filtered: {len(shared_names)}")
+    # # Print columns shared by cb_info_df and startups_df_filtered
+    # shared_columns = set(cb_info_df.columns) & set(startups_df_filtered.columns)
+    # print(f"Before merging, shared columns between cb_info_df and startups_df_filtered: {shared_columns}")
+    # # Print values of 'name' shared by both DataFrames
+    # shared_names = set(cb_info_df['name']).intersection(set(startups_df_filtered['name']))
+    # print(f"Before merging, number of shared names between cb_info_df and startups_df_filtered: {len(shared_names)}")
 
     all_startups_df = pd.concat([cb_info_df, startups_df_filtered], ignore_index=True)
     all_startups_df = all_startups_df.drop_duplicates(subset=["name"], keep="first")
@@ -248,19 +254,33 @@ def extract_funding(startups_df, cb_info_df):
     
     """
    
-    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
-    # Print number of startups with non null values in atleast one of the funding columns e.g funds_total funds_raised financials_highlightsfunding_rounds
-    funding_cols = ['funds_total', 'funds_raised', 'financials_highlights', 'funding_rounds']
-    non_null_funding = cb_info_df[funding_cols].notnull().any(axis=1)
-    print(f"FUNDING EXTRACTION: Number of startups with non-null values in at least one funding column: {non_null_funding.sum()}")
+    # print("FUNDING EXTRACTION: before cleaning, Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
+    # # Print number of startups with non null values in atleast one of the funding columns e.g funds_total funds_raised financials_highlightsfunding_rounds
+    # funding_cols = ['funds_total', 'funds_raised', 'financials_highlights', 'funding_rounds']
+    # def has_real_funding(row):
+    #     for col in funding_cols:
+    #         val = row.get(col, None)
+    #         if pd.notnull(val):
+    #             sval = str(val).strip().lower()
+    #             # Exclude "null", "[]" and empty strings
+    #             if sval not in ("null", "[]", "") and len(sval) > 4:
+    #                 return True
+    #     return False
+    # non_null_funding = cb_info_df.apply(has_real_funding, axis=1)
+    # print(f"FUNDING EXTRACTION: before extraction, Number of startups with non-null values in at least one funding column: {non_null_funding.sum()}")
+    # # Print names of startups with non-null funding in cb_info_df
+    # print("FUNDING EXTRACTION: Names of startups with non-null funding in cb_info_df:")
+    # preclean_names = cb_info_df[non_null_funding]['name'].unique()
 
     # Remove all commas and convert to int/float
     startups_df['funding_total_usd'] = (
         startups_df['funding_total_usd']
-        .replace({',': '', r'\s*-\s*': ''}, regex=True)  # Remove commas and lone dashes
+        .replace({',': ''}, regex=True)  # Remove commas
         .replace('', pd.NA)  # Replace empty strings with NA
+        #.replace(r'\s*-\s*\d+', pd.NA, regex=True)  # Replace ranges like '1 - 2' with NA
     )
     startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
+    #print("FUNDING EXTRACTION: after cleaning, Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
 
    
     # Always attempt to extract funding from JSON fields for Crunchbase/Brightdata
@@ -281,22 +301,17 @@ def extract_funding(startups_df, cb_info_df):
     cb_info_df.drop(columns=['funding_total_usd_json'], inplace=True, errors='ignore')
 
 
-    if "funding_total_usd" in startups_df.columns and not startups_df['funding_total_usd'].empty and not startups_df['funding_total_usd'].dropna().empty:
-        if startups_df['funding_total_usd'].dtype == object:
-            startups_df['funding_total_usd'] = (
-                startups_df['funding_total_usd']
-                .replace({',': '', r'\s*-\s*': ''}, regex=True)
-                .replace('', pd.NA)
-            )
-        startups_df['funding_total_usd'] = pd.to_numeric(startups_df['funding_total_usd'], errors='coerce')
-
-
-
-    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
-    print("FUNDING EXTRACTION: Number of startups with non-null fundings in cb_info_df:", cb_info_df['funding_total_usd'].notnull().sum())
-
-
-
+    #print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_df:", startups_df['funding_total_usd'].notnull().sum())
+    # print("FUNDING EXTRACTION: after extraction, Number of startups with non-null fundings in cb_info_df:", cb_info_df['funding_total_usd'].notnull().sum())
+    # # Print names of startups with non-null funding in cb_info_df
+    # afterclean_names = cb_info_df[cb_info_df['funding_total_usd'].notnull()]['name'].unique()
+    
+    # # Print the result of the preclean names minus the after clean names (those that had funding before cleaning)
+    # preclean_names_set = set(preclean_names)
+    # afterclean_names_set = set(afterclean_names)
+    # not_cleaned_names = preclean_names_set - afterclean_names_set
+    # print(f"FUNDING EXTRACTION: Number of startups that had funding before cleaning but not after: {len(not_cleaned_names)}")
+    # print(f"FUNDING EXTRACTION: Names of startups that had funding before cleaning but not after: {not_cleaned_names}")
 
     return startups_df, cb_info_df
 

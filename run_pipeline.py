@@ -114,10 +114,10 @@ else:
 
 # ---------MATCHING ---------
 startups_yc, startups_crunchbase, cb_info_df = startup_name_normalization(startups_yc, startups_crunchbase, cb_info_df)
-# Print columns in each dataframe for debugging
-print("Columns in startups_yc:", startups_yc.columns.tolist())
-print("Columns in startups_crunchbase:", startups_crunchbase.columns.tolist())
-print("Columns in cb_info_df:", cb_info_df.columns.tolist())
+# # Print columns in each dataframe for debugging
+# print("Columns in startups_yc:", startups_yc.columns.tolist())
+# print("Columns in startups_crunchbase:", startups_crunchbase.columns.tolist())
+# print("Columns in cb_info_df:", cb_info_df.columns.tolist())
 
 
 # Tech to tech matches ???
@@ -141,9 +141,9 @@ all_matches_df = all_matches_df.sort_values("score", ascending=False).drop_dupli
 
 
 all_startups = clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df)
-print("Columns in all_startups:", all_startups.columns.tolist())
-print("FUNDING EXTRACTION: Number of startups with non-null fundings in all_startups:", all_startups['funding_total_usd'].notnull().sum())
-print("DATE EXTRACTION: Number of startups with non-null dates in all_startups_df:", all_startups['founding_date_final'].notnull().sum())
+# print("Columns in all_startups:", all_startups.columns.tolist())
+# print("FUNDING EXTRACTION: Number of startups with non-null fundings in all_startups:", all_startups['funding_total_usd'].notnull().sum())
+# print("DATE EXTRACTION: Number of startups with non-null dates in all_startups_df:", all_startups['founding_date_final'].notnull().sum())
 
 
 # --------- Fetch LinkedIn staff data ---------
