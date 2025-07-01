@@ -28,8 +28,8 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
         for _, r in tech_df.iterrows(): 
             tx.run("""
                 MERGE (t:Technology {tech_id:$qid})
-                SET t.tech_name=$label,
-                    t.name=$name,
+                SET t.tech=$name,
+                    t.name=$label,
                     t.description=$desc
             """, qid=r.qid, label=r.label, name=r.name, desc=r.description)
 
@@ -74,7 +74,7 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
                     s.region = $region,
                     s.website = $website,
                     s.homepage = $homepage,
-                    s.founded_date = $founded_date,
+                    s.founded_date = date($founded_date),
                     s.num_employees = $num_employees,
                     s.funding_total = $funding_total,
                     s.funding_currency = $funding_currency,
@@ -91,7 +91,7 @@ def load_graph(tech_df, paper_df, edge_df, startups_df, matches_df, startup_skil
                 region=region,
                 website=row.get('website', ''),
                 homepage=row.get('homepage_url', ''),
-                founded_date=row.get('founding_date_final', ''),
+                founded_date=row['founded_date_parsed'].date().isoformat() if pd.notnull(row['founded_date_parsed']) else None,
                 num_employees=row.get('num_employees', ''),
                 funding_total=row.get('funding_total_usd', 0) if pd.notnull(row.get('funding_total_usd', None)) else None,
                 funding_currency=row.get('funding_currency', ''),

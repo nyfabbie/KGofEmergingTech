@@ -246,6 +246,7 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     print(f"DATE EXTRACTION: Number of all_startups_df startups with non-null values in at least one date column: {non_null_dates.sum()}")
 
     all_startups_df['founding_date_final'] = all_startups_df.apply(unify_founding_date, axis=1)
+    all_startups_df['founded_date_parsed'] = pd.to_datetime(all_startups_df['founding_date_final'], errors='coerce')
 
     return all_startups_df
 

@@ -57,7 +57,6 @@ def check_cache_files():
         yc_csv_path,
         arxiv_csv_path,
         tech_startup_csv_path,
-        linkedin_staff_csv_path,
         kaggle_jobs_csv_path,
         startup_skills_csv_path,
         techcb_startup_csv_path
@@ -68,8 +67,9 @@ def check_cache_files():
             raise FileNotFoundError(f"Required cache file '{file}' does not exist. Set USE_CACHE to False to fetch fresh data.")
 
 
-USE_CACHE = True  # Set to False for production
+USE_CACHE = False  # Set to False for production
 SCRAPE_LINKEDIN = False # Set to True to scrape LinkedIn data (long running)
+LOAD_SKILLS = True # Set to True to load skills from LinkedIn roles (Neo4j loading is slower)
 
 # gets a list from json
 with open(emerging_technologies_file, "r", encoding="utf-8") as f:
@@ -185,7 +185,7 @@ if SCRAPE_LINKEDIN:
         print("\nNo LinkedIn staff data was collected.")
         final_linkedin_df = pd.DataFrame()
 else:
-    print("   NOTICE: Skipping LinkedIn scraping. Set SCRAPE_LINKEDIN to True to fetch fresh data.")
+    print(f"   NOTICE: Skipping LinkedIn scraping. Pipeline will fail if {linkedin_staff_csv_path} is not available. Set SCRAPE_LINKEDIN to True to fetch fresh data (long running)")
     if os.path.exists(linkedin_staff_csv_path):
         final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
     else:
@@ -223,5 +223,5 @@ wait_for_neo4j(
 )
 
 
-load_graph(techs_df, paper_df, edge_df, all_startups, all_matches_df, startup_skills_df, SCRAPE_LINKEDIN)
+load_graph(techs_df, paper_df, edge_df, all_startups, all_matches_df, startup_skills_df, LOAD_SKILLS)
 print("✓ Data loaded into Neo4j")

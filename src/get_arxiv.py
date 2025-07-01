@@ -6,7 +6,7 @@ import pandas as pd
 
 
 # this function converts search query into arxivAPI url
-def fetch_arxiv(queries, max_results=20):
+def fetch_arxiv(queries, max_results=100):
     all_results = []
 
     for query in queries:
