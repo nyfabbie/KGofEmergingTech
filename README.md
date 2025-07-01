@@ -52,3 +52,30 @@ This project aims to construct a knowledge graph that maps emerging technologies
         (:Paper {title})-[:MENTIONS]->(:Technology)
         (:Startup {name})-[:WORKS_ON]->(:Technology)
         Optionally (:Technology)-[:RELATED_TO]->(:Technology)
+
+## Running the Knowledge Graph
+1. Make sure Docker Desktop is downloaded (Download here: https://www.docker.com/products/docker-desktop/)
+2. Download the repo. If zipped, unzip it. Copy the file path of the unzipped file
+3. Go to folder path in terminal
+4. Run
+    a. docker build [unzipped folder path]
+    b. docker  compose build
+    c. docker  compose up
+    Wait for it to finish execution. If fetching fresh data it will take a few minutes to fetch and load. 
+5. When it’s finally done, you will see the message "✓ Data loaded into Neo4j" on the console". Go to http://localhost:7474/browser/ . Sign in with username “neo4j” and password as “password”.
+6. Execute some interesting queries from the PDF titled “Emerging Technologies Neo4j Exploration Queries” (or see below)
+
+## Sample Queries
+Random Queries
+```
+// RANDOM sample of 3 techs and their connected nodes
+MATCH (t:Technology)
+WITH t, rand() AS r
+ORDER BY r
+LIMIT 3
+// Get connected skills, technologies, and papers
+OPTIONAL MATCH (s:Startup)-[:USES]->(t)
+OPTIONAL MATCH (s)-[:HAS_SKILL]->(sk:Skill)
+OPTIONAL MATCH (p:Paper)-[:MENTIONS]->(t)
+RETURN s, sk, t, p
+```
