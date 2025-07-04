@@ -4,3 +4,4 @@ data/kaggle_jobs_skills.csv
 .*
 !.gitignore
 !.git/
+src/session.pkl
