@@ -23,8 +23,6 @@ def patched_get_webdriver(driver_type: DriverType):
     options.add_argument("--disable-gpu") # Applicable to windows os only
     options.add_argument("--window-size=1920,1080") # Set a window size
 
-    # --- NEW ANTI-DETECTION OPTIONS ---
-    # Make the browser look more like a real, human-operated browser
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -45,20 +43,19 @@ staffspy_utils.get_webdriver = patched_get_webdriver
 _account = None
 
 # search by company
-def fetch_linkedin(startup: str, max=999):
+def fetch_jobboard(startup: str, max=999):
     global _account
 
     # Lazy initialization: only create the account object if it doesn't exist yet.
-    # This ensures we only log in ONCE per script run.
     if _account is None:
-        print("First-time LinkedIn call, prompting for login...")
+        print("First-time Jobboard call, prompting for login...")
         _account = LinkedInAccount(
             driver_type=DriverType(
                 browser_type=BrowserType.CHROME,
                 executable_path="/usr/local/bin/chromedriver" # Explicitly provide the path
             ),
-            username=input("Enter your LinkedIn email: "),
-            password=getpass.getpass("Enter your LinkedIn password: "),
+            username=input("Enter a LinkedIn email: "),
+            password=getpass.getpass("Enter a LinkedIn password: "),
             log_level=1
         )
 
@@ -74,7 +71,7 @@ def fetch_linkedin(startup: str, max=999):
     return staff
 
 
-# Job posting and skills scraped from Linkedin via Kaggle dataset in 2024
+# Job posting and skills scraped from a jobboard via Kaggle dataset in 2024
 def fetch_kaggle():
     jobs_skills = kagglehub.dataset_load(
         KaggleDatasetAdapter.PANDAS,

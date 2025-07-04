@@ -16,7 +16,7 @@ def fetch_wikidata(tech_names, delay=0.5, top_n=1):
         pd.DataFrame: DataFrame with columns ['name', 'qid', 'label', 'description', 'match_type']
     """
     url = "https://www.wikidata.org/w/api.php"
-    headers = {"User-Agent": "EmergingTechGraph/1.0 (fpovina@outlook.com)"} # helps avoid getting blocked — can personalize it
+    headers = {"User-Agent": "EmergingTechGraph/1.0 (qx31aw2cg@mozmail.com)"} # helps avoid getting blocked — can personalize it
     results = []
 
     for name in tech_names:

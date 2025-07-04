@@ -16,7 +16,7 @@ from src.clean_data import match_papers_to_tech, match_startups_to_techs, clean_
 from src.load_to_neo4j import load_graph
 
 
-from src.get_linkedin import fetch_linkedin, fetch_kaggle
+from src.get_jobboard import fetch_jobboard, fetch_kaggle
 
 
 load_dotenv()
@@ -26,7 +26,7 @@ crunchbase_csv_path = "data/crunchbase_startups_res.csv"
 yc_csv_path = "data/ycombinator_startups_res.csv"
 arxiv_csv_path = "data/arxiv_papers_res.csv"
 brightdata_path = "data/crunchbase-companies-information.csv"
-linkedin_staff_csv_path = "data/linkedin_staff.csv"
+jobboard_staff_csv_path = "data/jobboard_staff.csv"
 kaggle_jobs_csv_path = "data/kaggle_jobs_skills.csv"
 startup_skills_csv_path = "data/startup_skills.csv"
 
@@ -67,9 +67,18 @@ def check_cache_files():
             raise FileNotFoundError(f"Required cache file '{file}' does not exist. Set USE_CACHE to False to fetch fresh data.")
 
 
-USE_CACHE = False  # Set to False for production
-SCRAPE_LINKEDIN = False # Set to True to scrape LinkedIn data (long running)
-LOAD_SKILLS = True # Set to True to load skills from LinkedIn roles (Neo4j loading is slower)
+def get_bool_env(var, prompt, default):
+    val = os.getenv(var)
+    if val is not None:
+        return val.lower() in ("1", "true", "yes", "y")
+    try:
+        return input(f"{prompt} [y/N]: ").strip().lower() in ("y", "yes", "true", "1")
+    except EOFError:
+        return default
+
+USE_CACHE = get_bool_env("USE_CACHE", "Should we use cached data files? (type \"yes\" on first time run)", True)
+SCRAPE_JOBBOARD = get_bool_env("SCRAPE_JOBBOARD", "Scrape jobboard data? (long running, not recommended. Use cache)", False)
+LOAD_SKILLS = get_bool_env("LOAD_SKILLS", "Load skills from jobboard roles?", False)
 
 # gets a list from json
 with open(emerging_technologies_file, "r", encoding="utf-8") as f:
@@ -85,7 +94,7 @@ if USE_CACHE:
     startups_crunchbase = pd.read_csv(crunchbase_csv_path)
     arxiv_df = pd.read_csv(arxiv_csv_path)
     cb_info_df = pd.read_csv(brightdata_path, low_memory=False, keep_default_na=False)
-    final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
+    final_jobboard_df = pd.read_csv(jobboard_staff_csv_path)
     kaggle_jobs_skills = pd.read_csv(kaggle_jobs_csv_path)
     startup_skills_df = pd.read_csv(startup_skills_csv_path)
     
@@ -147,24 +156,24 @@ all_startups = clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df
 # print("DATE EXTRACTION: Number of startups with non-null dates in all_startups_df:", all_startups['founding_date_final'].notnull().sum())
 
 
-# --------- Fetch LinkedIn staff data ---------
-if SCRAPE_LINKEDIN:
-    # Fetch linkedin staff data from crunchbase companies
-    all_linkedin_staff = []
+# --------- Fetch jobboard staff data ---------
+if SCRAPE_JOBBOARD:
+    # Fetch jobboard staff data from crunchbase companies
+    all_jobboard_staff = []
     max_staff= 999
     unique_startups = pd.concat([all_startups['orginal_name']]).dropna().unique()
-    print(f"\nFound {len(unique_startups)} unique startups to scrape from LinkedIn.")
+    print(f"\nFound {len(unique_startups)} unique startups to scrape from jobboard.")
 
     for i, startup_name in enumerate(unique_startups):
-        print(f"Scraping LinkedIn for '{startup_name}' ({i+1}/{len(unique_startups)})...")
+        print(f"Scraping jobboard for '{startup_name}' ({i+1}/{len(unique_startups)})...")
         try:
             # Fetch up to max_staff staff members for the current startup
-            linkedin_staff = fetch_linkedin(startup_name, max_staff)
-            if not linkedin_staff.empty:
+            jobboard_staff = fetch_jobboard(startup_name, max_staff)
+            if not jobboard_staff.empty:
                 # Overwrite the scraped name with the canonical name from our list
                 # to ensure data consistency.
-                linkedin_staff['start_up'] = startup_name
-                all_linkedin_staff.append(linkedin_staff)
+                jobboard_staff['start_up'] = startup_name
+                all_jobboard_staff.append(jobboard_staff)
             
             # Sleep with a random delay to mimic human behavior and avoid getting blocked
             sleep_time = random.uniform(5, 15) 
@@ -177,27 +186,27 @@ if SCRAPE_LINKEDIN:
             time.sleep(5)
 
     # Combine all the collected staff data into a single DataFrame
-    if all_linkedin_staff:
-        final_linkedin_df = pd.concat(all_linkedin_staff, ignore_index=True)
-        final_linkedin_df.to_csv(linkedin_staff_csv_path, index=False)
-        print(f"\n✓ Successfully scraped and saved staff data for {len(final_linkedin_df['start_up'].unique())} startups.")
+    if all_jobboard_staff:
+        final_jobboard_df = pd.concat(all_jobboard_staff, ignore_index=True)
+        final_jobboard_df.to_csv(jobboard_staff_csv_path, index=False)
+        print(f"\n✓ Successfully scraped and saved staff data for {len(final_jobboard_df['start_up'].unique())} startups.")
     else:
-        print("\nNo LinkedIn staff data was collected.")
-        final_linkedin_df = pd.DataFrame()
+        print("\nNo jobboard staff data was collected.")
+        final_jobboard_df = pd.DataFrame()
 else:
-    print(f"   NOTICE: Skipping LinkedIn scraping. Pipeline will fail if {linkedin_staff_csv_path} is not available. Set SCRAPE_LINKEDIN to True to fetch fresh data (long running)")
-    if os.path.exists(linkedin_staff_csv_path):
-        final_linkedin_df = pd.read_csv(linkedin_staff_csv_path)
+    print(f"   NOTICE: Skipping jobboard scraping. Pipeline will fail if {jobboard_staff_csv_path} is not available. Set SCRAPE_JOBBOARD to True to fetch fresh data (long running)")
+    if os.path.exists(jobboard_staff_csv_path):
+        final_jobboard_df = pd.read_csv(jobboard_staff_csv_path)
     else:
-        final_linkedin_df = pd.DataFrame()
+        final_jobboard_df = pd.DataFrame()
 
 if not USE_CACHE:
     # Fetch Kaggle job postings and skills
     kaggle_jobs_skills = fetch_kaggle()
     kaggle_jobs_skills.to_csv(kaggle_jobs_csv_path, index=False)
     # --------- Create Startup Skills ---------    
-    print("\nMatching LinkedIn roles to Kaggle skills...")
-    startup_skills_df = extract_skills_from_roles(final_linkedin_df, kaggle_jobs_skills)
+    print("\nMatching jobboard roles to Kaggle skills...")
+    startup_skills_df = extract_skills_from_roles(final_jobboard_df, kaggle_jobs_skills)
 # After loading or generating startup_skills_df, clean the skills
 startup_skills_df = clean_skills(startup_skills_df)
 startup_skills_df.to_csv(startup_skills_csv_path, index=False)
