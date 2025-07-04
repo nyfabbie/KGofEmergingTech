@@ -39,8 +39,7 @@ KGofEmergingTech/
     ├── get_crunchbase.py
     ├── get_jobboard.py
     ├── get_wikidata.py
-    ├── load_to_neo4j.py
-    └── session.pkl
+    └──  load_to_neo4j.py
 ```
 
 - **compose.yaml / Dockerfile**: Docker and Compose configuration for reproducible environments.
