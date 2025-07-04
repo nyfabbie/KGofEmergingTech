@@ -6,7 +6,7 @@ This project aims to construct a knowledge graph that maps emerging technologies
 The ETL (Extract, Transform, Load) pipeline orchestrates the process of building the knowledge graph:
 
 1. **Extract**:  
-   - Fetches data from multiple sources: arXiv (papers), Crunchbase and Y Combinator (startups), Wikidata (technologies), LinkedIn/job boards (staff and skills), and Kaggle (job skills).
+   - Fetches data from multiple sources: arXiv (papers), Crunchbase and Y Combinator (startups), Wikidata (technologies), job boards (staff and skills), and Kaggle (job skills).
    - Supports both fresh data fetching and cached data loading for reproducibility and speed.
 
 2. **Transform**:  
