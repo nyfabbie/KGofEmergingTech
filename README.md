@@ -1,47 +1,6 @@
 # KGofEmergingTech
 This project aims to construct a knowledge graph that maps emerging technologies and their relationships to academic papers and startups. By integrating data from arXiv, Crunchbase, and Wikidata, and utilizing Python for data processing, the goal is to create a graph database in Neo4j. This graph will represent entities such as technologies, papers, and startups, and their interconnections, providing insights into technological trends and innovation networks. The project employs Docker for environment management and GitHub for collaboration, facilitating a reproducible and collaborative workflow.
 
-## The folder structure
-
-```
-KGofEmergingTech/
-├── compose.yaml
-├── Dockerfile
-├── requirements.txt
-├── run_pipeline.py
-├── README.md
-├── data/
-│   ├── arxiv_papers_res.csv
-│   ├── crunchbase_startups_res.csv
-│   ├── crunchbase-companies-information.csv
-│   ├── emerging_techs.json
-│   ├── investments_VC.csv
-│   ├── jobboard_staff.csv
-│   ├── kaggle_jobs_skills.csv
-│   ├── matches_tech_cbinfo.csv
-│   ├── matches_tech_paper.csv
-│   ├── matches_tech_startup.csv
-│   ├── startup_skills.csv
-│   ├── wikidata_techs_res.csv
-│   └── ycombinator_startups_res.csv
-└── src/
-    ├── clean_data.py
-    ├── get_arxiv.py
-    ├── get_crunchbase.py
-    ├── get_jobboard.py
-    ├── get_wikidata.py
-    ├── load_to_neo4j.py
-    └── session.pkl
-```
-
-- **compose.yaml / Dockerfile**: Docker and Compose configuration for reproducible environments.
-- **requirements.txt**: Python dependencies.
-- **run_pipeline.py**: Main orchestration script for the ETL pipeline.
-- **data/**: Cached and processed datasets, intermediate files, and configuration JSONs.
-- **src/**: All ETL, cleaning, enrichment, and Neo4j loading scripts.
-
----
-
 ## The ETL pipeline
 
 The ETL (Extract, Transform, Load) pipeline orchestrates the process of building the knowledge graph:
@@ -330,3 +289,46 @@ MATCH (s:Startup)-[:USES]->(t:Technology),
 RETURN t.tech_name AS technology, sk.name AS skill, count(*) AS count
 ORDER BY count DESC
 ```
+
+
+
+# The folder structure
+
+```
+KGofEmergingTech/
+├── compose.yaml
+├── Dockerfile
+├── requirements.txt
+├── run_pipeline.py
+├── README.md
+├── data/
+│   ├── arxiv_papers_res.csv
+│   ├── crunchbase_startups_res.csv
+│   ├── crunchbase-companies-information.csv
+│   ├── emerging_techs.json
+│   ├── investments_VC.csv
+│   ├── jobboard_staff.csv
+│   ├── kaggle_jobs_skills.csv
+│   ├── matches_tech_cbinfo.csv
+│   ├── matches_tech_paper.csv
+│   ├── matches_tech_startup.csv
+│   ├── startup_skills.csv
+│   ├── wikidata_techs_res.csv
+│   └── ycombinator_startups_res.csv
+└── src/
+    ├── clean_data.py
+    ├── get_arxiv.py
+    ├── get_crunchbase.py
+    ├── get_jobboard.py
+    ├── get_wikidata.py
+    ├── load_to_neo4j.py
+    └── session.pkl
+```
+
+- **compose.yaml / Dockerfile**: Docker and Compose configuration for reproducible environments.
+- **requirements.txt**: Python dependencies.
+- **run_pipeline.py**: Main orchestration script for the ETL pipeline.
+- **data/**: Cached and processed datasets, intermediate files, and configuration JSONs.
+- **src/**: All ETL, cleaning, enrichment, and Neo4j loading scripts.
+
+---
