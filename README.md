@@ -23,6 +23,34 @@ The pipeline is designed to be robust, cache-aware, and configurable via environ
 
 ---
 
+## The folder structure
+
+```
+KGofEmergingTech/
+├── compose.yaml
+├── Dockerfile
+├── requirements.txt
+├── run_pipeline.py
+├── README.md
+├── data/
+└── src/
+    ├── clean_data.py
+    ├── get_arxiv.py
+    ├── get_crunchbase.py
+    ├── get_jobboard.py
+    ├── get_wikidata.py
+    ├── load_to_neo4j.py
+    └── session.pkl
+```
+
+- **compose.yaml / Dockerfile**: Docker and Compose configuration for reproducible environments.
+- **requirements.txt**: Python dependencies.
+- **run_pipeline.py**: Main orchestration script for the ETL pipeline.
+- **data/**: Cached and processed datasets, intermediate files, and configuration JSONs.
+- **src/**: All ETL, cleaning, enrichment, and Neo4j loading scripts.
+
+---
+
 
 ## Running the Knowledge Graph locally
 1. Make sure Docker Desktop is downloaded (Download here: https://www.docker.com/products/docker-desktop/)
@@ -290,45 +318,3 @@ RETURN t.tech_name AS technology, sk.name AS skill, count(*) AS count
 ORDER BY count DESC
 ```
 
-
-
-# The folder structure
-
-```
-KGofEmergingTech/
-├── compose.yaml
-├── Dockerfile
-├── requirements.txt
-├── run_pipeline.py
-├── README.md
-├── data/
-│   ├── arxiv_papers_res.csv
-│   ├── crunchbase_startups_res.csv
-│   ├── crunchbase-companies-information.csv
-│   ├── emerging_techs.json
-│   ├── investments_VC.csv
-│   ├── jobboard_staff.csv
-│   ├── kaggle_jobs_skills.csv
-│   ├── matches_tech_cbinfo.csv
-│   ├── matches_tech_paper.csv
-│   ├── matches_tech_startup.csv
-│   ├── startup_skills.csv
-│   ├── wikidata_techs_res.csv
-│   └── ycombinator_startups_res.csv
-└── src/
-    ├── clean_data.py
-    ├── get_arxiv.py
-    ├── get_crunchbase.py
-    ├── get_jobboard.py
-    ├── get_wikidata.py
-    ├── load_to_neo4j.py
-    └── session.pkl
-```
-
-- **compose.yaml / Dockerfile**: Docker and Compose configuration for reproducible environments.
-- **requirements.txt**: Python dependencies.
-- **run_pipeline.py**: Main orchestration script for the ETL pipeline.
-- **data/**: Cached and processed datasets, intermediate files, and configuration JSONs.
-- **src/**: All ETL, cleaning, enrichment, and Neo4j loading scripts.
-
----
