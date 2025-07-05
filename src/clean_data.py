@@ -209,11 +209,12 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
 
     # Merge YC-labeled startups with Crunchbase data by normalized name
     startups_enriched = startups_yc.merge(
-    startups_crunchbase,
-    on="name", how="left", suffixes=('', '_crunchbase')
-)
+        startups_crunchbase,
+        on="name", how="left", suffixes=('', '_crunchbase')
+    )
 
-    print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_enriched:", startups_enriched['funding_total_usd'].notnull().sum())
+    #print("FUNDING EXTRACTION: Number of startups with non-null fundings in startups_enriched:", startups_enriched['funding_total_usd'].notnull().sum())
+    #print(f"ENRICHMENT: Number of YC startups with Crunchbase enrichment (left join, at least one non-null Crunchbase column): {startups_enriched.dropna(axis=0, subset=startups_crunchbase.columns.difference(['name'])).shape[0]}")
 
 
     # Add YC+Crunchbase merged startups only if not already present in cb_info_df
@@ -243,7 +244,7 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     # Founding date cleanup
     date_cols = ['founded_at', 'founded_date', 'first_funding_at', 'founded']
     non_null_dates = all_startups_df[date_cols].notnull().any(axis=1)
-    print(f"DATE EXTRACTION: Number of all_startups_df startups with non-null values in at least one date column: {non_null_dates.sum()}")
+    #print(f"DATE EXTRACTION: Number of all_startups_df startups with non-null values in at least one date column: {non_null_dates.sum()}")
 
     all_startups_df['founding_date_final'] = all_startups_df.apply(unify_founding_date, axis=1)
     all_startups_df['founded_date_parsed'] = pd.to_datetime(all_startups_df['founding_date_final'], errors='coerce')
@@ -285,7 +286,7 @@ def extract_funding(startups_df, cb_info_df):
 
    
     # Always attempt to extract funding from JSON fields for Crunchbase/Brightdata
-    print("\n--- clean_startups: cb_info_df - Extracting funding from JSON fields (funds_raised, financials_highlights, funding_total, featured_list) ---")
+    #print("\n--- clean_startups: cb_info_df - Extracting funding from JSON fields (funds_raised, financials_highlights, funding_total, featured_list) ---")
     funding_extracted_series = cb_info_df.apply(
         lambda row: extract_funding_total_and_currency(row),
         axis=1
