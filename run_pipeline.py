@@ -76,7 +76,7 @@ def get_bool_env(var, prompt, default):
     except EOFError:
         return default
 
-USE_CACHE = get_bool_env("USE_CACHE", "Should we use cached data files? (type \"yes\" on first time run)", True)
+USE_CACHE = get_bool_env("USE_CACHE", "Should we use cached data files? (type \"No\" on first time run)", True)
 SCRAPE_JOBBOARD = get_bool_env("SCRAPE_JOBBOARD", "Scrape jobboard data? (long running, not recommended. Use cache)", False)
 LOAD_SKILLS = get_bool_env("LOAD_SKILLS", "Load skills from jobboard roles?", False)
 
@@ -188,6 +188,11 @@ if SCRAPE_JOBBOARD:
     # Combine all the collected staff data into a single DataFrame
     if all_jobboard_staff:
         final_jobboard_df = pd.concat(all_jobboard_staff, ignore_index=True)
+        # Remove rows where headline == "--" and current_position is missing/empty
+        final_jobboard_df = final_jobboard_df[~(
+            (final_jobboard_df['headline'].astype(str).str.strip() == "--") &
+            (final_jobboard_df['current_position'].isna() | (final_jobboard_df['current_position'].astype(str).str.strip() == ""))
+        )]
         final_jobboard_df.to_csv(jobboard_staff_csv_path, index=False)
         print(f"\n✓ Successfully scraped and saved staff data for {len(final_jobboard_df['start_up'].unique())} startups.")
     else:

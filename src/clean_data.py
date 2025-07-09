@@ -222,7 +222,6 @@ def clean_merge_startups(startups_yc, startups_crunchbase, cb_info_df):
     startups_df_filtered = startups_enriched[~startups_enriched["name"].isin(existing_names)]
 
     # Location cleanup
-    # Use .loc to avoid SettingWithCopyWarning
     startups_df_filtered.loc[:, 'country'] = startups_df_filtered['location'].apply(extract_country)
     startups_df_filtered.loc[:, 'region'] = startups_df_filtered['country'].map(region_map).fillna("Unknown")
     cb_info_df["location_extracted"] = cb_info_df["location"].apply(extract_location_from_json)
@@ -429,12 +428,13 @@ def parse_skills_list(skills_str):
     except (ValueError, SyntaxError):
         return []
 
-def extract_skills_from_roles(linkedin_staff_df, kaggle_jobs_df):
+def extract_skills_from_roles(jobboard_staff_df, kaggle_jobs_df, fuzzy_threshold=85):
     """
-    Matches LinkedIn roles to Kaggle job titles to infer skills for each startup.
+    Matches jobboard roles to Kaggle job titles to infer skills for each startup.
+    Falls back to 'headline' if 'current_position' is missing.
 
     Args:
-        linkedin_staff_df (pd.DataFrame): DataFrame with columns ['start_up', 'current_position', 'skills'].
+        jobboard_staff_df (pd.DataFrame): DataFrame with columns ['start_up', 'current_position', 'headline', 'skills'].
         kaggle_jobs_df (pd.DataFrame): DataFrame with columns ['job_title', 'job_skills'].
 
     Returns:
@@ -442,8 +442,15 @@ def extract_skills_from_roles(linkedin_staff_df, kaggle_jobs_df):
     """
     all_skills = []
 
-    # 1. Extract skills already present in the linkedin_staff_df
-    for _, row in linkedin_staff_df.iterrows():
+    # Remove rows where headline == "--" and current_position is missing/empty
+    jobboard_staff_df = jobboard_staff_df[~(
+        (jobboard_staff_df['headline'].astype(str).str.strip() == "--") &
+        (jobboard_staff_df['current_position'].isna() | (jobboard_staff_df['current_position'].astype(str).str.strip() == ""))
+    )]
+
+
+    # 1. Extract skills already present in the jobboard_staff_df
+    for _, row in jobboard_staff_df.iterrows():
         skills_val = row['skills']
         if pd.notna(skills_val):
             # If it's a string, check if it's not empty or '[]'
@@ -463,21 +470,9 @@ def extract_skills_from_roles(linkedin_staff_df, kaggle_jobs_df):
                             all_skills.append({'start_up': row['start_up'], 'skill': skill_dict['name']})
 
     # 2. Fuzzy match roles to get more skills
-    
-    # Check for the correct skills column. If it's not there, we can't infer skills.
-    if 'job_skills' not in kaggle_jobs_df.columns:
-        print("Warning: 'job_skills' column not found in Kaggle data. Skipping role-based skill inference.")
-        if not all_skills:
-            return pd.DataFrame(columns=['start_up', 'skill'])
-        else:
-            # Return only the skills found directly in the LinkedIn data
-            skills_df = pd.DataFrame(all_skills)
-            skills_df.drop_duplicates(inplace=True)
-            return skills_df
 
     # Create a unique list of job titles from Kaggle for the fuzzy matching choices
     unique_kaggle_titles = kaggle_jobs_df['job_title'].dropna().unique()
-
 
     kaggle_jobs_df = kaggle_jobs_df.dropna(subset=['job_title', 'job_skills']).copy()
     kaggle_jobs_df['parsed_skills'] = kaggle_jobs_df['job_skills'].apply(parse_skills_list)
@@ -487,22 +482,29 @@ def extract_skills_from_roles(linkedin_staff_df, kaggle_jobs_df):
         lambda lists: sorted(list(set(skill for sublist in lists for skill in sublist)))
     ).to_dict()
 
-    # Get unique roles from LinkedIn staff to avoid re-matching the same role
-    unique_linkedin_roles = linkedin_staff_df['current_position'].dropna().unique()
+    # Get unique roles from jobboard staff to avoid re-matching the same role
+    # Use both current_position and headline (if current_position is missing)
+    jobboard_roles = jobboard_staff_df.apply(
+        lambda row: row['current_position'] if pd.notna(row['current_position']) and str(row['current_position']).strip() else row['headline'],
+        axis=1
+    )
+    unique_jobboard_roles = pd.Series(jobboard_roles).dropna().unique()
 
-    # Create a mapping from linkedin role to the best matching kaggle title
+    # Create a mapping from jobboard role to the best matching kaggle title
     role_to_kaggle_map = {}
-    for role in unique_linkedin_roles:
-        # Using process.extractOne to find the best match above a certain threshold
-        match = process.extractOne(role, unique_kaggle_titles, scorer=fuzz.WRatio, score_cutoff=85)
+    for role in unique_jobboard_roles:
+        if pd.isna(role) or not str(role).strip():
+            continue
+        match = process.extractOne(role, unique_kaggle_titles, scorer=fuzz.WRatio, score_cutoff=fuzzy_threshold)
         if match:
-            # match is a tuple: (matched_title, score, index)
             role_to_kaggle_map[role] = match[0]
 
     # Use the mapping to get skills for each startup employee
-    for _, row in linkedin_staff_df.iterrows():
-        if pd.notna(row['current_position']):
-            matched_title = role_to_kaggle_map.get(row['current_position'])
+    for _, row in jobboard_staff_df.iterrows():
+        # Prefer current_position, fallback to headline
+        role = row['current_position'] if pd.notna(row['current_position']) and str(row['current_position']).strip() else row['headline']
+        if pd.notna(role) and str(role).strip():
+            matched_title = role_to_kaggle_map.get(role)
             if matched_title:
                 inferred_skills = title_to_skills_map.get(matched_title, [])
                 for skill in inferred_skills:
