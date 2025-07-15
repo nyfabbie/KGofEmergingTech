@@ -21,6 +21,10 @@ The ETL (Extract, Transform, Load) pipeline orchestrates the process of building
 
 The pipeline is designed to be robust, cache-aware, and configurable via environment variables or interactive prompts. It can be run locally or in Docker, and provides clear logging and error messages to aid debugging and exploration.
 
+
+![BPC-DataPipeline](https://github.com/user-attachments/assets/b6e6927f-5471-4602-90e2-b3c9d0cb7aeb)
+
+
 ---
 
 ## The folder structure
@@ -75,6 +79,7 @@ KGofEmergingTech/
 
 A curated list of interesting Cypher queries to explore our dataset around emerging technologies, startups, papers, and skills.
 
+<img width="659" height="712" alt="image" src="https://github.com/user-attachments/assets/e1439e13-dec2-4458-978f-810da068f2b4" />
 
 
 ## Sample Queries
