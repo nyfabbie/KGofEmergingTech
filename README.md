@@ -134,15 +134,15 @@ ORDER BY startup_count DESC
 **Technologies used by startups, grouped by region**
 ```cypher
 MATCH (s:Startup)-[:USES]->(t:Technology)
-RETURN s.region AS region, t.tech_name AS technology, count(*) AS startup_count
+RETURN s.region AS region, t.name AS technology, count(*) AS startup_count
 ORDER BY region, startup_count DESC
 ```
 
-**High-funded non-NA startups using technologies**
+**High-funded non-North American startups using technologies**
 ```cypher
 MATCH (s:Startup)-[:USES]->(t:Technology)
-WHERE s.region <> 'NA' AND s.funding IS NOT NULL
-RETURN s.name, s.region, s.funding, COLLECT(t.tech_name) AS technologies
+WHERE s.region <> 'NA' AND s.funding_total IS NOT NULL
+RETURN s.name, s.region, s.funding_total, COLLECT(t.name) AS technologies
 ORDER BY s.funding DESC
 ```
 
@@ -154,27 +154,27 @@ ORDER BY s.funding DESC
 ```cypher
 MATCH (s:Startup)-[:USES]->(t:Technology)
 WHERE s.funding IS NOT NULL
-RETURN s.name, s.funding, t.tech_name
+RETURN s.name, s.funding_total, t.name
 ORDER BY s.funding DESC
 ```
 
 **Top 10 funded startups using emerging technologies**
 ```cypher
 MATCH (s:Startup)-[:USES]->(t:Technology)
-WHERE s.funding IS NOT NULL
-RETURN s.name, s.funding, COLLECT(t.tech_name) AS technologies
-ORDER BY s.funding DESC
+WHERE s.funding_total IS NOT NULL
+RETURN s.name, s.funding_total, COLLECT(t.name) AS technologies
+ORDER BY s.funding_total DESC
 LIMIT 10
 ```
 
 **Top 10 funded startups (whether or not they use technologies)**
 ```cypher
 MATCH (s:Startup)
-WHERE s.funding IS NOT NULL
+WHERE s.funding_total IS NOT NULL
 OPTIONAL MATCH (s)-[:USES]->(t:Technology)
-WITH s, COLLECT(t.tech_name) AS technologies
-RETURN s.name, s.funding, technologies
-ORDER BY s.funding DESC
+WITH s, COLLECT(t.name) AS technologies
+RETURN s.name, s.funding_total, technologies
+ORDER BY s.funding_total DESC
 LIMIT 10
 ```
 
@@ -186,7 +186,7 @@ LIMIT 10
 ```cypher
 MATCH (t1:Technology)<-[:MENTIONS]-(p:Paper)-[:MENTIONS]->(t2:Technology)
 WHERE t1 <> t2
-RETURN t1.tech_name AS Tech1, t2.tech_name AS Tech2, COUNT(DISTINCT p) AS shared_papers
+RETURN t1.name AS Tech1, t2.name AS Tech2, COUNT(DISTINCT p) AS shared_papers
 ORDER BY shared_papers DESC
 ```
 
@@ -194,7 +194,7 @@ ORDER BY shared_papers DESC
 ```cypher
 MATCH (t1:Technology)<-[:USES]-(s:Startup)-[:USES]->(t2:Technology)
 WHERE t1 <> t2
-RETURN t1.tech_name AS Tech1, t2.tech_name AS Tech2, COUNT(DISTINCT s) AS shared_startups
+RETURN t1.name AS Tech1, t2.name AS Tech2, COUNT(DISTINCT s) AS shared_startups
 ORDER BY shared_startups DESC
 ```
 
@@ -203,7 +203,7 @@ ORDER BY shared_startups DESC
 MATCH (t:Technology)
 WHERE NOT (t)<-[:USES]-(:Startup)-[:USES]->(:Technology)
   AND NOT (t)<-[:MENTIONS]-(:Paper)-[:MENTIONS]->(:Technology)
-RETURN t.tech_name
+RETURN t.name
 ```
 
 ---
@@ -233,7 +233,7 @@ ORDER BY tech_count DESC
 **Most popular technologies among startups**
 ```cypher
 MATCH (t:Technology)<-[:USES]-(s:Startup)
-RETURN t.tech_name, COUNT(s) AS num_startups
+RETURN t.name, COUNT(s) AS num_startups
 ORDER BY num_startups DESC
 ```
 
@@ -281,7 +281,7 @@ RETURN sk.name AS unique_skill, s.name AS startup
 MATCH (s1:Startup)-[:HAS_SKILL]->(sk:Skill)<-[:HAS_SKILL]-(s2:Startup),
       (s1)-[:USES]->(t:Technology)<-[:USES]-(s2)
 WHERE s1 <> s2
-RETURN s1.name, s2.name, sk.name AS shared_skill, t.tech_name AS shared_technology
+RETURN s1.name, s2.name, sk.name AS shared_skill, t.name AS shared_technology
 LIMIT 100
 ```
 
@@ -318,7 +318,7 @@ ORDER BY co_occurrence DESC
 ```cypher
 MATCH (s:Startup)-[:USES]->(t:Technology),
       (s)-[:HAS_SKILL]->(sk:Skill)
-RETURN t.tech_name AS technology, sk.name AS skill, count(*) AS count
+RETURN t.name AS technology, sk.name AS skill, count(*) AS count
 ORDER BY count DESC
 ```
 
